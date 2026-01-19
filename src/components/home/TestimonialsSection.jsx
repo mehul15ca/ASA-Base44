@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { Quote, ChevronLeft, ChevronRight, Star, Play, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const testimonials = [
@@ -8,6 +8,8 @@ const testimonials = [
     name: 'Michael Thompson',
     role: 'Parent',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    videoThumbnail: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800&h=450&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     quote: 'The coaching at Australasia Sports Academy has transformed my son\'s cricket game. His confidence and technique have improved dramatically.',
     rating: 5
   },
@@ -15,6 +17,8 @@ const testimonials = [
     name: 'Sarah Williams',
     role: 'Adult Trainee',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
+    videoThumbnail: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=450&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     quote: 'The yoga program has been incredible for my flexibility and mental focus. The coaches are professional and genuinely care about progress.',
     rating: 5
   },
@@ -22,6 +26,8 @@ const testimonials = [
     name: 'David Chen',
     role: 'Junior Cricketer',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face',
+    videoThumbnail: 'https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=800&h=450&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     quote: 'I\'ve learned so much in just a few months. The facilities are amazing and the coaches make training fun while pushing us to excel.',
     rating: 5
   },
@@ -29,6 +35,8 @@ const testimonials = [
     name: 'Priya Patel',
     role: 'Parent',
     image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+    videoThumbnail: 'https://images.unsplash.com/photo-1471295253337-3ceaaedca402?w=800&h=450&fit=crop',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     quote: 'Best sports academy in Brampton! My daughter loves coming here and has made great friends while improving her skills.',
     rating: 5
   },
@@ -36,6 +44,7 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [videoModalOpen, setVideoModalOpen] = useState(false);
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -43,6 +52,14 @@ export default function TestimonialsSection() {
 
   const prevTestimonial = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const openVideoModal = () => {
+    setVideoModalOpen(true);
+  };
+
+  const closeVideoModal = () => {
+    setVideoModalOpen(false);
   };
 
   return (
@@ -80,6 +97,34 @@ export default function TestimonialsSection() {
                 transition={{ duration: 0.5 }}
                 className="bg-gradient-to-br from-[#1A4D2E]/40 to-[#0D2818]/60 backdrop-blur-sm border border-[#2D6A4F]/30 rounded-3xl p-8 md:p-12"
               >
+                {/* Video Thumbnail */}
+                {testimonials[currentIndex].videoUrl && (
+                  <div className="mb-6">
+                    <div 
+                      className="relative rounded-2xl overflow-hidden cursor-pointer group"
+                      onClick={openVideoModal}
+                    >
+                      <img
+                        src={testimonials[currentIndex].videoThumbnail}
+                        alt={`${testimonials[currentIndex].name} testimonial`}
+                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors flex items-center justify-center">
+                        <motion.div
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-20 h-20 bg-[#D4AF37] rounded-full flex items-center justify-center shadow-2xl"
+                        >
+                          <Play className="w-10 h-10 text-[#0A1F0A] ml-1" />
+                        </motion.div>
+                      </div>
+                      <div className="absolute top-4 left-4 bg-[#0A1F0A]/80 backdrop-blur-sm px-3 py-1 rounded-full">
+                        <span className="text-white text-sm font-medium">Watch Video</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 {/* Quote icon */}
                 <Quote className="w-12 h-12 text-[#D4AF37]/30 mb-6" />
 
@@ -148,6 +193,55 @@ export default function TestimonialsSection() {
           </div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {videoModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90"
+            onClick={closeVideoModal}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-4xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close button */}
+              <button
+                onClick={closeVideoModal}
+                className="absolute -top-12 right-0 text-white hover:text-[#D4AF37] transition-colors"
+              >
+                <X className="w-8 h-8" />
+              </button>
+
+              {/* Video container */}
+              <div className="relative pt-[56.25%] bg-black rounded-xl overflow-hidden shadow-2xl">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={testimonials[currentIndex].videoUrl}
+                  title={`${testimonials[currentIndex].name} testimonial`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Video info */}
+              <div className="mt-4 text-center">
+                <h3 className="text-xl font-semibold text-white">
+                  {testimonials[currentIndex].name}
+                </h3>
+                <p className="text-[#40916C]">{testimonials[currentIndex].role}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
