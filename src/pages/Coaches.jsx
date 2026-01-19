@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Trophy, Users, Star, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Award, Trophy, Users, Star } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import CoachCard from '../components/coaches/CoachCard';
 
 const coaches = [
   {
@@ -13,6 +14,16 @@ const coaches = [
     certifications: ['Level 3 Cricket Coach', 'Sports Psychology'],
     bio: 'Former first-class cricketer with extensive coaching experience. Has trained multiple players who went on to represent at provincial and national levels.',
     achievements: ['Ontario Cricket Champion Coach 2022', 'Trained 50+ representative players'],
+    athletesTrained: 120,
+    championships: 8,
+    videoUrl: 'https://example.com/rajesh-intro',
+    philosophy: 'Cricket is as much a mental game as it is physical. I believe in building confidence through consistent practice and positive reinforcement. My coaching philosophy centers on understanding each player\'s unique strengths and developing a personalized training plan that maximizes their potential while fostering a love for the game. Discipline, dedication, and self-belief are the cornerstones of success.',
+    notablePlayers: [
+      { name: 'Arjun Patel', achievement: 'Ontario U-19 Captain', year: '2023' },
+      { name: 'Marcus Chen', achievement: 'Provincial Team Batsman', year: '2022' },
+      { name: 'Samira Khan', achievement: 'Canada U-17 Squad', year: '2024' },
+      { name: 'David Thompson', achievement: 'Toronto Premier League MVP', year: '2021' },
+    ],
   },
   {
     name: 'Sarah Thompson',
@@ -23,6 +34,16 @@ const coaches = [
     certifications: ['RYT-500', 'Sports Rehabilitation Specialist'],
     bio: 'Internationally certified yoga instructor specializing in athletic performance enhancement. Works with professional athletes across multiple sports.',
     achievements: ['Certified by Yoga Alliance International', 'Featured in Sports Canada Magazine'],
+    athletesTrained: 200,
+    championships: 5,
+    videoUrl: 'https://example.com/sarah-intro',
+    philosophy: 'Yoga is the bridge between body and mind. In sports, peak performance comes from the perfect harmony of physical capability and mental clarity. I integrate traditional yoga principles with modern sports science to create customized programs that prevent injuries, accelerate recovery, and enhance overall athletic performance. Every athlete\'s journey is unique, and yoga provides the tools to unlock their full potential.',
+    notablePlayers: [
+      { name: 'Emma Rodriguez', achievement: 'Olympic Gymnast - Injury Recovery', year: '2023' },
+      { name: 'James Mitchell', achievement: 'Professional Soccer Player', year: '2022' },
+      { name: 'Priya Sharma', achievement: 'National Swimming Team', year: '2024' },
+      { name: 'Alex Wong', achievement: 'MMA Fighter - Flexibility Specialist', year: '2023' },
+    ],
   },
   {
     name: 'Michael Chen',
@@ -33,6 +54,16 @@ const coaches = [
     certifications: ['Baseball Canada Level 3', 'Strength & Conditioning'],
     bio: 'Former semi-professional baseball player with a passion for developing young talent. Brings modern training techniques combined with traditional fundamentals.',
     achievements: ['Provincial Championship Winner 2021', 'Youth Development Award 2020'],
+    athletesTrained: 95,
+    championships: 6,
+    videoUrl: 'https://example.com/michael-intro',
+    philosophy: 'Baseball is a game of precision, timing, and strategy. My approach combines biomechanical analysis with traditional skill development to help players understand not just how to perform, but why. I emphasize the importance of mental toughness and situational awareness. Whether you\'re learning to pitch or perfecting your swing, every repetition should have purpose and intent.',
+    notablePlayers: [
+      { name: 'Tyler Johnson', achievement: 'College Baseball Scholarship (UCLA)', year: '2023' },
+      { name: 'Kevin Park', achievement: 'Ontario AAA All-Star Pitcher', year: '2024' },
+      { name: 'Sofia Martinez', achievement: 'Women\'s National Team Prospect', year: '2022' },
+      { name: 'Brandon Lee', achievement: 'Junior League Home Run Leader', year: '2023' },
+    ],
   },
   {
     name: 'Priya Patel',
@@ -43,6 +74,15 @@ const coaches = [
     certifications: ['Level 2 Cricket Coach', 'Video Analysis Expert'],
     bio: 'Expert in spin bowling techniques with a background in performance analysis. Uses technology to help bowlers understand and improve their game.',
     achievements: ['Produced 5 provincial level spin bowlers', 'Performance Analysis Certification'],
+    athletesTrained: 75,
+    championships: 4,
+    videoUrl: 'https://example.com/priya-intro',
+    philosophy: 'Spin bowling is an art form that requires patience, precision, and creativity. Through detailed video analysis and biomechanical assessment, I help bowlers understand the physics behind spin and develop variations that suit their natural action. Technology is a tool, but the human element - reading batsmen, adapting to conditions - is what separates good bowlers from great ones.',
+    notablePlayers: [
+      { name: 'Ravi Sharma', achievement: 'U-19 Provincial Spin Bowler', year: '2024' },
+      { name: 'Melissa Zhang', achievement: 'Women\'s League Leading Wicket-Taker', year: '2023' },
+      { name: 'Ahmed Hassan', achievement: 'Toronto League Best Bowler', year: '2022' },
+    ],
   },
   {
     name: 'David Williams',
@@ -53,6 +93,15 @@ const coaches = [
     certifications: ['Level 2 Cricket Coach', 'Athletic Training'],
     bio: 'Dynamic coach known for innovative fielding drills and agility training. Emphasizes the importance of fielding in modern cricket.',
     achievements: ['Best Fielding Coach Award 2023', 'Athletic Excellence Award'],
+    athletesTrained: 110,
+    championships: 7,
+    videoUrl: 'https://example.com/david-intro',
+    philosophy: 'Matches are won in the field. Great fielding creates pressure, saves runs, and changes momentum. My training philosophy focuses on explosive athleticism, sharp reflexes, and intelligent positioning. Every player, regardless of their primary skill, should be a dynamic fielder. Through progressive drills and game-situation training, I transform ordinary fielders into match-winners.',
+    notablePlayers: [
+      { name: 'Jason Smith', achievement: 'Best Fielder Award - Provincial U-17', year: '2023' },
+      { name: 'Nina Patel', achievement: 'Wicket-Keeper Ontario Team', year: '2024' },
+      { name: 'Chris Anderson', achievement: 'Outstanding Fielding Award', year: '2022' },
+    ],
   },
   {
     name: 'Amanda Roberts',
@@ -63,6 +112,15 @@ const coaches = [
     certifications: ['Level 1 Cricket Coach', 'Child Psychology'],
     bio: 'Passionate about introducing young children to sports. Creates fun, engaging training environments that build foundational skills and love for the game.',
     achievements: ['Youth Coach of the Year 2022', 'Developed junior program curriculum'],
+    athletesTrained: 150,
+    championships: 3,
+    videoUrl: 'https://example.com/amanda-intro',
+    philosophy: 'Young athletes learn best when they\'re having fun. My approach centers on creating a positive, encouraging environment where children can explore, experiment, and develop a genuine love for sport. Through age-appropriate games and activities, I teach fundamental skills while building confidence, teamwork, and sportsmanship. Every child deserves the opportunity to discover their potential in a nurturing setting.',
+    notablePlayers: [
+      { name: 'Lily Thompson', achievement: 'Advanced to Provincial Development Program', year: '2024' },
+      { name: 'Ethan Kumar', achievement: 'Youth Player of the Year', year: '2023' },
+      { name: 'Sophie Chen', achievement: 'Youngest Team Captain (Age 10)', year: '2024' },
+    ],
   },
 ];
 
@@ -126,80 +184,7 @@ export default function Coaches() {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coaches.map((coach, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="bg-gradient-to-b from-[#1A4D2E]/30 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-500">
-                  {/* Image */}
-                  <div className="relative h-72 overflow-hidden">
-                    <img
-                      src={coach.image}
-                      alt={coach.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F0A] via-transparent to-transparent" />
-                    
-                    {/* Experience badge */}
-                    <div className="absolute top-4 right-4 bg-[#D4AF37] text-[#0A1F0A] px-3 py-1 rounded-full text-sm font-semibold">
-                      {coach.experience}
-                    </div>
-
-                    {/* Social links */}
-                    <div className="absolute bottom-4 left-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {[Linkedin, Twitter, Mail].map((Icon, i) => (
-                        <button
-                          key={i}
-                          className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-[#D4AF37] hover:text-[#0A1F0A] transition-colors"
-                        >
-                          <Icon className="w-4 h-4" />
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-white group-hover:text-[#D4AF37] transition-colors">
-                      {coach.name}
-                    </h3>
-                    <p className="text-[#40916C] font-medium">{coach.role}</p>
-                    <p className="text-gray-400 text-sm mt-1">{coach.specialization}</p>
-
-                    {/* Bio */}
-                    <p className="text-gray-400 text-sm mt-4 line-clamp-3">
-                      {coach.bio}
-                    </p>
-
-                    {/* Certifications */}
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {coach.certifications.map((cert, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-[#1A4D2E] text-[#40916C] rounded-full text-xs"
-                        >
-                          {cert}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Achievements */}
-                    <div className="mt-4 pt-4 border-t border-[#2D6A4F]/30">
-                      <p className="text-xs text-gray-500 uppercase tracking-wide mb-2">Key Achievements</p>
-                      {coach.achievements.map((achievement, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                          <Star className="w-3 h-3 text-[#D4AF37]" />
-                          {achievement}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <CoachCard key={index} coach={coach} index={index} />
             ))}
           </div>
         </div>

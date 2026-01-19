@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   User, 
@@ -54,6 +54,7 @@ export default function Registration() {
     program: '',
     level: '',
     preferredSchedule: '',
+    preferredCoach: '',
     
     // Step 3: Additional Info
     emergencyContact: '',
@@ -64,6 +65,15 @@ export default function Registration() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Pre-fill coach name if coming from coach profile
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const coachName = urlParams.get('coach');
+    if (coachName) {
+      setFormData(prev => ({ ...prev, preferredCoach: decodeURIComponent(coachName) }));
+    }
+  }, []);
 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -311,6 +321,22 @@ export default function Registration() {
                         </SelectContent>
                       </Select>
                     </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label className="text-gray-300">Preferred Coach (Optional)</Label>
+                    <Input
+                      value={formData.preferredCoach}
+                      onChange={(e) => handleChange('preferredCoach', e.target.value)}
+                      className="bg-[#0A1F0A] border-[#2D6A4F] text-white focus:border-[#D4AF37]"
+                      placeholder="Leave blank for automatic assignment"
+                    />
+                    {formData.preferredCoach && (
+                      <p className="text-sm text-[#40916C] flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4" />
+                        Request to train with {formData.preferredCoach}
+                      </p>
+                    )}
                   </div>
                 </div>
               )}

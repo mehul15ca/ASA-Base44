@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import ProgramFinder from '../components/programs/ProgramFinder';
 
 const programs = [
   {
@@ -261,6 +262,34 @@ export default function Programs() {
               </div>
             </motion.div>
           </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Program Finder */}
+      <section className="py-24 bg-[#0A1F0A]">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-sm">
+              Not Sure Which Program?
+            </span>
+            <h2 className="text-4xl font-bold text-white mt-4">
+              Let Us <span className="text-[#40916C]">Help You Choose</span>
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <ProgramFinder />
+          </motion.div>
         </div>
       </section>
 
