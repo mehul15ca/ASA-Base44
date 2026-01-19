@@ -118,11 +118,11 @@ export default function Sports3DScene() {
       metalness: 0,
     });
     
-    const stumpsGroup = new THREE.Mesh(stumpsGeometry, stumpsMaterial);
-    stumpsGroup.position.set(0, -1.2, -1);
-    stumpsGroup.castShadow = true;
-    stumpsGroup.receiveShadow = true;
-    scene.add(stumpsGroup);
+    const stumps = new THREE.Mesh(stumpsGeometry, stumpsMaterial);
+    stumps.position.set(0, -1.2, -1);
+    stumps.castShadow = true;
+    stumps.receiveShadow = true;
+    scene.add(stumps);
 
     // Floating particles
     const particlesGeometry = new THREE.BufferGeometry();
@@ -145,14 +145,6 @@ export default function Sports3DScene() {
 
     // Animation
     let time = 0;
-    let stumpsGroup = null;
-    
-    // Wait for stumps to be created
-    scene.traverse((object) => {
-      if (object.isMesh && object.geometry.type === 'PlaneGeometry' && object.position.z === -1) {
-        stumpsGroup = object;
-      }
-    });
     
     const animate = () => {
       animationRef.current = requestAnimationFrame(animate);
@@ -176,10 +168,8 @@ export default function Sports3DScene() {
       bat.position.y = Math.sin(time * 0.5) * 0.08;
       
       // Subtle stumps sway (like wind effect)
-      if (stumpsGroup) {
-        stumpsGroup.rotation.z = Math.sin(time * 0.3) * 0.01;
-        stumpsGroup.position.y = -1.2 + Math.sin(time * 0.5) * 0.01;
-      }
+      stumps.rotation.z = Math.sin(time * 0.3) * 0.01;
+      stumps.position.y = -1.2 + Math.sin(time * 0.5) * 0.01;
 
       // Rotate particles
       particles.rotation.y += 0.001;
