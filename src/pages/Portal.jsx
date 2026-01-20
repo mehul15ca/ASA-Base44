@@ -4,6 +4,8 @@ import { LogIn, User, Lock, ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Link } from 'react-router-dom';
+import { createPageUrl } from '@/utils';
 
 export default function Portal() {
   const [formData, setFormData] = useState({
@@ -86,12 +88,14 @@ export default function Portal() {
             </div>
 
             <div className="flex justify-end">
-              <button
-                type="button"
-                className="text-sm text-[#40916C] hover:text-[#D4AF37] transition-colors"
-              >
-                Forgot password?
-              </button>
+              <Link to={createPageUrl('ForgotPassword')}>
+                <button
+                  type="button"
+                  className="text-sm text-[#40916C] hover:text-[#D4AF37] transition-colors"
+                >
+                  Forgot password?
+                </button>
+              </Link>
             </div>
 
             <Button
