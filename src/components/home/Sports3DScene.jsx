@@ -143,6 +143,58 @@ export default function Sports3DScene() {
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
+    // Group all objects for rotation control
+    const sceneGroup = new THREE.Group();
+    sceneGroup.add(ball, bat, stumps);
+    scene.add(sceneGroup);
+
+    // Raycaster for hover detection
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    // Interaction state
+    let isDragging = false;
+    let previousMouseX = 0;
+    let targetRotationY = 0;
+    let currentRotationY = 0;
+    let hoveredObject = null;
+    const ballBaseY = 1;
+    let ballBounceOffset = 0;
+
+    // Mouse event handlers
+    const handleMouseDown = (event) => {
+      isDragging = true;
+      previousMouseX = event.clientX;
+    };
+
+    const handleMouseMove = (event) => {
+      // Update mouse for raycasting
+      const rect = containerRef.current.getBoundingClientRect();
+      mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+
+      // Handle drag rotation
+      if (isDragging) {
+        const deltaX = event.clientX - previousMouseX;
+        targetRotationY += deltaX * 0.01;
+        previousMouseX = event.clientX;
+      }
+    };
+
+    const handleMouseUp = () => {
+      isDragging = false;
+    };
+
+    const handleMouseLeave = () => {
+      isDragging = false;
+    };
+
+    // Add event listeners
+    containerRef.current.addEventListener('mousedown', handleMouseDown);
+    containerRef.current.addEventListener('mousemove', handleMouseMove);
+    containerRef.current.addEventListener('mouseup', handleMouseUp);
+    containerRef.current.addEventListener('mouseleave', handleMouseLeave);
+
     // Animation
     let time = 0;
     
@@ -150,13 +202,56 @@ export default function Sports3DScene() {
       animationRef.current = requestAnimationFrame(animate);
       time += 0.01;
 
+      // Smooth rotation interpolation
+      currentRotationY += (targetRotationY - currentRotationY) * 0.1;
+      sceneGroup.rotation.y = currentRotationY;
+
+      // Raycasting for hover detection
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects([ball, bat, stumps]);
+
+      // Reset previous hover state
+      if (hoveredObject && hoveredObject !== intersects[0]?.object) {
+        if (hoveredObject === bat || hoveredObject === stumps) {
+          hoveredObject.material.emissive.setHex(0x000000);
+          hoveredObject.material.emissiveIntensity = 0;
+        }
+        hoveredObject = null;
+      }
+
+      // Apply hover effects
+      if (intersects.length > 0) {
+        const object = intersects[0].object;
+        
+        if (object === ball) {
+          // Ball bounce on hover
+          if (hoveredObject !== ball) {
+            ballBounceOffset = 0.15;
+          }
+          hoveredObject = ball;
+        } else if (object === bat || object === stumps) {
+          // Highlight bat/stumps on hover
+          if (hoveredObject !== object) {
+            object.material.emissive.setHex(0xD4AF37);
+            object.material.emissiveIntensity = 0.3;
+            hoveredObject = object;
+          }
+        }
+      }
+
+      // Ball bounce decay
+      if (ballBounceOffset > 0) {
+        ballBounceOffset *= 0.92;
+        if (ballBounceOffset < 0.01) ballBounceOffset = 0;
+      }
+
       // Rotate ball with realistic spin (keep texture orientation visible)
       ball.rotation.y += 0.02;
       ball.rotation.x += 0.01;
       
-      // Ball trajectory - more natural motion
+      // Ball trajectory - more natural motion with bounce
       const ballTime = time * 1.5;
-      ball.position.y = 1 + Math.sin(ballTime) * 0.35;
+      ball.position.y = ballBaseY + Math.sin(ballTime) * 0.35 + ballBounceOffset;
       ball.position.x = -2 + Math.cos(ballTime * 0.5) * 0.15;
       ball.position.z = Math.sin(ballTime * 0.3) * 0.1;
 
@@ -191,6 +286,10 @@ export default function Sports3DScene() {
 
     return () => {
       window.removeEventListener('resize', handleResize);
+      containerRef.current?.removeEventListener('mousedown', handleMouseDown);
+      containerRef.current?.removeEventListener('mousemove', handleMouseMove);
+      containerRef.current?.removeEventListener('mouseup', handleMouseUp);
+      containerRef.current?.removeEventListener('mouseleave', handleMouseLeave);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -204,8 +303,8 @@ export default function Sports3DScene() {
   return (
     <div 
       ref={containerRef} 
-      className="absolute inset-0 pointer-events-none"
-      style={{ zIndex: 0 }}
+      className="absolute inset-0 cursor-grab active:cursor-grabbing"
+      style={{ zIndex: 0, pointerEvents: 'auto' }}
     />
   );
 }
