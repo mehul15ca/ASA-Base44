@@ -114,11 +114,16 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link to={createPageUrl('Registration')}>
+              <Link to={createPageUrl('Login')}>
+                <Button variant="outline" className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full">
+                  Login
+                </Button>
+              </Link>
+              <Link to={createPageUrl('BookDemo')}>
                 <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 rounded-full">
-                  Register Now
+                  Book Demo
                 </Button>
               </Link>
             </div>
@@ -174,11 +179,18 @@ export default function Navbar() {
                   </div>
                 ))}
 
-                <Link to={createPageUrl('Registration')} className="mt-8 block">
-                  <Button className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] font-semibold py-6 rounded-full">
-                    Register Now
-                  </Button>
-                </Link>
+                <div className="mt-8 space-y-3">
+                  <Link to={createPageUrl('Login')} className="block">
+                    <Button variant="outline" className="w-full border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full py-6">
+                      Login
+                    </Button>
+                  </Link>
+                  <Link to={createPageUrl('BookDemo')} className="block">
+                    <Button className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] font-semibold py-6 rounded-full">
+                      Book Demo
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </motion.div>
