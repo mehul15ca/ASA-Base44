@@ -26,13 +26,15 @@ export default function Portal() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] flex items-center justify-center py-12 px-6 relative">
-      {/* Attendance Portal Button - Subtle in corner */}
+      {/* Attendance Portal Button - Bottom right */}
       <a
         href="#"
-        className="absolute top-6 right-6 text-xs text-gray-500 hover:text-gray-400 transition-colors flex items-center gap-1 opacity-60 hover:opacity-100"
+        className="absolute bottom-6 right-6"
       >
-        Attendance Portal
-        <ExternalLink className="w-3 h-3" />
+        <Button variant="outline" className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full">
+          Attendance Portal
+          <ExternalLink className="w-4 h-4 ml-2" />
+        </Button>
       </a>
 
       <div className="w-full max-w-md">
