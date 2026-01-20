@@ -116,7 +116,7 @@ export default function Navbar() {
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-4">
-              <Link to={createPageUrl('Login')}>
+              <Link to={createPageUrl('Portal')}>
                 <Button variant="outline" className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full">
                   Login
                 </Button>
@@ -180,7 +180,7 @@ export default function Navbar() {
                 ))}
 
                 <div className="mt-8 space-y-3">
-                  <Link to={createPageUrl('Login')} className="block">
+                  <Link to={createPageUrl('Portal')} className="block">
                     <Button variant="outline" className="w-full border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full py-6">
                       Login
                     </Button>

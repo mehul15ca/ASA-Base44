@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
 import BookDemo from './pages/BookDemo';
+import Portal from './pages/Portal';
 import __Layout from './Layout.jsx';
 
 
@@ -18,6 +19,7 @@ export const PAGES = {
     "Programs": Programs,
     "Registration": Registration,
     "BookDemo": BookDemo,
+    "Portal": Portal,
 }
 
 export const pagesConfig = {
