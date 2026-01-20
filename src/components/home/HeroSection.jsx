@@ -18,22 +18,22 @@ export default function HeroSection() {
       
       {/* Animated background patterns */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-[#D4AF37]/20 rounded-full"
+            className="absolute w-1.5 h-1.5 bg-[#D4AF37]/10 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0.2, 0.6, 0.2],
+              y: [0, -15, 0],
+              opacity: [0, 0.15, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: 5 + Math.random() * 3,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: Math.random() * 3,
             }}
           />
         ))}

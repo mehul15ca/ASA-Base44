@@ -16,23 +16,9 @@ export default function AnimatedLogo({ className = "", size = "md" }) {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Pulsing glow effect */}
-      <motion.div
-        className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500/30 to-yellow-500/30 blur-xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.5, 0.8, 0.5],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      
       {/* Logo image */}
       <motion.img
-        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/user_696e5689d94cc7eb9f6f27ce/df5394fe4_ChatGPTImageJan13202607_16_18PM.png"
+        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/cdb24a0ea_ChatGPTImageJan13202607_16_18PM.png"
         alt="Australasia Sports Academy"
         className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
         animate={{

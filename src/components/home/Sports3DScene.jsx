@@ -66,7 +66,7 @@ export default function Sports3DScene() {
     // Cricket Ball with real texture
     const ballGeometry = new THREE.SphereGeometry(0.4, 64, 64);
     const ballTexture = textureLoader.load(
-      'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/4b09e924d_pngtree-red-leather-cricket-ball-with-detailed-stitched-seam-traditional-sports-equipment-png-image_14001679.png'
+      'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/fc4c2a25a_pngtree-red-leather-cricket-ball-with-detailed-stitched-seam-traditional-sports-equipment-png-image_14001679.png'
     );
     
     const ballMaterial = new THREE.MeshStandardMaterial({
@@ -83,7 +83,7 @@ export default function Sports3DScene() {
 
     // Cricket Bat with real texture
     const batTexture = textureLoader.load(
-      'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/e70ba8478_16-166521_png-image-of-cricket-bat-transparent-png.png'
+      'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/8fd304c95_16-166521_png-image-of-cricket-bat-transparent-png.png'
     );
     
     // Create a plane to display the bat texture
@@ -105,7 +105,7 @@ export default function Sports3DScene() {
 
     // Stumps with real texture
     const stumpsTexture = textureLoader.load(
-      'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/ad4d3bed7_kookaburra-cricket-bails-4-set-q221-nat-d296e5e9-f391-4d66-8dd2-1bd36c73e3eb-jpgrendition.jpg'
+      'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/d1aa9517b_clean_kookaburra-cricket-bails-4-set-q221-nat-d296e5e9-f391-4d66-8dd2-1bd36c73e3eb-jpgrendition.png'
     );
     
     // Create a plane to display stumps with bails
