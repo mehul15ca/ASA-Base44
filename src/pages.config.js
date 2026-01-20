@@ -8,6 +8,7 @@ import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
 import ForgotPassword from './pages/ForgotPassword';
+import AttendancePortal from './pages/AttendancePortal';
 import __Layout from './Layout.jsx';
 
 
@@ -22,6 +23,7 @@ export const PAGES = {
     "Programs": Programs,
     "Registration": Registration,
     "ForgotPassword": ForgotPassword,
+    "AttendancePortal": AttendancePortal,
 }
 
 export const pagesConfig = {

@@ -29,15 +29,12 @@ export default function Portal() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] flex items-center justify-center py-12 px-6 relative">
       {/* Attendance Portal Button - Bottom right */}
-      <a
-        href="#"
-        className="absolute bottom-6 right-6"
-      >
+      <Link to={createPageUrl('AttendancePortal')} className="absolute bottom-6 right-6">
         <Button variant="outline" className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full">
           Attendance Portal
           <ExternalLink className="w-4 h-4 ml-2" />
         </Button>
-      </a>
+      </Link>
 
       <div className="w-full max-w-md">
         <motion.div
