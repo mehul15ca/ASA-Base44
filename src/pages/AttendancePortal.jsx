@@ -4,6 +4,7 @@ import { CreditCard, CheckCircle2, XCircle, LogOut, Clock } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import AnimatedLogo from '../components/AnimatedLogo';
 import {
   Dialog,
   DialogContent,
@@ -164,9 +165,13 @@ export default function AttendancePortal() {
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="space-y-4"
+              className="space-y-6"
             >
-              <h1 className="text-4xl font-bold text-[#D4AF37]">{currentGround}</h1>
+              <div className="flex justify-center mb-4">
+                <AnimatedLogo size="xl" />
+              </div>
+              <h1 className="text-3xl font-bold text-white">Australasia Sports Academy</h1>
+              <h2 className="text-2xl font-semibold text-[#D4AF37]">{currentGround}</h2>
               <div className="flex items-center justify-center gap-3 text-white text-2xl font-mono">
                 <Clock className="w-6 h-6" />
                 {formatTime(currentTime)}

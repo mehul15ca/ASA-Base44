@@ -2,7 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-export default function Layout({ children }) {
+export default function Layout({ children, currentPageName }) {
+  const hideHeaderFooter = currentPageName === 'AttendancePortal';
+  
   return (
     <div className="min-h-screen bg-[#0A1F0A]">
       <style>{`
@@ -41,13 +43,13 @@ export default function Layout({ children }) {
         html {
           scroll-behavior: smooth;
         }
-      `}</style>
-      
-      <Navbar />
-      <main>
+        `}</style>
+
+        {!hideHeaderFooter && <Navbar />}
+        <main>
         {children}
-      </main>
-      <Footer />
+        </main>
+        {!hideHeaderFooter && <Footer />}
     </div>
   );
 }
