@@ -31,6 +31,8 @@ import StudentStore from './pages/StudentStore';
 import StudentAnnouncements from './pages/StudentAnnouncements';
 import StudentProfile from './pages/StudentProfile';
 import SuperAdminDashboard from './pages/SuperAdminDashboard';
+import SuperAdminHealth from './pages/SuperAdminHealth';
+import SuperAdminAPI from './pages/SuperAdminAPI';
 import __Layout from './Layout.jsx';
 
 
@@ -68,6 +70,8 @@ export const PAGES = {
     "StudentAnnouncements": StudentAnnouncements,
     "StudentProfile": StudentProfile,
     "SuperAdminDashboard": SuperAdminDashboard,
+    "SuperAdminHealth": SuperAdminHealth,
+    "SuperAdminAPI": SuperAdminAPI,
 }
 
 export const pagesConfig = {
