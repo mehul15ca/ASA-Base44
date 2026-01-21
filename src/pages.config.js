@@ -33,6 +33,7 @@ import StudentProfile from './pages/StudentProfile';
 import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import SuperAdminHealth from './pages/SuperAdminHealth';
 import SuperAdminAPI from './pages/SuperAdminAPI';
+import CoachStudents from './pages/CoachStudents';
 import __Layout from './Layout.jsx';
 
 
@@ -72,6 +73,7 @@ export const PAGES = {
     "SuperAdminDashboard": SuperAdminDashboard,
     "SuperAdminHealth": SuperAdminHealth,
     "SuperAdminAPI": SuperAdminAPI,
+    "CoachStudents": CoachStudents,
 }
 
 export const pagesConfig = {
