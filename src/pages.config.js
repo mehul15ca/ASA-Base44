@@ -34,6 +34,7 @@ import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import SuperAdminHealth from './pages/SuperAdminHealth';
 import SuperAdminAPI from './pages/SuperAdminAPI';
 import CoachStudents from './pages/CoachStudents';
+import CoachSalary from './pages/CoachSalary';
 import __Layout from './Layout.jsx';
 
 
@@ -74,6 +75,7 @@ export const PAGES = {
     "SuperAdminHealth": SuperAdminHealth,
     "SuperAdminAPI": SuperAdminAPI,
     "CoachStudents": CoachStudents,
+    "CoachSalary": CoachSalary,
 }
 
 export const pagesConfig = {
