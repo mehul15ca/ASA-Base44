@@ -18,6 +18,7 @@ import Programs from './pages/Programs';
 import Registration from './pages/Registration';
 import AdminReports from './pages/AdminReports';
 import AdminFinance from './pages/AdminFinance';
+import CoachDashboard from './pages/CoachDashboard';
 import __Layout from './Layout.jsx';
 
 
@@ -42,6 +43,7 @@ export const PAGES = {
     "Registration": Registration,
     "AdminReports": AdminReports,
     "AdminFinance": AdminFinance,
+    "CoachDashboard": CoachDashboard,
 }
 
 export const pagesConfig = {
