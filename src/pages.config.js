@@ -9,11 +9,6 @@ import Home from './pages/Home';
 import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminStudents from './pages/AdminStudents';
-import AdminCoaches from './pages/AdminCoaches';
-import AdminGrounds from './pages/AdminGrounds';
-import AdminBatch from './pages/AdminBatch';
 import __Layout from './Layout.jsx';
 
 
@@ -29,11 +24,6 @@ export const PAGES = {
     "Portal": Portal,
     "Programs": Programs,
     "Registration": Registration,
-    "AdminDashboard": AdminDashboard,
-    "AdminStudents": AdminStudents,
-    "AdminCoaches": AdminCoaches,
-    "AdminGrounds": AdminGrounds,
-    "AdminBatch": AdminBatch,
 }
 
 export const pagesConfig = {
