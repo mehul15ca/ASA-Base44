@@ -1,4 +1,11 @@
 import About from './pages/About';
+import AdminAttendance from './pages/AdminAttendance';
+import AdminBatches from './pages/AdminBatches';
+import AdminCoaches from './pages/AdminCoaches';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminGrounds from './pages/AdminGrounds';
+import AdminSchedule from './pages/AdminSchedule';
+import AdminStudents from './pages/AdminStudents';
 import AttendancePortal from './pages/AttendancePortal';
 import BookDemo from './pages/BookDemo';
 import Coaches from './pages/Coaches';
@@ -9,18 +16,19 @@ import Home from './pages/Home';
 import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminStudents from './pages/AdminStudents';
-import AdminCoaches from './pages/AdminCoaches';
-import AdminGrounds from './pages/AdminGrounds';
-import AdminBatches from './pages/AdminBatches';
-import AdminSchedule from './pages/AdminSchedule';
-import AdminAttendance from './pages/AdminAttendance';
+import AdminReports from './pages/AdminReports';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "About": About,
+    "AdminAttendance": AdminAttendance,
+    "AdminBatches": AdminBatches,
+    "AdminCoaches": AdminCoaches,
+    "AdminDashboard": AdminDashboard,
+    "AdminGrounds": AdminGrounds,
+    "AdminSchedule": AdminSchedule,
+    "AdminStudents": AdminStudents,
     "AttendancePortal": AttendancePortal,
     "BookDemo": BookDemo,
     "Coaches": Coaches,
@@ -31,13 +39,7 @@ export const PAGES = {
     "Portal": Portal,
     "Programs": Programs,
     "Registration": Registration,
-    "AdminDashboard": AdminDashboard,
-    "AdminStudents": AdminStudents,
-    "AdminCoaches": AdminCoaches,
-    "AdminGrounds": AdminGrounds,
-    "AdminBatches": AdminBatches,
-    "AdminSchedule": AdminSchedule,
-    "AdminAttendance": AdminAttendance,
+    "AdminReports": AdminReports,
 }
 
 export const pagesConfig = {
