@@ -21,18 +21,19 @@ import Home from './pages/Home';
 import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
-import StudentDashboard from './pages/StudentDashboard';
-import StudentSchedule from './pages/StudentSchedule';
-import StudentAttendance from './pages/StudentAttendance';
-import StudentEvaluations from './pages/StudentEvaluations';
-import StudentInjuries from './pages/StudentInjuries';
-import StudentFees from './pages/StudentFees';
-import StudentStore from './pages/StudentStore';
 import StudentAnnouncements from './pages/StudentAnnouncements';
+import StudentAttendance from './pages/StudentAttendance';
+import StudentDashboard from './pages/StudentDashboard';
+import StudentEvaluations from './pages/StudentEvaluations';
+import StudentFees from './pages/StudentFees';
+import StudentInjuries from './pages/StudentInjuries';
 import StudentProfile from './pages/StudentProfile';
+import StudentSchedule from './pages/StudentSchedule';
+import StudentStore from './pages/StudentStore';
+import SuperAdminAPI from './pages/SuperAdminAPI';
 import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import SuperAdminHealth from './pages/SuperAdminHealth';
-import SuperAdminAPI from './pages/SuperAdminAPI';
+import SuperAdminJobs from './pages/SuperAdminJobs';
 import __Layout from './Layout.jsx';
 
 
@@ -60,18 +61,19 @@ export const PAGES = {
     "Portal": Portal,
     "Programs": Programs,
     "Registration": Registration,
-    "StudentDashboard": StudentDashboard,
-    "StudentSchedule": StudentSchedule,
-    "StudentAttendance": StudentAttendance,
-    "StudentEvaluations": StudentEvaluations,
-    "StudentInjuries": StudentInjuries,
-    "StudentFees": StudentFees,
-    "StudentStore": StudentStore,
     "StudentAnnouncements": StudentAnnouncements,
+    "StudentAttendance": StudentAttendance,
+    "StudentDashboard": StudentDashboard,
+    "StudentEvaluations": StudentEvaluations,
+    "StudentFees": StudentFees,
+    "StudentInjuries": StudentInjuries,
     "StudentProfile": StudentProfile,
+    "StudentSchedule": StudentSchedule,
+    "StudentStore": StudentStore,
+    "SuperAdminAPI": SuperAdminAPI,
     "SuperAdminDashboard": SuperAdminDashboard,
     "SuperAdminHealth": SuperAdminHealth,
-    "SuperAdminAPI": SuperAdminAPI,
+    "SuperAdminJobs": SuperAdminJobs,
 }
 
 export const pagesConfig = {
