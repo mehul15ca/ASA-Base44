@@ -49,7 +49,7 @@ export default function SuperAdminSettings() {
   };
 
   return (
-    <SuperAdminLayout>
+    <SuperAdminLayout currentPageName="SuperAdminSettings">
       <div>
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">

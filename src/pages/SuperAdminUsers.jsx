@@ -79,7 +79,7 @@ export default function SuperAdminUsers() {
   };
 
   return (
-    <SuperAdminLayout>
+    <SuperAdminLayout currentPageName="SuperAdminUsers">
       <div>
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
