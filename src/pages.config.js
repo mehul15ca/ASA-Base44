@@ -20,6 +20,7 @@ import AdminReports from './pages/AdminReports';
 import AdminFinance from './pages/AdminFinance';
 import CoachDashboard from './pages/CoachDashboard';
 import CoachSessions from './pages/CoachSessions';
+import CoachAttendance from './pages/CoachAttendance';
 import __Layout from './Layout.jsx';
 
 
@@ -46,6 +47,7 @@ export const PAGES = {
     "AdminFinance": AdminFinance,
     "CoachDashboard": CoachDashboard,
     "CoachSessions": CoachSessions,
+    "CoachAttendance": CoachAttendance,
 }
 
 export const pagesConfig = {
