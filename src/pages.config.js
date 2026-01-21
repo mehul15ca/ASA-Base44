@@ -10,6 +10,7 @@ import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminStudents from './pages/AdminStudents';
 import __Layout from './Layout.jsx';
 
 
@@ -26,6 +27,7 @@ export const PAGES = {
     "Programs": Programs,
     "Registration": Registration,
     "AdminDashboard": AdminDashboard,
+    "AdminStudents": AdminStudents,
 }
 
 export const pagesConfig = {
