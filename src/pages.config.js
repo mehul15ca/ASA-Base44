@@ -29,6 +29,7 @@ import StudentInjuries from './pages/StudentInjuries';
 import StudentFees from './pages/StudentFees';
 import StudentStore from './pages/StudentStore';
 import StudentAnnouncements from './pages/StudentAnnouncements';
+import StudentProfile from './pages/StudentProfile';
 import __Layout from './Layout.jsx';
 
 
@@ -64,6 +65,7 @@ export const PAGES = {
     "StudentFees": StudentFees,
     "StudentStore": StudentStore,
     "StudentAnnouncements": StudentAnnouncements,
+    "StudentProfile": StudentProfile,
 }
 
 export const pagesConfig = {
