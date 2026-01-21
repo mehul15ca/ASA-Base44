@@ -17,6 +17,7 @@ import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
 import AdminReports from './pages/AdminReports';
+import AdminFinance from './pages/AdminFinance';
 import __Layout from './Layout.jsx';
 
 
@@ -40,6 +41,7 @@ export const PAGES = {
     "Programs": Programs,
     "Registration": Registration,
     "AdminReports": AdminReports,
+    "AdminFinance": AdminFinance,
 }
 
 export const pagesConfig = {
