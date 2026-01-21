@@ -37,6 +37,7 @@ import SuperAdminJobs from './pages/SuperAdminJobs';
 import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
+import SuperAdminDatabase from './pages/SuperAdminDatabase';
 import __Layout from './Layout.jsx';
 
 
@@ -80,6 +81,7 @@ export const PAGES = {
     "SuperAdminNotifications": SuperAdminNotifications,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
+    "SuperAdminDatabase": SuperAdminDatabase,
 }
 
 export const pagesConfig = {
