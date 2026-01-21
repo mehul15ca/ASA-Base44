@@ -30,6 +30,7 @@ import StudentFees from './pages/StudentFees';
 import StudentStore from './pages/StudentStore';
 import StudentAnnouncements from './pages/StudentAnnouncements';
 import StudentProfile from './pages/StudentProfile';
+import SuperAdminDashboard from './pages/SuperAdminDashboard';
 import __Layout from './Layout.jsx';
 
 
@@ -66,6 +67,7 @@ export const PAGES = {
     "StudentStore": StudentStore,
     "StudentAnnouncements": StudentAnnouncements,
     "StudentProfile": StudentProfile,
+    "SuperAdminDashboard": SuperAdminDashboard,
 }
 
 export const pagesConfig = {
