@@ -3,11 +3,16 @@ import AdminAttendance from './pages/AdminAttendance';
 import AdminBatches from './pages/AdminBatches';
 import AdminCoaches from './pages/AdminCoaches';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminFinance from './pages/AdminFinance';
 import AdminGrounds from './pages/AdminGrounds';
+import AdminReports from './pages/AdminReports';
 import AdminSchedule from './pages/AdminSchedule';
 import AdminStudents from './pages/AdminStudents';
 import AttendancePortal from './pages/AttendancePortal';
 import BookDemo from './pages/BookDemo';
+import CoachAttendance from './pages/CoachAttendance';
+import CoachDashboard from './pages/CoachDashboard';
+import CoachSessions from './pages/CoachSessions';
 import Coaches from './pages/Coaches';
 import Contact from './pages/Contact';
 import ForgotPassword from './pages/ForgotPassword';
@@ -16,11 +21,8 @@ import Home from './pages/Home';
 import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
-import AdminReports from './pages/AdminReports';
-import AdminFinance from './pages/AdminFinance';
-import CoachDashboard from './pages/CoachDashboard';
-import CoachSessions from './pages/CoachSessions';
-import CoachAttendance from './pages/CoachAttendance';
+import StudentDashboard from './pages/StudentDashboard';
+import StudentSchedule from './pages/StudentSchedule';
 import __Layout from './Layout.jsx';
 
 
@@ -30,11 +32,16 @@ export const PAGES = {
     "AdminBatches": AdminBatches,
     "AdminCoaches": AdminCoaches,
     "AdminDashboard": AdminDashboard,
+    "AdminFinance": AdminFinance,
     "AdminGrounds": AdminGrounds,
+    "AdminReports": AdminReports,
     "AdminSchedule": AdminSchedule,
     "AdminStudents": AdminStudents,
     "AttendancePortal": AttendancePortal,
     "BookDemo": BookDemo,
+    "CoachAttendance": CoachAttendance,
+    "CoachDashboard": CoachDashboard,
+    "CoachSessions": CoachSessions,
     "Coaches": Coaches,
     "Contact": Contact,
     "ForgotPassword": ForgotPassword,
@@ -43,11 +50,8 @@ export const PAGES = {
     "Portal": Portal,
     "Programs": Programs,
     "Registration": Registration,
-    "AdminReports": AdminReports,
-    "AdminFinance": AdminFinance,
-    "CoachDashboard": CoachDashboard,
-    "CoachSessions": CoachSessions,
-    "CoachAttendance": CoachAttendance,
+    "StudentDashboard": StudentDashboard,
+    "StudentSchedule": StudentSchedule,
 }
 
 export const pagesConfig = {
