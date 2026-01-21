@@ -15,6 +15,7 @@ import AdminCoaches from './pages/AdminCoaches';
 import AdminGrounds from './pages/AdminGrounds';
 import AdminBatches from './pages/AdminBatches';
 import AdminSchedule from './pages/AdminSchedule';
+import AdminAttendance from './pages/AdminAttendance';
 import __Layout from './Layout.jsx';
 
 
@@ -36,6 +37,7 @@ export const PAGES = {
     "AdminGrounds": AdminGrounds,
     "AdminBatches": AdminBatches,
     "AdminSchedule": AdminSchedule,
+    "AdminAttendance": AdminAttendance,
 }
 
 export const pagesConfig = {
