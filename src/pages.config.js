@@ -25,6 +25,8 @@ import StudentDashboard from './pages/StudentDashboard';
 import StudentSchedule from './pages/StudentSchedule';
 import StudentAttendance from './pages/StudentAttendance';
 import StudentEvaluations from './pages/StudentEvaluations';
+import StudentInjuries from './pages/StudentInjuries';
+import StudentFees from './pages/StudentFees';
 import __Layout from './Layout.jsx';
 
 
@@ -56,6 +58,8 @@ export const PAGES = {
     "StudentSchedule": StudentSchedule,
     "StudentAttendance": StudentAttendance,
     "StudentEvaluations": StudentEvaluations,
+    "StudentInjuries": StudentInjuries,
+    "StudentFees": StudentFees,
 }
 
 export const pagesConfig = {
