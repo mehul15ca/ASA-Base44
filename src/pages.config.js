@@ -32,14 +32,14 @@ import StudentSchedule from './pages/StudentSchedule';
 import StudentStore from './pages/StudentStore';
 import SuperAdminAPI from './pages/SuperAdminAPI';
 import SuperAdminDashboard from './pages/SuperAdminDashboard';
+import SuperAdminDatabase from './pages/SuperAdminDatabase';
 import SuperAdminHealth from './pages/SuperAdminHealth';
 import SuperAdminJobs from './pages/SuperAdminJobs';
+import SuperAdminLogs from './pages/SuperAdminLogs';
 import SuperAdminNotifications from './pages/SuperAdminNotifications';
+import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import SuperAdminDatabase from './pages/SuperAdminDatabase';
-import SuperAdminLogs from './pages/SuperAdminLogs';
-import SuperAdminSettings from './pages/SuperAdminSettings';
 import __Layout from './Layout.jsx';
 
 
@@ -78,14 +78,14 @@ export const PAGES = {
     "StudentStore": StudentStore,
     "SuperAdminAPI": SuperAdminAPI,
     "SuperAdminDashboard": SuperAdminDashboard,
+    "SuperAdminDatabase": SuperAdminDatabase,
     "SuperAdminHealth": SuperAdminHealth,
     "SuperAdminJobs": SuperAdminJobs,
+    "SuperAdminLogs": SuperAdminLogs,
     "SuperAdminNotifications": SuperAdminNotifications,
+    "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "SuperAdminDatabase": SuperAdminDatabase,
-    "SuperAdminLogs": SuperAdminLogs,
-    "SuperAdminSettings": SuperAdminSettings,
 }
 
 export const pagesConfig = {

@@ -3,7 +3,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 export default function Layout({ children, currentPageName }) {
-  const hideHeaderFooter = currentPageName === 'AttendancePortal';
+  const hideHeaderFooter = currentPageName === 'AttendancePortal' || 
+    currentPageName?.startsWith('Admin') || 
+    currentPageName?.startsWith('Student') || 
+    currentPageName?.startsWith('Coach') || 
+    currentPageName?.startsWith('SuperAdmin');
   
   return (
     <div className="min-h-screen bg-[#0A1F0A]">
