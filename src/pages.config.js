@@ -13,6 +13,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminStudents from './pages/AdminStudents';
 import AdminCoaches from './pages/AdminCoaches';
 import AdminGrounds from './pages/AdminGrounds';
+import AdminBatch from './pages/AdminBatch';
 import __Layout from './Layout.jsx';
 
 
@@ -32,6 +33,7 @@ export const PAGES = {
     "AdminStudents": AdminStudents,
     "AdminCoaches": AdminCoaches,
     "AdminGrounds": AdminGrounds,
+    "AdminBatch": AdminBatch,
 }
 
 export const pagesConfig = {
