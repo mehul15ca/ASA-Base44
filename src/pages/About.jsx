@@ -202,6 +202,7 @@ export default function About() {
                       <p className="text-gray-400 mt-2">{milestone.description}</p>
                     </motion.div>
                   </div>
+
                   
                   {/* Center dot */}
                   <div className="w-4 h-4 bg-[#D4AF37] rounded-full border-4 border-[#0A1F0A] z-10 hidden md:block" />
