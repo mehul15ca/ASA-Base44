@@ -58,6 +58,7 @@ import StoreInventory from './pages/StoreInventory';
 import StoreOrders from './pages/StoreOrders';
 import StoreShipping from './pages/StoreShipping';
 import StudentEnrollment from './pages/StudentEnrollment';
+import CoachEnrollment from './pages/CoachEnrollment';
 import __Layout from './Layout.jsx';
 
 
@@ -122,6 +123,7 @@ export const PAGES = {
     "StoreOrders": StoreOrders,
     "StoreShipping": StoreShipping,
     "StudentEnrollment": StudentEnrollment,
+    "CoachEnrollment": CoachEnrollment,
 }
 
 export const pagesConfig = {
