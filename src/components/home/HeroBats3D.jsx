@@ -106,45 +106,77 @@ export default function HeroBats3D() {
     // Create Cricket Bat with realistic proportions
     const createCricketBat = () => {
       const group = new THREE.Group();
-      
-      // Main blade - wider and flatter like real cricket bat
-      const bladeGeometry = new THREE.BoxGeometry(0.95, 3.2, 0.08);
+
+      // Main blade - tapered from handle to edges
+      const bladeShape = new THREE.Shape();
+      bladeShape.moveTo(-0.48, -1.6);
+      bladeShape.lineTo(-0.48, 1.2);
+      bladeShape.quadraticCurveTo(-0.52, 1.5, -0.45, 1.6);
+      bladeShape.lineTo(0.45, 1.6);
+      bladeShape.quadraticCurveTo(0.52, 1.5, 0.48, 1.2);
+      bladeShape.lineTo(0.48, -1.6);
+      bladeShape.lineTo(-0.48, -1.6);
+
+      const extrudeSettings = {
+        depth: 0.1,
+        bevelEnabled: true,
+        bevelThickness: 0.008,
+        bevelSize: 0.008,
+        bevelSegments: 3,
+      };
+      const bladeGeometry = new THREE.ExtrudeGeometry(bladeShape, extrudeSettings);
       const woodTexture = createWoodTexture();
       const bladeMaterial = new THREE.MeshStandardMaterial({
-        color: 0xD4AF7A,
-        roughness: 0.5,
+        color: 0xE8D5B7,
+        roughness: 0.45,
         metalness: 0.0,
         map: woodTexture,
+        envMapIntensity: 0.5,
       });
       const blade = new THREE.Mesh(bladeGeometry, bladeMaterial);
+      blade.position.z = -0.05;
       blade.castShadow = true;
       blade.receiveShadow = true;
       group.add(blade);
 
-      // Toe area - darker wood at the bottom
-      const toeGeometry = new THREE.BoxGeometry(0.95, 0.4, 0.08);
+      // Toe reinforcement - darker hardened wood
+      const toeGeometry = new THREE.BoxGeometry(0.92, 0.35, 0.1);
       const toeMaterial = new THREE.MeshStandardMaterial({
-        color: 0xA0826D,
-        roughness: 0.55,
+        color: 0x8B6F47,
+        roughness: 0.52,
         metalness: 0.0,
       });
       const toe = new THREE.Mesh(toeGeometry, toeMaterial);
-      toe.position.y = -1.8;
+      toe.position.y = -1.75;
       toe.castShadow = true;
       toe.receiveShadow = true;
       group.add(toe);
 
-      // Handle - tapered cylinder
+      // Middle band - cricket bat branding area
+      const bandGeometry = new THREE.BoxGeometry(0.92, 0.15, 0.1);
+      const bandMaterial = new THREE.MeshStandardMaterial({
+        color: 0x2C1810,
+        roughness: 0.4,
+        metalness: 0.05,
+      });
+      const band = new THREE.Mesh(bandGeometry, bandMaterial);
+      band.position.y = 0.3;
+      band.castShadow = true;
+      band.receiveShadow = true;
+      group.add(band);
+
+      // Handle - realistic tapered cylinder
       const handlePoints = [];
-      for (let i = 0; i <= 8; i++) {
-        const progress = i / 8;
-        const radius = 0.07 - progress * 0.02;
-        handlePoints.push(new THREE.Vector2(radius, i * 0.15 - 1.3));
+      for (let i = 0; i <= 12; i++) {
+        const progress = i / 12;
+        const radius = 0.075 - progress * 0.035;
+        const taper = Math.pow(progress, 1.2);
+        handlePoints.push(new THREE.Vector2(radius - taper * 0.01, i * 0.12 - 1.4));
       }
-      const handleGeometry = new THREE.LatheGeometry(handlePoints, 16);
+      const handleGeometry = new THREE.LatheGeometry(handlePoints, 24);
       const handleMaterial = new THREE.MeshStandardMaterial({
-        color: 0x2C2C2C,
-        roughness: 0.6,
+        color: 0x1A1A1A,
+        roughness: 0.75,
         metalness: 0.0,
       });
       const handle = new THREE.Mesh(handleGeometry, handleMaterial);
@@ -152,15 +184,29 @@ export default function HeroBats3D() {
       handle.receiveShadow = true;
       group.add(handle);
 
-      // Pommel knob
-      const pommelGeometry = new THREE.SphereGeometry(0.075, 32, 32);
+      // Grip wrapping details
+      for (let i = 0; i < 4; i++) {
+        const griplineGeometry = new THREE.TorusGeometry(0.078, 0.002, 8, 32);
+        const griplineMaterial = new THREE.MeshStandardMaterial({
+          color: 0x404040,
+          roughness: 0.8,
+        });
+        const gripline = new THREE.Mesh(griplineGeometry, griplineMaterial);
+        gripline.position.y = -0.9 + i * 0.15;
+        gripline.scale.set(1, 0.6, 1);
+        group.add(gripline);
+      }
+
+      // Pommel knob - larger and more detailed
+      const pommelGeometry = new THREE.SphereGeometry(0.082, 32, 32);
       const pommelMaterial = new THREE.MeshStandardMaterial({
-        color: 0x1a1a1a,
-        roughness: 0.5,
-        metalness: 0.1,
+        color: 0x0D0D0D,
+        roughness: 0.4,
+        metalness: 0.15,
+        envMapIntensity: 0.6,
       });
       const pommel = new THREE.Mesh(pommelGeometry, pommelMaterial);
-      pommel.position.y = -2.2;
+      pommel.position.y = -2.25;
       pommel.castShadow = true;
       pommel.receiveShadow = true;
       group.add(pommel);
