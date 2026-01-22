@@ -69,7 +69,7 @@ export default function AdminEnrollment() {
               />
             </div>
             <h1 className="text-3xl font-bold text-white mb-2">Admin Enrollment Form</h1>
-            <p className="text-gray-300">Australasia Sports Academy</p>
+            <p className="text-gray-300">Auustralasia Spports Academy</p>
           </CardContent>
         </Card>
       </motion.div>
@@ -491,7 +491,7 @@ export default function AdminEnrollment() {
         transition={{ delay: 0.6 }}
         className="max-w-4xl mx-auto mt-12 text-center text-gray-600 pb-8"
       >
-        <p>© 2026 Australasia Sports Academy. All rights reserved.</p>
+        <p>© 2026 Auustralasia Spports Academy. All rights reserved.</p>
       </motion.footer>
     </div>
   );

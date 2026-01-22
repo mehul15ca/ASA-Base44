@@ -119,7 +119,7 @@ export default function StudentEnrollment() {
             />
           </div>
           <div className="text-right">
-            <h1 className="text-3xl font-bold text-white">Australasia Sports Academy</h1>
+            <h1 className="text-3xl font-bold text-white">Auustralasia Spports Academy</h1>
             <p className="text-gray-300 mt-1">Student Enrollment Form</p>
           </div>
         </div>
@@ -540,13 +540,13 @@ export default function StudentEnrollment() {
           <Card className="bg-white border-[#2D6A4F]">
             <CardHeader className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] text-white rounded-t-lg">
               <div className="text-center">
-                <h2 className="text-2xl font-bold">Australasia Sports Academy</h2>
+                <h2 className="text-2xl font-bold">Auustralasia Spports Academy</h2>
                 <p className="text-gray-300">(Ontario, Canada)</p>
               </div>
             </CardHeader>
             <CardContent className="space-y-6 pt-6">
               <p className="text-gray-700">
-                This consent form must be completed by a parent or legal guardian for all participants under 18 years of age. By signing this form, you acknowledge and agree to the terms and conditions outlined below for participation in the Australasia Sports Academy programs.
+                This consent form must be completed by a parent or legal guardian for all participants under 18 years of age. By signing this form, you acknowledge and agree to the terms and conditions outlined below for participation in the Auustralasia Spports Academy programs.
               </p>
 
               {/* Section 1: Participant Details */}
@@ -586,7 +586,7 @@ export default function StudentEnrollment() {
                   <Checkbox checked={formData.waiverLiability} onCheckedChange={(checked) => handleChange('waiverLiability', checked)} required className="mt-1" />
                   <div>
                     <p className="text-sm text-gray-700">
-                      I agree to the Release of Liability and waive any claims against Australasia Sports Academy, its staff, coaches, and volunteers for any injuries or damages that may occur during participation in academy activities. <span className="text-red-500">*</span>
+                      I agree to the Release of Liability and waive any claims against Auustralasia Spports Academy, its staff, coaches, and volunteers for any injuries or damages that may occur during participation in academy activities. <span className="text-red-500">*</span>
                     </p>
                   </div>
                 </div>
@@ -673,7 +673,7 @@ export default function StudentEnrollment() {
 
       {/* Footer */}
       <motion.footer initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }} className="max-w-4xl mx-auto mt-12 text-center text-gray-600 pb-8">
-        <p className="mb-2">© 2026 Australasia Sports Academy. All rights reserved.</p>
+        <p className="mb-2">© 2026 Auustralasia Spports Academy. All rights reserved.</p>
         <p>For assistance, please contact: <span className="text-[#2D6A4F] underline cursor-pointer">admissions@australasiasports.edu</span></p>
       </motion.footer>
     </div>

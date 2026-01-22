@@ -236,7 +236,7 @@ export default function CoachEnrollment() {
               </motion.div>
               <h2 className="text-3xl font-bold text-[#0A1F0A] mb-4">Your profile has been successfully created.</h2>
               <p className="text-gray-600 mb-8 text-lg">
-                Thank you for applying to join Australasia Sports Academy. We appreciate your interest in becoming part of our coaching team. 
+                Thank you for applying to join Auustralasia Spports Academy. We appreciate your interest in becoming part of our coaching team. 
                 We will review your application and get back to you within 3–5 business days.
               </p>
               <Button onClick={resetForm} className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] hover:from-[#F4D03F] hover:to-[#D4AF37] text-[#0A1F0A] text-lg px-8 py-6">
@@ -601,7 +601,7 @@ export default function CoachEnrollment() {
                 <h3 className="font-bold text-gray-900 mb-3">Academy Policy Agreement (Coach)</h3>
                 <div className="bg-gray-50 rounded p-4 max-h-40 overflow-y-auto mb-3 text-sm text-gray-700">
                   <p className="mb-2">
-                    As a coach at Australasia Sports Academy, you are expected to maintain the highest standards of professionalism, integrity, and dedication. 
+                    As a coach at Auustralasia Spports Academy, you are expected to maintain the highest standards of professionalism, integrity, and dedication. 
                     This includes adhering to all academy policies, including but not limited to punctuality, professional conduct, dress code, and communication protocols.
                   </p>
                   <p>
@@ -643,7 +643,7 @@ export default function CoachEnrollment() {
                 <h3 className="font-bold text-gray-900 mb-3">Code of Conduct Agreement (Coach)</h3>
                 <div className="bg-gray-50 rounded p-4 max-h-40 overflow-y-auto mb-3 text-sm text-gray-700">
                   <p className="mb-2">
-                    As a representative of Australasia Sports Academy, you agree to conduct yourself in a manner that reflects positively on the institution at all times. 
+                    As a representative of Auustralasia Spports Academy, you agree to conduct yourself in a manner that reflects positively on the institution at all times. 
                     This includes treating all students, parents, colleagues, and visitors with respect, maintaining professional boundaries, and avoiding any behavior 
                     that could be considered inappropriate, discriminatory, or harmful.
                   </p>
