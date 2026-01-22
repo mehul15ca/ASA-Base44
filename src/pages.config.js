@@ -4,6 +4,7 @@ import AdminAttendance from './pages/AdminAttendance';
 import AdminBatches from './pages/AdminBatches';
 import AdminCoaches from './pages/AdminCoaches';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminFeedback from './pages/AdminFeedback';
 import AdminFinance from './pages/AdminFinance';
 import AdminGrounds from './pages/AdminGrounds';
 import AdminReports from './pages/AdminReports';
@@ -41,7 +42,7 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import AdminFeedback from './pages/AdminFeedback';
+import AdminStore from './pages/AdminStore';
 import __Layout from './Layout.jsx';
 
 
@@ -52,6 +53,7 @@ export const PAGES = {
     "AdminBatches": AdminBatches,
     "AdminCoaches": AdminCoaches,
     "AdminDashboard": AdminDashboard,
+    "AdminFeedback": AdminFeedback,
     "AdminFinance": AdminFinance,
     "AdminGrounds": AdminGrounds,
     "AdminReports": AdminReports,
@@ -89,7 +91,7 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "AdminFeedback": AdminFeedback,
+    "AdminStore": AdminStore,
 }
 
 export const pagesConfig = {
