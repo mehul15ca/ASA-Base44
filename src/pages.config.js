@@ -50,6 +50,7 @@ import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
 import CoachStudents from './pages/CoachStudents';
+import CoachInjuries from './pages/CoachInjuries';
 import __Layout from './Layout.jsx';
 
 
@@ -106,6 +107,7 @@ export const PAGES = {
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
     "CoachStudents": CoachStudents,
+    "CoachInjuries": CoachInjuries,
 }
 
 export const pagesConfig = {
