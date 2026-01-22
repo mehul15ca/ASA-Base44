@@ -129,11 +129,16 @@ export default function About() {
 
             {/* Vision */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, rotateX: -20 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl p-10"
+              whileHover={{ rotateX: 10, y: -15 }}
+              className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl p-10 transition-all duration-300 shadow-2xl hover:shadow-[0_20px_60px_rgba(64,145,108,0.2)]"
+              style={{
+                perspective: '1000px',
+                transformStyle: 'preserve-3d'
+              }}
             >
               <div className="w-16 h-16 bg-gradient-to-br from-[#40916C] to-[#2D6A4F] rounded-2xl flex items-center justify-center mb-6">
                 <Eye className="w-8 h-8 text-white" />
