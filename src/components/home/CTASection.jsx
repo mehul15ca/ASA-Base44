@@ -86,8 +86,12 @@ export default function CTASection() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                whileHover={{ x: 10 }}
-                className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                whileHover={{ x: 12, scale: 1.02, boxShadow: "0 10px 30px rgba(212, 175, 55, 0.15)" }}
+                className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 transition-all"
               >
                 <div className="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-[#0A1F0A]" />
