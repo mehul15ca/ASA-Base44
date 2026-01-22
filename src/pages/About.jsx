@@ -99,17 +99,22 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-[#0A1F0A]">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Mission */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl p-10"
-            >
+      <section className="py-24 bg-[#0A1F0A]" style={{ perspective: '1200px' }}>
+       <div className="container mx-auto px-6">
+         <div className="grid md:grid-cols-2 gap-8">
+           {/* Mission */}
+           <motion.div
+             initial={{ opacity: 0, y: 30, rotateX: -20 }}
+             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.6 }}
+             whileHover={{ rotateX: 10, y: -15 }}
+             className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl p-10 transition-all duration-300 shadow-2xl hover:shadow-[0_20px_60px_rgba(212,175,55,0.2)]"
+             style={{
+               perspective: '1000px',
+               transformStyle: 'preserve-3d'
+             }}
+           >
               <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] rounded-2xl flex items-center justify-center mb-6">
                 <Target className="w-8 h-8 text-[#0A1F0A]" />
               </div>
