@@ -1,4 +1,5 @@
 import About from './pages/About';
+import AdminAnnouncements from './pages/AdminAnnouncements';
 import AdminAttendance from './pages/AdminAttendance';
 import AdminBatches from './pages/AdminBatches';
 import AdminCoaches from './pages/AdminCoaches';
@@ -40,12 +41,13 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import AdminAnnouncements from './pages/AdminAnnouncements';
+import AdminFeedback from './pages/AdminFeedback';
 import __Layout from './Layout.jsx';
 
 
 export const PAGES = {
     "About": About,
+    "AdminAnnouncements": AdminAnnouncements,
     "AdminAttendance": AdminAttendance,
     "AdminBatches": AdminBatches,
     "AdminCoaches": AdminCoaches,
@@ -87,7 +89,7 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "AdminAnnouncements": AdminAnnouncements,
+    "AdminFeedback": AdminFeedback,
 }
 
 export const pagesConfig = {
