@@ -35,6 +35,7 @@ import Home from './pages/Home';
 import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
+import ResetPassword from './pages/ResetPassword';
 import StoreDashboard from './pages/StoreDashboard';
 import StoreInventory from './pages/StoreInventory';
 import StoreOrders from './pages/StoreOrders';
@@ -60,7 +61,6 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import ResetPassword from './pages/ResetPassword';
 import __Layout from './Layout.jsx';
 
 
@@ -102,6 +102,7 @@ export const PAGES = {
     "Portal": Portal,
     "Programs": Programs,
     "Registration": Registration,
+    "ResetPassword": ResetPassword,
     "StoreDashboard": StoreDashboard,
     "StoreInventory": StoreInventory,
     "StoreOrders": StoreOrders,
@@ -127,7 +128,6 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "ResetPassword": ResetPassword,
 }
 
 export const pagesConfig = {

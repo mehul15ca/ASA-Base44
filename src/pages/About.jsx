@@ -23,7 +23,25 @@ export default function About() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] overflow-hidden">
+      <section className="relative py-24 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] overflow-hidden" style={{ perspective: '1200px' }}>
+        {/* 3D Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <motion.div
+            animate={{ rotateY: 360 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-20 left-10 w-64 h-64 bg-[#40916C] rounded-full blur-3xl"
+            style={{ perspective: '1000px' }}
+          />
+        </div>
+        <div className="absolute inset-0 opacity-5">
+          <motion.div
+            animate={{ rotateX: 360 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-20 right-10 w-96 h-96 bg-[#D4AF37] rounded-full blur-3xl"
+            style={{ perspective: '1000px' }}
+          />
+        </div>
+
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, #40916C 1px, transparent 0)',
@@ -34,9 +52,10 @@ export default function About() {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, x: -30, rotateY: -15 }}
+              animate={{ opacity: 1, x: 0, rotateY: 0 }}
+              transition={{ duration: 0.8 }}
+              style={{ perspective: '1000px' }}
             >
               <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-sm">
                 About Us
@@ -58,12 +77,22 @@ export default function About() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, x: 30, rotateY: 15, rotateZ: 10 }}
+              animate={{ opacity: 1, x: 0, rotateY: 0, rotateZ: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              whileHover={{ rotateY: 5, rotateZ: -5 }}
               className="flex justify-center"
+              style={{
+                perspective: '1000px',
+                filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))'
+              }}
             >
-              <AnimatedLogo size="xl" className="w-64 h-64" />
+              <motion.div
+                animate={{ y: [0, -20, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <AnimatedLogo size="xl" className="w-64 h-64" />
+              </motion.div>
             </motion.div>
           </div>
         </div>
