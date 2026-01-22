@@ -148,7 +148,7 @@ export default function AdminEnquiries() {
           </Card>
         </div>
 
-        <Card>
+        <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
           <CardHeader>
             <div className="flex flex-col md:flex-row gap-4">
               <div className="flex-1 relative">
@@ -157,17 +157,17 @@ export default function AdminEnquiries() {
                   placeholder="Search enquiries..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
                 />
               </div>
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {['All', 'Pending', 'Contacted', 'Converted'].map((status) => (
                   <Button
                     key={status}
                     size="sm"
                     variant={filterStatus === status ? 'default' : 'outline'}
                     onClick={() => setFilterStatus(status)}
-                    className={filterStatus === status ? 'bg-[#1A4D2E] hover:bg-[#2D6A4F]' : ''}
+                    className={filterStatus === status ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]' : 'border-[#40916C] text-gray-300'}
                   >
                     {status}
                   </Button>
@@ -180,7 +180,7 @@ export default function AdminEnquiries() {
               {filteredEnquiries.map((enquiry) => (
                 <div
                   key={enquiry.id}
-                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
+                  className="border border-[#2D6A4F]/50 bg-[#0A1F0A] rounded-lg p-4 hover:bg-[#2D6A4F]/10 transition-colors"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
