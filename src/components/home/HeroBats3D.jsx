@@ -245,7 +245,7 @@ export default function HeroBats3D() {
 
     // Create particle system
     const createParticles = () => {
-      const particleCount = 150;
+      const particleCount = 60;
       const geometry = new THREE.BufferGeometry();
       const positions = new Float32Array(particleCount * 3);
       const velocities = new Float32Array(particleCount * 3);
@@ -255,20 +255,20 @@ export default function HeroBats3D() {
         positions[i + 1] = (Math.random() - 0.5) * 8;
         positions[i + 2] = (Math.random() - 0.5) * 8;
 
-        velocities[i] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 1] = (Math.random() - 0.5) * 0.02;
-        velocities[i + 2] = (Math.random() - 0.5) * 0.02;
+        velocities[i] = (Math.random() - 0.5) * 0.008;
+        velocities[i + 1] = (Math.random() - 0.5) * 0.008;
+        velocities[i + 2] = (Math.random() - 0.5) * 0.008;
       }
 
       geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
       geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
 
       const material = new THREE.PointsMaterial({
-        size: 0.08,
+        size: 0.06,
         color: 0xD4AF37,
         sizeAttenuation: true,
         transparent: true,
-        opacity: 0.6,
+        opacity: 0.4,
       });
 
       const particles = new THREE.Points(geometry, material);
@@ -384,11 +384,11 @@ export default function HeroBats3D() {
 
     const animate = () => {
       animationFrameId = requestAnimationFrame(animate);
-      time += 0.004;
+      time += 0.002;
 
       // Rotate group continuously
       if (!controlsRef.current.isDragging) {
-        group.rotation.y += 0.001;
+        group.rotation.y += 0.0005;
         controlsRef.current.rotation.y = group.rotation.y;
       }
 
@@ -409,13 +409,13 @@ export default function HeroBats3D() {
       // Animate equipment and trophies
       group.children.forEach(child => {
         if (child.userData.type === 'equipment') {
-          child.rotation.x += 0.003;
-          child.rotation.z += 0.002;
-          child.position.y += Math.sin(time * 1.5 + child.position.x) * 0.001;
+          child.rotation.x += 0.0012;
+          child.rotation.z += 0.0008;
+          child.position.y += Math.sin(time * 0.6 + child.position.x) * 0.0003;
         } else if (child.userData.type === 'trophy') {
-          child.rotation.y += 0.01;
-          child.position.y += Math.sin(time + child.position.x) * 0.002;
-          child.position.z += Math.cos(time * 0.8) * 0.0005;
+          child.rotation.y += 0.004;
+          child.position.y += Math.sin(time * 0.4 + child.position.x) * 0.0008;
+          child.position.z += Math.cos(time * 0.3) * 0.0002;
         }
       });
 
