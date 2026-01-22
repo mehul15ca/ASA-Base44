@@ -242,20 +242,22 @@ export default function HeroBats3D() {
       animationFrameId = requestAnimationFrame(animate);
       time += 0.004;
 
-      // Cricket bat - slow rotating swing motion
+      // Cricket bat - slow realistic swing motion
       if (batsRef.current[0]) {
         const cricketBatMesh = batsRef.current[0].mesh;
-        cricketBatMesh.rotation.z = Math.PI / 6 + Math.sin(time * 0.5) * 0.4;
-        cricketBatMesh.position.x = -2 + Math.sin(time * 0.3) * 0.3;
-        cricketBatMesh.position.y = 0.5 + Math.cos(time * 0.4) * 0.2;
+        const swingAngle = Math.sin(time * 0.3) * 0.35;
+        cricketBatMesh.rotation.z = Math.PI / 7 + swingAngle;
+        cricketBatMesh.position.x = -1.8 + Math.sin(time * 0.25) * 0.25;
+        cricketBatMesh.position.y = 0.2 + Math.cos(time * 0.35) * 0.15;
       }
 
-      // Baseball bat - slower rotating motion with different phase
+      // Baseball bat - slow batting motion with different timing
       if (batsRef.current[1]) {
         const baseballBatMesh = batsRef.current[1].mesh;
-        baseballBatMesh.rotation.z = -Math.PI / 5 + Math.sin(time * 0.35 + Math.PI) * 0.35;
-        baseballBatMesh.position.x = 2 + Math.sin(time * 0.25 + Math.PI) * 0.3;
-        baseballBatMesh.position.y = -0.3 + Math.cos(time * 0.3 + Math.PI) * 0.2;
+        const swingAngle = Math.sin(time * 0.28 + Math.PI * 1.2) * 0.3;
+        baseballBatMesh.rotation.z = -Math.PI / 6 + swingAngle;
+        baseballBatMesh.position.x = 1.8 + Math.sin(time * 0.22 + Math.PI * 1.2) * 0.25;
+        baseballBatMesh.position.y = -0.1 + Math.cos(time * 0.3 + Math.PI * 1.2) * 0.15;
       }
 
       // Subtle camera movement
