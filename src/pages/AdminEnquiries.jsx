@@ -212,15 +212,15 @@ export default function AdminEnquiries() {
                       <DialogTrigger asChild>
                         <Button 
                           size="sm"
-                          className="bg-[#1A4D2E] hover:bg-[#2D6A4F] ml-4"
+                          className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:opacity-90 ml-4"
                           onClick={() => setSelectedEnquiry(enquiry)}
                         >
                           Manage
                         </Button>
                       </DialogTrigger>
-                      <DialogContent>
+                      <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
                         <DialogHeader>
-                          <DialogTitle>Manage Enquiry</DialogTitle>
+                          <DialogTitle className="text-white">Manage Enquiry</DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4 mt-4">
                           <div>
