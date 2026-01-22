@@ -54,30 +54,69 @@ export default function HeroBats3D() {
     const createCricketBat = () => {
       const group = new THREE.Group();
       
-      // Blade
-      const bladeGeometry = new THREE.BoxGeometry(0.6, 2.5, 0.08);
+      // Main blade with proper thickness gradient
+      const bladeGeometry = new THREE.BoxGeometry(0.7, 2.8, 0.12);
       const bladeMaterial = new THREE.MeshStandardMaterial({
-        color: 0xD2B48C,
-        roughness: 0.4,
-        metalness: 0.1,
+        color: 0xC19A6B,
+        roughness: 0.6,
+        metalness: 0.0,
+        map: createWoodTexture(),
       });
       const blade = new THREE.Mesh(bladeGeometry, bladeMaterial);
       blade.castShadow = true;
       blade.receiveShadow = true;
+      blade.position.y = 0.5;
       group.add(blade);
 
-      // Handle
-      const handleGeometry = new THREE.CylinderGeometry(0.08, 0.06, 0.8, 16);
+      // Toe (bottom part of blade)
+      const toeGeometry = new THREE.BoxGeometry(0.7, 0.3, 0.12);
+      const toeMaterial = new THREE.MeshStandardMaterial({
+        color: 0x8B6914,
+        roughness: 0.7,
+        metalness: 0.0,
+      });
+      const toe = new THREE.Mesh(toeGeometry, toeMaterial);
+      toe.position.y = -1.45;
+      toe.castShadow = true;
+      toe.receiveShadow = true;
+      group.add(toe);
+
+      // Handle (grip)
+      const handleGeometry = new THREE.CylinderGeometry(0.095, 0.075, 0.9, 16);
       const handleMaterial = new THREE.MeshStandardMaterial({
-        color: 0x2D2D2D,
-        roughness: 0.3,
-        metalness: 0.2,
+        color: 0x1a1a1a,
+        roughness: 0.5,
+        metalness: 0.1,
       });
       const handle = new THREE.Mesh(handleGeometry, handleMaterial);
-      handle.position.y = -1.5;
+      handle.position.y = -1.6;
       handle.castShadow = true;
       handle.receiveShadow = true;
       group.add(handle);
+
+      // Handle grip texture
+      const gripGeometry = new THREE.CylinderGeometry(0.098, 0.078, 0.85, 16);
+      const gripMaterial = new THREE.MeshStandardMaterial({
+        color: 0x333333,
+        roughness: 0.8,
+        metalness: 0.0,
+      });
+      const grip = new THREE.Mesh(gripGeometry, gripMaterial);
+      grip.position.y = -1.6;
+      grip.position.z = 0.01;
+      group.add(grip);
+
+      // Pommel (end of handle)
+      const pommelGeometry = new THREE.SphereGeometry(0.08, 16, 16);
+      const pommelMaterial = new THREE.MeshStandardMaterial({
+        color: 0x0a0a0a,
+        roughness: 0.4,
+      });
+      const pommel = new THREE.Mesh(pommelGeometry, pommelMaterial);
+      pommel.position.y = -2.1;
+      pommel.castShadow = true;
+      pommel.receiveShadow = true;
+      group.add(pommel);
 
       return group;
     };
