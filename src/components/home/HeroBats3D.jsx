@@ -223,14 +223,14 @@ export default function HeroBats3D() {
 
     // Add bats to scene
     const cricketBat = createCricketBat();
-    cricketBat.position.set(-2, 0.5, 0);
-    cricketBat.rotation.z = Math.PI / 6;
+    cricketBat.position.set(-1.8, 0.2, 0);
+    cricketBat.rotation.z = Math.PI / 7;
     scene.add(cricketBat);
     batsRef.current.push({ mesh: cricketBat, type: 'cricket' });
 
     const baseballBat = createBaseballBat();
-    baseballBat.position.set(2, -0.3, 0);
-    baseballBat.rotation.z = -Math.PI / 5;
+    baseballBat.position.set(1.8, -0.1, 0);
+    baseballBat.rotation.z = -Math.PI / 6;
     scene.add(baseballBat);
     batsRef.current.push({ mesh: baseballBat, type: 'baseball' });
 
