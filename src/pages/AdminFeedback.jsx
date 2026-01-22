@@ -68,49 +68,49 @@ export default function AdminFeedback() {
 
   return (
     <AdminLayout currentPageName="AdminFeedback">
-      <div className="space-y-6">
+      <div className="p-8 space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Student Feedback</h1>
-            <p className="text-gray-500 mt-1">View and respond to student feedback</p>
+            <h1 className="text-3xl font-bold text-white">Student Feedback</h1>
+            <p className="text-gray-400 mt-1">View and respond to student feedback</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500">Total Feedback</CardTitle>
+              <CardTitle className="text-sm font-medium text-gray-400">Total Feedback</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-900">{feedbacks.length}</p>
+              <p className="text-3xl font-bold text-white">{feedbacks.length}</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500">Average Rating</CardTitle>
+              <CardTitle className="text-sm font-medium text-gray-400">Average Rating</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="flex items-center gap-2">
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-3xl font-bold text-white">
                   {(feedbacks.reduce((sum, f) => sum + f.rating, 0) / feedbacks.length).toFixed(1)}
                 </p>
                 <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500">Pending Replies</CardTitle>
+              <CardTitle className="text-sm font-medium text-gray-400">Pending Replies</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-900">
+              <p className="text-3xl font-bold text-white">
                 {feedbacks.filter(f => f.status === 'Pending').length}
               </p>
             </CardContent>
           </Card>
         </div>
 
-        <Card>
+        <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
           <CardHeader>
             <div className="flex items-center gap-4">
               <div className="flex-1 relative">
@@ -119,7 +119,7 @@ export default function AdminFeedback() {
                   placeholder="Search feedback..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10"
+                  className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
                 />
               </div>
             </div>
@@ -129,25 +129,25 @@ export default function AdminFeedback() {
               {filteredFeedbacks.map((feedback) => (
                 <div
                   key={feedback.id}
-                  className="border rounded-lg p-4 hover:bg-gray-50 transition-colors"
+                  className="border border-[#2D6A4F]/50 rounded-lg p-4 hover:bg-[#2D6A4F]/10 transition-colors"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-semibold text-gray-900">{feedback.studentName}</h3>
-                        <Badge variant="outline" className="text-xs">{feedback.studentId}</Badge>
-                        <Badge variant="outline" className="text-xs">{feedback.category}</Badge>
+                      <div className="flex items-center gap-3 mb-2 flex-wrap">
+                        <h3 className="font-semibold text-white">{feedback.studentName}</h3>
+                        <Badge variant="outline" className="text-xs border-[#40916C] text-gray-300">{feedback.studentId}</Badge>
+                        <Badge variant="outline" className="text-xs border-[#40916C] text-gray-300">{feedback.category}</Badge>
                         {renderStars(feedback.rating)}
                       </div>
-                      <p className="text-sm text-gray-600 mb-2">{feedback.message}</p>
+                      <p className="text-sm text-gray-300 mb-2">{feedback.message}</p>
                       {feedback.reply && (
-                        <div className="bg-blue-50 p-3 rounded-lg mt-3">
-                          <p className="text-xs font-medium text-blue-900 mb-1">Your Reply:</p>
-                          <p className="text-sm text-blue-800">{feedback.reply}</p>
+                        <div className="bg-[#0A1F0A] border border-[#2D6A4F] p-3 rounded-lg mt-3">
+                          <p className="text-xs font-medium text-[#D4AF37] mb-1">Your Reply:</p>
+                          <p className="text-sm text-gray-300">{feedback.reply}</p>
                         </div>
                       )}
                       <div className="flex items-center gap-3 mt-3">
-                        <span className="text-xs text-gray-500">{feedback.date}</span>
+                        <span className="text-xs text-gray-400">{feedback.date}</span>
                         <Badge className={feedback.status === 'Replied' ? 'bg-green-500' : 'bg-yellow-500'}>
                           {feedback.status}
                         </Badge>
@@ -158,6 +158,7 @@ export default function AdminFeedback() {
                         <Button 
                           size="sm" 
                           variant="outline"
+                          className="border-[#40916C] text-gray-300"
                           onClick={() => {
                             setSelectedFeedback(feedback);
                             setReplyText(feedback.reply || '');
@@ -166,35 +167,36 @@ export default function AdminFeedback() {
                           {feedback.status === 'Replied' ? <Eye className="w-4 h-4" /> : <Reply className="w-4 h-4" />}
                         </Button>
                       </DialogTrigger>
-                      <DialogContent>
+                      <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
                         <DialogHeader>
-                          <DialogTitle>Feedback Details</DialogTitle>
+                          <DialogTitle className="text-white">Feedback Details</DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4 mt-4">
                           <div>
-                            <label className="text-sm font-medium text-gray-700">Student</label>
-                            <p className="text-sm text-gray-900 mt-1">{feedback.studentName} ({feedback.studentId})</p>
+                            <label className="text-sm font-medium text-gray-400">Student</label>
+                            <p className="text-sm text-white mt-1">{feedback.studentName} ({feedback.studentId})</p>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700">Rating</label>
+                            <label className="text-sm font-medium text-gray-400">Rating</label>
                             <div className="mt-1">{renderStars(feedback.rating)}</div>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700">Message</label>
-                            <p className="text-sm text-gray-900 mt-1">{feedback.message}</p>
+                            <label className="text-sm font-medium text-gray-400">Message</label>
+                            <p className="text-sm text-gray-300 mt-1">{feedback.message}</p>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700 mb-2 block">Reply</label>
+                            <label className="text-sm font-medium text-gray-400 mb-2 block">Reply</label>
                             <Textarea
                               placeholder="Type your reply..."
                               rows={4}
                               value={replyText}
                               onChange={(e) => setReplyText(e.target.value)}
+                              className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
                             />
                           </div>
                           <div className="flex justify-end gap-3">
-                            <Button variant="outline">Cancel</Button>
-                            <Button className="bg-[#1A4D2E] hover:bg-[#2D6A4F]">
+                            <Button variant="outline" className="border-[#40916C] text-gray-300">Cancel</Button>
+                            <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
                               Send Reply
                             </Button>
                           </div>
