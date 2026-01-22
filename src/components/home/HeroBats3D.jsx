@@ -168,83 +168,52 @@ export default function HeroBats3D() {
       return group;
     };
 
-    // Create Baseball Bat
+    // Create Baseball Bat with realistic proportions
     const createBaseballBat = () => {
       const group = new THREE.Group();
       
-      // Barrel (tapered cylinder using lathe)
-      const points = [];
-      for (let i = 0; i <= 20; i++) {
-        const radius = 0.125 - (i / 20) * 0.035;
-        points.push(new THREE.Vector2(radius, (i / 20) * 2.8 - 1.4));
+      // Barrel - smooth tapered cylinder like real bat
+      const barrelPoints = [];
+      for (let i = 0; i <= 25; i++) {
+        const progress = i / 25;
+        const radius = 0.09 - (progress * progress) * 0.05;
+        barrelPoints.push(new THREE.Vector2(radius, progress * 3.0 - 1.5));
       }
-      const barrelGeometry = new THREE.LatheGeometry(points, 32);
+      const barrelGeometry = new THREE.LatheGeometry(barrelPoints, 48);
+      const metalTexture = createMetalTexture();
       const barrelMaterial = new THREE.MeshStandardMaterial({
-        color: 0xE84C3D,
-        roughness: 0.35,
-        metalness: 0.6,
-        map: createMetalTexture(),
+        color: 0xC4663D,
+        roughness: 0.25,
+        metalness: 0.8,
+        map: metalTexture,
       });
       const barrel = new THREE.Mesh(barrelGeometry, barrelMaterial);
       barrel.castShadow = true;
       barrel.receiveShadow = true;
-      barrel.scale.set(1, 1, 1);
       group.add(barrel);
 
-      // Barrel seams (horizontal lines for realism)
-      for (let i = 0; i < 3; i++) {
-        const seamGeometry = new THREE.TorusGeometry(0.127, 0.002, 8, 32);
-        const seamMaterial = new THREE.MeshStandardMaterial({
-          color: 0x8B3A2B,
-          roughness: 0.6,
-          metalness: 0.3,
-        });
-        const seam = new THREE.Mesh(seamGeometry, seamMaterial);
-        seam.position.y = -0.9 + i * 0.9;
-        seam.rotation.x = Math.PI / 2;
-        group.add(seam);
-      }
-
-      // Taper section (handle)
-      const taperPoints = [];
-      for (let i = 0; i <= 10; i++) {
-        const radius = 0.09 - (i / 10) * 0.04;
-        taperPoints.push(new THREE.Vector2(radius, (i / 10) * 0.7 - 1.4));
-      }
-      const taperGeometry = new THREE.LatheGeometry(taperPoints, 32);
-      const taperMaterial = new THREE.MeshStandardMaterial({
-        color: 0xC0392B,
-        roughness: 0.4,
-        metalness: 0.5,
-      });
-      const taper = new THREE.Mesh(taperGeometry, taperMaterial);
-      taper.position.y = -1.05;
-      taper.castShadow = true;
-      taper.receiveShadow = true;
-      group.add(taper);
-
-      // Handle grip
-      const handleGeometry = new THREE.CylinderGeometry(0.055, 0.05, 0.6, 32);
-      const handleMaterial = new THREE.MeshStandardMaterial({
+      // Handle grip area - matte black rubber
+      const gripGeometry = new THREE.CylinderGeometry(0.055, 0.048, 0.7, 32);
+      const gripMaterial = new THREE.MeshStandardMaterial({
         color: 0x1A1A1A,
-        roughness: 0.7,
+        roughness: 0.85,
         metalness: 0.0,
       });
-      const handle = new THREE.Mesh(handleGeometry, handleMaterial);
-      handle.position.y = -1.5;
-      handle.castShadow = true;
-      handle.receiveShadow = true;
-      group.add(handle);
+      const grip = new THREE.Mesh(gripGeometry, gripMaterial);
+      grip.position.y = -1.5;
+      grip.castShadow = true;
+      grip.receiveShadow = true;
+      group.add(grip);
 
-      // Knob
-      const knobGeometry = new THREE.SphereGeometry(0.065, 32, 32);
+      // Knob at end of handle
+      const knobGeometry = new THREE.SphereGeometry(0.06, 32, 32);
       const knobMaterial = new THREE.MeshStandardMaterial({
-        color: 0x0a0a0a,
-        roughness: 0.5,
-        metalness: 0.2,
+        color: 0x0D0D0D,
+        roughness: 0.6,
+        metalness: 0.05,
       });
       const knob = new THREE.Mesh(knobGeometry, knobMaterial);
-      knob.position.y = -1.8;
+      knob.position.y = -1.9;
       knob.castShadow = true;
       knob.receiveShadow = true;
       group.add(knob);
