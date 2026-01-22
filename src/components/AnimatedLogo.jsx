@@ -18,7 +18,7 @@ export default function AnimatedLogo({ className = "", size = "md" }) {
     >
       {/* Logo image */}
       <motion.img
-        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/cdb24a0ea_ChatGPTImageJan13202607_16_18PM.png"
+        src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/5b27000e7_updatedlogo.png"
         alt="Australasia Sports Academy"
         className="relative z-10 w-full h-full object-contain drop-shadow-2xl"
         animate={{
