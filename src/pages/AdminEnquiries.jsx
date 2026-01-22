@@ -93,11 +93,11 @@ export default function AdminEnquiries() {
 
   return (
     <AdminLayout currentPageName="AdminEnquiries">
-      <div className="space-y-6">
+      <div className="p-8 space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Enquiries</h1>
-            <p className="text-gray-500 mt-1">Manage admission enquiries and leads</p>
+            <h1 className="text-3xl font-bold text-white">Enquiries</h1>
+            <p className="text-gray-400 mt-1">Manage admission enquiries and leads</p>
           </div>
         </div>
 
