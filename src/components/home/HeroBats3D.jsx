@@ -103,70 +103,64 @@ export default function HeroBats3D() {
       return new THREE.CanvasTexture(canvas);
     }
 
-    // Create Cricket Bat
+    // Create Cricket Bat with realistic proportions
     const createCricketBat = () => {
       const group = new THREE.Group();
       
-      // Main blade with proper thickness gradient
-      const bladeGeometry = new THREE.BoxGeometry(0.7, 2.8, 0.12);
+      // Main blade - wider and flatter like real cricket bat
+      const bladeGeometry = new THREE.BoxGeometry(0.95, 3.2, 0.08);
+      const woodTexture = createWoodTexture();
       const bladeMaterial = new THREE.MeshStandardMaterial({
-        color: 0xC19A6B,
-        roughness: 0.6,
+        color: 0xD4AF7A,
+        roughness: 0.5,
         metalness: 0.0,
-        map: createWoodTexture(),
+        map: woodTexture,
       });
       const blade = new THREE.Mesh(bladeGeometry, bladeMaterial);
       blade.castShadow = true;
       blade.receiveShadow = true;
-      blade.position.y = 0.5;
       group.add(blade);
 
-      // Toe (bottom part of blade)
-      const toeGeometry = new THREE.BoxGeometry(0.7, 0.3, 0.12);
+      // Toe area - darker wood at the bottom
+      const toeGeometry = new THREE.BoxGeometry(0.95, 0.4, 0.08);
       const toeMaterial = new THREE.MeshStandardMaterial({
-        color: 0x8B6914,
-        roughness: 0.7,
+        color: 0xA0826D,
+        roughness: 0.55,
         metalness: 0.0,
       });
       const toe = new THREE.Mesh(toeGeometry, toeMaterial);
-      toe.position.y = -1.45;
+      toe.position.y = -1.8;
       toe.castShadow = true;
       toe.receiveShadow = true;
       group.add(toe);
 
-      // Handle (grip)
-      const handleGeometry = new THREE.CylinderGeometry(0.095, 0.075, 0.9, 16);
+      // Handle - tapered cylinder
+      const handlePoints = [];
+      for (let i = 0; i <= 8; i++) {
+        const progress = i / 8;
+        const radius = 0.07 - progress * 0.02;
+        handlePoints.push(new THREE.Vector2(radius, i * 0.15 - 1.3));
+      }
+      const handleGeometry = new THREE.LatheGeometry(handlePoints, 16);
       const handleMaterial = new THREE.MeshStandardMaterial({
-        color: 0x1a1a1a,
-        roughness: 0.5,
-        metalness: 0.1,
+        color: 0x2C2C2C,
+        roughness: 0.6,
+        metalness: 0.0,
       });
       const handle = new THREE.Mesh(handleGeometry, handleMaterial);
-      handle.position.y = -1.6;
       handle.castShadow = true;
       handle.receiveShadow = true;
       group.add(handle);
 
-      // Handle grip texture
-      const gripGeometry = new THREE.CylinderGeometry(0.098, 0.078, 0.85, 16);
-      const gripMaterial = new THREE.MeshStandardMaterial({
-        color: 0x333333,
-        roughness: 0.8,
-        metalness: 0.0,
-      });
-      const grip = new THREE.Mesh(gripGeometry, gripMaterial);
-      grip.position.y = -1.6;
-      grip.position.z = 0.01;
-      group.add(grip);
-
-      // Pommel (end of handle)
-      const pommelGeometry = new THREE.SphereGeometry(0.08, 16, 16);
+      // Pommel knob
+      const pommelGeometry = new THREE.SphereGeometry(0.075, 32, 32);
       const pommelMaterial = new THREE.MeshStandardMaterial({
-        color: 0x0a0a0a,
-        roughness: 0.4,
+        color: 0x1a1a1a,
+        roughness: 0.5,
+        metalness: 0.1,
       });
       const pommel = new THREE.Mesh(pommelGeometry, pommelMaterial);
-      pommel.position.y = -2.1;
+      pommel.position.y = -2.2;
       pommel.castShadow = true;
       pommel.receiveShadow = true;
       group.add(pommel);
