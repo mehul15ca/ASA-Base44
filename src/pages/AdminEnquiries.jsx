@@ -102,48 +102,48 @@ export default function AdminEnquiries() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" />
                 Total Enquiries
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-gray-900">{enquiries.length}</p>
+              <p className="text-3xl font-bold text-white">{enquiries.length}</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
                 <Clock className="w-4 h-4" />
                 Pending
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-yellow-600">{statusCounts.Pending}</p>
+              <p className="text-3xl font-bold text-yellow-500">{statusCounts.Pending}</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
                 <Phone className="w-4 h-4" />
                 Contacted
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-blue-600">{statusCounts.Contacted}</p>
+              <p className="text-3xl font-bold text-blue-500">{statusCounts.Contacted}</p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
             <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-500 flex items-center gap-2">
+              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
                 <CheckCircle className="w-4 h-4" />
                 Converted
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-green-600">{statusCounts.Converted}</p>
+              <p className="text-3xl font-bold text-green-500">{statusCounts.Converted}</p>
             </CardContent>
           </Card>
         </div>
