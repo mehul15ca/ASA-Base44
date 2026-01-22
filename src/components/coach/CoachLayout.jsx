@@ -64,16 +64,17 @@ export default function CoachLayout({ children, currentPageName }) {
         <nav className="flex-1 overflow-y-auto p-4">
           {menuItems.map((item, index) => {
             const Icon = item.icon;
-            const isActive = currentPageName === item.path;
+            const isActive = currentPath === item.path || currentPageName === item.path;
             return (
               <Link key={item.path} to={createPageUrl(item.path)}>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
+                  whileHover={{ x: 4 }}
                   className={`flex items-center gap-3 px-4 py-3 mb-2 rounded-lg transition-all ${
                     isActive
-                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]'
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] shadow-lg'
                       : 'text-gray-300 hover:bg-[#2D6A4F]/20'
                   }`}
                 >
