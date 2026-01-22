@@ -89,7 +89,6 @@ export default function Portal() {
               <p><strong>Admin:</strong> admin / admin123</p>
               <p><strong>Coach:</strong> coach / coach123</p>
               <p><strong>Student:</strong> student / student123</p>
-              <p><strong>SuperAdmin:</strong> superadmin / super123</p>
             </div>
           </div>
 
