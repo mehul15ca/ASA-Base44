@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Star, Users, ChevronDown, ChevronUp, Calendar, Play } from 'lucide-react';
+import { Award, Star, Users, ChevronDown, ChevronUp, Calendar, Play, Trophy } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
