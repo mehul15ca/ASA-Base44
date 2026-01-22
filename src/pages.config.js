@@ -5,6 +5,7 @@ import AdminBatches from './pages/AdminBatches';
 import AdminCoaches from './pages/AdminCoaches';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminEnquiries from './pages/AdminEnquiries';
+import AdminEnrollment from './pages/AdminEnrollment';
 import AdminFeedback from './pages/AdminFeedback';
 import AdminFinance from './pages/AdminFinance';
 import AdminGrounds from './pages/AdminGrounds';
@@ -19,9 +20,13 @@ import BookDemo from './pages/BookDemo';
 import CoachAnnouncements from './pages/CoachAnnouncements';
 import CoachAttendance from './pages/CoachAttendance';
 import CoachDashboard from './pages/CoachDashboard';
+import CoachEnrollment from './pages/CoachEnrollment';
+import CoachInjuries from './pages/CoachInjuries';
 import CoachNotes from './pages/CoachNotes';
 import CoachProfile from './pages/CoachProfile';
+import CoachSalary from './pages/CoachSalary';
 import CoachSessions from './pages/CoachSessions';
+import CoachStudents from './pages/CoachStudents';
 import Coaches from './pages/Coaches';
 import Contact from './pages/Contact';
 import ForgotPassword from './pages/ForgotPassword';
@@ -30,9 +35,15 @@ import Home from './pages/Home';
 import Portal from './pages/Portal';
 import Programs from './pages/Programs';
 import Registration from './pages/Registration';
+import StoreDashboard from './pages/StoreDashboard';
+import StoreInventory from './pages/StoreInventory';
+import StoreOrders from './pages/StoreOrders';
+import StoreProducts from './pages/StoreProducts';
+import StoreShipping from './pages/StoreShipping';
 import StudentAnnouncements from './pages/StudentAnnouncements';
 import StudentAttendance from './pages/StudentAttendance';
 import StudentDashboard from './pages/StudentDashboard';
+import StudentEnrollment from './pages/StudentEnrollment';
 import StudentEvaluations from './pages/StudentEvaluations';
 import StudentFees from './pages/StudentFees';
 import StudentInjuries from './pages/StudentInjuries';
@@ -49,17 +60,6 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import CoachStudents from './pages/CoachStudents';
-import CoachInjuries from './pages/CoachInjuries';
-import CoachSalary from './pages/CoachSalary';
-import StoreDashboard from './pages/StoreDashboard';
-import StoreProducts from './pages/StoreProducts';
-import StoreInventory from './pages/StoreInventory';
-import StoreOrders from './pages/StoreOrders';
-import StoreShipping from './pages/StoreShipping';
-import StudentEnrollment from './pages/StudentEnrollment';
-import CoachEnrollment from './pages/CoachEnrollment';
-import AdminEnrollment from './pages/AdminEnrollment';
 import __Layout from './Layout.jsx';
 
 
@@ -71,6 +71,7 @@ export const PAGES = {
     "AdminCoaches": AdminCoaches,
     "AdminDashboard": AdminDashboard,
     "AdminEnquiries": AdminEnquiries,
+    "AdminEnrollment": AdminEnrollment,
     "AdminFeedback": AdminFeedback,
     "AdminFinance": AdminFinance,
     "AdminGrounds": AdminGrounds,
@@ -85,9 +86,13 @@ export const PAGES = {
     "CoachAnnouncements": CoachAnnouncements,
     "CoachAttendance": CoachAttendance,
     "CoachDashboard": CoachDashboard,
+    "CoachEnrollment": CoachEnrollment,
+    "CoachInjuries": CoachInjuries,
     "CoachNotes": CoachNotes,
     "CoachProfile": CoachProfile,
+    "CoachSalary": CoachSalary,
     "CoachSessions": CoachSessions,
+    "CoachStudents": CoachStudents,
     "Coaches": Coaches,
     "Contact": Contact,
     "ForgotPassword": ForgotPassword,
@@ -96,9 +101,15 @@ export const PAGES = {
     "Portal": Portal,
     "Programs": Programs,
     "Registration": Registration,
+    "StoreDashboard": StoreDashboard,
+    "StoreInventory": StoreInventory,
+    "StoreOrders": StoreOrders,
+    "StoreProducts": StoreProducts,
+    "StoreShipping": StoreShipping,
     "StudentAnnouncements": StudentAnnouncements,
     "StudentAttendance": StudentAttendance,
     "StudentDashboard": StudentDashboard,
+    "StudentEnrollment": StudentEnrollment,
     "StudentEvaluations": StudentEvaluations,
     "StudentFees": StudentFees,
     "StudentInjuries": StudentInjuries,
@@ -115,17 +126,6 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "CoachStudents": CoachStudents,
-    "CoachInjuries": CoachInjuries,
-    "CoachSalary": CoachSalary,
-    "StoreDashboard": StoreDashboard,
-    "StoreProducts": StoreProducts,
-    "StoreInventory": StoreInventory,
-    "StoreOrders": StoreOrders,
-    "StoreShipping": StoreShipping,
-    "StudentEnrollment": StudentEnrollment,
-    "CoachEnrollment": CoachEnrollment,
-    "AdminEnrollment": AdminEnrollment,
 }
 
 export const pagesConfig = {

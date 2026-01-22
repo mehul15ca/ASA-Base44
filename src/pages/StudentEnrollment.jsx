@@ -111,8 +111,12 @@ export default function StudentEnrollment() {
         className="max-w-4xl mx-auto mb-8 bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] rounded-xl p-6 shadow-lg"
       >
         <div className="flex items-center justify-between">
-          <div className="w-32 h-20 bg-[#D4AF37] rounded-lg flex items-center justify-center">
-            <span className="text-[#0A1F0A] font-bold text-2xl">ASA</span>
+          <div className="w-32 h-20 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=200&h=100&fit=crop" 
+              alt="ASA Logo" 
+              className="w-full h-full object-contain p-2"
+            />
           </div>
           <div className="text-right">
             <h1 className="text-3xl font-bold text-white">Australasia Sports Academy</h1>
