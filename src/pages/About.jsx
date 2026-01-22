@@ -180,14 +180,15 @@ export default function About() {
             <div className="space-y-12">
               {milestones.map((milestone, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className={`flex flex-col md:flex-row items-center gap-8 ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, rotateY: index % 2 === 0 ? -25 : 25 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className={`flex flex-col md:flex-row items-center gap-8 ${
+                 index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                }`}
+                style={{ perspective: '1000px' }}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
                     <div className={`bg-[#1A4D2E]/50 border border-[#2D6A4F]/30 rounded-2xl p-6 inline-block ${
