@@ -153,7 +153,60 @@ export default function AdminSettings() {
                     <Label htmlFor="emailNotif" className="text-base text-gray-300">Email Notifications</Label>
                     <p className="text-sm text-gray-400 mt-1">Receive notifications via email</p>
                   </div>
-...
+                  <Switch
+                    id="emailNotif"
+                    checked={notifications.emailNotifications}
+                    onCheckedChange={(checked) => setNotifications({...notifications, emailNotifications: checked})}
+                  />
+                </div>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <Label htmlFor="smsNotif" className="text-base text-gray-300">SMS Notifications</Label>
+                    <p className="text-sm text-gray-400 mt-1">Receive notifications via SMS</p>
+                  </div>
+                  <Switch
+                    id="smsNotif"
+                    checked={notifications.smsNotifications}
+                    onCheckedChange={(checked) => setNotifications({...notifications, smsNotifications: checked})}
+                  />
+                </div>
+                <div className="border-t border-[#2D6A4F]/50 pt-6">
+                  <h3 className="font-medium text-white mb-4">Alert Preferences</h3>
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <Label htmlFor="absenceAlert" className="text-base text-gray-300">Student Absence Alerts</Label>
+                        <p className="text-sm text-gray-400 mt-1">Get notified when students are absent</p>
+                      </div>
+                      <Switch
+                        id="absenceAlert"
+                        checked={notifications.studentAbsenceAlert}
+                        onCheckedChange={(checked) => setNotifications({...notifications, studentAbsenceAlert: checked})}
+                      />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <Label htmlFor="feeAlert" className="text-base text-gray-300">Fee Reminder Alerts</Label>
+                        <p className="text-sm text-gray-400 mt-1">Get notified about pending fees</p>
+                      </div>
+                      <Switch
+                        id="feeAlert"
+                        checked={notifications.feeReminderAlert}
+                        onCheckedChange={(checked) => setNotifications({...notifications, feeReminderAlert: checked})}
+                      />
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <Label htmlFor="enquiryAlert" className="text-base text-gray-300">New Enquiry Alerts</Label>
+                        <p className="text-sm text-gray-400 mt-1">Get notified about new enquiries</p>
+                      </div>
+                      <Switch
+                        id="enquiryAlert"
+                        checked={notifications.newEnquiryAlert}
+                        onCheckedChange={(checked) => setNotifications({...notifications, newEnquiryAlert: checked})}
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="flex justify-end pt-4">
                   <Button onClick={handleSaveNotifications} className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
