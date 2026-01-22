@@ -40,29 +40,29 @@ export default function ProgramsPreview() {
         }} />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-sm">
-            Training Programs
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            Path To <span className="text-[#40916C]">Excellence</span>
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-            Choose from our comprehensive training programs designed to develop 
-            well-rounded athletes ready for competitive success.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+         {/* Section header */}
+         <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6 }}
+           className="text-center mb-12 sm:mb-16"
+         >
+           <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-xs sm:text-sm">
+             Training Programs
+           </span>
+           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mt-3 sm:mt-4 mb-4 sm:mb-6">
+             Path To <span className="text-[#40916C]">Excellence</span>
+           </h2>
+           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2">
+             Choose from our comprehensive training programs designed to develop 
+             well-rounded athletes ready for competitive success.
+           </p>
+         </motion.div>
 
-        {/* Programs grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
+         {/* Programs grid */}
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {programs.map((program, index) => (
             <motion.div
               key={index}
@@ -74,48 +74,48 @@ export default function ProgramsPreview() {
               className="group"
               style={{ perspective: "1200px" }}
             >
-              <div className="bg-gradient-to-b from-[#1A4D2E]/30 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#2D6A4F]/20">
+              <div className="bg-gradient-to-b from-[#1A4D2E]/30 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-2xl sm:rounded-3xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#2D6A4F]/20">
                 {/* Image */}
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
                   <img 
                     src={program.image} 
                     alt={program.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${program.color} to-transparent opacity-60`} />
-                  
+
                   {/* Floating badge */}
-                  <div className="absolute top-4 right-4 bg-[#D4AF37] text-[#0A1F0A] px-4 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-[#D4AF37] text-[#0A1F0A] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
                     Popular
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#D4AF37] transition-colors">
+                <div className="p-5 sm:p-6 md:p-8">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-[#D4AF37] transition-colors">
                     {program.title}
                   </h3>
-                  <p className="text-gray-400 mb-6 leading-relaxed">
+                  <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                     {program.description}
                   </p>
 
                   {/* Features */}
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                     {program.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center text-gray-300">
-                        <CircleDot className="w-4 h-4 text-[#40916C] mr-3 flex-shrink-0" />
+                      <li key={fIndex} className="flex items-center text-gray-300 text-sm sm:text-base">
+                        <CircleDot className="w-3 sm:w-4 h-3 sm:h-4 text-[#40916C] mr-2 sm:mr-3 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
 
                   {/* CTA */}
-                  <Link to={createPageUrl('Programs')}>
+                  <Link to={createPageUrl('Programs')} className="block">
                     <Button 
-                      className="w-full bg-transparent border border-[#40916C] text-[#40916C] hover:bg-[#40916C] hover:text-white transition-all duration-300 rounded-full py-6"
+                      className="w-full bg-transparent border border-[#40916C] text-[#40916C] hover:bg-[#40916C] hover:text-white transition-all duration-300 rounded-full py-4 sm:py-6 text-sm sm:text-base"
                     >
                       Learn More
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="ml-2 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </Link>
                 </div>
@@ -130,15 +130,15 @@ export default function ProgramsPreview() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-10 sm:mt-12"
         >
-          <Link to={createPageUrl('Programs')}>
+          <Link to={createPageUrl('Programs')} className="inline-block">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-10 py-6 text-lg rounded-full shadow-lg shadow-[#D4AF37]/30"
+              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 sm:px-10 py-4 sm:py-6 text-sm sm:text-lg rounded-full shadow-lg shadow-[#D4AF37]/30"
             >
               View All Programs
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />
             </Button>
           </Link>
         </motion.div>
