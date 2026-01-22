@@ -61,8 +61,12 @@ export default function AdminEnrollment() {
       >
         <Card className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-[#2D6A4F]">
           <CardContent className="text-center py-8">
-            <div className="w-24 h-24 bg-[#D4AF37] rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-[#0A1F0A] font-bold text-3xl">ASA</span>
+            <div className="w-48 h-32 flex items-center justify-center mx-auto mb-4 overflow-hidden">
+              <img 
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/b31bf63c7_ChatGPTImageJan13202607_16_18PM.png" 
+                alt="ASA Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <h1 className="text-3xl font-bold text-white mb-2">Admin Enrollment Form</h1>
             <p className="text-gray-300">Australasia Sports Academy</p>

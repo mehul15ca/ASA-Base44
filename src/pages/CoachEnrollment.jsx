@@ -251,6 +251,20 @@ export default function CoachEnrollment() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="max-w-4xl mx-auto mb-6 flex justify-center items-center"
+      >
+        <div className="w-48 h-32 flex items-center justify-center overflow-hidden">
+          <img 
+            src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/b31bf63c7_ChatGPTImageJan13202607_16_18PM.png" 
+            alt="ASA Logo" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </motion.div>
+
       <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-6">
         {/* Authentication */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
