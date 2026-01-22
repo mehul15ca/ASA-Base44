@@ -3,15 +3,12 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import AnimatedLogo from '../AnimatedLogo';
-import Sports3DScene from './Sports3DScene';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E]">
-      {/* 3D Scene Background */}
-      <Sports3DScene />
       
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F0A]/80 via-transparent to-[#0A1F0A]/40" />
