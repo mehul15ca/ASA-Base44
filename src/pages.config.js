@@ -48,6 +48,7 @@ import AdminSalary from './pages/AdminSalary';
 import AdminSettings from './pages/AdminSettings';
 import CoachAnnouncements from './pages/CoachAnnouncements';
 import CoachNotes from './pages/CoachNotes';
+import CoachProfile from './pages/CoachProfile';
 import __Layout from './Layout.jsx';
 
 
@@ -102,6 +103,7 @@ export const PAGES = {
     "AdminSettings": AdminSettings,
     "CoachAnnouncements": CoachAnnouncements,
     "CoachNotes": CoachNotes,
+    "CoachProfile": CoachProfile,
 }
 
 export const pagesConfig = {
