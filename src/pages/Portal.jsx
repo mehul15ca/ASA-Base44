@@ -1,29 +1,59 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { LogIn, User, Lock, ArrowRight, ExternalLink } from 'lucide-react';
+import { LogIn, User, Lock, ArrowRight, ExternalLink, AlertCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
 
+// Mock credentials for testing
+const MOCK_CREDENTIALS = {
+  admin: { username: 'admin', password: 'admin123', role: 'Admin', redirect: 'AdminDashboard' },
+  coach: { username: 'coach', password: 'coach123', role: 'Coach', redirect: 'CoachDashboard' },
+  student: { username: 'student', password: 'student123', role: 'Student', redirect: 'StudentDashboard' },
+  superadmin: { username: 'superadmin', password: 'super123', role: 'SuperAdmin', redirect: 'SuperAdminDashboard' },
+};
+
 export default function Portal() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    setError('');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    // Handle login logic here
+    setError('');
+    
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Check credentials
+    const user = Object.values(MOCK_CREDENTIALS).find(
+      cred => cred.username === formData.username && cred.password === formData.password
+    );
+    
+    if (user) {
+      // Store user info in sessionStorage for persistence
+      sessionStorage.setItem('currentUser', JSON.stringify({
+        username: user.username,
+        role: user.role
+      }));
+      
+      // Redirect to appropriate dashboard
+      navigate(createPageUrl(user.redirect));
+    } else {
+      setError('Invalid username or password');
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -52,8 +82,30 @@ export default function Portal() {
             <p className="text-gray-400">Access your academy account</p>
           </div>
 
+          {/* Test Credentials Info */}
+          <div className="mb-6 p-4 bg-[#40916C]/10 border border-[#40916C]/30 rounded-lg">
+            <h3 className="text-sm font-semibold text-[#D4AF37] mb-2">Test Credentials:</h3>
+            <div className="space-y-1 text-xs text-gray-300">
+              <p><strong>Admin:</strong> admin / admin123</p>
+              <p><strong>Coach:</strong> coach / coach123</p>
+              <p><strong>Student:</strong> student / student123</p>
+              <p><strong>SuperAdmin:</strong> superadmin / super123</p>
+            </div>
+          </div>
+
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg"
+              >
+                <AlertCircle className="w-4 h-4 text-red-500" />
+                <span className="text-sm text-red-500">{error}</span>
+              </motion.div>
+            )}
+
             <div className="space-y-2">
               <Label className="text-gray-300 flex items-center gap-2">
                 <User className="w-4 h-4" />
