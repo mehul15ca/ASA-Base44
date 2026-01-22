@@ -98,18 +98,33 @@ export default function AdminEnquiries() {
     }
   ]);
 
-  const filteredEnquiries = enquiries.filter(e => {
-    const matchesSearch = e.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  const filteredDemoBookings = demoBookings.filter(e => {
+    const matchesSearch = e.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      e.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       e.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      e.sport.toLowerCase().includes(searchQuery.toLowerCase());
+      e.program.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = filterStatus === 'All' || e.status === filterStatus;
     return matchesSearch && matchesStatus;
   });
 
-  const statusCounts = {
-    Pending: enquiries.filter(e => e.status === 'Pending').length,
-    Contacted: enquiries.filter(e => e.status === 'Contacted').length,
-    Converted: enquiries.filter(e => e.status === 'Converted').length
+  const filteredContactForms = contactForms.filter(e => {
+    const matchesSearch = e.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      e.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      e.subject.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesStatus = filterStatus === 'All' || e.status === filterStatus;
+    return matchesSearch && matchesStatus;
+  });
+
+  const demoStatusCounts = {
+    Pending: demoBookings.filter(e => e.status === 'Pending').length,
+    Contacted: demoBookings.filter(e => e.status === 'Contacted').length,
+    Converted: demoBookings.filter(e => e.status === 'Converted').length
+  };
+
+  const contactStatusCounts = {
+    Pending: contactForms.filter(e => e.status === 'Pending').length,
+    Contacted: contactForms.filter(e => e.status === 'Contacted').length,
+    Converted: contactForms.filter(e => e.status === 'Converted').length
   };
 
   const getStatusColor = (status) => {
