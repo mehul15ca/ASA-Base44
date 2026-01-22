@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 export default function HeroBats3D() {
   const containerRef = useRef(null);
@@ -7,6 +8,7 @@ export default function HeroBats3D() {
   const cameraRef = useRef(null);
   const rendererRef = useRef(null);
   const batsRef = useRef([]);
+  const loaderRef = useRef(new GLTFLoader());
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -14,7 +16,6 @@ export default function HeroBats3D() {
     // Scene setup
     const scene = new THREE.Scene();
     scene.background = null;
-    scene.fog = new THREE.Fog(0x000000, 10, 20);
     sceneRef.current = scene;
 
     // Camera setup
@@ -24,7 +25,7 @@ export default function HeroBats3D() {
       0.1,
       1000
     );
-    camera.position.z = 5;
+    camera.position.z = 4;
     cameraRef.current = camera;
 
     // Renderer setup
@@ -32,6 +33,7 @@ export default function HeroBats3D() {
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFShadowShadowMap;
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
