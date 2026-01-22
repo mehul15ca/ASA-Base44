@@ -151,194 +151,437 @@ export default function AdminEnquiries() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-white">Enquiries</h1>
-            <p className="text-gray-400 mt-1">Manage admission enquiries and leads</p>
+            <p className="text-gray-400 mt-1">Manage demo bookings and contact forms</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
-                <MessageSquare className="w-4 h-4" />
-                Total Enquiries
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold text-white">{enquiries.length}</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                Pending
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold text-yellow-500">{statusCounts.Pending}</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                Contacted
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold text-blue-500">{statusCounts.Contacted}</p>
-            </CardContent>
-          </Card>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
-                <CheckCircle className="w-4 h-4" />
-                Converted
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold text-green-500">{statusCounts.Converted}</p>
-            </CardContent>
-          </Card>
-        </div>
+        <Tabs defaultValue="demo" className="space-y-6">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50">
+            <TabsTrigger value="demo" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#D4AF37] data-[state=active]:to-[#F4D03F] data-[state=active]:text-[#0A1F0A]">
+              <Calendar className="w-4 h-4 mr-2" />
+              Demo Class Bookings
+            </TabsTrigger>
+            <TabsTrigger value="contact" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#D4AF37] data-[state=active]:to-[#F4D03F] data-[state=active]:text-[#0A1F0A]">
+              <MessageSquare className="w-4 h-4 mr-2" />
+              Contact Us Forms
+            </TabsTrigger>
+          </TabsList>
 
-        <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-          <CardHeader>
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input
-                  placeholder="Search enquiries..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
-                />
-              </div>
-              <div className="flex gap-2 flex-wrap">
-                {['All', 'Pending', 'Contacted', 'Converted'].map((status) => (
-                  <Button
-                    key={status}
-                    size="sm"
-                    variant={filterStatus === status ? 'default' : 'outline'}
-                    onClick={() => setFilterStatus(status)}
-                    className={filterStatus === status ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]' : 'border-[#40916C] text-gray-300'}
-                  >
-                    {status}
-                  </Button>
-                ))}
-              </div>
+          {/* Demo Class Bookings Tab */}
+          <TabsContent value="demo" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <Calendar className="w-4 h-4" />
+                    Total Bookings
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-white">{demoBookings.length}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    Pending
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-yellow-500">{demoStatusCounts.Pending}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    Contacted
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-blue-500">{demoStatusCounts.Contacted}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4" />
+                    Converted
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-green-500">{demoStatusCounts.Converted}</p>
+                </CardContent>
+              </Card>
             </div>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              {filteredEnquiries.map((enquiry) => (
-                <div
-                  key={enquiry.id}
-                  className="border border-[#2D6A4F]/50 bg-[#0A1F0A] rounded-lg p-4 hover:bg-[#2D6A4F]/10 transition-colors"
-                >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <h3 className="font-semibold text-white">{enquiry.name}</h3>
-                        <Badge className={getStatusColor(enquiry.status)}>{enquiry.status}</Badge>
-                        <Badge variant="outline" className={`text-xs ${getPriorityColor(enquiry.priority)} border-[#2D6A4F]`}>
-                          {enquiry.priority} Priority
-                        </Badge>
-                      </div>
-                      <div className="space-y-1 mb-3">
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <Phone className="w-3 h-3" />
-                          <span>{enquiry.phone}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <Mail className="w-3 h-3" />
-                          <span>{enquiry.email}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-400">
-                          <MessageSquare className="w-3 h-3" />
-                          <span className="font-medium">Sport: {enquiry.sport}</span>
-                        </div>
-                      </div>
-                      <p className="text-sm text-gray-300 bg-[#0D2818] p-3 rounded-lg border border-[#2D6A4F]/30">{enquiry.message}</p>
-                      <div className="mt-3 text-xs text-gray-500">{enquiry.date}</div>
-                    </div>
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <Button 
-                          size="sm"
-                          className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:opacity-90 ml-4"
-                          onClick={() => setSelectedEnquiry(enquiry)}
-                        >
-                          Manage
-                        </Button>
-                      </DialogTrigger>
-                      <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
-                        <DialogHeader>
-                          <DialogTitle className="text-white">Manage Enquiry</DialogTitle>
-                        </DialogHeader>
-                        <div className="space-y-4 mt-4">
-                          <div>
-                            <label className="text-sm font-medium text-gray-400">Name</label>
-                            <p className="text-sm text-white mt-1">{enquiry.name}</p>
-                          </div>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div>
-                              <label className="text-sm font-medium text-gray-400">Phone</label>
-                              <p className="text-sm text-white mt-1">{enquiry.phone}</p>
-                            </div>
-                            <div>
-                              <label className="text-sm font-medium text-gray-400">Email</label>
-                              <p className="text-sm text-white mt-1">{enquiry.email}</p>
-                            </div>
-                          </div>
-                          <div>
-                            <label className="text-sm font-medium text-gray-400">Sport Interest</label>
-                            <p className="text-sm text-white mt-1">{enquiry.sport}</p>
-                          </div>
-                          <div>
-                            <label className="text-sm font-medium text-gray-400">Message</label>
-                            <p className="text-sm text-gray-300 mt-1 p-3 bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg">{enquiry.message}</p>
-                          </div>
-                          <div>
-                            <label className="text-sm font-medium text-gray-400 mb-2 block">Update Status</label>
-                            <div className="flex gap-2 flex-wrap">
-                              <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
-                                <Clock className="w-3 h-3 mr-1" />
-                                Pending
-                              </Button>
-                              <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
-                                <Phone className="w-3 h-3 mr-1" />
-                                Contacted
-                              </Button>
-                              <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
-                                <CheckCircle className="w-3 h-3 mr-1" />
-                                Converted
-                              </Button>
-                            </div>
-                          </div>
-                          <div>
-                            <label className="text-sm font-medium text-gray-400 mb-2 block">Add Notes</label>
-                            <Textarea
-                              placeholder="Add follow-up notes..."
-                              rows={3}
-                              className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
-                            />
-                          </div>
-                          <div className="flex justify-end gap-3">
-                            <Button variant="outline" className="border-[#40916C] text-gray-300">Close</Button>
-                            <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
-                              Save Changes
-                            </Button>
-                          </div>
-                        </div>
-                      </DialogContent>
-                    </Dialog>
+
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+              <CardHeader>
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <Input
+                      placeholder="Search bookings..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    />
+                  </div>
+                  <div className="flex gap-2 flex-wrap">
+                    {['All', 'Pending', 'Contacted', 'Converted'].map((status) => (
+                      <Button
+                        key={status}
+                        size="sm"
+                        variant={filterStatus === status ? 'default' : 'outline'}
+                        onClick={() => setFilterStatus(status)}
+                        className={filterStatus === status ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]' : 'border-[#40916C] text-gray-300'}
+                      >
+                        {status}
+                      </Button>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {filteredDemoBookings.map((booking) => (
+                    <div
+                      key={booking.id}
+                      className="border border-[#2D6A4F]/50 bg-[#0A1F0A] rounded-lg p-4 hover:bg-[#2D6A4F]/10 transition-colors"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2 flex-wrap">
+                            <h3 className="font-semibold text-white">{booking.firstName} {booking.lastName}</h3>
+                            <Badge className={getStatusColor(booking.status)}>{booking.status}</Badge>
+                            <Badge variant="outline" className={`text-xs ${getPriorityColor(booking.priority)} border-[#2D6A4F]`}>
+                              {booking.priority} Priority
+                            </Badge>
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1 mb-3">
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <Phone className="w-3 h-3" />
+                              <span>{booking.phone}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <Mail className="w-3 h-3" />
+                              <span>{booking.email}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <User className="w-3 h-3" />
+                              <span className="font-medium">DOB: {booking.dateOfBirth}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <Calendar className="w-3 h-3" />
+                              <span className="font-medium">Program: {booking.program}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <span className="font-medium">Level: {booking.level}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <Clock className="w-3 h-3" />
+                              <span>{booking.preferredSchedule}</span>
+                            </div>
+                            {booking.preferredCoach && (
+                              <div className="flex items-center gap-2 text-sm text-gray-400 col-span-2">
+                                <span className="font-medium">Preferred Coach: {booking.preferredCoach}</span>
+                              </div>
+                            )}
+                          </div>
+                          <div className="mt-3 text-xs text-gray-500">{booking.date}</div>
+                        </div>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button 
+                              size="sm"
+                              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:opacity-90 ml-4"
+                              onClick={() => setSelectedEnquiry(booking)}
+                            >
+                              Manage
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl">
+                            <DialogHeader>
+                              <DialogTitle className="text-white">Manage Demo Booking</DialogTitle>
+                            </DialogHeader>
+                            <div className="space-y-4 mt-4">
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">First Name</label>
+                                  <p className="text-sm text-white mt-1">{booking.firstName}</p>
+                                </div>
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Last Name</label>
+                                  <p className="text-sm text-white mt-1">{booking.lastName}</p>
+                                </div>
+                              </div>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Phone</label>
+                                  <p className="text-sm text-white mt-1">{booking.phone}</p>
+                                </div>
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Email</label>
+                                  <p className="text-sm text-white mt-1">{booking.email}</p>
+                                </div>
+                              </div>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Date of Birth</label>
+                                  <p className="text-sm text-white mt-1">{booking.dateOfBirth}</p>
+                                </div>
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Program</label>
+                                  <p className="text-sm text-white mt-1">{booking.program}</p>
+                                </div>
+                              </div>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Experience Level</label>
+                                  <p className="text-sm text-white mt-1">{booking.level}</p>
+                                </div>
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Preferred Schedule</label>
+                                  <p className="text-sm text-white mt-1">{booking.preferredSchedule}</p>
+                                </div>
+                              </div>
+                              {booking.preferredCoach && (
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Preferred Coach</label>
+                                  <p className="text-sm text-white mt-1">{booking.preferredCoach}</p>
+                                </div>
+                              )}
+                              <div>
+                                <label className="text-sm font-medium text-gray-400 mb-2 block">Update Status</label>
+                                <div className="flex gap-2 flex-wrap">
+                                  <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                                    <Clock className="w-3 h-3 mr-1" />
+                                    Pending
+                                  </Button>
+                                  <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                                    <Phone className="w-3 h-3 mr-1" />
+                                    Contacted
+                                  </Button>
+                                  <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                                    <CheckCircle className="w-3 h-3 mr-1" />
+                                    Converted
+                                  </Button>
+                                </div>
+                              </div>
+                              <div>
+                                <label className="text-sm font-medium text-gray-400 mb-2 block">Add Notes</label>
+                                <Textarea
+                                  placeholder="Add follow-up notes..."
+                                  rows={3}
+                                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                                />
+                              </div>
+                              <div className="flex justify-end gap-3">
+                                <Button variant="outline" className="border-[#40916C] text-gray-300">Close</Button>
+                                <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
+                                  Save Changes
+                                </Button>
+                              </div>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Contact Us Forms Tab */}
+          <TabsContent value="contact" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <MessageSquare className="w-4 h-4" />
+                    Total Forms
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-white">{contactForms.length}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    Pending
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-yellow-500">{contactStatusCounts.Pending}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    Contacted
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-blue-500">{contactStatusCounts.Contacted}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+                <CardHeader>
+                  <CardTitle className="text-sm font-medium text-gray-400 flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4" />
+                    Converted
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-3xl font-bold text-green-500">{contactStatusCounts.Converted}</p>
+                </CardContent>
+              </Card>
             </div>
-          </CardContent>
-        </Card>
+
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
+              <CardHeader>
+                <div className="flex flex-col md:flex-row gap-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                    <Input
+                      placeholder="Search forms..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    />
+                  </div>
+                  <div className="flex gap-2 flex-wrap">
+                    {['All', 'Pending', 'Contacted', 'Converted'].map((status) => (
+                      <Button
+                        key={status}
+                        size="sm"
+                        variant={filterStatus === status ? 'default' : 'outline'}
+                        onClick={() => setFilterStatus(status)}
+                        className={filterStatus === status ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]' : 'border-[#40916C] text-gray-300'}
+                      >
+                        {status}
+                      </Button>
+                    ))}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  {filteredContactForms.map((form) => (
+                    <div
+                      key={form.id}
+                      className="border border-[#2D6A4F]/50 bg-[#0A1F0A] rounded-lg p-4 hover:bg-[#2D6A4F]/10 transition-colors"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2 flex-wrap">
+                            <h3 className="font-semibold text-white">{form.name}</h3>
+                            <Badge className={getStatusColor(form.status)}>{form.status}</Badge>
+                            <Badge variant="outline" className={`text-xs ${getPriorityColor(form.priority)} border-[#2D6A4F]`}>
+                              {form.priority} Priority
+                            </Badge>
+                          </div>
+                          <div className="space-y-1 mb-3">
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <Phone className="w-3 h-3" />
+                              <span>{form.phone}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <Mail className="w-3 h-3" />
+                              <span>{form.email}</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-sm text-gray-400">
+                              <MessageSquare className="w-3 h-3" />
+                              <span className="font-medium">Subject: {form.subject}</span>
+                            </div>
+                          </div>
+                          <p className="text-sm text-gray-300 bg-[#0D2818] p-3 rounded-lg border border-[#2D6A4F]/30">{form.message}</p>
+                          <div className="mt-3 text-xs text-gray-500">{form.date}</div>
+                        </div>
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button 
+                              size="sm"
+                              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:opacity-90 ml-4"
+                              onClick={() => setSelectedEnquiry(form)}
+                            >
+                              Manage
+                            </Button>
+                          </DialogTrigger>
+                          <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+                            <DialogHeader>
+                              <DialogTitle className="text-white">Manage Contact Form</DialogTitle>
+                            </DialogHeader>
+                            <div className="space-y-4 mt-4">
+                              <div>
+                                <label className="text-sm font-medium text-gray-400">Name</label>
+                                <p className="text-sm text-white mt-1">{form.name}</p>
+                              </div>
+                              <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Phone</label>
+                                  <p className="text-sm text-white mt-1">{form.phone}</p>
+                                </div>
+                                <div>
+                                  <label className="text-sm font-medium text-gray-400">Email</label>
+                                  <p className="text-sm text-white mt-1">{form.email}</p>
+                                </div>
+                              </div>
+                              <div>
+                                <label className="text-sm font-medium text-gray-400">Subject</label>
+                                <p className="text-sm text-white mt-1">{form.subject}</p>
+                              </div>
+                              <div>
+                                <label className="text-sm font-medium text-gray-400">Message</label>
+                                <p className="text-sm text-gray-300 mt-1 p-3 bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg">{form.message}</p>
+                              </div>
+                              <div>
+                                <label className="text-sm font-medium text-gray-400 mb-2 block">Update Status</label>
+                                <div className="flex gap-2 flex-wrap">
+                                  <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                                    <Clock className="w-3 h-3 mr-1" />
+                                    Pending
+                                  </Button>
+                                  <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                                    <Phone className="w-3 h-3 mr-1" />
+                                    Contacted
+                                  </Button>
+                                  <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                                    <CheckCircle className="w-3 h-3 mr-1" />
+                                    Converted
+                                  </Button>
+                                </div>
+                              </div>
+                              <div>
+                                <label className="text-sm font-medium text-gray-400 mb-2 block">Add Notes</label>
+                                <Textarea
+                                  placeholder="Add follow-up notes..."
+                                  rows={3}
+                                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                                />
+                              </div>
+                              <div className="flex justify-end gap-3">
+                                <Button variant="outline" className="border-[#40916C] text-gray-300">Close</Button>
+                                <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
+                                  Save Changes
+                                </Button>
+                              </div>
+                            </div>
+                          </DialogContent>
+                        </Dialog>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+        </Tabs>
       </div>
     </AdminLayout>
   );
