@@ -221,12 +221,36 @@ export default function HeroBats3D() {
       return group;
     };
 
-    // Add bats to scene
-    const cricketBat = createCricketBat();
-    cricketBat.position.set(-1.8, 0.2, 0);
-    cricketBat.rotation.z = Math.PI / 7;
-    scene.add(cricketBat);
-    batsRef.current.push({ mesh: cricketBat, type: 'cricket' });
+    // Load cricket bat from GitHub
+    loaderRef.current.load(
+      'https://raw.githubusercontent.com/mehul15ca/ASA-Base44/main/cricket_batsports.glb',
+      (gltf) => {
+        const cricketBat = gltf.scene;
+        cricketBat.position.set(-1.8, 0.2, 0);
+        cricketBat.rotation.z = Math.PI / 7;
+        cricketBat.scale.set(1.5, 1.5, 1.5);
+        
+        // Enable shadows for imported model
+        cricketBat.traverse((child) => {
+          if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        
+        scene.add(cricketBat);
+        batsRef.current.push({ mesh: cricketBat, type: 'cricket' });
+      },
+      undefined,
+      (error) => console.error('Error loading cricket bat:', error)
+    );
+    
+    // Fallback cricket bat (in case loading fails)
+    const fallbackCricketBat = createCricketBat();
+    fallbackCricketBat.position.set(-1.8, 0.2, 0);
+    fallbackCricketBat.rotation.z = Math.PI / 7;
+    scene.add(fallbackCricketBat);
+    batsRef.current.push({ mesh: fallbackCricketBat, type: 'cricket' });
 
     const baseballBat = createBaseballBat();
     baseballBat.position.set(1.8, -0.1, 0);
