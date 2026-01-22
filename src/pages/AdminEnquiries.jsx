@@ -224,54 +224,55 @@ export default function AdminEnquiries() {
                         </DialogHeader>
                         <div className="space-y-4 mt-4">
                           <div>
-                            <label className="text-sm font-medium text-gray-700">Name</label>
-                            <p className="text-sm text-gray-900 mt-1">{enquiry.name}</p>
+                            <label className="text-sm font-medium text-gray-400">Name</label>
+                            <p className="text-sm text-white mt-1">{enquiry.name}</p>
                           </div>
                           <div className="grid grid-cols-2 gap-4">
                             <div>
-                              <label className="text-sm font-medium text-gray-700">Phone</label>
-                              <p className="text-sm text-gray-900 mt-1">{enquiry.phone}</p>
+                              <label className="text-sm font-medium text-gray-400">Phone</label>
+                              <p className="text-sm text-white mt-1">{enquiry.phone}</p>
                             </div>
                             <div>
-                              <label className="text-sm font-medium text-gray-700">Email</label>
-                              <p className="text-sm text-gray-900 mt-1">{enquiry.email}</p>
+                              <label className="text-sm font-medium text-gray-400">Email</label>
+                              <p className="text-sm text-white mt-1">{enquiry.email}</p>
                             </div>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700">Sport Interest</label>
-                            <p className="text-sm text-gray-900 mt-1">{enquiry.sport}</p>
+                            <label className="text-sm font-medium text-gray-400">Sport Interest</label>
+                            <p className="text-sm text-white mt-1">{enquiry.sport}</p>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700">Message</label>
-                            <p className="text-sm text-gray-900 mt-1 p-3 bg-gray-50 rounded-lg">{enquiry.message}</p>
+                            <label className="text-sm font-medium text-gray-400">Message</label>
+                            <p className="text-sm text-gray-300 mt-1 p-3 bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg">{enquiry.message}</p>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700 mb-2 block">Update Status</label>
-                            <div className="flex gap-2">
-                              <Button size="sm" variant="outline" className="flex-1">
+                            <label className="text-sm font-medium text-gray-400 mb-2 block">Update Status</label>
+                            <div className="flex gap-2 flex-wrap">
+                              <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
                                 <Clock className="w-3 h-3 mr-1" />
                                 Pending
                               </Button>
-                              <Button size="sm" variant="outline" className="flex-1">
+                              <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
                                 <Phone className="w-3 h-3 mr-1" />
                                 Contacted
                               </Button>
-                              <Button size="sm" variant="outline" className="flex-1">
+                              <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
                                 <CheckCircle className="w-3 h-3 mr-1" />
                                 Converted
                               </Button>
                             </div>
                           </div>
                           <div>
-                            <label className="text-sm font-medium text-gray-700 mb-2 block">Add Notes</label>
+                            <label className="text-sm font-medium text-gray-400 mb-2 block">Add Notes</label>
                             <Textarea
                               placeholder="Add follow-up notes..."
                               rows={3}
+                              className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
                             />
                           </div>
                           <div className="flex justify-end gap-3">
-                            <Button variant="outline">Close</Button>
-                            <Button className="bg-[#1A4D2E] hover:bg-[#2D6A4F]">
+                            <Button variant="outline" className="border-[#40916C] text-gray-300">Close</Button>
+                            <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
                               Save Changes
                             </Button>
                           </div>
