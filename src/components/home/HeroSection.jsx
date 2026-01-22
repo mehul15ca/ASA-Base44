@@ -40,30 +40,30 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-24 pb-12">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-8 sm:pb-12">
         <div className="flex flex-col items-center text-center">
-          {/* Animated Logo */}
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 60, 
-              damping: 10,
-              delay: 0.3 
-            }}
-            className="mb-8"
-          >
-            <AnimatedLogo size="xl" />
-          </motion.div>
+           {/* Animated Logo */}
+           <motion.div
+             initial={{ scale: 0, rotate: -180 }}
+             animate={{ scale: 1, rotate: 0 }}
+             transition={{ 
+               type: "spring", 
+               stiffness: 60, 
+               damping: 10,
+               delay: 0.3 
+             }}
+             className="mb-6 sm:mb-8"
+           >
+             <AnimatedLogo size="xl" />
+           </motion.div>
 
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
-          >
+           {/* Main heading */}
+           <motion.h1
+             initial={{ opacity: 0, y: 30 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 1, delay: 0.6 }}
+             className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
+           >
             Welcome To{' '}
             <span className="bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] bg-clip-text text-transparent">
               Auustralasia
@@ -77,7 +77,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9 }}
-            className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mb-6 sm:mb-10 px-2"
           >
             Empowering athletes of all ages to reach their full potential through 
             world-class coaching in Cricket, Yoga, and Baseball.
@@ -88,22 +88,22 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0"
           >
-            <Link to={createPageUrl('Registration')}>
+            <Link to={createPageUrl('Registration')} className="w-full sm:w-auto">
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-8 py-6 text-lg rounded-full shadow-lg shadow-[#D4AF37]/30 transition-all duration-300 hover:scale-105"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-lg rounded-full shadow-lg shadow-[#D4AF37]/30 transition-all duration-300 hover:scale-105"
               >
                 Join Now
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link to={createPageUrl('Programs')}>
+            <Link to={createPageUrl('Programs')} className="w-full sm:w-auto">
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-2 border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 font-semibold px-8 py-6 text-lg rounded-full transition-all duration-300 hover:scale-105"
+                className="w-full border-2 border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 font-semibold px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-lg rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Play className="mr-2 h-5 w-5" />
                 View Programs
@@ -116,7 +116,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 1.5 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 w-full"
           >
             {[
               { value: '500+', label: 'Athletes Trained' },
@@ -127,10 +127,10 @@ export default function HeroSection() {
               <motion.div
                 key={index}
                 className="text-center"
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-[#D4AF37]">{stat.value}</div>
-                <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#D4AF37]">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1 leading-tight">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
