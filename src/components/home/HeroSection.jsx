@@ -65,10 +65,10 @@ export default function HeroSection() {
           >
             Welcome To{' '}
             <span className="bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] bg-clip-text text-transparent">
-              Australasia
+              Auustralasia
             </span>
             <br />
-            <span className="text-[#40916C]">Sports Academy</span>
+            <span className="text-[#40916C]">Spports Academy</span>
           </motion.h1>
 
           {/* Subtitle */}

@@ -49,8 +49,8 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <AnimatedLogo size="md" />
               <div>
-                <h3 className="text-white font-bold text-lg">Australasia</h3>
-                <p className="text-[#40916C] text-sm">Sports Academy</p>
+                <h3 className="text-white font-bold text-lg">Auustralasia</h3>
+                <p className="text-[#40916C] text-sm">Spports Academy</p>
               </div>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -146,7 +146,7 @@ export default function Footer() {
         <div className="border-t border-[#1A4D2E] pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm text-center md:text-left">
-              © {new Date().getFullYear()} Australasia Sports Academy. All rights reserved.
+              © {new Date().getFullYear()} Auustralasia Spports Academy. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-500 hover:text-[#D4AF37] transition-colors">

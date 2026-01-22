@@ -46,7 +46,7 @@ export default function About() {
                 <span className="block text-[#40916C]">Since 2014</span>
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed mb-6">
-                Australasia Sports Academy is a Brampton (Ontario) based sports academy 
+                Auustralasia Spports Academy is a Brampton (Ontario) based sports academy 
                 offering year-round coaching in cricket, yoga, and baseball in an enjoyable, 
                 safe and friendly environment.
               </p>

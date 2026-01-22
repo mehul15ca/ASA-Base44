@@ -66,8 +66,8 @@ export default function Navbar() {
             <Link to={createPageUrl('Home')} className="flex items-center gap-3">
               <AnimatedLogo size="sm" />
               <div className="hidden sm:block">
-                <h1 className="text-white font-bold text-lg leading-tight">Australasia</h1>
-                <p className="text-[#40916C] text-xs">Sports Academy</p>
+                <h1 className="text-white font-bold text-lg leading-tight">Auustralasia</h1>
+                <p className="text-[#40916C] text-xs">Spports Academy</p>
               </div>
             </Link>
 
