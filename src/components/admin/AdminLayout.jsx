@@ -34,9 +34,9 @@ const navItems = [
   { icon: DollarSign, label: 'Finance', path: 'AdminFinance' },
   { icon: FileText, label: 'Reports', path: 'AdminReports' },
   { icon: Megaphone, label: 'Announcements', path: 'AdminAnnouncements' },
-  { icon: MessageSquare, label: 'Feedback', path: 'AdminFeedback' },
+  { icon: MessageSquare, label: 'Feedback', path: 'AdminFeedback', badge: 1 },
   { icon: ShoppingBag, label: 'Store Orders', path: 'AdminStore' },
-  { icon: HelpCircle, label: 'Enquiries', path: 'AdminEnquiries' },
+  { icon: HelpCircle, label: 'Enquiries', path: 'AdminEnquiries', badge: 2 },
   { icon: Wallet, label: 'Salary', path: 'AdminSalary' },
   { icon: Settings, label: 'System Settings', path: 'AdminSettings' },
 ];
@@ -86,14 +86,19 @@ export default function AdminLayout({ children }) {
               >
                 <motion.div
                   whileHover={{ x: 4 }}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all relative ${
                     isActive
                       ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] shadow-lg'
                       : 'text-gray-300 hover:bg-[#2D6A4F]/30'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
-                  <span className="text-sm font-medium">{item.label}</span>
+                  <span className="text-sm font-medium flex-1">{item.label}</span>
+                  {item.badge && item.badge > 0 && (
+                    <span className="bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                      {item.badge}
+                    </span>
+                  )}
                 </motion.div>
               </Link>
             );
