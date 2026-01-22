@@ -200,7 +200,7 @@ export default function About() {
                       <span className="text-[#D4AF37] font-bold text-2xl">{milestone.year}</span>
                       <h3 className="text-xl font-bold text-white mt-2">{milestone.title}</h3>
                       <p className="text-gray-400 mt-2">{milestone.description}</p>
-                    </div>
+                    </motion.div>
                   </div>
                   
                   {/* Center dot */}
