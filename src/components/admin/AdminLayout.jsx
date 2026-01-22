@@ -95,9 +95,7 @@ export default function AdminLayout({ children }) {
                   <Icon className="w-5 h-5" />
                   <span className="text-sm font-medium flex-1">{item.label}</span>
                   {item.badge && item.badge > 0 && (
-                    <span className="bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                      {item.badge}
-                    </span>
+                    <span className="bg-red-500 rounded-full w-2 h-2 flex-shrink-0"></span>
                   )}
                 </motion.div>
               </Link>
