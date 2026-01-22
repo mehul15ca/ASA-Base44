@@ -21,14 +21,18 @@ export default function HeroBats3D() {
     scene.background = null;
     sceneRef.current = scene;
 
-    // Camera setup
+    // Camera setup with mobile responsiveness
+    const width = containerRef.current.clientWidth;
+    const height = containerRef.current.clientHeight;
+    const isMobile = width < 768;
+    
     const camera = new THREE.PerspectiveCamera(
-      75,
-      containerRef.current.clientWidth / containerRef.current.clientHeight,
+      isMobile ? 50 : 75,
+      width / height,
       0.1,
       1000
     );
-    camera.position.z = 4;
+    camera.position.z = isMobile ? 6 : 4;
     cameraRef.current = camera;
 
     // Renderer setup
@@ -442,11 +446,47 @@ export default function HeroBats3D() {
 
     animate();
 
+    // Touch events for mobile
+    const onTouchStart = (e) => {
+      if (e.touches.length === 1) {
+        controlsRef.current.isDragging = true;
+        controlsRef.current.previousMousePosition = { 
+          x: e.touches[0].clientX, 
+          y: e.touches[0].clientY 
+        };
+      }
+    };
+
+    const onTouchMove = (e) => {
+      if (!controlsRef.current.isDragging || e.touches.length !== 1) return;
+
+      const deltaX = e.touches[0].clientX - controlsRef.current.previousMousePosition.x;
+      const deltaY = e.touches[0].clientY - controlsRef.current.previousMousePosition.y;
+
+      controlsRef.current.rotation.y += deltaX * 0.003;
+      controlsRef.current.rotation.x += deltaY * 0.003;
+
+      group.rotation.y = controlsRef.current.rotation.y;
+      group.rotation.x = controlsRef.current.rotation.x;
+
+      controlsRef.current.previousMousePosition = { 
+        x: e.touches[0].clientX, 
+        y: e.touches[0].clientY 
+      };
+    };
+
+    const onTouchEnd = () => {
+      controlsRef.current.isDragging = false;
+    };
+
     renderer.domElement.addEventListener('mousedown', onMouseDown);
     renderer.domElement.addEventListener('mousemove', onMouseMove);
     renderer.domElement.addEventListener('mouseup', onMouseUp);
     renderer.domElement.addEventListener('wheel', onWheel, { passive: false });
     renderer.domElement.addEventListener('mousemove', onMouseMove_Hover);
+    renderer.domElement.addEventListener('touchstart', onTouchStart);
+    renderer.domElement.addEventListener('touchmove', onTouchMove, { passive: false });
+    renderer.domElement.addEventListener('touchend', onTouchEnd);
 
     // Handle window resize
     const handleResize = () => {
@@ -467,6 +507,9 @@ export default function HeroBats3D() {
       renderer.domElement.removeEventListener('mouseup', onMouseUp);
       renderer.domElement.removeEventListener('wheel', onWheel);
       renderer.domElement.removeEventListener('mousemove', onMouseMove_Hover);
+      renderer.domElement.removeEventListener('touchstart', onTouchStart);
+      renderer.domElement.removeEventListener('touchmove', onTouchMove);
+      renderer.domElement.removeEventListener('touchend', onTouchEnd);
       cancelAnimationFrame(animationFrameId);
       renderer.dispose();
       if (containerRef.current && renderer.domElement) {
