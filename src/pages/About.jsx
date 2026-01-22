@@ -191,9 +191,12 @@ export default function About() {
                 style={{ perspective: '1000px' }}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? 'md:text-right' : 'md:text-left'}`}>
-                    <div className={`bg-[#1A4D2E]/50 border border-[#2D6A4F]/30 rounded-2xl p-6 inline-block ${
-                      index % 2 === 0 ? 'md:ml-auto' : ''
-                    }`}>
+                    <motion.div
+                      whileHover={{ y: -10 }}
+                      className={`bg-[#1A4D2E]/50 border border-[#2D6A4F]/30 rounded-2xl p-6 inline-block shadow-lg hover:shadow-[0_15px_40px_rgba(212,175,55,0.15)] transition-all ${
+                        index % 2 === 0 ? 'md:ml-auto' : ''
+                      }`}
+                    >
                       <span className="text-[#D4AF37] font-bold text-2xl">{milestone.year}</span>
                       <h3 className="text-xl font-bold text-white mt-2">{milestone.title}</h3>
                       <p className="text-gray-400 mt-2">{milestone.description}</p>
