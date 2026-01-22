@@ -235,12 +235,16 @@ export default function About() {
             {awards.map((award, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.9, rotateY: -30 }}
+                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-2xl p-8 text-center hover:border-[#D4AF37]/50 transition-all"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -15, rotateY: 10, rotateX: 5 }}
+                className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-2xl p-8 text-center hover:border-[#D4AF37]/50 transition-all shadow-xl hover:shadow-[0_20px_60px_rgba(212,175,55,0.3)]"
+                style={{
+                  perspective: '1000px',
+                  transformStyle: 'preserve-3d'
+                }}
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] rounded-full flex items-center justify-center mx-auto mb-4">
                   <award.icon className="w-8 h-8 text-[#0A1F0A]" />
