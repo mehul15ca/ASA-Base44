@@ -4,16 +4,23 @@ import AdminAttendance from './pages/AdminAttendance';
 import AdminBatches from './pages/AdminBatches';
 import AdminCoaches from './pages/AdminCoaches';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminEnquiries from './pages/AdminEnquiries';
 import AdminFeedback from './pages/AdminFeedback';
 import AdminFinance from './pages/AdminFinance';
 import AdminGrounds from './pages/AdminGrounds';
 import AdminReports from './pages/AdminReports';
+import AdminSalary from './pages/AdminSalary';
 import AdminSchedule from './pages/AdminSchedule';
+import AdminSettings from './pages/AdminSettings';
+import AdminStore from './pages/AdminStore';
 import AdminStudents from './pages/AdminStudents';
 import AttendancePortal from './pages/AttendancePortal';
 import BookDemo from './pages/BookDemo';
+import CoachAnnouncements from './pages/CoachAnnouncements';
 import CoachAttendance from './pages/CoachAttendance';
 import CoachDashboard from './pages/CoachDashboard';
+import CoachNotes from './pages/CoachNotes';
+import CoachProfile from './pages/CoachProfile';
 import CoachSessions from './pages/CoachSessions';
 import Coaches from './pages/Coaches';
 import Contact from './pages/Contact';
@@ -42,13 +49,7 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import AdminStore from './pages/AdminStore';
-import AdminEnquiries from './pages/AdminEnquiries';
-import AdminSalary from './pages/AdminSalary';
-import AdminSettings from './pages/AdminSettings';
-import CoachAnnouncements from './pages/CoachAnnouncements';
-import CoachNotes from './pages/CoachNotes';
-import CoachProfile from './pages/CoachProfile';
+import CoachStudents from './pages/CoachStudents';
 import __Layout from './Layout.jsx';
 
 
@@ -59,16 +60,23 @@ export const PAGES = {
     "AdminBatches": AdminBatches,
     "AdminCoaches": AdminCoaches,
     "AdminDashboard": AdminDashboard,
+    "AdminEnquiries": AdminEnquiries,
     "AdminFeedback": AdminFeedback,
     "AdminFinance": AdminFinance,
     "AdminGrounds": AdminGrounds,
     "AdminReports": AdminReports,
+    "AdminSalary": AdminSalary,
     "AdminSchedule": AdminSchedule,
+    "AdminSettings": AdminSettings,
+    "AdminStore": AdminStore,
     "AdminStudents": AdminStudents,
     "AttendancePortal": AttendancePortal,
     "BookDemo": BookDemo,
+    "CoachAnnouncements": CoachAnnouncements,
     "CoachAttendance": CoachAttendance,
     "CoachDashboard": CoachDashboard,
+    "CoachNotes": CoachNotes,
+    "CoachProfile": CoachProfile,
     "CoachSessions": CoachSessions,
     "Coaches": Coaches,
     "Contact": Contact,
@@ -97,13 +105,7 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "AdminStore": AdminStore,
-    "AdminEnquiries": AdminEnquiries,
-    "AdminSalary": AdminSalary,
-    "AdminSettings": AdminSettings,
-    "CoachAnnouncements": CoachAnnouncements,
-    "CoachNotes": CoachNotes,
-    "CoachProfile": CoachProfile,
+    "CoachStudents": CoachStudents,
 }
 
 export const pagesConfig = {
