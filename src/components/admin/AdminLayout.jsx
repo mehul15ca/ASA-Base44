@@ -123,7 +123,7 @@ export default function AdminLayout({ children }) {
       </motion.aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A]">
         {children}
       </main>
 
