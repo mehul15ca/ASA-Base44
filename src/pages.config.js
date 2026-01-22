@@ -52,6 +52,7 @@ import SuperAdminUsers from './pages/SuperAdminUsers';
 import CoachStudents from './pages/CoachStudents';
 import CoachInjuries from './pages/CoachInjuries';
 import CoachSalary from './pages/CoachSalary';
+import StoreDashboard from './pages/StoreDashboard';
 import __Layout from './Layout.jsx';
 
 
@@ -110,6 +111,7 @@ export const PAGES = {
     "CoachStudents": CoachStudents,
     "CoachInjuries": CoachInjuries,
     "CoachSalary": CoachSalary,
+    "StoreDashboard": StoreDashboard,
 }
 
 export const pagesConfig = {
