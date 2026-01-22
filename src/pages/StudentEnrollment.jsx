@@ -113,7 +113,7 @@ export default function StudentEnrollment() {
         <div className="flex items-center justify-between">
           <div className="w-32 h-20 bg-white rounded-lg flex items-center justify-center overflow-hidden">
             <img 
-              src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=200&h=100&fit=crop" 
+              src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/b31bf63c7_ChatGPTImageJan13202607_16_18PM.png" 
               alt="ASA Logo" 
               className="w-full h-full object-contain p-2"
             />
