@@ -13,49 +13,87 @@ export default function AdminEnquiries() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedEnquiry, setSelectedEnquiry] = useState(null);
   const [filterStatus, setFilterStatus] = useState('All');
-  const [enquiries] = useState([
+  
+  const [demoBookings] = useState([
     {
       id: 1,
-      name: 'Rajesh Verma',
+      firstName: 'Rajesh',
+      lastName: 'Verma',
       phone: '+91 98765 43210',
       email: 'rajesh.verma@email.com',
-      sport: 'Cricket',
-      message: 'Interested in cricket coaching for my 10-year-old son. What are the batch timings?',
+      dateOfBirth: '2014-05-15',
+      program: 'Cricket Training',
+      level: 'Beginner',
+      preferredSchedule: 'Morning (6AM - 12PM)',
+      preferredCoach: '',
       date: '2026-01-22',
       status: 'Pending',
       priority: 'High'
     },
     {
       id: 2,
-      name: 'Sneha Reddy',
+      firstName: 'Sneha',
+      lastName: 'Reddy',
       phone: '+91 87654 32109',
       email: 'sneha.reddy@email.com',
-      sport: 'Football',
-      message: 'Looking for weekend football sessions. Do you have any available slots?',
+      dateOfBirth: '2012-08-20',
+      program: 'Baseball Academy',
+      level: 'Intermediate',
+      preferredSchedule: 'Evening (5PM - 9PM)',
+      preferredCoach: 'Sarah Johnson',
       date: '2026-01-21',
       status: 'Contacted',
       priority: 'Medium'
     },
     {
       id: 3,
-      name: 'Arun Kumar',
+      firstName: 'Arun',
+      lastName: 'Kumar',
       phone: '+91 76543 21098',
       email: 'arun.k@email.com',
-      sport: 'Tennis',
-      message: 'Want to enroll my daughter in tennis coaching. Please share fee details.',
+      dateOfBirth: '2015-03-10',
+      program: 'Sports Yoga',
+      level: 'Beginner',
+      preferredSchedule: 'Weekend Only',
+      preferredCoach: '',
       date: '2026-01-20',
       status: 'Converted',
       priority: 'Low'
-    },
+    }
+  ]);
+
+  const [contactForms] = useState([
     {
-      id: 4,
+      id: 1,
       name: 'Meera Patel',
       phone: '+91 65432 10987',
       email: 'meera.patel@email.com',
-      sport: 'Badminton',
+      subject: 'Programs Info',
       message: 'Interested in badminton coaching. Can I visit the academy tomorrow?',
       date: '2026-01-22',
       status: 'Pending',
+      priority: 'High'
+    },
+    {
+      id: 2,
+      name: 'David Wong',
+      phone: '+1 (647) 555-7890',
+      email: 'david.wong@email.com',
+      subject: 'General Inquiry',
+      message: 'What are the age requirements for your programs? My son is 5 years old.',
+      date: '2026-01-21',
+      status: 'Contacted',
+      priority: 'Medium'
+    },
+    {
+      id: 3,
+      name: 'Priya Shah',
+      phone: '+91 55443 32211',
+      email: 'priya.shah@email.com',
+      subject: 'Registration',
+      message: 'I would like to register my daughter for tennis lessons. Please send me more details.',
+      date: '2026-01-20',
+      status: 'Converted',
       priority: 'High'
     }
   ]);
