@@ -66,11 +66,13 @@ export default function ProgramsPreview() {
           {programs.map((program, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
+              initial={{ opacity: 0, y: 50, rotateX: -15 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: index * 0.2, ease: "easeOut" }}
+              whileHover={{ y: -15, rotateX: 5 }}
               className="group"
+              style={{ perspective: "1200px" }}
             >
               <div className="bg-gradient-to-b from-[#1A4D2E]/30 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-3xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#2D6A4F]/20">
                 {/* Image */}
