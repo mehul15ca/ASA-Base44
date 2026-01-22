@@ -184,28 +184,28 @@ export default function AdminEnquiries() {
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-semibold text-gray-900">{enquiry.name}</h3>
+                      <div className="flex items-center gap-3 mb-2 flex-wrap">
+                        <h3 className="font-semibold text-white">{enquiry.name}</h3>
                         <Badge className={getStatusColor(enquiry.status)}>{enquiry.status}</Badge>
-                        <Badge variant="outline" className={`text-xs ${getPriorityColor(enquiry.priority)}`}>
+                        <Badge variant="outline" className={`text-xs ${getPriorityColor(enquiry.priority)} border-[#2D6A4F]`}>
                           {enquiry.priority} Priority
                         </Badge>
                       </div>
                       <div className="space-y-1 mb-3">
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="flex items-center gap-2 text-sm text-gray-400">
                           <Phone className="w-3 h-3" />
                           <span>{enquiry.phone}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="flex items-center gap-2 text-sm text-gray-400">
                           <Mail className="w-3 h-3" />
                           <span>{enquiry.email}</span>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
+                        <div className="flex items-center gap-2 text-sm text-gray-400">
                           <MessageSquare className="w-3 h-3" />
                           <span className="font-medium">Sport: {enquiry.sport}</span>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-700 bg-gray-50 p-3 rounded-lg">{enquiry.message}</p>
+                      <p className="text-sm text-gray-300 bg-[#0D2818] p-3 rounded-lg border border-[#2D6A4F]/30">{enquiry.message}</p>
                       <div className="mt-3 text-xs text-gray-500">{enquiry.date}</div>
                     </div>
                     <Dialog>
