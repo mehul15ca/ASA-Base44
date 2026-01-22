@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
-import { Search, Phone, Mail, MessageSquare, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Search, Phone, Mail, MessageSquare, Clock, CheckCircle, XCircle, Calendar, User } from 'lucide-react';
 
 export default function AdminEnquiries() {
   const [searchQuery, setSearchQuery] = useState('');
