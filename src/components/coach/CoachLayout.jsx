@@ -36,8 +36,10 @@ export default function CoachLayout({ children, currentPageName }) {
   const navigate = useNavigate();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
+  const currentPath = location.pathname.split('/').pop();
+
   const getPageTitle = () => {
-    const item = menuItems.find(m => m.path === currentPageName);
+    const item = menuItems.find(m => m.path === currentPageName || m.path === currentPath);
     return item ? item.label : 'Dashboard';
   };
 
