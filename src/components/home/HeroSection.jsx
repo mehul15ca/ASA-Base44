@@ -18,22 +18,22 @@ export default function HeroSection() {
       
       {/* Animated background patterns */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(15)].map((_, i) => (
+        {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1.5 h-1.5 bg-[#D4AF37]/10 rounded-full"
+            className="absolute w-1 h-1 bg-[#D4AF37]/5 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -15, 0],
-              opacity: [0, 0.15, 0],
+              y: [0, -8, 0],
+              opacity: [0, 0.08, 0],
             }}
             transition={{
-              duration: 5 + Math.random() * 3,
+              duration: 12 + Math.random() * 6,
               repeat: Infinity,
-              delay: Math.random() * 3,
+              delay: Math.random() * 4,
             }}
           />
         ))}
@@ -48,8 +48,9 @@ export default function HeroSection() {
             animate={{ scale: 1, rotate: 0 }}
             transition={{ 
               type: "spring", 
-              stiffness: 100, 
-              delay: 0.2 
+              stiffness: 60, 
+              damping: 10,
+              delay: 0.3 
             }}
             className="mb-8"
           >
@@ -60,7 +61,7 @@ export default function HeroSection() {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 1, delay: 0.6 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
           >
             Welcome To{' '}
@@ -75,7 +76,7 @@ export default function HeroSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 1, delay: 0.9 }}
             className="text-lg md:text-xl text-gray-300 max-w-2xl mb-10"
           >
             Empowering athletes of all ages to reach their full potential through 
@@ -86,7 +87,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 1, delay: 1.2 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link to={createPageUrl('Registration')}>
@@ -114,7 +115,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
+            transition={{ duration: 1.2, delay: 1.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16"
           >
             {[
@@ -139,8 +140,8 @@ export default function HeroSection() {
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2.5, repeat: Infinity }}
       >
         <div className="w-6 h-10 rounded-full border-2 border-[#40916C]/50 flex justify-center pt-2">
           <div className="w-1 h-3 bg-[#40916C] rounded-full" />
