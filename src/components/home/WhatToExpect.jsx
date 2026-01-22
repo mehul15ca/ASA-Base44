@@ -73,17 +73,18 @@ export default function WhatToExpect() {
         </motion.div>
 
         {/* Features grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group"
-            >
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+           {features.map((feature, index) => (
+             <motion.div
+               key={index}
+               initial={{ opacity: 0, y: 40, rotateY: -20 }}
+               whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+               viewport={{ once: true, margin: "-100px" }}
+               transition={{ duration: 0.6, delay: index * 0.12, ease: "easeOut" }}
+               whileHover={{ y: -12, scale: 1.04 }}
+               className="group"
+               style={{ perspective: "1000px" }}
+             >
               <div className="bg-gradient-to-br from-[#1A4D2E]/50 to-[#0D2818]/50 backdrop-blur-sm border border-[#2D6A4F]/30 rounded-2xl p-8 h-full transition-all duration-300 hover:border-[#D4AF37]/50 hover:shadow-xl hover:shadow-[#D4AF37]/10">
                 {/* Icon */}
                 <div className="w-14 h-14 bg-gradient-to-br from-[#2D6A4F] to-[#1A4D2E] rounded-xl flex items-center justify-center mb-6 group-hover:from-[#D4AF37] group-hover:to-[#D4AF37]/80 transition-all duration-300">
