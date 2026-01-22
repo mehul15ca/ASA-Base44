@@ -37,20 +37,25 @@ export default function HeroBats3D() {
     containerRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    // Lighting - optimized for realistic appearance
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-    directionalLight.position.set(5, 10, 7);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(8, 12, 8);
     directionalLight.castShadow = true;
     directionalLight.shadow.mapSize.width = 2048;
     directionalLight.shadow.mapSize.height = 2048;
+    directionalLight.shadow.camera.far = 50;
     scene.add(directionalLight);
 
-    const pointLight = new THREE.PointLight(0x40916C, 0.5);
-    pointLight.position.set(-5, 5, 5);
-    scene.add(pointLight);
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.4);
+    rimLight.position.set(-8, 8, -5);
+    scene.add(rimLight);
+
+    const fillLight = new THREE.PointLight(0x87CEEB, 0.3);
+    fillLight.position.set(-5, 3, 8);
+    scene.add(fillLight);
 
     // Texture creation functions
     function createWoodTexture() {
