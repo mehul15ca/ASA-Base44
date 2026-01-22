@@ -59,6 +59,7 @@ import StoreOrders from './pages/StoreOrders';
 import StoreShipping from './pages/StoreShipping';
 import StudentEnrollment from './pages/StudentEnrollment';
 import CoachEnrollment from './pages/CoachEnrollment';
+import AdminEnrollment from './pages/AdminEnrollment';
 import __Layout from './Layout.jsx';
 
 
@@ -124,6 +125,7 @@ export const PAGES = {
     "StoreShipping": StoreShipping,
     "StudentEnrollment": StudentEnrollment,
     "CoachEnrollment": CoachEnrollment,
+    "AdminEnrollment": AdminEnrollment,
 }
 
 export const pagesConfig = {
