@@ -53,6 +53,8 @@ import CoachStudents from './pages/CoachStudents';
 import CoachInjuries from './pages/CoachInjuries';
 import CoachSalary from './pages/CoachSalary';
 import StoreDashboard from './pages/StoreDashboard';
+import StoreProducts from './pages/StoreProducts';
+import StoreInventory from './pages/StoreInventory';
 import __Layout from './Layout.jsx';
 
 
@@ -112,6 +114,8 @@ export const PAGES = {
     "CoachInjuries": CoachInjuries,
     "CoachSalary": CoachSalary,
     "StoreDashboard": StoreDashboard,
+    "StoreProducts": StoreProducts,
+    "StoreInventory": StoreInventory,
 }
 
 export const pagesConfig = {
