@@ -50,6 +50,52 @@ export default function HeroBats3D() {
     pointLight.position.set(-5, 5, 5);
     scene.add(pointLight);
 
+    // Texture creation functions
+    function createWoodTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+      
+      // Wood grain background
+      ctx.fillStyle = '#C19A6B';
+      ctx.fillRect(0, 0, 256, 256);
+      
+      // Add wood grain lines
+      ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 256; i += 3) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.quadraticCurveTo(i + 10, 128, i, 256);
+        ctx.stroke();
+      }
+      
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.repeat.set(2, 4);
+      return texture;
+    }
+
+    function createMetalTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 256;
+      const ctx = canvas.getContext('2d');
+      
+      // Metal surface with slight variation
+      for (let i = 0; i < 256; i++) {
+        for (let j = 0; j < 256; j++) {
+          const noise = Math.random() * 15;
+          const value = 200 + noise;
+          const hex = Math.floor(value).toString(16);
+          ctx.fillStyle = `rgb(${value}, ${value}, ${value})`;
+          ctx.fillRect(i, j, 1, 1);
+        }
+      }
+      
+      return new THREE.CanvasTexture(canvas);
+    }
+
     // Create Cricket Bat
     const createCricketBat = () => {
       const group = new THREE.Group();
