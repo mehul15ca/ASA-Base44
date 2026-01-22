@@ -44,6 +44,7 @@ import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
 import AdminStore from './pages/AdminStore';
 import AdminEnquiries from './pages/AdminEnquiries';
+import AdminSalary from './pages/AdminSalary';
 import __Layout from './Layout.jsx';
 
 
@@ -94,6 +95,7 @@ export const PAGES = {
     "SuperAdminUsers": SuperAdminUsers,
     "AdminStore": AdminStore,
     "AdminEnquiries": AdminEnquiries,
+    "AdminSalary": AdminSalary,
 }
 
 export const pagesConfig = {
