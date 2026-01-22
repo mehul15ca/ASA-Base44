@@ -4,15 +4,24 @@ import { LogIn, User, Lock, ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
+import { toast } from 'sonner';
 
 export default function Portal() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Mock credentials for testing
+  const mockCredentials = {
+    admin: { username: 'admin', password: 'admin123', redirect: 'AdminDashboard' },
+    coach: { username: 'coach', password: 'coach123', redirect: 'CoachDashboard' },
+    student: { username: 'student', password: 'student123', redirect: 'StudentDashboard' }
+  };
 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -22,8 +31,20 @@ export default function Portal() {
     e.preventDefault();
     setIsSubmitting(true);
     await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    // Check mock credentials
+    const matchedUser = Object.values(mockCredentials).find(
+      cred => cred.username === formData.username && cred.password === formData.password
+    );
+
+    if (matchedUser) {
+      toast.success('Login successful!');
+      navigate(createPageUrl(matchedUser.redirect));
+    } else {
+      toast.error('Invalid username or password');
+    }
+    
     setIsSubmitting(false);
-    // Handle login logic here
   };
 
   return (
@@ -117,6 +138,16 @@ export default function Portal() {
               )}
             </Button>
           </form>
+
+          {/* Test Credentials */}
+          <div className="mt-6 p-4 bg-[#0A1F0A]/50 border border-[#2D6A4F]/30 rounded-lg">
+            <p className="text-xs text-gray-400 mb-2 font-semibold">Test Credentials:</p>
+            <div className="space-y-1 text-xs text-gray-400">
+              <p><span className="text-[#D4AF37]">Admin:</span> admin / admin123</p>
+              <p><span className="text-[#D4AF37]">Coach:</span> coach / coach123</p>
+              <p><span className="text-[#D4AF37]">Student:</span> student / student123</p>
+            </div>
+          </div>
 
           {/* Support Contact */}
           <div className="mt-8 text-center">
