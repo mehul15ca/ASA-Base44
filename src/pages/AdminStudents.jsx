@@ -131,17 +131,17 @@ export default function AdminStudents() {
                 <SelectItem value="joinDate">Join Date</SelectItem>
               </SelectContent>
             </Select>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button
                 variant="outline"
-                className="flex-1 border-[#40916C] text-gray-300"
+                className="flex-1 min-w-[120px] border-[#40916C] text-gray-300"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Export CSV
               </Button>
               <Button
                 onClick={() => setShowAddStudentModal(true)}
-                className="flex-1 bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                className="flex-1 min-w-[120px] bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
               >
                 <Plus className="w-4 h-4 mr-2" />
                 Add Student
