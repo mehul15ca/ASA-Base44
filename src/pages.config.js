@@ -51,6 +51,7 @@ import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
 import CoachStudents from './pages/CoachStudents';
 import CoachInjuries from './pages/CoachInjuries';
+import CoachSalary from './pages/CoachSalary';
 import __Layout from './Layout.jsx';
 
 
@@ -108,6 +109,7 @@ export const PAGES = {
     "SuperAdminUsers": SuperAdminUsers,
     "CoachStudents": CoachStudents,
     "CoachInjuries": CoachInjuries,
+    "CoachSalary": CoachSalary,
 }
 
 export const pagesConfig = {
