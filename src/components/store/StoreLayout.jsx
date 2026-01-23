@@ -3,10 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   LayoutDashboard, Package, Warehouse, ShoppingCart, 
-  Truck, Users, BarChart3, Settings, Bell, Menu, X
+  Truck, Users, BarChart3, Settings, Bell, Menu, X, LogOut
 } from 'lucide-react';
 import { createPageUrl } from '../../utils';
 import { Button } from "@/components/ui/button";
+import { base44 } from '@/api/base44Client';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: 'StoreDashboard' },
@@ -24,6 +25,10 @@ export default function StoreLayout({ children }) {
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const currentPath = location.pathname.split('/').pop();
+
+  const handleLogout = () => {
+    base44.auth.logout();
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A]">
@@ -62,6 +67,15 @@ export default function StoreLayout({ children }) {
               </Button>
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handleLogout}
+              className="text-gray-300 hover:text-red-400"
+              title="Logout"
+            >
+              <LogOut className="w-5 h-5" />
+            </Button>
             <div className="w-9 h-9 rounded-full bg-[#D4AF37] flex items-center justify-center">
               <span className="text-[#0A1F0A] font-bold text-sm">SM</span>
             </div>
