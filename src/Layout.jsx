@@ -7,7 +7,8 @@ export default function Layout({ children, currentPageName }) {
     currentPageName?.startsWith('Admin') || 
     currentPageName?.startsWith('Student') || 
     currentPageName?.startsWith('Coach') || 
-    currentPageName?.startsWith('SuperAdmin');
+    currentPageName?.startsWith('SuperAdmin') ||
+    currentPageName?.startsWith('Store');
   
   return (
     <div className="min-h-screen bg-[#0A1F0A]">
