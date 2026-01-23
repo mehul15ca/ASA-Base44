@@ -4,15 +4,19 @@ import WhatToExpect from '../components/home/WhatToExpect';
 import ProgramsPreview from '../components/home/ProgramsPreview';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import CTASection from '../components/home/CTASection';
+import ScrollingBackground3D from '../components/home/ScrollingBackground3D';
 
 export default function Home() {
   return (
-    <div>
-      <HeroSection />
-      <WhatToExpect />
-      <ProgramsPreview />
-      <TestimonialsSection />
-      <CTASection />
+    <div className="relative">
+      <ScrollingBackground3D />
+      <div className="relative" style={{ zIndex: 2 }}>
+        <HeroSection />
+        <WhatToExpect />
+        <ProgramsPreview />
+        <TestimonialsSection />
+        <CTASection />
+      </div>
     </div>
   );
 }
