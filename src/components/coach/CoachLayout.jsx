@@ -12,7 +12,8 @@ import {
   Bell,
   UserCircle,
   LogOut,
-  Search
+  Search,
+  Award
 } from 'lucide-react';
 import { createPageUrl } from '../../utils';
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,7 @@ const menuItems = [
   { icon: Calendar, label: 'My Sessions', path: 'CoachSessions' },
   { icon: ClipboardCheck, label: 'My Attendance', path: 'CoachAttendance' },
   { icon: Users, label: 'Students Today', path: 'CoachStudents' },
+  { icon: Award, label: 'Evaluations', path: 'CoachEvaluations' },
   { icon: DollarSign, label: 'Salary', path: 'CoachSalary' },
   { icon: AlertTriangle, label: 'Injury Reports', path: 'CoachInjuries' },
   { icon: FileText, label: 'Session Notes', path: 'CoachNotes' },

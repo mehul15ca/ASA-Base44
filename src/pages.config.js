@@ -61,6 +61,7 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
+import CoachEvaluations from './pages/CoachEvaluations';
 import __Layout from './Layout.jsx';
 
 
@@ -128,6 +129,7 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
+    "CoachEvaluations": CoachEvaluations,
 }
 
 export const pagesConfig = {
