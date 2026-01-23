@@ -102,7 +102,7 @@ export default function CoachSalary() {
                 <DollarSign className="w-5 h-5 text-[#D4AF37]" />
                 <p className="text-gray-400 text-sm">Current Month</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{mockSalaryData.currentMonth.netSalary.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${mockSalaryData.currentMonth.netSalary.toLocaleString()}</p>
               <Badge className="mt-2 bg-yellow-500/20 text-yellow-400">
                 {mockSalaryData.currentMonth.status}
               </Badge>
@@ -119,7 +119,7 @@ export default function CoachSalary() {
                 <TrendingUp className="w-5 h-5 text-green-400" />
                 <p className="text-gray-400 text-sm">Total Earnings</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{mockSalaryData.totalEarnings.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${mockSalaryData.totalEarnings.toLocaleString()}</p>
             </Card>
           </motion.div>
 
@@ -133,7 +133,7 @@ export default function CoachSalary() {
                 <Calendar className="w-5 h-5 text-[#F4D03F]" />
                 <p className="text-gray-400 text-sm">Average Monthly</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{mockSalaryData.avgMonthlySalary.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${mockSalaryData.avgMonthlySalary.toLocaleString()}</p>
             </Card>
           </motion.div>
 
@@ -147,7 +147,7 @@ export default function CoachSalary() {
                 <FileText className="w-5 h-5 text-blue-400" />
                 <p className="text-gray-400 text-sm">Last Payment</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{mockSalaryData.lastPayment.amount.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${mockSalaryData.lastPayment.amount.toLocaleString()}</p>
               <p className="text-gray-400 text-xs mt-1">{new Date(mockSalaryData.lastPayment.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
             </Card>
           </motion.div>
@@ -170,23 +170,23 @@ export default function CoachSalary() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
                 <p className="text-gray-400 text-sm mb-1">Base Salary</p>
-                <p className="text-2xl font-bold text-white">₹{mockSalaryData.currentMonth.baseSalary.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-white">${mockSalaryData.currentMonth.baseSalary.toLocaleString()}</p>
               </div>
               <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
                 <p className="text-gray-400 text-sm mb-1">Session Bonus</p>
-                <p className="text-2xl font-bold text-green-400">+₹{mockSalaryData.currentMonth.sessionBonus.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-400">+${mockSalaryData.currentMonth.sessionBonus.toLocaleString()}</p>
               </div>
               <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
                 <p className="text-gray-400 text-sm mb-1">Performance Bonus</p>
-                <p className="text-2xl font-bold text-green-400">+₹{mockSalaryData.currentMonth.performanceBonus.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-green-400">+${mockSalaryData.currentMonth.performanceBonus.toLocaleString()}</p>
               </div>
               <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
                 <p className="text-gray-400 text-sm mb-1">Deductions</p>
-                <p className="text-2xl font-bold text-red-400">-₹{mockSalaryData.currentMonth.deductions.toLocaleString()}</p>
+                <p className="text-2xl font-bold text-red-400">-${mockSalaryData.currentMonth.deductions.toLocaleString()}</p>
               </div>
               <div className="bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] p-4 rounded-lg col-span-2">
                 <p className="text-[#0A1F0A] text-sm mb-1 font-semibold">Net Salary</p>
-                <p className="text-3xl font-bold text-[#0A1F0A]">₹{mockSalaryData.currentMonth.netSalary.toLocaleString()}</p>
+                <p className="text-3xl font-bold text-[#0A1F0A]">${mockSalaryData.currentMonth.netSalary.toLocaleString()}</p>
                 <p className="text-[#0A1F0A] text-xs mt-1">Payment Date: {new Date(mockSalaryData.currentMonth.paymentDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
               </div>
             </div>
@@ -215,19 +215,19 @@ export default function CoachSalary() {
                       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                         <div>
                           <p className="text-gray-400 text-sm">Base Salary</p>
-                          <p className="text-white font-medium">₹{payment.baseSalary.toLocaleString()}</p>
+                          <p className="text-white font-medium">${payment.baseSalary.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-sm">Bonuses</p>
-                          <p className="text-green-400 font-medium">+₹{(payment.sessionBonus + payment.performanceBonus).toLocaleString()}</p>
+                          <p className="text-green-400 font-medium">+${(payment.sessionBonus + payment.performanceBonus).toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-sm">Deductions</p>
-                          <p className="text-red-400 font-medium">-₹{payment.deductions.toLocaleString()}</p>
+                          <p className="text-red-400 font-medium">-${payment.deductions.toLocaleString()}</p>
                         </div>
                         <div>
                           <p className="text-gray-400 text-sm">Net Salary</p>
-                          <p className="text-white font-bold text-lg">₹{payment.netSalary.toLocaleString()}</p>
+                          <p className="text-white font-bold text-lg">${payment.netSalary.toLocaleString()}</p>
                         </div>
                       </div>
                       <p className="text-gray-400 text-sm mt-3">
@@ -279,23 +279,23 @@ export default function CoachSalary() {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center bg-[#0A1F0A]/50 p-4 rounded-lg">
                     <span className="text-gray-400">Base Salary</span>
-                    <span className="text-white font-semibold">₹{selectedPayment.baseSalary.toLocaleString()}</span>
+                    <span className="text-white font-semibold">${selectedPayment.baseSalary.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center bg-[#0A1F0A]/50 p-4 rounded-lg">
                     <span className="text-gray-400">Session Bonus</span>
-                    <span className="text-green-400 font-semibold">+₹{selectedPayment.sessionBonus.toLocaleString()}</span>
+                    <span className="text-green-400 font-semibold">+${selectedPayment.sessionBonus.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center bg-[#0A1F0A]/50 p-4 rounded-lg">
                     <span className="text-gray-400">Performance Bonus</span>
-                    <span className="text-green-400 font-semibold">+₹{selectedPayment.performanceBonus.toLocaleString()}</span>
+                    <span className="text-green-400 font-semibold">+${selectedPayment.performanceBonus.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center bg-[#0A1F0A]/50 p-4 rounded-lg">
                     <span className="text-gray-400">Deductions</span>
-                    <span className="text-red-400 font-semibold">-₹{selectedPayment.deductions.toLocaleString()}</span>
+                    <span className="text-red-400 font-semibold">-${selectedPayment.deductions.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between items-center bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] p-4 rounded-lg">
                     <span className="text-[#0A1F0A] font-bold">Net Salary</span>
-                    <span className="text-[#0A1F0A] font-bold text-2xl">₹{selectedPayment.netSalary.toLocaleString()}</span>
+                    <span className="text-[#0A1F0A] font-bold text-2xl">${selectedPayment.netSalary.toLocaleString()}</span>
                   </div>
                 </div>
 

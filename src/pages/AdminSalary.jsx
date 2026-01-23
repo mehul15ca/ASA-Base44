@@ -98,7 +98,7 @@ export default function AdminSalary() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-bold text-white">₹{totalPayroll.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${totalPayroll.toLocaleString()}</p>
             </CardContent>
           </Card>
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
@@ -187,10 +187,10 @@ export default function AdminSalary() {
                         </div>
                       </td>
                       <td className="py-3 px-4 text-sm text-gray-300">{salary.role}</td>
-                      <td className="py-3 px-4 text-right text-sm text-gray-300">₹{salary.baseSalary.toLocaleString()}</td>
-                      <td className="py-3 px-4 text-right text-sm text-green-500">+₹{salary.allowances.toLocaleString()}</td>
-                      <td className="py-3 px-4 text-right text-sm text-red-500">-₹{salary.deductions.toLocaleString()}</td>
-                      <td className="py-3 px-4 text-right font-semibold text-[#D4AF37]">₹{salary.netSalary.toLocaleString()}</td>
+                      <td className="py-3 px-4 text-right text-sm text-gray-300">${salary.baseSalary.toLocaleString()}</td>
+                      <td className="py-3 px-4 text-right text-sm text-green-500">+${salary.allowances.toLocaleString()}</td>
+                      <td className="py-3 px-4 text-right text-sm text-red-500">-${salary.deductions.toLocaleString()}</td>
+                      <td className="py-3 px-4 text-right font-semibold text-[#D4AF37]">${salary.netSalary.toLocaleString()}</td>
                       <td className="py-3 px-4 text-center">
                         <Badge className={salary.status === 'Paid' ? 'bg-green-500' : 'bg-yellow-500'}>
                           {salary.status}
@@ -229,19 +229,19 @@ export default function AdminSalary() {
                                 <div className="space-y-2">
                                   <div className="flex justify-between">
                                     <span className="text-gray-400">Base Salary</span>
-                                    <span className="font-medium text-white">₹{salary.baseSalary.toLocaleString()}</span>
+                                    <span className="font-medium text-white">${salary.baseSalary.toLocaleString()}</span>
                                   </div>
                                   <div className="flex justify-between">
                                     <span className="text-green-500">Allowances</span>
-                                    <span className="font-medium text-green-500">+₹{salary.allowances.toLocaleString()}</span>
+                                    <span className="font-medium text-green-500">+${salary.allowances.toLocaleString()}</span>
                                   </div>
                                   <div className="flex justify-between">
                                     <span className="text-red-500">Deductions</span>
-                                    <span className="font-medium text-red-500">-₹{salary.deductions.toLocaleString()}</span>
+                                    <span className="font-medium text-red-500">-${salary.deductions.toLocaleString()}</span>
                                   </div>
                                   <div className="flex justify-between border-t border-[#2D6A4F]/50 pt-2">
                                     <span className="font-semibold text-white">Net Salary</span>
-                                    <span className="font-bold text-lg text-[#D4AF37]">₹{salary.netSalary.toLocaleString()}</span>
+                                    <span className="font-bold text-lg text-[#D4AF37]">${salary.netSalary.toLocaleString()}</span>
                                   </div>
                                 </div>
                               </div>

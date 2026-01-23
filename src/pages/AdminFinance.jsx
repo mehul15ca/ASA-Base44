@@ -120,7 +120,7 @@ export default function AdminFinance() {
               <TrendingUp className="w-5 h-5 text-green-400" />
               <p className="text-gray-400 text-sm">Total Revenue</p>
             </div>
-            <p className="text-3xl font-bold text-white">₹{totalRevenue.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-white">${totalRevenue.toLocaleString()}</p>
             <p className="text-green-400 text-sm mt-1">+12.5% from last month</p>
           </motion.div>
           
@@ -134,7 +134,7 @@ export default function AdminFinance() {
               <Clock className="w-5 h-5 text-yellow-400" />
               <p className="text-gray-400 text-sm">Pending Amount</p>
             </div>
-            <p className="text-3xl font-bold text-white">₹{pendingAmount.toLocaleString()}</p>
+            <p className="text-3xl font-bold text-white">${pendingAmount.toLocaleString()}</p>
             <p className="text-yellow-400 text-sm mt-1">{mockInvoices.length - paidInvoices} unpaid invoices</p>
           </motion.div>
 
@@ -231,7 +231,7 @@ export default function AdminFinance() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-white font-semibold">₹{invoice.paid.toLocaleString()}</p>
+                        <p className="text-white font-semibold">${invoice.paid.toLocaleString()}</p>
                         <Badge className={
                           invoice.status === 'Paid' ? 'bg-green-500/20 text-green-400' :
                           invoice.status === 'Partial' ? 'bg-yellow-500/20 text-yellow-400' :
@@ -316,8 +316,8 @@ export default function AdminFinance() {
                         <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">{invoice.id}</td>
                         <td className="px-6 py-4 text-sm text-white font-medium">{invoice.student}</td>
                         <td className="px-6 py-4 text-sm text-gray-300">{invoice.batch}</td>
-                        <td className="px-6 py-4 text-sm text-white">₹{invoice.amount.toLocaleString()}</td>
-                        <td className="px-6 py-4 text-sm text-white">₹{invoice.paid.toLocaleString()}</td>
+                        <td className="px-6 py-4 text-sm text-white">${invoice.amount.toLocaleString()}</td>
+                        <td className="px-6 py-4 text-sm text-white">${invoice.paid.toLocaleString()}</td>
                         <td className="px-6 py-4">
                           <Badge className={
                             invoice.status === 'Paid' ? 'bg-green-500/20 text-green-400' :
@@ -408,21 +408,21 @@ export default function AdminFinance() {
                     <div className="space-y-3">
                       <div className="flex justify-between">
                         <span className="text-gray-400">Monthly Fee</span>
-                        <span className="text-white font-semibold">₹{structure.monthlyFee.toLocaleString()}</span>
+                        <span className="text-white font-semibold">${structure.monthlyFee.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">Registration Fee</span>
-                        <span className="text-white font-semibold">₹{structure.registrationFee.toLocaleString()}</span>
+                        <span className="text-white font-semibold">${structure.registrationFee.toLocaleString()}</span>
                       </div>
                       <div className="flex justify-between">
                         <span className="text-gray-400">Equipment Fee</span>
-                        <span className="text-white font-semibold">₹{structure.equipmentFee.toLocaleString()}</span>
+                        <span className="text-white font-semibold">${structure.equipmentFee.toLocaleString()}</span>
                       </div>
                       <div className="pt-3 border-t border-[#2D6A4F]/50">
                         <div className="flex justify-between">
                           <span className="text-[#D4AF37]">Total (First Month)</span>
                           <span className="text-[#D4AF37] font-bold">
-                            ₹{(structure.monthlyFee + structure.registrationFee + structure.equipmentFee).toLocaleString()}
+                            ${(structure.monthlyFee + structure.registrationFee + structure.equipmentFee).toLocaleString()}
                           </span>
                         </div>
                       </div>
@@ -451,15 +451,15 @@ export default function AdminFinance() {
                 <div className="space-y-4">
                   <div>
                     <p className="text-gray-400 text-sm">Total Revenue</p>
-                    <p className="text-2xl font-bold text-white">₹640,000</p>
+                    <p className="text-2xl font-bold text-white">$640,000</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Total Expenses</p>
-                    <p className="text-2xl font-bold text-white">₹330,000</p>
+                    <p className="text-2xl font-bold text-white">$330,000</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Net Profit</p>
-                    <p className="text-2xl font-bold text-green-400">₹310,000</p>
+                    <p className="text-2xl font-bold text-green-400">$310,000</p>
                   </div>
                   <Button className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
                     <Download className="w-4 h-4 mr-2" />
@@ -473,15 +473,15 @@ export default function AdminFinance() {
                 <div className="space-y-4">
                   <div>
                     <p className="text-gray-400 text-sm">Total Outstanding</p>
-                    <p className="text-2xl font-bold text-yellow-400">₹{pendingAmount.toLocaleString()}</p>
+                    <p className="text-2xl font-bold text-yellow-400">${pendingAmount.toLocaleString()}</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Overdue Amount</p>
-                    <p className="text-2xl font-bold text-red-400">₹42,000</p>
+                    <p className="text-2xl font-bold text-red-400">$42,000</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Partial Payments</p>
-                    <p className="text-2xl font-bold text-white">₹20,000</p>
+                    <p className="text-2xl font-bold text-white">$20,000</p>
                   </div>
                   <Button className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]">
                     <Download className="w-4 h-4 mr-2" />
@@ -499,7 +499,7 @@ export default function AdminFinance() {
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Avg Transaction</p>
-                    <p className="text-2xl font-bold text-white">₹4,587</p>
+                    <p className="text-2xl font-bold text-white">$4,587</p>
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Success Rate</p>
@@ -541,8 +541,8 @@ export default function AdminFinance() {
                     <SelectValue placeholder="Select batch" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
-                    <SelectItem value="cricket_a">Cricket Batch A - ₹5,000/month</SelectItem>
-                    <SelectItem value="football">Football Batch - ₹4,000/month</SelectItem>
+                    <SelectItem value="cricket_a">Cricket Batch A - $5,000/month</SelectItem>
+                    <SelectItem value="football">Football Batch - $4,000/month</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -606,7 +606,7 @@ export default function AdminFinance() {
                 <p className="text-white">{selectedInvoice?.student}</p>
                 <p className="text-gray-400 text-sm mt-2">Amount Due</p>
                 <p className="text-[#D4AF37] text-xl font-bold">
-                  ₹{(selectedInvoice?.amount - selectedInvoice?.paid || 0).toLocaleString()}
+                  ${(selectedInvoice?.amount - selectedInvoice?.paid || 0).toLocaleString()}
                 </p>
               </div>
               <div>
@@ -675,7 +675,7 @@ export default function AdminFinance() {
                 <p className="text-gray-400 text-sm mt-2">Student</p>
                 <p className="text-white">{selectedInvoice?.student}</p>
                 <p className="text-gray-400 text-sm mt-2">Paid Amount</p>
-                <p className="text-white text-xl font-bold">₹{selectedInvoice?.paid.toLocaleString()}</p>
+                <p className="text-white text-xl font-bold">${selectedInvoice?.paid.toLocaleString()}</p>
               </div>
               <div>
                 <Label className="text-gray-300">Refund Amount *</Label>

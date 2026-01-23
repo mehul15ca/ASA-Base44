@@ -56,7 +56,7 @@ export default function StudentFees() {
                 <DollarSign className="w-5 h-5 text-red-400" />
                 <p className="text-gray-400 text-sm">Total Fees Due</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{totalFeesDue.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${totalFeesDue.toLocaleString()}</p>
             </Card>
           </motion.div>
 
@@ -66,7 +66,7 @@ export default function StudentFees() {
                 <CheckCircle className="w-5 h-5 text-green-400" />
                 <p className="text-gray-400 text-sm">Total Paid</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{totalPaid.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${totalPaid.toLocaleString()}</p>
             </Card>
           </motion.div>
 
@@ -76,7 +76,7 @@ export default function StudentFees() {
                 <Clock className="w-5 h-5 text-yellow-400" />
                 <p className="text-gray-400 text-sm">Pending Amount</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{pendingAmount.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${pendingAmount.toLocaleString()}</p>
             </Card>
           </motion.div>
 
@@ -86,7 +86,7 @@ export default function StudentFees() {
                 <Wallet className="w-5 h-5 text-[#D4AF37]" />
                 <p className="text-gray-400 text-sm">Wallet Balance</p>
               </div>
-              <p className="text-3xl font-bold text-white">₹{walletBalance.toLocaleString()}</p>
+              <p className="text-3xl font-bold text-white">${walletBalance.toLocaleString()}</p>
             </Card>
           </motion.div>
         </div>
@@ -127,7 +127,7 @@ export default function StudentFees() {
                         className="border-b border-[#2D6A4F]/30"
                       >
                         <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">{invoice.id}</td>
-                        <td className="px-6 py-4 text-sm text-white">₹{invoice.amount.toLocaleString()}</td>
+                        <td className="px-6 py-4 text-sm text-white">${invoice.amount.toLocaleString()}</td>
                         <td className="px-6 py-4 text-sm text-gray-300">{invoice.dueDate}</td>
                         <td className="px-6 py-4">
                           <Badge className={invoice.status === 'Paid' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}>
@@ -211,8 +211,8 @@ export default function StudentFees() {
                             {txn.type}
                           </Badge>
                         </td>
-                        <td className="px-6 py-4 text-sm text-white">₹{txn.amount.toLocaleString()}</td>
-                        <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">₹{txn.balance.toLocaleString()}</td>
+                        <td className="px-6 py-4 text-sm text-white">${txn.amount.toLocaleString()}</td>
+                        <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">${txn.balance.toLocaleString()}</td>
                       </motion.tr>
                     ))}
                   </tbody>
@@ -266,14 +266,14 @@ export default function StudentFees() {
                   {selectedInvoice?.items.map((item, idx) => (
                     <div key={idx} className="flex justify-between bg-[#0A1F0A]/50 rounded p-3">
                       <span className="text-white">{item.name}</span>
-                      <span className="text-white font-semibold">₹{item.amount.toLocaleString()}</span>
+                      <span className="text-white font-semibold">${item.amount.toLocaleString()}</span>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="flex justify-between bg-[#1A4D2E] rounded-lg p-4">
                 <span className="text-white font-semibold">Total</span>
-                <span className="text-[#D4AF37] text-xl font-bold">₹{selectedInvoice?.amount.toLocaleString()}</span>
+                <span className="text-[#D4AF37] text-xl font-bold">${selectedInvoice?.amount.toLocaleString()}</span>
               </div>
               <div>
                 <p className="text-gray-400 text-sm">Status</p>
