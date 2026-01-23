@@ -23,20 +23,128 @@ export default function ScrollingBackground3D() {
     renderer.setPixelRatio(window.devicePixelRatio);
     containerRef.current.appendChild(renderer.domElement);
 
-    // Create floating balls
-    const balls = [];
-    const ballCount = 20;
-
-    for (let i = 0; i < ballCount; i++) {
-      const geometry = new THREE.SphereGeometry(0.3 + Math.random() * 0.4, 32, 32);
+    // Helper functions to create different sports balls
+    const createCricketBall = (radius) => {
+      const group = new THREE.Group();
+      const geometry = new THREE.SphereGeometry(radius, 32, 32);
       const material = new THREE.MeshStandardMaterial({
-        color: [0xA41E1E, 0xFFFFFF, 0x4CAF50, 0xD4AF37][Math.floor(Math.random() * 4)],
-        roughness: 0.3,
-        metalness: 0.2,
-        emissive: [0xA41E1E, 0xFFFFFF, 0x4CAF50, 0xD4AF37][Math.floor(Math.random() * 4)],
-        emissiveIntensity: 0.3,
+        color: 0xA41E1E,
+        roughness: 0.4,
+        metalness: 0.1,
       });
       const ball = new THREE.Mesh(geometry, material);
+      group.add(ball);
+      
+      // Add seam
+      const seamGeometry = new THREE.TorusGeometry(radius * 0.95, radius * 0.03, 8, 32);
+      const seamMaterial = new THREE.MeshStandardMaterial({
+        color: 0xFFFFFF,
+        roughness: 0.6,
+      });
+      const seam = new THREE.Mesh(seamGeometry, seamMaterial);
+      seam.position.z = radius * 0.02;
+      group.add(seam);
+      
+      return group;
+    };
+
+    const createBasketball = (radius) => {
+      const group = new THREE.Group();
+      const geometry = new THREE.SphereGeometry(radius, 32, 32);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xFF6B2B,
+        roughness: 0.5,
+        metalness: 0.05,
+      });
+      const ball = new THREE.Mesh(geometry, material);
+      group.add(ball);
+      
+      // Add black lines
+      for (let i = 0; i < 3; i++) {
+        const lineGeometry = new THREE.TorusGeometry(radius * 0.98, radius * 0.02, 8, 32);
+        const lineMaterial = new THREE.MeshStandardMaterial({
+          color: 0x000000,
+          roughness: 0.7,
+        });
+        const line = new THREE.Mesh(lineGeometry, lineMaterial);
+        line.rotation.x = (Math.PI / 3) * i;
+        group.add(line);
+      }
+      
+      return group;
+    };
+
+    const createFootball = (radius) => {
+      const group = new THREE.Group();
+      const geometry = new THREE.SphereGeometry(radius, 32, 32);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xFFFFFF,
+        roughness: 0.4,
+        metalness: 0.05,
+      });
+      const ball = new THREE.Mesh(geometry, material);
+      group.add(ball);
+      
+      // Add black pentagons pattern
+      const hexGeometry = new THREE.CircleGeometry(radius * 0.2, 5);
+      const hexMaterial = new THREE.MeshStandardMaterial({
+        color: 0x000000,
+        roughness: 0.5,
+      });
+      
+      for (let i = 0; i < 6; i++) {
+        const hex = new THREE.Mesh(hexGeometry, hexMaterial);
+        const angle = (Math.PI * 2 * i) / 6;
+        hex.position.set(
+          Math.cos(angle) * radius * 0.7,
+          Math.sin(angle) * radius * 0.7,
+          radius * 0.7
+        );
+        hex.lookAt(0, 0, 0);
+        group.add(hex);
+      }
+      
+      return group;
+    };
+
+    const createTennisBall = (radius) => {
+      const group = new THREE.Group();
+      const geometry = new THREE.SphereGeometry(radius, 32, 32);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0xCCFF00,
+        roughness: 0.6,
+        metalness: 0,
+      });
+      const ball = new THREE.Mesh(geometry, material);
+      group.add(ball);
+      
+      // Add curved line pattern
+      const lineGeometry = new THREE.TorusGeometry(radius * 0.85, radius * 0.025, 8, 32, Math.PI);
+      const lineMaterial = new THREE.MeshStandardMaterial({
+        color: 0xFFFFFF,
+        roughness: 0.7,
+      });
+      const line1 = new THREE.Mesh(lineGeometry, lineMaterial);
+      line1.rotation.y = Math.PI / 2;
+      group.add(line1);
+      
+      const line2 = new THREE.Mesh(lineGeometry, lineMaterial);
+      line2.rotation.y = -Math.PI / 2;
+      line2.rotation.z = Math.PI;
+      group.add(line2);
+      
+      return group;
+    };
+
+    // Create floating sports balls
+    const balls = [];
+    const ballCount = 20;
+    const ballCreators = [createCricketBall, createBasketball, createFootball, createTennisBall];
+
+    for (let i = 0; i < ballCount; i++) {
+      const radius = 0.3 + Math.random() * 0.3;
+      const ballType = Math.floor(Math.random() * ballCreators.length);
+      const ball = ballCreators[ballType](radius);
       
       ball.position.set(
         (Math.random() - 0.5) * 15,
