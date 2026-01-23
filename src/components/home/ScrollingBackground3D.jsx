@@ -25,29 +25,32 @@ export default function ScrollingBackground3D() {
 
     // Create floating balls
     const balls = [];
-    const ballCount = 15;
+    const ballCount = 20;
 
     for (let i = 0; i < ballCount; i++) {
-      const geometry = new THREE.SphereGeometry(0.2 + Math.random() * 0.3, 32, 32);
+      const geometry = new THREE.SphereGeometry(0.3 + Math.random() * 0.4, 32, 32);
       const material = new THREE.MeshStandardMaterial({
         color: [0xA41E1E, 0xFFFFFF, 0x4CAF50, 0xD4AF37][Math.floor(Math.random() * 4)],
         roughness: 0.3,
         metalness: 0.2,
+        emissive: [0xA41E1E, 0xFFFFFF, 0x4CAF50, 0xD4AF37][Math.floor(Math.random() * 4)],
+        emissiveIntensity: 0.3,
       });
       const ball = new THREE.Mesh(geometry, material);
       
       ball.position.set(
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 10,
-        (Math.random() - 0.5) * 5
+        (Math.random() - 0.5) * 15,
+        (Math.random() * 20) - 10,
+        (Math.random() - 0.5) * 8
       );
       
       ball.userData = {
-        speedY: 0.002 + Math.random() * 0.003,
-        speedX: (Math.random() - 0.5) * 0.001,
+        speedY: 0.01 + Math.random() * 0.015,
+        speedX: (Math.random() - 0.5) * 0.003,
         initialY: ball.position.y,
       };
       
+      ball.castShadow = true;
       scene.add(ball);
       balls.push(ball);
     }
@@ -61,29 +64,30 @@ export default function ScrollingBackground3D() {
     scene.add(directionalLight);
 
     // Particles
-    const particleCount = 100;
+    const particleCount = 200;
     const particleGeometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const velocities = new Float32Array(particleCount * 3);
 
     for (let i = 0; i < particleCount * 3; i += 3) {
-      positions[i] = (Math.random() - 0.5) * 20;
-      positions[i + 1] = (Math.random() - 0.5) * 20;
-      positions[i + 2] = (Math.random() - 0.5) * 10;
+      positions[i] = (Math.random() - 0.5) * 30;
+      positions[i + 1] = (Math.random() * 30) - 15;
+      positions[i + 2] = (Math.random() - 0.5) * 15;
 
-      velocities[i] = (Math.random() - 0.5) * 0.01;
-      velocities[i + 1] = -0.01 - Math.random() * 0.02; // Falling effect
-      velocities[i + 2] = (Math.random() - 0.5) * 0.01;
+      velocities[i] = (Math.random() - 0.5) * 0.015;
+      velocities[i + 1] = -0.02 - Math.random() * 0.03; // Falling effect
+      velocities[i + 2] = (Math.random() - 0.5) * 0.015;
     }
 
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     particleGeometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
 
     const particleMaterial = new THREE.PointsMaterial({
-      size: 0.08,
+      size: 0.12,
       color: 0xD4AF37,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.8,
+      sizeAttenuation: true,
     });
 
     const particles = new THREE.Points(particleGeometry, particleMaterial);
@@ -165,7 +169,7 @@ export default function ScrollingBackground3D() {
     <div 
       ref={containerRef} 
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 1 }}
+      style={{ zIndex: 0 }}
     />
   );
 }

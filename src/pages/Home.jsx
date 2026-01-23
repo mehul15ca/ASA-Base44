@@ -8,9 +8,9 @@ import ScrollingBackground3D from '../components/home/ScrollingBackground3D';
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative min-h-screen">
       <ScrollingBackground3D />
-      <div className="relative" style={{ zIndex: 2 }}>
+      <div className="relative z-10">
         <HeroSection />
         <WhatToExpect />
         <ProgramsPreview />
