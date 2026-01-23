@@ -63,7 +63,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-[#0A1F0A]/40 via-[#0D2818]/40 to-[#0A1F0A]/40 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#40916C]/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#40916C]/30 to-transparent" />

@@ -44,7 +44,7 @@ const features = [
 
 export default function WhatToExpect() {
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-[#0D2818]/40 to-[#0A1F0A]/40 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-64 h-64 bg-[#40916C] rounded-full blur-3xl" />

@@ -31,7 +31,7 @@ const programs = [
 
 export default function ProgramsPreview() {
   return (
-    <section className="py-24 bg-[#0A1F0A] relative">
+    <section className="py-24 bg-[#0A1F0A]/30 relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
