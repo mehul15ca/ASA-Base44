@@ -95,10 +95,14 @@ export default function ScrollingBackground3D() {
 
     // Animation
     let scrollY = 0;
+    let lastScrollY = 0;
+    let scrollDirection = 0;
     let time = 0;
 
     const handleScroll = () => {
       scrollY = window.scrollY;
+      scrollDirection = scrollY > lastScrollY ? 1 : -1; // 1 = down, -1 = up
+      lastScrollY = scrollY;
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -108,36 +112,54 @@ export default function ScrollingBackground3D() {
       time += 0.01;
 
       // Move camera based on scroll
-      camera.position.y = -(scrollY * 0.002);
+      camera.position.y = -(scrollY * 0.003);
 
-      // Animate balls with falling effect
+      // Animate balls with scroll-based falling/throwing effect
       balls.forEach((ball) => {
-        ball.position.y -= ball.userData.speedY;
+        // Base falling effect
+        const scrollBoost = scrollDirection * 0.005;
+        ball.position.y -= ball.userData.speedY + scrollBoost;
         ball.position.x += ball.userData.speedX;
-        ball.rotation.x += 0.01;
-        ball.rotation.y += 0.01;
+        ball.rotation.x += 0.01 + Math.abs(scrollBoost) * 2;
+        ball.rotation.y += 0.01 + Math.abs(scrollBoost) * 2;
 
-        // Reset when ball falls too low
-        if (ball.position.y < -6 + camera.position.y) {
-          ball.position.y = 6 + camera.position.y;
-          ball.position.x = (Math.random() - 0.5) * 10;
+        // Reset when ball falls too low (scrolling down)
+        if (ball.position.y < -10 + camera.position.y) {
+          ball.position.y = 10 + camera.position.y;
+          ball.position.x = (Math.random() - 0.5) * 15;
+          ball.position.z = (Math.random() - 0.5) * 8;
+        }
+        
+        // Reset when ball goes too high (scrolling up)
+        if (ball.position.y > 10 + camera.position.y) {
+          ball.position.y = -10 + camera.position.y;
+          ball.position.x = (Math.random() - 0.5) * 15;
+          ball.position.z = (Math.random() - 0.5) * 8;
         }
       });
 
-      // Animate particles with falling effect
+      // Animate particles with scroll-based effect
       const positions = particles.geometry.attributes.position.array;
       const velocities = particles.geometry.attributes.velocity.array;
+      const scrollParticleBoost = scrollDirection * 0.02;
 
       for (let i = 0; i < positions.length; i += 3) {
         positions[i] += velocities[i];
-        positions[i + 1] += velocities[i + 1];
+        positions[i + 1] += velocities[i + 1] + scrollParticleBoost;
         positions[i + 2] += velocities[i + 2];
 
         // Reset particles that fall too low
-        if (positions[i + 1] < -10 + camera.position.y) {
-          positions[i + 1] = 10 + camera.position.y;
-          positions[i] = (Math.random() - 0.5) * 20;
-          positions[i + 2] = (Math.random() - 0.5) * 10;
+        if (positions[i + 1] < -15 + camera.position.y) {
+          positions[i + 1] = 15 + camera.position.y;
+          positions[i] = (Math.random() - 0.5) * 30;
+          positions[i + 2] = (Math.random() - 0.5) * 15;
+        }
+        
+        // Reset particles that go too high
+        if (positions[i + 1] > 15 + camera.position.y) {
+          positions[i + 1] = -15 + camera.position.y;
+          positions[i] = (Math.random() - 0.5) * 30;
+          positions[i + 2] = (Math.random() - 0.5) * 15;
         }
       }
       particles.geometry.attributes.position.needsUpdate = true;

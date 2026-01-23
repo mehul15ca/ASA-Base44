@@ -7,7 +7,7 @@ import { createPageUrl } from '@/utils';
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-gradient-to-r from-[#1A4D2E] via-[#2D6A4F] to-[#1A4D2E] relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-r from-[#1A4D2E]/60 via-[#2D6A4F]/60 to-[#1A4D2E]/60 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) =>
