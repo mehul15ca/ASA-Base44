@@ -80,8 +80,8 @@ export default function CTASection() {
             className="space-y-4">
 
             {[
-            { icon: Phone, label: 'Call Us', value: '+1 (647) 555-0123' },
-            { icon: Mail, label: 'Email Us', value: 'info@australasiasports.com' },
+            { icon: Phone, label: 'Call Us', value: '+1 (365) 281-3968' },
+            { icon: Mail, label: 'Email Us', value: 'info@australasiasportsscsdemy.com' },
             { icon: MapPin, label: 'Visit Us', value: 'Brampton, Ontario, Canada' }].
             map((item, index) =>
             <motion.div
