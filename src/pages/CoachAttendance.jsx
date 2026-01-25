@@ -154,41 +154,41 @@ export default function CoachAttendance() {
               <div className="space-y-3 md:space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
-                    <Label className="text-gray-300">Start Date *</Label>
+                    <Label className="text-gray-300 text-xs md:text-sm">Start Date *</Label>
                     <Input
                       type="date"
                       value={startDate}
                       onChange={(e) => setStartDate(e.target.value)}
                       min={getMinStartDate()}
-                      className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                      className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm h-8 md:h-10"
                     />
                   </div>
                   <div>
-                    <Label className="text-gray-300">End Date *</Label>
+                    <Label className="text-gray-300 text-xs md:text-sm">End Date *</Label>
                     <Input
                       type="date"
                       value={endDate}
                       onChange={(e) => setEndDate(e.target.value)}
                       min={startDate}
-                      className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                      className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm h-8 md:h-10"
                     />
                   </div>
                 </div>
                 <div>
-                  <Label className="text-gray-300">Reason *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Reason *</Label>
                   <Textarea
                     value={reason}
                     onChange={(e) => setReason(e.target.value)}
-                    placeholder="Please provide a reason for your leave application..."
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    placeholder="Please provide a reason..."
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm min-h-16 md:min-h-20"
                   />
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-2 md:gap-3">
                   <Button
                     onClick={handleSubmitLeave}
-                    className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                    className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm h-8 md:h-10 px-3 md:px-6 flex-1 md:flex-none"
                   >
-                    Submit Application
+                    Submit
                   </Button>
                   <Button
                     onClick={() => {
@@ -198,7 +198,7 @@ export default function CoachAttendance() {
                       setReason('');
                     }}
                     variant="outline"
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 text-xs md:text-sm h-8 md:h-10 px-3 md:px-6 flex-1 md:flex-none"
                   >
                     Cancel
                   </Button>
