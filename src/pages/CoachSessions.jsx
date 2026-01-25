@@ -41,7 +41,7 @@ const getWeekDays = (date) => {
 export default function CoachSessions() {
   const [currentDate, setCurrentDate] = useState(new Date(2026, 0, 1)); // January 2026
   const [currentPage, setCurrentPage] = useState(1);
-  const [isMobile] = useState(typeof window !== 'undefined' && window.innerWidth < 768);
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const itemsPerPage = 5;
 
   const year = currentDate.getFullYear();
