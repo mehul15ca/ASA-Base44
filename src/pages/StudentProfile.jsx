@@ -47,9 +47,9 @@ export default function StudentProfile() {
 
   return (
     <StudentLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Edit Controls */}
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-end mb-4 md:mb-6">
           {!isEditMode ? (
             <Button
               onClick={() => setIsEditMode(true)}
@@ -80,19 +80,19 @@ export default function StudentProfile() {
         </div>
 
         {/* Profile Header */}
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-8">
-            <div className="flex items-center gap-6">
-              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] flex items-center justify-center">
-                <span className="text-[#0A1F0A] font-bold text-3xl">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-8">
+            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-6">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] flex items-center justify-center">
+                <span className="text-[#0A1F0A] font-bold text-2xl md:text-3xl">
                   {profileData.firstName[0]}{profileData.lastName[0]}
                 </span>
               </div>
-              <div className="flex-1">
-                <h1 className="text-3xl font-bold text-white mb-2">
+              <div className="flex-1 text-center sm:text-left">
+                <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
                   {profileData.firstName} {profileData.lastName}
                 </h1>
-                <div className="flex items-center gap-4 text-gray-300">
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 md:gap-4 text-sm md:text-base text-gray-300">
                   <span>{profileData.studentId}</span>
                   <span>•</span>
                   <span>{profileData.batch}</span>
@@ -104,11 +104,11 @@ export default function StudentProfile() {
         </motion.div>
 
         {/* Personal Information */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <User className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-xl font-bold text-white">Personal Information</h2>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <User className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-lg md:text-xl font-bold text-white">Personal Information</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -167,11 +167,11 @@ export default function StudentProfile() {
         </motion.div>
 
         {/* Contact Information */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <Phone className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-xl font-bold text-white">Contact Information</h2>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <Phone className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-lg md:text-xl font-bold text-white">Contact Information</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -234,11 +234,11 @@ export default function StudentProfile() {
         </motion.div>
 
         {/* Emergency Contact */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <Shield className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-xl font-bold text-white">Emergency Contact</h2>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <Shield className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-lg md:text-xl font-bold text-white">Emergency Contact</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>
@@ -287,10 +287,10 @@ export default function StudentProfile() {
 
         {/* Medical Information */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="flex items-center gap-3 mb-6">
-              <Heart className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-xl font-bold text-white">Medical Information</h2>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <Heart className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-lg md:text-xl font-bold text-white">Medical Information</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>

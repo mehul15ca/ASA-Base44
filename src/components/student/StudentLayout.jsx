@@ -130,17 +130,17 @@ export default function StudentLayout({ children, currentPageName }) {
         <motion.header
           initial={{ y: -100 }}
           animate={{ y: 0 }}
-          className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/50 px-8 py-4"
+          className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/50 px-4 md:px-8 py-4"
         >
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
               <button
                 onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                 className="lg:hidden text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg"
               >
                 <Menu className="w-6 h-6" />
               </button>
-              <h1 className="text-2xl font-bold text-white">{getPageTitle()}</h1>
+              <h1 className="text-xl md:text-2xl font-bold text-white">{getPageTitle()}</h1>
             </div>
             <div className="flex items-center gap-4">
               <div className="relative w-80 hidden md:block">

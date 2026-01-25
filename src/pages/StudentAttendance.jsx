@@ -58,52 +58,52 @@ export default function StudentAttendance() {
 
   return (
     <StudentLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <p className="text-gray-400 text-sm">Total Sessions</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <p className="text-gray-400 text-xs md:text-sm">Total Sessions</p>
               </div>
-              <p className="text-3xl font-bold text-white">{totalSessions}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{totalSessions}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <p className="text-gray-400 text-sm">Present</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Present</p>
               </div>
-              <p className="text-3xl font-bold text-white">{presentCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{presentCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <XCircle className="w-5 h-5 text-red-400" />
-                <p className="text-gray-400 text-sm">Absent</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <XCircle className="w-4 md:w-5 h-4 md:h-5 text-red-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Absent</p>
               </div>
-              <p className="text-3xl font-bold text-white">{absentCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{absentCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <p className="text-gray-400 text-sm">Attendance %</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <p className="text-gray-400 text-xs md:text-sm">Attendance %</p>
               </div>
-              <p className="text-3xl font-bold text-white">{attendanceRate}%</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{attendanceRate}%</p>
             </Card>
           </motion.div>
         </div>
 
         {/* Filter Section */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <h3 className="text-lg font-semibold text-white mb-4">Filter Attendance</h3>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <h3 className="text-base md:text-lg font-semibold text-white mb-4">Filter Attendance</h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div>
                 <Label className="text-gray-300">Start Date</Label>
@@ -151,8 +151,8 @@ export default function StudentAttendance() {
 
         {/* Attendance History Table */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <h2 className="text-xl font-bold text-white mb-6">Attendance History</h2>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Attendance History</h2>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
@@ -196,8 +196,8 @@ export default function StudentAttendance() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-6 flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+              <p className="text-gray-400 text-xs md:text-sm">
                 Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, filteredData.length)} of {filteredData.length} records
               </p>
               <div className="flex gap-2">

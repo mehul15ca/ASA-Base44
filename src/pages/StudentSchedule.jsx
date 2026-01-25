@@ -52,12 +52,12 @@ export default function StudentSchedule() {
 
   return (
     <StudentLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Calendar */}
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-white">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 md:mb-6 gap-3">
+              <h2 className="text-xl md:text-2xl font-bold text-white">
                 {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
               </h2>
               <div className="flex gap-2">
@@ -81,7 +81,7 @@ export default function StudentSchedule() {
             </div>
 
             {/* Legend */}
-            <div className="flex gap-6 mb-6">
+            <div className="flex flex-wrap gap-3 md:gap-6 mb-4 md:mb-6">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-blue-500"></div>
                 <span className="text-gray-300 text-sm">Upcoming</span>
@@ -97,9 +97,9 @@ export default function StudentSchedule() {
             </div>
 
             {/* Calendar Grid */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-7 gap-1 md:gap-2">
               {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                <div key={day} className="text-center text-[#D4AF37] font-semibold py-2">{day}</div>
+                <div key={day} className="text-center text-[#D4AF37] font-semibold py-1 md:py-2 text-xs md:text-sm">{day}</div>
               ))}
               {Array.from({ length: firstDay }).map((_, i) => (
                 <div key={`empty-${i}`} className="aspect-square" />
@@ -141,8 +141,8 @@ export default function StudentSchedule() {
 
         {/* Upcoming Sessions List */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <h2 className="text-xl font-bold text-white mb-6">Upcoming Sessions</h2>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Upcoming Sessions</h2>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
@@ -178,8 +178,8 @@ export default function StudentSchedule() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-6 flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+              <p className="text-gray-400 text-xs md:text-sm">
                 Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, upcomingSessions.length)} of {upcomingSessions.length} sessions
               </p>
               <div className="flex gap-2">

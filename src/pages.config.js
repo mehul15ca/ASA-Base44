@@ -21,6 +21,7 @@ import CoachAnnouncements from './pages/CoachAnnouncements';
 import CoachAttendance from './pages/CoachAttendance';
 import CoachDashboard from './pages/CoachDashboard';
 import CoachEnrollment from './pages/CoachEnrollment';
+import CoachEvaluations from './pages/CoachEvaluations';
 import CoachInjuries from './pages/CoachInjuries';
 import CoachNotes from './pages/CoachNotes';
 import CoachProfile from './pages/CoachProfile';
@@ -61,7 +62,6 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
-import CoachEvaluations from './pages/CoachEvaluations';
 import __Layout from './Layout.jsx';
 
 
@@ -89,6 +89,7 @@ export const PAGES = {
     "CoachAttendance": CoachAttendance,
     "CoachDashboard": CoachDashboard,
     "CoachEnrollment": CoachEnrollment,
+    "CoachEvaluations": CoachEvaluations,
     "CoachInjuries": CoachInjuries,
     "CoachNotes": CoachNotes,
     "CoachProfile": CoachProfile,
@@ -129,7 +130,6 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
-    "CoachEvaluations": CoachEvaluations,
 }
 
 export const pagesConfig = {
