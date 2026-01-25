@@ -10,18 +10,18 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from 'sonner';
 
 const mockInvoices = [
-  { id: 'INV-001', amount: 5000, dueDate: '2026-01-31', status: 'Paid', items: [{ name: 'Monthly Fee', amount: 5000 }] },
-  { id: 'INV-002', amount: 5000, dueDate: '2026-02-28', status: 'Pending', items: [{ name: 'Monthly Fee', amount: 5000 }] },
-  { id: 'INV-003', amount: 5000, dueDate: '2025-12-31', status: 'Paid', items: [{ name: 'Monthly Fee', amount: 5000 }] },
-  { id: 'INV-004', amount: 6500, dueDate: '2025-11-30', status: 'Paid', items: [{ name: 'Monthly Fee', amount: 5000 }, { name: 'Equipment Fee', amount: 1500 }] },
+  { id: 'INV-001', amount: 500, dueDate: '2026-01-31', status: 'Paid', items: [{ name: 'Monthly Fee', amount: 500 }] },
+  { id: 'INV-002', amount: 500, dueDate: '2026-02-28', status: 'Pending', items: [{ name: 'Monthly Fee', amount: 500 }] },
+  { id: 'INV-003', amount: 500, dueDate: '2025-12-31', status: 'Paid', items: [{ name: 'Monthly Fee', amount: 500 }] },
+  { id: 'INV-004', amount: 650, dueDate: '2025-11-30', status: 'Paid', items: [{ name: 'Monthly Fee', amount: 500 }, { name: 'Equipment Fee', amount: 150 }] },
 ];
 
 const mockWalletTransactions = [
-  { id: 1, date: '2026-01-15', description: 'Fee Payment', type: 'Debit', amount: 5000, balance: 2500 },
-  { id: 2, date: '2026-01-10', description: 'Wallet Recharge', type: 'Credit', amount: 7500, balance: 7500 },
-  { id: 3, date: '2025-12-20', description: 'Fee Payment', type: 'Debit', amount: 5000, balance: 0 },
-  { id: 4, date: '2025-12-15', description: 'Wallet Recharge', type: 'Credit', amount: 5000, balance: 5000 },
-  { id: 5, date: '2025-11-25', description: 'Fee Payment', type: 'Debit', amount: 6500, balance: 0 },
+  { id: 1, date: '2026-01-15', description: 'Fee Payment', type: 'Debit', amount: 500, balance: 250 },
+  { id: 2, date: '2026-01-10', description: 'Wallet Recharge', type: 'Credit', amount: 750, balance: 750 },
+  { id: 3, date: '2025-12-20', description: 'Fee Payment', type: 'Debit', amount: 500, balance: 0 },
+  { id: 4, date: '2025-12-15', description: 'Wallet Recharge', type: 'Credit', amount: 500, balance: 500 },
+  { id: 5, date: '2025-11-25', description: 'Fee Payment', type: 'Debit', amount: 650, balance: 0 },
 ];
 
 export default function StudentFees() {
