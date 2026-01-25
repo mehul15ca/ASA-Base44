@@ -124,11 +124,11 @@ export default function AdminReports() {
     switch (selectedReportType) {
       case 'student_demographics':
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {selectedDataPoints.includes('Age Distribution') && (
-              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Age Distribution</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Age Distribution</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={mockStudentDemographics.ageDistribution}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="range" stroke="#D4AF37" />
@@ -140,9 +140,9 @@ export default function AdminReports() {
               </Card>
             )}
             {selectedDataPoints.includes('Sport Preference') && (
-              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Sport Preference</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Sport Preference</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <RePieChart>
                     <Pie
                       data={mockStudentDemographics.sportPreference}
@@ -168,11 +168,11 @@ export default function AdminReports() {
 
       case 'fee_collection':
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {selectedDataPoints.includes('Batch-wise Revenue') && (
-              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Batch-wise Fee Collection</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Batch-wise Fee Collection</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={mockFeeCollection.batchRevenue}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="batch" stroke="#D4AF37" />
@@ -186,9 +186,9 @@ export default function AdminReports() {
               </Card>
             )}
             {selectedDataPoints.includes('Monthly Trends') && (
-              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Monthly Revenue Trends</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Monthly Revenue Trends</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <LineChart data={mockFeeCollection.monthlyTrends}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="month" stroke="#D4AF37" />
@@ -204,11 +204,11 @@ export default function AdminReports() {
 
       case 'attendance_summary':
         return (
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {selectedDataPoints.includes('Batch-wise Attendance') && (
-              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Batch-wise Attendance Rate (%)</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Batch-wise Attendance Rate (%)</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={mockAttendanceSummary.batchWise}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="batch" stroke="#D4AF37" />
@@ -220,9 +220,9 @@ export default function AdminReports() {
               </Card>
             )}
             {selectedDataPoints.includes('Ground-wise Attendance') && (
-              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Ground-wise Attendance</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Ground-wise Attendance</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={mockAttendanceSummary.groundWise}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="ground" stroke="#D4AF37" />
@@ -245,26 +245,26 @@ export default function AdminReports() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-4 md:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <h1 className="text-3xl font-bold text-white mb-2">Reports & Analytics</h1>
-          <p className="text-gray-400">Generate custom reports with interactive visualizations</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">Reports & Analytics</h1>
+          <p className="text-sm md:text-base text-gray-400">Generate custom reports with interactive visualizations</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
           {/* Report Configuration */}
           <div className="lg:col-span-1">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 sticky top-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6 lg:sticky lg:top-6"
             >
-              <h2 className="text-xl font-bold text-white mb-6">Report Configuration</h2>
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Report Configuration</h2>
 
               {/* Report Type */}
               <div className="space-y-4">
@@ -303,8 +303,8 @@ export default function AdminReports() {
 
                 {/* Data Points */}
                 <div>
-                  <Label className="text-gray-300 mb-3 block">Data Points to Include</Label>
-                  <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-4 max-h-64 overflow-y-auto space-y-3">
+                  <Label className="text-gray-300 mb-3 block text-sm md:text-base">Data Points to Include</Label>
+                  <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4 max-h-48 md:max-h-64 overflow-y-auto space-y-2 md:space-y-3">
                     {dataPoints[selectedReportType]?.map(point => (
                       <div key={point} className="flex items-center gap-3">
                         <Checkbox
@@ -385,43 +385,43 @@ export default function AdminReports() {
               animate={{ opacity: 1, x: 0 }}
             >
               {!reportGenerated ? (
-                <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-12 text-center">
-                  <BarChart3 className="w-24 h-24 mx-auto text-gray-600 mb-4" />
-                  <h3 className="text-white text-xl font-semibold mb-2">No Report Generated</h3>
-                  <p className="text-gray-400">Configure your report settings and click "Generate Report" to view analytics</p>
+                <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 md:p-12 text-center">
+                  <BarChart3 className="w-16 md:w-24 h-16 md:h-24 mx-auto text-gray-600 mb-4" />
+                  <h3 className="text-white text-lg md:text-xl font-semibold mb-2">No Report Generated</h3>
+                  <p className="text-gray-400 text-sm md:text-base">Configure your report settings and click "Generate Report" to view analytics</p>
                 </Card>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   {/* Report Header */}
-                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
+                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
                     <div className="flex justify-between items-start mb-4">
                       <div>
-                        <h2 className="text-2xl font-bold text-white mb-2">
+                        <h2 className="text-xl md:text-2xl font-bold text-white mb-2">
                           {reportTypes.find(r => r.id === selectedReportType)?.name}
                         </h2>
-                        <p className="text-gray-400">
+                        <p className="text-gray-400 text-xs md:text-sm">
                           Generated on {new Date().toLocaleDateString()} | Period: {dateFrom} to {dateTo}
                         </p>
                       </div>
                     </div>
 
                     {/* Summary Stats */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-                      <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
-                        <p className="text-gray-400 text-sm">Total Records</p>
-                        <p className="text-2xl font-bold text-white">1,234</p>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-4 md:mt-6">
+                      <div className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-4">
+                        <p className="text-gray-400 text-xs md:text-sm">Total Records</p>
+                        <p className="text-lg md:text-2xl font-bold text-white">1,234</p>
                       </div>
-                      <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
-                        <p className="text-gray-400 text-sm">Active</p>
-                        <p className="text-2xl font-bold text-green-400">1,142</p>
+                      <div className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-4">
+                        <p className="text-gray-400 text-xs md:text-sm">Active</p>
+                        <p className="text-lg md:text-2xl font-bold text-green-400">1,142</p>
                       </div>
-                      <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
-                        <p className="text-gray-400 text-sm">Growth</p>
-                        <p className="text-2xl font-bold text-[#D4AF37]">+12.5%</p>
+                      <div className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-4">
+                        <p className="text-gray-400 text-xs md:text-sm">Growth</p>
+                        <p className="text-lg md:text-2xl font-bold text-[#D4AF37]">+12.5%</p>
                       </div>
-                      <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
-                        <p className="text-gray-400 text-sm">Revenue</p>
-                        <p className="text-2xl font-bold text-white">₹1.6M</p>
+                      <div className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-4">
+                        <p className="text-gray-400 text-xs md:text-sm">Revenue</p>
+                        <p className="text-lg md:text-2xl font-bold text-white">₹1.6M</p>
                       </div>
                     </div>
                   </Card>
@@ -430,8 +430,8 @@ export default function AdminReports() {
                   {renderCharts()}
 
                   {/* Data Table Preview */}
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-6">
-                    <h3 className="text-white text-lg font-semibold mb-4">Raw Data Preview</h3>
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4 md:p-6">
+                    <h3 className="text-white text-base md:text-lg font-semibold mb-3 md:mb-4">Raw Data Preview</h3>
                     <div className="overflow-x-auto">
                       <table className="w-full">
                         <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
@@ -469,9 +469,9 @@ export default function AdminReports() {
 
         {/* Schedule Report Modal */}
         <Dialog open={showScheduleModal} onOpenChange={setShowScheduleModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Schedule Report</DialogTitle>
+              <DialogTitle className="text-white text-base md:text-xl">Schedule Report</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div>
