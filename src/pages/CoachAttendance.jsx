@@ -282,17 +282,17 @@ export default function CoachAttendance() {
 
         {/* Attendance History */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <h2 className="text-xl font-bold text-white mb-6">Attendance History</h2>
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-6">Attendance History</h2>
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full text-xs md:text-sm">
                 <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Date</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Session</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Time</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Notes</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300">Date</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300 hidden md:table-cell">Session</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300 hidden md:table-cell">Time</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300">Status</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300 hidden md:table-cell">Notes</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -304,31 +304,31 @@ export default function CoachAttendance() {
                       transition={{ delay: index * 0.05 }}
                       className="border-b border-[#2D6A4F]/30"
                     >
-                      <td className="px-6 py-4 text-sm text-white">{record.date}</td>
-                      <td className="px-6 py-4 text-sm text-white">{record.session}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300">{record.time}</td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-2">
-                          {record.status === 'Present' && <CheckCircle className="w-4 h-4 text-green-400" />}
-                          {record.status === 'Absent' && <XCircle className="w-4 h-4 text-red-400" />}
-                          {record.status === 'Late' && <Clock className="w-4 h-4 text-yellow-400" />}
-                          <Badge className={
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-white">{record.date}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-white hidden md:table-cell">{record.session}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-gray-300 hidden md:table-cell">{record.time}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4">
+                        <div className="flex items-center gap-1 md:gap-2">
+                          {record.status === 'Present' && <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-400 flex-shrink-0" />}
+                          {record.status === 'Absent' && <XCircle className="w-3 h-3 md:w-4 md:h-4 text-red-400 flex-shrink-0" />}
+                          {record.status === 'Late' && <Clock className="w-3 h-3 md:w-4 md:h-4 text-yellow-400 flex-shrink-0" />}
+                          <Badge className={`text-xs md:text-sm ${
                             record.status === 'Present' ? 'bg-green-500/20 text-green-400' :
                             record.status === 'Absent' ? 'bg-red-500/20 text-red-400' :
                             'bg-yellow-500/20 text-yellow-400'
-                          }>
+                          }`}>
                             {record.status}
                           </Badge>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-300">{record.notes}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-gray-300 hidden md:table-cell">{record.notes}</td>
                     </motion.tr>
                   ))}
                 </tbody>
               </table>
             </div>
-            <div className="mt-6 flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="mt-3 md:mt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+              <p className="text-gray-400 text-xs md:text-sm">
                 Showing {(currentHistoryPage - 1) * itemsPerPage + 1} to {Math.min(currentHistoryPage * itemsPerPage, mockAttendanceHistory.length)} of {mockAttendanceHistory.length} records
               </p>
               <div className="flex gap-2">
@@ -337,20 +337,20 @@ export default function CoachAttendance() {
                   size="sm"
                   disabled={currentHistoryPage === 1}
                   onClick={() => setCurrentHistoryPage(currentHistoryPage - 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 text-xs md:text-sm h-8 md:h-9 flex-1 md:flex-none"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-3 h-3 md:w-4 md:h-4 mr-1" />
+                  Prev
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentHistoryPage === totalHistoryPages}
                   onClick={() => setCurrentHistoryPage(currentHistoryPage + 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 text-xs md:text-sm h-8 md:h-9 flex-1 md:flex-none"
                 >
                   Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4 ml-1" />
                 </Button>
               </div>
             </div>
