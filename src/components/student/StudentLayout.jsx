@@ -12,7 +12,9 @@ import {
   Bell,
   UserCircle,
   LogOut,
-  Search
+  Search,
+  Menu,
+  X
 } from 'lucide-react';
 import { createPageUrl } from '../../utils';
 import { Button } from "@/components/ui/button";
@@ -35,6 +37,7 @@ export default function StudentLayout({ children, currentPageName }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const currentPath = location.pathname.split('/').pop();
 
@@ -49,11 +52,19 @@ export default function StudentLayout({ children, currentPageName }) {
 
   return (
     <div className="flex h-screen bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A]">
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <motion.aside
         initial={{ x: -300 }}
-        animate={{ x: 0 }}
-        className="w-64 bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex flex-col"
+        animate={{ x: isSidebarOpen ? 0 : -300 }}
+        className="fixed lg:relative w-64 h-screen bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex flex-col z-50 lg:translate-x-0"
       >
         {/* Logo */}
         <div className="p-6 border-b border-[#2D6A4F]/50">
@@ -122,9 +133,17 @@ export default function StudentLayout({ children, currentPageName }) {
           className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/50 px-8 py-4"
         >
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-white">{getPageTitle()}</h1>
             <div className="flex items-center gap-4">
-              <div className="relative w-80">
+              <button
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                className="lg:hidden text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+              <h1 className="text-2xl font-bold text-white">{getPageTitle()}</h1>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="relative w-80 hidden md:block">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
                   placeholder="Search..."
