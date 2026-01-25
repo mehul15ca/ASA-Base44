@@ -3,11 +3,12 @@ import { motion } from 'framer-motion';
 
 export default function AnimatedLogo({ className = "", size = "md" }) {
   const sizes = {
-    sm: "h-12 w-12",
-    md: "h-20 w-20",
-    lg: "h-32 w-32",
-    xl: "h-48 w-48",
-    xxl: "h-64 w-64"
+    xs: "h-8 w-8",
+    sm: "h-10 w-10",
+    md: "h-16 w-16",
+    lg: "h-24 w-24",
+    xl: "h-32 w-32",
+    xxl: "h-48 w-48"
   };
 
   return (
