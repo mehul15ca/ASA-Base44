@@ -144,7 +144,7 @@ export default function StudentEvaluations() {
 
               <div className="bg-[#0A1F0A]/50 rounded-lg p-4 text-center">
                 <p className="text-gray-400 text-xs md:text-sm mb-2">Overall Score</p>
-                <p className="text-[#D4AF37] text-3xl md:text-4xl font-bold">{selectedEvaluation?.overallScore}%</p>
+                <p className="text-[#D4AF37] text-3xl md:text-4xl font-bold">{selectedEvaluation?.overallScore}/10</p>
               </div>
 
               <div className="space-y-3 md:space-y-4">
