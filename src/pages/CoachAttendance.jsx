@@ -98,41 +98,41 @@ export default function CoachAttendance() {
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-4 md:mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <p className="text-gray-400 text-sm">Present</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-green-400 flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Present</p>
               </div>
-              <p className="text-3xl font-bold text-white">{presentCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{presentCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <XCircle className="w-5 h-5 text-red-400" />
-                <p className="text-gray-400 text-sm">Absent</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <XCircle className="w-4 h-4 md:w-5 md:h-5 text-red-400 flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Absent</p>
               </div>
-              <p className="text-3xl font-bold text-white">{absentCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{absentCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Clock className="w-5 h-5 text-yellow-400" />
-                <p className="text-gray-400 text-sm">Late</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <Clock className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Late</p>
               </div>
-              <p className="text-3xl font-bold text-white">{lateCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{lateCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <p className="text-gray-400 text-sm">Attendance Rate</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <p className="text-gray-400 text-xs md:text-sm">Attendance Rate</p>
               </div>
-              <p className="text-3xl font-bold text-white">{attendanceRate}%</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{attendanceRate}%</p>
             </Card>
           </motion.div>
         </div>
