@@ -102,21 +102,21 @@ export default function AdminDashboard() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-4 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-6 md:mb-8"
         >
-          <div className="flex justify-between items-start mb-6">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 md:mb-6 gap-3">
             <div>
-              <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-              <p className="text-gray-400">Monitor academy performance and manage operations</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-white mb-1 md:mb-2">Dashboard</h1>
+              <p className="text-gray-400 text-sm md:text-base">Monitor academy performance and manage operations</p>
             </div>
-            <div className="text-right">
-              <p className="text-[#D4AF37] text-sm font-medium">Today</p>
-              <p className="text-gray-300 text-sm">{currentDate}</p>
+            <div className="text-left md:text-right">
+              <p className="text-[#D4AF37] text-xs md:text-sm font-medium">Today</p>
+              <p className="text-gray-300 text-xs md:text-sm">{currentDate}</p>
             </div>
           </div>
 
@@ -126,7 +126,7 @@ export default function AdminDashboard() {
               if (val === 'custom') setShowCustomDateModal(true);
               else setDateFilter(val);
             }}>
-              <SelectTrigger className="w-48 bg-[#0D2818] border-[#2D6A4F] text-white">
+              <SelectTrigger className="w-full md:w-48 bg-[#0D2818] border-[#2D6A4F] text-white">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -140,7 +140,7 @@ export default function AdminDashboard() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
@@ -148,19 +148,19 @@ export default function AdminDashboard() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -4 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
             >
-              <div className="flex justify-between items-start mb-4">
-                <div className="w-12 h-12 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
-                  <stat.icon className="w-6 h-6 text-[#D4AF37]" />
+              <div className="flex justify-between items-start mb-3 md:mb-4">
+                <div className="w-10 md:w-12 h-10 md:h-12 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center">
+                  <stat.icon className="w-5 md:w-6 h-5 md:h-6 text-[#D4AF37]" />
                 </div>
-                <div className={`flex items-center gap-1 text-sm ${stat.up ? 'text-green-400' : 'text-red-400'}`}>
-                  {stat.up ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
+                <div className={`flex items-center gap-1 text-xs md:text-sm ${stat.up ? 'text-green-400' : 'text-red-400'}`}>
+                  {stat.up ? <TrendingUp className="w-3 md:w-4 h-3 md:h-4" /> : <TrendingDown className="w-3 md:w-4 h-3 md:h-4" />}
                   {stat.trend}
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-1">{stat.value}</h3>
-              <p className="text-gray-400 text-sm">{stat.label}</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{stat.value}</h3>
+              <p className="text-gray-400 text-xs md:text-sm">{stat.label}</p>
             </motion.div>
           ))}
         </div>
@@ -169,10 +169,10 @@ export default function AdminDashboard() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-8"
+          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6 mb-6 md:mb-8"
         >
-          <h2 className="text-xl font-bold text-white mb-6">Revenue Overview</h2>
-          <ResponsiveContainer width="100%" height={300}>
+          <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Revenue Overview</h2>
+          <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={revenueData}>
               <defs>
                 <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
@@ -196,63 +196,63 @@ export default function AdminDashboard() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="mb-8"
+          className="mb-6 md:mb-8"
         >
-          <h2 className="text-xl font-bold text-white mb-4">Quick Actions</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <h2 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Quick Actions</h2>
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setShowAddStudentModal(true)}
-              className="bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] rounded-xl p-6 text-left"
+              className="bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] rounded-xl p-4 md:p-6 text-left"
             >
-              <Users className="w-8 h-8 mb-3" />
-              <h3 className="font-bold text-lg mb-1">Add Student</h3>
-              <p className="text-sm opacity-80">Enroll new student</p>
+              <Users className="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-3" />
+              <h3 className="font-bold text-sm md:text-lg mb-0.5 md:mb-1">Add Student</h3>
+              <p className="text-xs md:text-sm opacity-80 hidden md:block">Enroll new student</p>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => navigate(createPageUrl('AdminAttendance'))}
-              className="bg-gradient-to-br from-[#40916C] to-[#2D6A4F] text-white rounded-xl p-6 text-left"
+              className="bg-gradient-to-br from-[#40916C] to-[#2D6A4F] text-white rounded-xl p-4 md:p-6 text-left"
             >
-              <ClipboardCheck className="w-8 h-8 mb-3" />
-              <h3 className="font-bold text-lg mb-1">View Attendance</h3>
-              <p className="text-sm opacity-80">Check today's records</p>
+              <ClipboardCheck className="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-3" />
+              <h3 className="font-bold text-sm md:text-lg mb-0.5 md:mb-1">Attendance</h3>
+              <p className="text-xs md:text-sm opacity-80 hidden md:block">Check today's records</p>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => navigate(createPageUrl('AdminFinance'))}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] text-white border border-[#2D6A4F] rounded-xl p-6 text-left"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] text-white border border-[#2D6A4F] rounded-xl p-4 md:p-6 text-left"
             >
-              <Wallet className="w-8 h-8 mb-3" />
-              <h3 className="font-bold text-lg mb-1">Manage Fees</h3>
-              <p className="text-sm opacity-80">Process payments</p>
+              <Wallet className="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-3" />
+              <h3 className="font-bold text-sm md:text-lg mb-0.5 md:mb-1">Manage Fees</h3>
+              <p className="text-xs md:text-sm opacity-80 hidden md:block">Process payments</p>
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => navigate(createPageUrl('AdminReports'))}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] text-white border border-[#2D6A4F] rounded-xl p-6 text-left"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] text-white border border-[#2D6A4F] rounded-xl p-4 md:p-6 text-left"
             >
-              <FileText className="w-8 h-8 mb-3" />
-              <h3 className="font-bold text-lg mb-1">Generate Reports</h3>
-              <p className="text-sm opacity-80">View analytics</p>
+              <FileText className="w-6 md:w-8 h-6 md:h-8 mb-2 md:mb-3" />
+              <h3 className="font-bold text-sm md:text-lg mb-0.5 md:mb-1">Reports</h3>
+              <p className="text-xs md:text-sm opacity-80 hidden md:block">View analytics</p>
             </motion.button>
           </div>
         </motion.div>
 
         {/* Charts Row */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:gap-8 mb-6 md:mb-8">
           {/* Ground-wise Attendance */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
           >
-            <h2 className="text-xl font-bold text-white mb-6">Ground-wise Attendance</h2>
-            <ResponsiveContainer width="100%" height={300}>
+            <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Ground-wise Attendance</h2>
+            <ResponsiveContainer width="100%" height={250}>
               <BarChart data={groundAttendanceData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                 <XAxis dataKey="ground" stroke="#9CA3AF" angle={-15} textAnchor="end" height={80} />
@@ -269,10 +269,10 @@ export default function AdminDashboard() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
           >
-            <h2 className="text-xl font-bold text-white mb-6">Batch Distribution</h2>
-            <ResponsiveContainer width="100%" height={300}>
+            <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Batch Distribution</h2>
+            <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie
                   data={batchDistributionData}
@@ -297,16 +297,16 @@ export default function AdminDashboard() {
         </div>
 
         {/* Bottom Row Panels */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
           {/* Payment Alerts */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Bell className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-lg font-bold text-white">Payment Alerts</h2>
+            <div className="flex items-center gap-2 mb-3 md:mb-4">
+              <Bell className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-base md:text-lg font-bold text-white">Payment Alerts</h2>
             </div>
             <div className="space-y-3">
               {paymentAlerts.map((alert, index) => (
@@ -327,9 +327,9 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
           >
-            <h2 className="text-lg font-bold text-white mb-4">Coach Salary Overview</h2>
+            <h2 className="text-base md:text-lg font-bold text-white mb-3 md:mb-4">Coach Salary Overview</h2>
             <div className="space-y-3">
               {coachSalary.map((coach, index) => (
                 <div key={index} className="bg-[#0A1F0A]/50 rounded-lg p-3 border border-[#2D6A4F]/30">
@@ -354,11 +354,11 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Activity className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-lg font-bold text-white">Recent Activity</h2>
+            <div className="flex items-center gap-2 mb-3 md:mb-4">
+              <Activity className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-base md:text-lg font-bold text-white">Recent Activity</h2>
             </div>
             <div className="space-y-3">
               {recentActivity.map((activity, index) => (
@@ -378,11 +378,11 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-4 md:p-6"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <Calendar className="w-5 h-5 text-[#D4AF37]" />
-              <h2 className="text-lg font-bold text-white">Upcoming Events</h2>
+            <div className="flex items-center gap-2 mb-3 md:mb-4">
+              <Calendar className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+              <h2 className="text-base md:text-lg font-bold text-white">Upcoming Events</h2>
             </div>
             <div className="space-y-3">
               {upcomingEvents.map((event, index) => (

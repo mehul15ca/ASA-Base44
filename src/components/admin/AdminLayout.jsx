@@ -18,7 +18,9 @@ import {
   HelpCircle,
   Wallet,
   Settings,
-  LogOut
+  LogOut,
+  Menu,
+  X
 } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -45,6 +47,7 @@ export default function AdminLayout({ children }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const currentPath = location.pathname.split('/').pop();
 
@@ -54,11 +57,19 @@ export default function AdminLayout({ children }) {
 
   return (
     <div className="flex h-screen bg-[#0A1F0A] overflow-hidden">
+      {/* Mobile Overlay */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
       <motion.aside
         initial={{ x: -280 }}
-        animate={{ x: 0 }}
-        className="w-70 bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex flex-col"
+        animate={{ x: isSidebarOpen ? 0 : -280 }}
+        className="fixed lg:relative w-70 h-screen bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex flex-col z-50 lg:translate-x-0"
       >
         {/* Logo Section */}
         <div className="p-6 border-b border-[#2D6A4F]/30">
@@ -126,9 +137,28 @@ export default function AdminLayout({ children }) {
       </motion.aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A]">
-        {children}
-      </main>
+      <div className="flex-1 flex flex-col overflow-hidden">
+        {/* Mobile Header */}
+        <div className="lg:hidden bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-4 py-3 flex items-center justify-between">
+          <button
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+            className="text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] rounded-lg flex items-center justify-center">
+              <span className="text-[#0A1F0A] font-bold">A</span>
+            </div>
+            <h1 className="text-white font-bold">ASA Admin</h1>
+          </div>
+          <div className="w-10" />
+        </div>
+
+        <main className="flex-1 overflow-y-auto bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A]">
+          {children}
+        </main>
+      </div>
 
       {/* Logout Confirmation Modal */}
       <Dialog open={showLogoutModal} onOpenChange={setShowLogoutModal}>
