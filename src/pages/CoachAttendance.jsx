@@ -209,18 +209,18 @@ export default function CoachAttendance() {
         )}
 
         {/* Leave Applications Table */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <h2 className="text-xl font-bold text-white mb-6">Leave Applications</h2>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-4 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-6">Leave Applications</h2>
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full text-xs md:text-sm">
                 <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                   <tr>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Start Date</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">End Date</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Reason</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Applied On</th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300">Start Date</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300 hidden md:table-cell">End Date</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300 hidden md:table-cell">Reason</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300 hidden md:table-cell">Applied On</th>
+                    <th className="px-2 md:px-6 py-2 md:py-4 text-left font-semibold text-gray-300">Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -232,16 +232,16 @@ export default function CoachAttendance() {
                       transition={{ delay: index * 0.05 }}
                       className="border-b border-[#2D6A4F]/30"
                     >
-                      <td className="px-6 py-4 text-sm text-white">{leave.startDate}</td>
-                      <td className="px-6 py-4 text-sm text-white">{leave.endDate}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300">{leave.reason}</td>
-                      <td className="px-6 py-4 text-sm text-gray-300">{leave.appliedOn}</td>
-                      <td className="px-6 py-4">
-                        <Badge className={
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-white">{leave.startDate}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-white hidden md:table-cell">{leave.endDate}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-gray-300 hidden md:table-cell">{leave.reason}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4 text-gray-300 hidden md:table-cell">{leave.appliedOn}</td>
+                      <td className="px-2 md:px-6 py-2 md:py-4">
+                        <Badge className={`text-xs md:text-sm ${
                           leave.status === 'Approved' ? 'bg-green-500/20 text-green-400' :
                           leave.status === 'Pending' ? 'bg-yellow-500/20 text-yellow-400' :
                           'bg-red-500/20 text-red-400'
-                        }>
+                        }`}>
                           {leave.status}
                         </Badge>
                       </td>
@@ -250,8 +250,8 @@ export default function CoachAttendance() {
                 </tbody>
               </table>
             </div>
-            <div className="mt-6 flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="mt-3 md:mt-6 flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+              <p className="text-gray-400 text-xs md:text-sm">
                 Showing {(currentLeavePage - 1) * itemsPerPage + 1} to {Math.min(currentLeavePage * itemsPerPage, mockLeaveApplications.length)} of {mockLeaveApplications.length} applications
               </p>
               <div className="flex gap-2">
@@ -260,20 +260,20 @@ export default function CoachAttendance() {
                   size="sm"
                   disabled={currentLeavePage === 1}
                   onClick={() => setCurrentLeavePage(currentLeavePage - 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 text-xs md:text-sm h-8 md:h-9 flex-1 md:flex-none"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-3 h-3 md:w-4 md:h-4 mr-1" />
+                  Prev
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentLeavePage === totalLeavePages}
                   onClick={() => setCurrentLeavePage(currentLeavePage + 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 text-xs md:text-sm h-8 md:h-9 flex-1 md:flex-none"
                 >
                   Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <ChevronRight className="w-3 h-3 md:w-4 md:h-4 ml-1" />
                 </Button>
               </div>
             </div>
