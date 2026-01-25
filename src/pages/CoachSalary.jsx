@@ -87,7 +87,7 @@ export default function CoachSalary() {
       <div className="p-4 md:p-8">
         {/* Header */}
         <div className="mb-4 md:mb-8">
-          <h2 className="text-xl md:text-2xl font-bold text-white mb-1">Salary & Payments</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-1">Salary</h2>
           <p className="text-gray-400 text-xs md:text-sm">Track your earnings and payment history</p>
         </div>
 
