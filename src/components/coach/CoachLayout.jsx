@@ -66,9 +66,13 @@ export default function CoachLayout({ children, currentPageName }) {
         className="fixed lg:relative w-64 h-screen bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex flex-col z-50 lg:translate-x-0"
       >
         {/* Logo */}
-        <div className="p-4 md:p-6 border-b border-[#2D6A4F]/50">
-          <div className="h-8 md:h-12 px-3 bg-[#D4AF37] rounded-lg flex items-center justify-center font-bold text-[#0A1F0A] text-xs md:text-sm">
-            Coach Portal
+        <div className="p-6 border-b border-[#2D6A4F]/30">
+          <div className="flex items-center gap-3">
+            <AnimatedLogo size="sm" />
+            <div>
+              <h1 className="text-white font-bold text-lg">ASA Coach</h1>
+              <p className="text-gray-400 text-xs">Sports Academy</p>
+            </div>
           </div>
         </div>
 
