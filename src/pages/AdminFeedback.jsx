@@ -68,42 +68,42 @@ export default function AdminFeedback() {
 
   return (
     <AdminLayout currentPageName="AdminFeedback">
-      <div className="p-8 space-y-6">
+      <div className="p-4 md:p-8 space-y-4 md:space-y-6">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-white">Student Feedback</h1>
-            <p className="text-gray-400 mt-1">View and respond to student feedback</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-white">Student Feedback</h1>
+            <p className="text-sm md:text-base text-gray-400 mt-1">View and respond to student feedback</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400">Total Feedback</CardTitle>
+            <CardHeader className="p-3 md:p-6">
+              <CardTitle className="text-xs md:text-sm font-medium text-gray-400">Total Feedback</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold text-white">{feedbacks.length}</p>
+            <CardContent className="p-3 md:p-6 pt-0 md:pt-0">
+              <p className="text-2xl md:text-3xl font-bold text-white">{feedbacks.length}</p>
             </CardContent>
           </Card>
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400">Average Rating</CardTitle>
+            <CardHeader className="p-3 md:p-6">
+              <CardTitle className="text-xs md:text-sm font-medium text-gray-400">Average Rating</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-3 md:p-6 pt-0 md:pt-0">
               <div className="flex items-center gap-2">
-                <p className="text-3xl font-bold text-white">
+                <p className="text-2xl md:text-3xl font-bold text-white">
                   {(feedbacks.reduce((sum, f) => sum + f.rating, 0) / feedbacks.length).toFixed(1)}
                 </p>
-                <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                <Star className="w-4 h-4 md:w-5 md:h-5 fill-yellow-400 text-yellow-400" />
               </div>
             </CardContent>
           </Card>
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-            <CardHeader>
-              <CardTitle className="text-sm font-medium text-gray-400">Pending Replies</CardTitle>
+            <CardHeader className="p-3 md:p-6">
+              <CardTitle className="text-xs md:text-sm font-medium text-gray-400">Pending Replies</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-3xl font-bold text-white">
+            <CardContent className="p-3 md:p-6 pt-0 md:pt-0">
+              <p className="text-2xl md:text-3xl font-bold text-white">
                 {feedbacks.filter(f => f.status === 'Pending').length}
               </p>
             </CardContent>
@@ -111,7 +111,7 @@ export default function AdminFeedback() {
         </div>
 
         <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-          <CardHeader>
+          <CardHeader className="p-4 md:p-6">
             <div className="flex items-center gap-4">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -124,26 +124,26 @@ export default function AdminFeedback() {
               </div>
             </div>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
+          <CardContent className="p-4 md:p-6">
+            <div className="space-y-3 md:space-y-4">
               {filteredFeedbacks.map((feedback) => (
                 <div
                   key={feedback.id}
-                  className="border border-[#2D6A4F]/50 rounded-lg p-4 hover:bg-[#2D6A4F]/10 transition-colors"
+                  className="border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4 hover:bg-[#2D6A4F]/10 transition-colors"
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <h3 className="font-semibold text-white">{feedback.studentName}</h3>
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2 flex-wrap">
+                        <h3 className="font-semibold text-white text-sm md:text-base">{feedback.studentName}</h3>
                         <Badge variant="outline" className="text-xs border-[#40916C] text-gray-300">{feedback.studentId}</Badge>
                         <Badge variant="outline" className="text-xs border-[#40916C] text-gray-300">{feedback.category}</Badge>
                         {renderStars(feedback.rating)}
                       </div>
-                      <p className="text-sm text-gray-300 mb-2">{feedback.message}</p>
+                      <p className="text-xs md:text-sm text-gray-300 mb-2">{feedback.message}</p>
                       {feedback.reply && (
-                        <div className="bg-[#0A1F0A] border border-[#2D6A4F] p-3 rounded-lg mt-3">
+                        <div className="bg-[#0A1F0A] border border-[#2D6A4F] p-2 md:p-3 rounded-lg mt-2 md:mt-3">
                           <p className="text-xs font-medium text-[#D4AF37] mb-1">Your Reply:</p>
-                          <p className="text-sm text-gray-300">{feedback.reply}</p>
+                          <p className="text-xs md:text-sm text-gray-300">{feedback.reply}</p>
                         </div>
                       )}
                       <div className="flex items-center gap-3 mt-3">
@@ -158,18 +158,18 @@ export default function AdminFeedback() {
                         <Button 
                           size="sm" 
                           variant="outline"
-                          className="border-[#40916C] text-gray-300"
+                          className="border-[#40916C] text-gray-300 flex-shrink-0 h-8 md:h-9"
                           onClick={() => {
                             setSelectedFeedback(feedback);
                             setReplyText(feedback.reply || '');
                           }}
                         >
-                          {feedback.status === 'Replied' ? <Eye className="w-4 h-4" /> : <Reply className="w-4 h-4" />}
+                          {feedback.status === 'Replied' ? <Eye className="w-3 h-3 md:w-4 md:h-4" /> : <Reply className="w-3 h-3 md:w-4 md:h-4" />}
                         </Button>
                       </DialogTrigger>
-                      <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+                      <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg max-h-[90vh] overflow-y-auto">
                         <DialogHeader>
-                          <DialogTitle className="text-white">Feedback Details</DialogTitle>
+                          <DialogTitle className="text-white text-base md:text-lg">Feedback Details</DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4 mt-4">
                           <div>
