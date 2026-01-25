@@ -295,7 +295,7 @@ export default function StudentStore() {
                 onClick={handlePlaceOrder}
                 className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] w-full md:w-auto text-sm"
               >
-                Place Order
+                Add to Cart
               </Button>
             </DialogFooter>
           </DialogContent>
