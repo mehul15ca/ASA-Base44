@@ -218,28 +218,28 @@ export default function CoachEnrollment() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 md:py-16 px-4 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="max-w-2xl w-full"
         >
           <Card className="bg-white border-[#2D6A4F] shadow-2xl">
-            <CardContent className="p-12 text-center">
+            <CardContent className="p-6 md:p-12 text-center">
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring' }}
-                className="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6"
+                className="w-16 md:w-24 h-16 md:h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4 md:mb-6"
               >
-                <CheckCircle2 className="w-16 h-16 text-green-600" />
+                <CheckCircle2 className="w-8 md:w-16 h-8 md:h-16 text-green-600" />
               </motion.div>
-              <h2 className="text-3xl font-bold text-[#0A1F0A] mb-4">Your profile has been successfully created.</h2>
-              <p className="text-gray-600 mb-8 text-lg">
+              <h2 className="text-xl md:text-3xl font-bold text-[#0A1F0A] mb-3 md:mb-4">Your profile has been successfully created.</h2>
+              <p className="text-gray-600 mb-6 md:mb-8 text-xs md:text-base">
                 Thank you for applying to join Auustralasia Spports Academy. We appreciate your interest in becoming part of our coaching team. 
                 We will review your application and get back to you within 3–5 business days.
               </p>
-              <Button onClick={resetForm} className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] hover:from-[#F4D03F] hover:to-[#D4AF37] text-[#0A1F0A] text-lg px-8 py-6">
+              <Button onClick={resetForm} className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] hover:from-[#F4D03F] hover:to-[#D4AF37] text-[#0A1F0A] text-sm md:text-lg px-6 md:px-8 py-3 md:py-6 w-full md:w-auto">
                 Submit Another Application
               </Button>
             </CardContent>
@@ -250,13 +250,13 @@ export default function CoachEnrollment() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-4 md:py-8 px-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto mb-6 flex justify-center items-center"
+        className="max-w-4xl mx-auto mb-4 md:mb-6 flex justify-center items-center"
       >
-        <div className="w-48 h-32 flex items-center justify-center overflow-hidden">
+        <div className="w-32 md:w-48 h-24 md:h-32 flex items-center justify-center overflow-hidden">
           <img 
             src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/696e66398d7900c2acfeec9e/b31bf63c7_ChatGPTImageJan13202607_16_18PM.png" 
             alt="ASA Logo" 
@@ -265,31 +265,31 @@ export default function CoachEnrollment() {
         </div>
       </motion.div>
 
-      <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-6">
+      <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-3 md:space-y-6">
         {/* Authentication */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
           <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">Authentication</CardTitle>
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-[#0A1F0A] text-base md:text-lg">Authentication</CardTitle>
             </CardHeader>
-            <CardContent className="grid md:grid-cols-2 gap-4">
+            <CardContent className="grid md:grid-cols-2 gap-3 md:gap-4">
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Coach ID <span className="text-red-500">*</span></label>
-                <Input value={formData.coachId} disabled className="border-[#2D6A4F] bg-gray-100" />
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Coach ID <span className="text-red-500">*</span></label>
+                <Input value={formData.coachId} disabled className="border-[#2D6A4F] bg-gray-100 text-xs md:text-sm h-8 md:h-10" />
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Email Address <span className="text-red-500">*</span></label>
-                <Input type="email" value={formData.email} disabled className="border-[#2D6A4F] bg-gray-100" />
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Email Address <span className="text-red-500">*</span></label>
+                <Input type="email" value={formData.email} disabled className="border-[#2D6A4F] bg-gray-100 text-xs md:text-sm h-8 md:h-10" />
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Password <span className="text-red-500">*</span></label>
-                <Input type="password" placeholder="Enter password" value={formData.password} onChange={(e) => handleChange('password', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Password <span className="text-red-500">*</span></label>
+                <Input type="password" placeholder="Enter password" value={formData.password} onChange={(e) => handleChange('password', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.password && <p className="text-red-500 text-xs mt-1">{errors.password}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Re-Enter Password <span className="text-red-500">*</span></label>
-                <Input type="password" placeholder="Re-enter password" value={formData.confirmPassword} onChange={(e) => handleChange('confirmPassword', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Re-Enter Password <span className="text-red-500">*</span></label>
+                <Input type="password" placeholder="Re-enter password" value={formData.confirmPassword} onChange={(e) => handleChange('confirmPassword', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{errors.confirmPassword}</p>}
               </div>
             </CardContent>
           </Card>
@@ -298,26 +298,26 @@ export default function CoachEnrollment() {
         {/* A. Personal Information */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
           <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">A. Personal Information</CardTitle>
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-[#0A1F0A] text-base md:text-lg">A. Personal Information</CardTitle>
             </CardHeader>
-            <CardContent className="grid md:grid-cols-2 gap-4">
+            <CardContent className="grid md:grid-cols-2 gap-3 md:gap-4">
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">First Name <span className="text-red-500">*</span></label>
-                <Input placeholder="Enter first name" value={formData.firstName} onChange={(e) => handleChange('firstName', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.firstName && <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>}
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">First Name <span className="text-red-500">*</span></label>
+                <Input placeholder="Enter first name" value={formData.firstName} onChange={(e) => handleChange('firstName', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Last Name <span className="text-red-500">*</span></label>
-                <Input placeholder="Enter last name" value={formData.lastName} onChange={(e) => handleChange('lastName', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.lastName && <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>}
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Last Name <span className="text-red-500">*</span></label>
+                <Input placeholder="Enter last name" value={formData.lastName} onChange={(e) => handleChange('lastName', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Date of Birth <span className="text-red-500">*</span></label>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Date of Birth <span className="text-red-500">*</span></label>
                 <Popover>
                   <PopoverTrigger asChild>
-                    <Button variant="outline" className="w-full justify-start text-left font-normal border-[#2D6A4F]">
-                      <CalendarIcon className="mr-2 h-4 w-4" />
+                    <Button variant="outline" className="w-full justify-start text-left font-normal border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
+                      <CalendarIcon className="mr-2 h-3 md:h-4 w-3 md:w-4" />
                       {formData.dateOfBirth ? format(formData.dateOfBirth, 'PPP') : <span>Pick a date</span>}
                     </Button>
                   </PopoverTrigger>
@@ -325,12 +325,12 @@ export default function CoachEnrollment() {
                     <Calendar mode="single" selected={formData.dateOfBirth} onSelect={(date) => handleChange('dateOfBirth', date)} initialFocus />
                   </PopoverContent>
                 </Popover>
-                {errors.dateOfBirth && <p className="text-red-500 text-sm mt-1">{errors.dateOfBirth}</p>}
+                {errors.dateOfBirth && <p className="text-red-500 text-xs mt-1">{errors.dateOfBirth}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Gender <span className="text-red-500">*</span></label>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Gender <span className="text-red-500">*</span></label>
                 <Select value={formData.gender} onValueChange={(value) => handleChange('gender', value)}>
-                  <SelectTrigger className="border-[#2D6A4F]">
+                  <SelectTrigger className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
                     <SelectValue placeholder="Select gender" />
                   </SelectTrigger>
                   <SelectContent>
@@ -340,12 +340,12 @@ export default function CoachEnrollment() {
                     <SelectItem value="Prefer not to say">Prefer not to say</SelectItem>
                   </SelectContent>
                 </Select>
-                {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender}</p>}
+                {errors.gender && <p className="text-red-500 text-xs mt-1">{errors.gender}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Nationality <span className="text-red-500">*</span></label>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Nationality <span className="text-red-500">*</span></label>
                 <Select value={formData.nationality} onValueChange={(value) => handleChange('nationality', value)}>
-                  <SelectTrigger className="border-[#2D6A4F]">
+                  <SelectTrigger className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
                     <SelectValue placeholder="Select nationality" />
                   </SelectTrigger>
                   <SelectContent className="max-h-[300px]">
@@ -354,32 +354,32 @@ export default function CoachEnrollment() {
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.nationality && <p className="text-red-500 text-sm mt-1">{errors.nationality}</p>}
+                {errors.nationality && <p className="text-red-500 text-xs mt-1">{errors.nationality}</p>}
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Government Issued ID Number <span className="text-red-500">*</span></label>
-                <Input placeholder="Enter ID number" value={formData.governmentId} onChange={(e) => handleChange('governmentId', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.governmentId && <p className="text-red-500 text-sm mt-1">{errors.governmentId}</p>}
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Government Issued ID Number <span className="text-red-500">*</span></label>
+                <Input placeholder="Enter ID number" value={formData.governmentId} onChange={(e) => handleChange('governmentId', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.governmentId && <p className="text-red-500 text-xs mt-1">{errors.governmentId}</p>}
               </div>
               <div className="md:col-span-2">
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Upload Profile Photo <span className="text-red-500">*</span></label>
-                <div className="border-2 border-dashed border-[#2D6A4F] rounded-lg p-8 text-center hover:border-[#40916C] transition-colors cursor-pointer">
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-2 block">Upload Profile Photo <span className="text-red-500">*</span></label>
+                <div className="border-2 border-dashed border-[#2D6A4F] rounded-lg p-4 md:p-8 text-center hover:border-[#40916C] transition-colors cursor-pointer">
                   <input type="file" accept="image/*" onChange={handleProfilePhotoUpload} className="hidden" id="profilePhoto" />
                   <label htmlFor="profilePhoto" className="cursor-pointer">
-                    <Upload className="w-12 h-12 text-[#2D6A4F] mx-auto mb-3" />
-                    <p className="text-gray-600">Click to upload or drag and drop</p>
+                    <Upload className="w-8 md:w-12 h-8 md:h-12 text-[#2D6A4F] mx-auto mb-2 md:mb-3" />
+                    <p className="text-gray-600 text-xs md:text-sm">Click to upload or drag and drop</p>
                   </label>
                 </div>
                 {profilePhotoName && (
-                  <div className="mt-3 flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <span className="text-sm text-gray-700">{profilePhotoName}</span>
+                  <div className="mt-2 md:mt-3 flex items-center justify-between p-2 md:p-3 bg-gray-50 rounded-lg">
+                    <span className="text-xs md:text-sm text-gray-700 truncate">{profilePhotoName}</span>
                     <Button type="button" size="icon" variant="ghost" onClick={removeProfilePhoto} className="text-red-500 hover:text-red-700">
-                      <X className="w-4 h-4" />
+                      <X className="w-3 md:w-4 h-3 md:h-4" />
                     </Button>
                   </div>
                 )}
-                {profilePhotoName && <p className="text-sm text-[#2D6A4F] mt-2">1 file(s) selected</p>}
-                {errors.profilePhoto && <p className="text-red-500 text-sm mt-1">{errors.profilePhoto}</p>}
+                {profilePhotoName && <p className="text-xs md:text-sm text-[#2D6A4F] mt-1 md:mt-2">1 file(s) selected</p>}
+                {errors.profilePhoto && <p className="text-red-500 text-xs mt-1">{errors.profilePhoto}</p>}
               </div>
             </CardContent>
           </Card>
@@ -388,35 +388,35 @@ export default function CoachEnrollment() {
         {/* B. Contact Information */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
           <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">B. Contact Information</CardTitle>
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-[#0A1F0A] text-base md:text-lg">B. Contact Information</CardTitle>
             </CardHeader>
-            <CardContent className="grid md:grid-cols-2 gap-4">
+            <CardContent className="grid md:grid-cols-2 gap-3 md:gap-4">
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Mobile Number <span className="text-red-500">*</span></label>
-                <Input type="tel" placeholder="+1 XXX XXX XXXX" value={formData.mobile} onChange={(e) => handleChange('mobile', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.mobile && <p className="text-red-500 text-sm mt-1">{errors.mobile}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Current Address <span className="text-red-500">*</span></label>
-                <Input placeholder="Street address" value={formData.address} onChange={(e) => handleChange('address', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.address && <p className="text-red-500 text-sm mt-1">{errors.address}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">City <span className="text-red-500">*</span></label>
-                <Input placeholder="City" value={formData.city} onChange={(e) => handleChange('city', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.city && <p className="text-red-500 text-sm mt-1">{errors.city}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Province <span className="text-red-500">*</span></label>
-                <Input placeholder="Province/State" value={formData.province} onChange={(e) => handleChange('province', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.province && <p className="text-red-500 text-sm mt-1">{errors.province}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Postal Code <span className="text-red-500">*</span></label>
-                <Input placeholder="Postal code" value={formData.postalCode} onChange={(e) => handleChange('postalCode', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.postalCode && <p className="text-red-500 text-sm mt-1">{errors.postalCode}</p>}
-              </div>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Mobile Number <span className="text-red-500">*</span></label>
+                <Input type="tel" placeholder="+1 XXX XXX XXXX" value={formData.mobile} onChange={(e) => handleChange('mobile', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
+                </div>
+                <div>
+                 <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Current Address <span className="text-red-500">*</span></label>
+                 <Input placeholder="Street address" value={formData.address} onChange={(e) => handleChange('address', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                 {errors.address && <p className="text-red-500 text-xs mt-1">{errors.address}</p>}
+                </div>
+                <div>
+                 <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">City <span className="text-red-500">*</span></label>
+                 <Input placeholder="City" value={formData.city} onChange={(e) => handleChange('city', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                 {errors.city && <p className="text-red-500 text-xs mt-1">{errors.city}</p>}
+                </div>
+                <div>
+                 <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Province <span className="text-red-500">*</span></label>
+                 <Input placeholder="Province/State" value={formData.province} onChange={(e) => handleChange('province', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                 {errors.province && <p className="text-red-500 text-xs mt-1">{errors.province}</p>}
+                </div>
+                <div>
+                 <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Postal Code <span className="text-red-500">*</span></label>
+                 <Input placeholder="Postal code" value={formData.postalCode} onChange={(e) => handleChange('postalCode', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                 {errors.postalCode && <p className="text-red-500 text-xs mt-1">{errors.postalCode}</p>}
+                </div>
             </CardContent>
           </Card>
         </motion.div>
@@ -424,14 +424,14 @@ export default function CoachEnrollment() {
         {/* C. Professional Details */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
           <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">C. Professional Details</CardTitle>
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-[#0A1F0A] text-base md:text-lg">C. Professional Details</CardTitle>
             </CardHeader>
-            <CardContent className="grid md:grid-cols-2 gap-4">
+            <CardContent className="grid md:grid-cols-2 gap-3 md:gap-4">
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Primary Sport <span className="text-red-500">*</span></label>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Primary Sport <span className="text-red-500">*</span></label>
                 <Select value={formData.primarySport} onValueChange={(value) => handleChange('primarySport', value)}>
-                  <SelectTrigger className="border-[#2D6A4F]">
+                   <SelectTrigger className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
                     <SelectValue placeholder="Select sport" />
                   </SelectTrigger>
                   <SelectContent>
@@ -444,13 +444,13 @@ export default function CoachEnrollment() {
                     <SelectItem value="Athletics">Athletics</SelectItem>
                     <SelectItem value="Other">Other</SelectItem>
                   </SelectContent>
-                </Select>
-                {errors.primarySport && <p className="text-red-500 text-sm mt-1">{errors.primarySport}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Coaching Role <span className="text-red-500">*</span></label>
-                <Select value={formData.coachingRole} onValueChange={(value) => handleChange('coachingRole', value)}>
-                  <SelectTrigger className="border-[#2D6A4F]">
+                  </Select>
+                  {errors.primarySport && <p className="text-red-500 text-xs mt-1">{errors.primarySport}</p>}
+                  </div>
+                  <div>
+                  <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Coaching Role <span className="text-red-500">*</span></label>
+                  <Select value={formData.coachingRole} onValueChange={(value) => handleChange('coachingRole', value)}>
+                  <SelectTrigger className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
                     <SelectValue placeholder="Select role" />
                   </SelectTrigger>
                   <SelectContent>
@@ -459,49 +459,49 @@ export default function CoachEnrollment() {
                     <SelectItem value="Fitness Coach">Fitness Coach</SelectItem>
                     <SelectItem value="Specialist Coach">Specialist Coach</SelectItem>
                   </SelectContent>
-                </Select>
-                {errors.coachingRole && <p className="text-red-500 text-sm mt-1">{errors.coachingRole}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Coaching Experience (Years) <span className="text-red-500">*</span></label>
-                <Input type="number" min="0" placeholder="0" value={formData.coachingExperience} onChange={(e) => handleChange('coachingExperience', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.coachingExperience && <p className="text-red-500 text-sm mt-1">{errors.coachingExperience}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">First Aid / CPR Certified? <span className="text-red-500">*</span></label>
-                <Select value={formData.firstAidCertified} onValueChange={(value) => handleChange('firstAidCertified', value)}>
-                  <SelectTrigger className="border-[#2D6A4F]">
+                  </Select>
+                  {errors.coachingRole && <p className="text-red-500 text-xs mt-1">{errors.coachingRole}</p>}
+                  </div>
+                  <div>
+                  <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Coaching Experience (Years) <span className="text-red-500">*</span></label>
+                  <Input type="number" min="0" placeholder="0" value={formData.coachingExperience} onChange={(e) => handleChange('coachingExperience', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                  {errors.coachingExperience && <p className="text-red-500 text-xs mt-1">{errors.coachingExperience}</p>}
+                  </div>
+                  <div>
+                  <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">First Aid / CPR Certified? <span className="text-red-500">*</span></label>
+                  <Select value={formData.firstAidCertified} onValueChange={(value) => handleChange('firstAidCertified', value)}>
+                  <SelectTrigger className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="Yes">Yes</SelectItem>
                     <SelectItem value="No">No</SelectItem>
                   </SelectContent>
-                </Select>
-                {errors.firstAidCertified && <p className="text-red-500 text-sm mt-1">{errors.firstAidCertified}</p>}
-              </div>
-              <div className="md:col-span-2">
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Coaching Certifications (Optional)</label>
-                <div className="border-2 border-dashed border-[#2D6A4F] rounded-lg p-8 text-center hover:border-[#40916C] transition-colors cursor-pointer">
+                  </Select>
+                  {errors.firstAidCertified && <p className="text-red-500 text-xs mt-1">{errors.firstAidCertified}</p>}
+                  </div>
+                  <div className="md:col-span-2">
+                  <label className="text-xs md:text-sm font-medium text-gray-700 mb-2 block">Coaching Certifications (Optional)</label>
+                  <div className="border-2 border-dashed border-[#2D6A4F] rounded-lg p-4 md:p-8 text-center hover:border-[#40916C] transition-colors cursor-pointer">
                   <input type="file" accept=".pdf,.doc,.docx" multiple onChange={handleCertificationsUpload} className="hidden" id="certifications" />
                   <label htmlFor="certifications" className="cursor-pointer">
-                    <Upload className="w-12 h-12 text-[#2D6A4F] mx-auto mb-3" />
-                    <p className="text-gray-600">Click to upload or drag and drop</p>
+                    <Upload className="w-8 md:w-12 h-8 md:h-12 text-[#2D6A4F] mx-auto mb-2 md:mb-3" />
+                    <p className="text-gray-600 text-xs md:text-sm">Click to upload or drag and drop</p>
                   </label>
-                </div>
-                {certFileNames.length > 0 && (
-                  <div className="mt-3 space-y-2">
+                  </div>
+                  {certFileNames.length > 0 && (
+                  <div className="mt-2 md:mt-3 space-y-2">
                     {certFileNames.map((name, index) => (
-                      <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                        <span className="text-sm text-gray-700">{name}</span>
+                      <div key={index} className="flex items-center justify-between p-2 md:p-3 bg-gray-50 rounded-lg">
+                        <span className="text-xs md:text-sm text-gray-700 truncate">{name}</span>
                         <Button type="button" size="icon" variant="ghost" onClick={() => removeCertification(index)} className="text-red-500 hover:text-red-700">
-                          <X className="w-4 h-4" />
+                          <X className="w-3 md:w-4 h-3 md:h-4" />
                         </Button>
                       </div>
                     ))}
                   </div>
-                )}
-                {certFileNames.length > 0 && <p className="text-sm text-[#2D6A4F] mt-2">{certFileNames.length} file(s) selected</p>}
+                  )}
+                  {certFileNames.length > 0 && <p className="text-xs md:text-sm text-[#2D6A4F] mt-1 md:mt-2">{certFileNames.length} file(s) selected</p>}
               </div>
             </CardContent>
           </Card>
@@ -510,12 +510,12 @@ export default function CoachEnrollment() {
         {/* D. Availability & Work Preference */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}>
           <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">D. Availability & Work Preference</CardTitle>
+            <CardHeader className="pb-3 md:pb-6">
+              <CardTitle className="text-[#0A1F0A] text-base md:text-lg">D. Availability & Work Preference</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-3 md:space-y-4">
               <div>
-                <label className="text-sm font-medium text-gray-700 mb-3 block">Available Days <span className="text-red-500">*</span></label>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-2 block">Available Days <span className="text-red-500">*</span></label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
                   {days.map(day => (
                     <Button
@@ -523,21 +523,21 @@ export default function CoachEnrollment() {
                       type="button"
                       onClick={() => toggleDay(day)}
                       variant={formData.availableDays.includes(day) ? 'default' : 'outline'}
-                      className={formData.availableDays.includes(day) 
+                      className={`text-xs md:text-sm h-8 md:h-10 ${formData.availableDays.includes(day) 
                         ? 'bg-[#D4AF37] hover:bg-[#F4D03F] text-[#0A1F0A] border-[#D4AF37]' 
                         : 'border-[#2D6A4F] text-gray-700 hover:bg-gray-100'
-                      }
-                    >
+                      }`}
+                      >
                       {day.substring(0, 3)}
-                    </Button>
+                      </Button>
                   ))}
                 </div>
-                {errors.availableDays && <p className="text-red-500 text-sm mt-2">{errors.availableDays}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Preferred Time Slots <span className="text-red-500">*</span></label>
-                <Select value={formData.preferredTime} onValueChange={(value) => handleChange('preferredTime', value)}>
-                  <SelectTrigger className="border-[#2D6A4F]">
+                {errors.availableDays && <p className="text-red-500 text-xs mt-2">{errors.availableDays}</p>}
+                </div>
+                <div>
+                 <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Preferred Time Slots <span className="text-red-500">*</span></label>
+                 <Select value={formData.preferredTime} onValueChange={(value) => handleChange('preferredTime', value)}>
+                   <SelectTrigger className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10">
                     <SelectValue placeholder="Select preferred time" />
                   </SelectTrigger>
                   <SelectContent>
@@ -546,60 +546,60 @@ export default function CoachEnrollment() {
                     <SelectItem value="Evening (6 PM - 10 PM)">Evening (6 PM - 10 PM)</SelectItem>
                     <SelectItem value="Flexible">Flexible</SelectItem>
                   </SelectContent>
-                </Select>
-                {errors.preferredTime && <p className="text-red-500 text-sm mt-1">{errors.preferredTime}</p>}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+                  </Select>
+                  {errors.preferredTime && <p className="text-red-500 text-xs mt-1">{errors.preferredTime}</p>}
+                  </div>
+                  </CardContent>
+                  </Card>
+                  </motion.div>
 
-        {/* E. Financial Information */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
-          <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">E. Financial Information</CardTitle>
-            </CardHeader>
-            <CardContent className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Bank Name <span className="text-red-500">*</span></label>
-                <Input placeholder="Bank name" value={formData.bankName} onChange={(e) => handleChange('bankName', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.bankName && <p className="text-red-500 text-sm mt-1">{errors.bankName}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Transit Number <span className="text-red-500">*</span></label>
-                <Input placeholder="XXXXX" value={formData.transitNumber} onChange={(e) => handleChange('transitNumber', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.transitNumber && <p className="text-red-500 text-sm mt-1">{errors.transitNumber}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Institution Number <span className="text-red-500">*</span></label>
-                <Input placeholder="XXX" value={formData.institutionNumber} onChange={(e) => handleChange('institutionNumber', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.institutionNumber && <p className="text-red-500 text-sm mt-1">{errors.institutionNumber}</p>}
-              </div>
-              <div>
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Account Number <span className="text-red-500">*</span></label>
-                <Input placeholder="XXXXXXXXXXXX" value={formData.accountNumber} onChange={(e) => handleChange('accountNumber', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.accountNumber && <p className="text-red-500 text-sm mt-1">{errors.accountNumber}</p>}
-              </div>
-              <div className="md:col-span-2">
-                <label className="text-sm font-medium text-gray-700 mb-2 block">Interac ID <span className="text-red-500">*</span></label>
-                <Input placeholder="email@example.com or phone number" value={formData.interacId} onChange={(e) => handleChange('interacId', e.target.value)} className="border-[#2D6A4F]" />
-                {errors.interacId && <p className="text-red-500 text-sm mt-1">{errors.interacId}</p>}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+                  {/* E. Financial Information */}
+                  <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}>
+                  <Card className="bg-white border-[#2D6A4F]">
+                  <CardHeader className="pb-3 md:pb-6">
+                  <CardTitle className="text-[#0A1F0A] text-base md:text-lg">E. Financial Information</CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid md:grid-cols-2 gap-3 md:gap-4">
+                  <div>
+                  <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Bank Name <span className="text-red-500">*</span></label>
+                  <Input placeholder="Bank name" value={formData.bankName} onChange={(e) => handleChange('bankName', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.bankName && <p className="text-red-500 text-xs mt-1">{errors.bankName}</p>}
+                </div>
+                <div>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Transit Number <span className="text-red-500">*</span></label>
+                <Input placeholder="XXXXX" value={formData.transitNumber} onChange={(e) => handleChange('transitNumber', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.transitNumber && <p className="text-red-500 text-xs mt-1">{errors.transitNumber}</p>}
+                </div>
+                <div>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Institution Number <span className="text-red-500">*</span></label>
+                <Input placeholder="XXX" value={formData.institutionNumber} onChange={(e) => handleChange('institutionNumber', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.institutionNumber && <p className="text-red-500 text-xs mt-1">{errors.institutionNumber}</p>}
+                </div>
+                <div>
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Account Number <span className="text-red-500">*</span></label>
+                <Input placeholder="XXXXXXXXXXXX" value={formData.accountNumber} onChange={(e) => handleChange('accountNumber', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.accountNumber && <p className="text-red-500 text-xs mt-1">{errors.accountNumber}</p>}
+                </div>
+                <div className="md:col-span-2">
+                <label className="text-xs md:text-sm font-medium text-gray-700 mb-1 block">Interac ID <span className="text-red-500">*</span></label>
+                <Input placeholder="email@example.com or phone number" value={formData.interacId} onChange={(e) => handleChange('interacId', e.target.value)} className="border-[#2D6A4F] text-xs md:text-sm h-8 md:h-10" />
+                {errors.interacId && <p className="text-red-500 text-xs mt-1">{errors.interacId}</p>}
+                </div>
+                </CardContent>
+                </Card>
+                </motion.div>
 
-        {/* F. Agreements & Consent Forms */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
-          <Card className="bg-white border-[#2D6A4F]">
-            <CardHeader>
-              <CardTitle className="text-[#0A1F0A]">F. Agreements & Consent Forms</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Agreement 1 */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h3 className="font-bold text-gray-900 mb-3">Academy Policy Agreement (Coach)</h3>
-                <div className="bg-gray-50 rounded p-4 max-h-40 overflow-y-auto mb-3 text-sm text-gray-700">
+                {/* F. Agreements & Consent Forms */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
+                <Card className="bg-white border-[#2D6A4F]">
+                <CardHeader className="pb-3 md:pb-6">
+                <CardTitle className="text-[#0A1F0A] text-base md:text-lg">F. Agreements & Consent Forms</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 md:space-y-6">
+                {/* Agreement 1 */}
+                <div className="border border-gray-200 rounded-lg p-3 md:p-4">
+                <h3 className="font-bold text-gray-900 text-xs md:text-sm mb-2 md:mb-3">Academy Policy Agreement (Coach)</h3>
+                <div className="bg-gray-50 rounded p-3 max-h-32 md:max-h-40 overflow-y-auto mb-2 md:mb-3 text-xs md:text-sm text-gray-700">
                   <p className="mb-2">
                     As a coach at Auustralasia Spports Academy, you are expected to maintain the highest standards of professionalism, integrity, and dedication. 
                     This includes adhering to all academy policies, including but not limited to punctuality, professional conduct, dress code, and communication protocols.
@@ -609,18 +609,18 @@ export default function CoachEnrollment() {
                     development and success of the academy's programs. Violation of academy policies may result in disciplinary action or termination of employment.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2 md:gap-3">
                   <Checkbox checked={formData.agreePolicy} onCheckedChange={(checked) => handleChange('agreePolicy', checked)} className="mt-1" />
-                  <label className="text-sm text-gray-700 cursor-pointer">
+                  <label className="text-xs md:text-sm text-gray-700 cursor-pointer">
                     <span className="text-red-500">*</span> I have read and agree to the Academy Policy Agreement
                   </label>
                 </div>
-              </div>
+                </div>
 
-              {/* Agreement 2 */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h3 className="font-bold text-gray-900 mb-3">Confidentiality & Privacy Agreement (Coach)</h3>
-                <div className="bg-gray-50 rounded p-4 max-h-40 overflow-y-auto mb-3 text-sm text-gray-700">
+                {/* Agreement 2 */}
+                <div className="border border-gray-200 rounded-lg p-3 md:p-4">
+                <h3 className="font-bold text-gray-900 text-xs md:text-sm mb-2 md:mb-3">Confidentiality & Privacy Agreement (Coach)</h3>
+                <div className="bg-gray-50 rounded p-3 max-h-32 md:max-h-40 overflow-y-auto mb-2 md:mb-3 text-xs md:text-sm text-gray-700">
                   <p className="mb-2">
                     You agree to maintain strict confidentiality regarding all student information, including personal details, academic records, medical information, 
                     and performance evaluations. This information must not be shared with unauthorized parties or used for any purpose other than your coaching duties.
@@ -630,18 +630,18 @@ export default function CoachEnrollment() {
                     used outside of your employment with the academy. Breach of this confidentiality agreement may result in legal action and immediate termination.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2 md:gap-3">
                   <Checkbox checked={formData.agreeConfidentiality} onCheckedChange={(checked) => handleChange('agreeConfidentiality', checked)} className="mt-1" />
-                  <label className="text-sm text-gray-700 cursor-pointer">
+                  <label className="text-xs md:text-sm text-gray-700 cursor-pointer">
                     <span className="text-red-500">*</span> I have read and accept the Confidentiality & Privacy Agreement
                   </label>
                 </div>
-              </div>
+                </div>
 
-              {/* Agreement 3 */}
-              <div className="border border-gray-200 rounded-lg p-4">
-                <h3 className="font-bold text-gray-900 mb-3">Code of Conduct Agreement (Coach)</h3>
-                <div className="bg-gray-50 rounded p-4 max-h-40 overflow-y-auto mb-3 text-sm text-gray-700">
+                {/* Agreement 3 */}
+                <div className="border border-gray-200 rounded-lg p-3 md:p-4">
+                <h3 className="font-bold text-gray-900 text-xs md:text-sm mb-2 md:mb-3">Code of Conduct Agreement (Coach)</h3>
+                <div className="bg-gray-50 rounded p-3 max-h-32 md:max-h-40 overflow-y-auto mb-2 md:mb-3 text-xs md:text-sm text-gray-700">
                   <p className="mb-2">
                     As a representative of Auustralasia Spports Academy, you agree to conduct yourself in a manner that reflects positively on the institution at all times. 
                     This includes treating all students, parents, colleagues, and visitors with respect, maintaining professional boundaries, and avoiding any behavior 
@@ -652,25 +652,25 @@ export default function CoachEnrollment() {
                     discrimination, or any form of abuse. You agree to report any concerns regarding student safety or wellbeing to the appropriate authorities immediately.
                   </p>
                 </div>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2 md:gap-3">
                   <Checkbox checked={formData.agreeConduct} onCheckedChange={(checked) => handleChange('agreeConduct', checked)} className="mt-1" />
-                  <label className="text-sm text-gray-700 cursor-pointer">
+                  <label className="text-xs md:text-sm text-gray-700 cursor-pointer">
                     <span className="text-red-500">*</span> I have read and accept the Code of Conduct Agreement
                   </label>
                 </div>
-              </div>
+                </div>
 
-              {errors.agreements && <p className="text-red-500 text-sm">{errors.agreements}</p>}
-            </CardContent>
-          </Card>
-        </motion.div>
+                {errors.agreements && <p className="text-red-500 text-xs">{errors.agreements}</p>}
+                </CardContent>
+                </Card>
+                </motion.div>
 
-        {/* Submit Button */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="flex justify-end">
-          <Button type="submit" className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] hover:from-[#F4D03F] hover:to-[#D4AF37] text-[#0A1F0A] text-lg px-12 py-6 font-bold">
-            Submit Enrollment
-          </Button>
-        </motion.div>
+                {/* Submit Button */}
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="flex justify-end">
+                <Button type="submit" className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] hover:from-[#F4D03F] hover:to-[#D4AF37] text-[#0A1F0A] text-sm md:text-lg px-6 md:px-12 py-3 md:py-6 font-bold w-full md:w-auto">
+                Submit Enrollment
+                </Button>
+                </motion.div>
       </form>
     </div>
   );
