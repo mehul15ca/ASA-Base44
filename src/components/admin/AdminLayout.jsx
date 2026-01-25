@@ -147,7 +147,7 @@ export default function AdminLayout({ children }) {
           </button>
           <div className="flex items-center gap-2">
             <AnimatedLogo size="xs" />
-            <h1 className="text-white font-bold">ASA Admin</h1>
+            <h1 className="text-white font-bold">Auustralasia</h1>
           </div>
           <div className="w-10" />
         </div>
