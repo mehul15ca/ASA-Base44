@@ -94,19 +94,19 @@ export default function CoachAnnouncements() {
 
   return (
     <CoachLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-4 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Calendar className="w-5 h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-sm">Total Announcements</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Calendar className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+                <p className="text-gray-400 text-xs md:text-sm">Total Announcements</p>
               </div>
-              <p className="text-3xl font-bold text-white">{mockAnnouncements.length}</p>
+              <p className="text-lg md:text-3xl font-bold text-white">{mockAnnouncements.length}</p>
             </Card>
           </motion.div>
 
@@ -115,12 +115,12 @@ export default function CoachAnnouncements() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <AlertCircle className="w-5 h-5 text-red-400" />
-                <p className="text-gray-400 text-sm">Unread</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <AlertCircle className="w-4 md:w-5 h-4 md:h-5 text-red-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Unread</p>
               </div>
-              <p className="text-3xl font-bold text-white">{unreadCount}</p>
+              <p className="text-lg md:text-3xl font-bold text-white">{unreadCount}</p>
             </Card>
           </motion.div>
 
@@ -129,12 +129,12 @@ export default function CoachAnnouncements() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-5 h-5 text-[#40916C]" />
-                <p className="text-gray-400 text-sm">For You</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Users className="w-4 md:w-5 h-4 md:h-5 text-[#40916C]" />
+                <p className="text-gray-400 text-xs md:text-sm">For You</p>
               </div>
-              <p className="text-3xl font-bold text-white">{mockAnnouncements.filter(a => a.targetAudience.includes('Coaches')).length}</p>
+              <p className="text-lg md:text-3xl font-bold text-white">{mockAnnouncements.filter(a => a.targetAudience.includes('Coaches')).length}</p>
             </Card>
           </motion.div>
         </div>
@@ -143,23 +143,23 @@ export default function CoachAnnouncements() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6"
+          className="mb-4 md:mb-6"
         >
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 md:w-5 h-4 md:h-5" />
               <Input
                 placeholder="Search announcements..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                className="pl-10 md:pl-12 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
               />
             </div>
           </Card>
         </motion.div>
 
         {/* Announcements List */}
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {filteredAnnouncements.map((announcement, index) => (
             <motion.div
               key={announcement.id}
@@ -167,36 +167,36 @@ export default function CoachAnnouncements() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.05 }}
             >
-              <Card className={`bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 hover:shadow-lg transition-shadow ${
+              <Card className={`bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6 hover:shadow-lg transition-shadow ${
                 announcement.status === 'unread' ? 'border-l-4 border-l-[#D4AF37]' : ''
               }`}>
-                <div className="flex justify-between items-start mb-4">
-                  <div className="flex items-start gap-3 flex-1">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-2 md:mb-4">
+                  <div className="flex items-start gap-2 md:gap-3 flex-1">
                     <div className={`mt-1 ${announcement.priority === 'High' ? 'text-red-400' : announcement.priority === 'Medium' ? 'text-yellow-400' : 'text-green-400'}`}>
                       {getPriorityIcon(announcement.priority)}
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-white font-bold text-lg">{announcement.title}</h3>
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <h3 className="text-white font-bold text-base md:text-lg">{announcement.title}</h3>
                         {announcement.status === 'unread' && (
                           <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse"></span>
                         )}
                       </div>
-                      <p className="text-gray-300 mb-3">{announcement.message}</p>
-                      <div className="flex items-center gap-4 text-sm">
+                      <p className="text-gray-300 text-xs md:text-sm mb-2 line-clamp-2">{announcement.message}</p>
+                      <div className="flex flex-wrap items-center gap-2 md:gap-4 text-xs md:text-sm">
                         <div className="flex items-center gap-1 text-gray-400">
-                          <Calendar className="w-4 h-4" />
-                          <span>{new Date(announcement.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                          <Calendar className="w-3 md:w-4 h-3 md:h-4" />
+                          <span>{new Date(announcement.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
                         </div>
                         <div className="flex items-center gap-1 text-gray-400">
-                          <Users className="w-4 h-4" />
+                          <Users className="w-3 md:w-4 h-3 md:h-4" />
                           <span>{announcement.targetAudience}</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <Badge className={getPriorityColor(announcement.priority)}>
-                    {announcement.priority} Priority
+                  <Badge className={getPriorityColor(announcement.priority)} style={{ fontSize: '0.75rem' }}>
+                    {announcement.priority}
                   </Badge>
                 </div>
               </Card>
@@ -205,11 +205,11 @@ export default function CoachAnnouncements() {
         </div>
 
         {filteredAnnouncements.length === 0 && (
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-12">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 md:p-12">
             <div className="text-center">
-              <Info className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-white text-lg font-semibold mb-2">No announcements found</h3>
-              <p className="text-gray-400">Try adjusting your search query</p>
+              <Info className="w-8 md:w-12 h-8 md:h-12 text-gray-400 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-white text-base md:text-lg font-semibold mb-2">No announcements found</h3>
+              <p className="text-gray-400 text-xs md:text-sm">Try adjusting your search query</p>
             </div>
           </Card>
         )}
