@@ -60,7 +60,7 @@ export default function CoachEvaluations() {
   };
 
   const overallScore = Math.round(
-    (evaluation.batting + evaluation.bowling + evaluation.fielding + evaluation.teamwork) / 4
+    (evaluation.batting + evaluation.bowling + evaluation.fielding + evaluation.teamwork + evaluation.fitness) / 5
   );
 
   return (
