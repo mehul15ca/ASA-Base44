@@ -105,7 +105,7 @@ export default function StudentEvaluations() {
                     {Object.entries(evaluation.skills).slice(0, 3).map(([skill, value]) => (
                       <div key={skill}>
                         <p className="text-gray-400 text-xs md:text-sm capitalize">{skill}</p>
-                        <p className="text-white font-semibold text-sm md:text-base">{value}%</p>
+                        <p className="text-white font-semibold text-sm md:text-base">{value}/10</p>
                       </div>
                     ))}
                   </div>
