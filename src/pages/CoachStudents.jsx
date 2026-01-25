@@ -255,53 +255,53 @@ export default function CoachStudents() {
 
         {/* Student Details Dialog */}
         <Dialog open={showDetails} onOpenChange={setShowDetails}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl p-4 md:p-6">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Student Details</DialogTitle>
+              <DialogTitle className="text-white text-lg md:text-xl">Student Details</DialogTitle>
             </DialogHeader>
             {selectedStudent && (
-              <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] flex items-center justify-center text-[#0A1F0A] font-bold text-xl">
+              <div className="space-y-3 md:space-y-6">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] flex items-center justify-center text-[#0A1F0A] font-bold text-lg md:text-xl flex-shrink-0">
                     {selectedStudent.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-xl">{selectedStudent.name}</h3>
-                    <p className="text-gray-400">{selectedStudent.batch}</p>
+                    <h3 className="text-white font-bold text-base md:text-xl">{selectedStudent.name}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm">{selectedStudent.batch}</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Email</p>
-                    <p className="text-white">{selectedStudent.email}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Email</p>
+                    <p className="text-white text-xs md:text-sm break-words">{selectedStudent.email}</p>
                   </div>
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Phone</p>
-                    <p className="text-white">{selectedStudent.phone}</p>
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Phone</p>
+                    <p className="text-white text-xs md:text-sm">{selectedStudent.phone}</p>
                   </div>
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Join Date</p>
-                    <p className="text-white">{new Date(selectedStudent.joinDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Join Date</p>
+                    <p className="text-white text-xs md:text-sm">{new Date(selectedStudent.joinDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                   </div>
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Attendance</p>
-                    <p className={`font-bold ${getAttendanceColor(selectedStudent.attendance)}`}>
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Attendance</p>
+                    <p className={`font-bold text-sm md:text-base ${getAttendanceColor(selectedStudent.attendance)}`}>
                       {selectedStudent.attendance}%
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                  <p className="text-gray-400 text-sm mb-2">Performance</p>
-                  <Badge className={getPerformanceColor(selectedStudent.performance)}>
+                <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                  <p className="text-gray-400 text-xs md:text-sm mb-2">Performance</p>
+                  <Badge className={`text-xs md:text-sm ${getPerformanceColor(selectedStudent.performance)}`}>
                     {selectedStudent.performance}
                   </Badge>
                 </div>
 
-                <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                  <p className="text-gray-400 text-sm mb-2">Recent Achievements</p>
-                  <p className="text-white">{selectedStudent.recentAchievements}</p>
+                <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                  <p className="text-gray-400 text-xs md:text-sm mb-2">Recent Achievements</p>
+                  <p className="text-white text-xs md:text-sm">{selectedStudent.recentAchievements}</p>
                 </div>
               </div>
             )}
