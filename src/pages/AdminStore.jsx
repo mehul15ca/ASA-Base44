@@ -91,7 +91,7 @@ export default function AdminStore() {
                 </div>
                 <div className="grid grid-cols-2 gap-2 md:gap-4">
                   <div>
-                    <Label className="text-xs md:text-sm text-gray-400">Price (₹)</Label>
+                    <Label className="text-xs md:text-sm text-gray-400">Price</Label>
                     <Input type="number" placeholder="0" className="mt-1 bg-[#0A1F0A] border-[#2D6A4F] text-white text-sm" />
                   </div>
                   <div>
