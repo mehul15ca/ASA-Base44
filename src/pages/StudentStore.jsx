@@ -44,7 +44,7 @@ export default function StudentStore() {
     <StudentLayout>
       <div className="p-4 md:p-8">
         {/* Overview Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-8">
+        <div className="grid grid-cols-1 gap-3 mb-6 md:mb-8 max-w-md">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
               <div className="flex items-center gap-2 md:gap-3 mb-2">
