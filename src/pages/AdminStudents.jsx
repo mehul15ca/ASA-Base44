@@ -72,35 +72,35 @@ export default function AdminStudents() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-3 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <h1 className="text-3xl font-bold text-white mb-2">Student Management</h1>
-          <p className="text-gray-400">Manage students, attendance, fees, and performance</p>
+          <h1 className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-2">Student Management</h1>
+          <p className="text-gray-400 text-xs md:text-base hidden md:block">Manage students, attendance, fees, and performance</p>
         </motion.div>
 
         {/* Action Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
+          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 md:gap-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <Input
                 placeholder="Search students..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
               />
             </div>
             <Select value={batchFilter} onValueChange={setBatchFilter}>
-              <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+              <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -112,7 +112,7 @@ export default function AdminStudents() {
               </SelectContent>
             </Select>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+              <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -122,7 +122,7 @@ export default function AdminStudents() {
               </SelectContent>
             </Select>
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+              <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -131,20 +131,20 @@ export default function AdminStudents() {
                 <SelectItem value="joinDate">Join Date</SelectItem>
               </SelectContent>
             </Select>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex gap-2 flex-wrap md:col-span-1">
               <Button
                 variant="outline"
-                className="flex-1 min-w-[120px] border-[#40916C] text-gray-300"
+                className="flex-1 min-w-[100px] md:min-w-[120px] border-[#40916C] text-gray-300 text-xs md:text-sm"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Export CSV
+                <Download className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+                Export
               </Button>
               <Button
                 onClick={() => setShowAddStudentModal(true)}
-                className="flex-1 min-w-[120px] bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                className="flex-1 min-w-[100px] md:min-w-[120px] bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm"
               >
-                <Plus className="w-4 h-4 mr-2" />
-                Add Student
+                <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+                Add
               </Button>
             </div>
           </div>
@@ -154,20 +154,20 @@ export default function AdminStudents() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl overflow-hidden"
+          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl overflow-hidden"
         >
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto -mx-3 md:mx-0">
             <table className="w-full">
               <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Student ID</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Name</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Batch</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Phone</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Monthly Fee</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Join Date</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Actions</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">ID</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Name</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden lg:table-cell">Batch</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden xl:table-cell">Phone</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Fee</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Status</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Join Date</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -179,26 +179,26 @@ export default function AdminStudents() {
                     transition={{ delay: index * 0.05 }}
                     className="border-b border-[#2D6A4F]/30 hover:bg-[#2D6A4F]/10 transition-colors"
                   >
-                    <td className="px-6 py-4 text-sm text-gray-300">{student.id}</td>
-                    <td className="px-6 py-4 text-sm text-white font-medium">{student.name}</td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{student.batch}</td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{student.phone}</td>
-                    <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">${student.fee}</td>
-                    <td className="px-6 py-4">
-                      <Badge className={student.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300">{student.id}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white font-medium">{student.name}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden lg:table-cell">{student.batch}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden xl:table-cell">{student.phone}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-[#D4AF37] font-semibold">${student.fee}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4">
+                      <Badge className={`text-[10px] md:text-xs ${student.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>
                         {student.status}
                       </Badge>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{student.joinDate}</td>
-                    <td className="px-6 py-4">
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden md:table-cell">{student.joinDate}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4">
                       <Button
                         size="sm"
                         variant="outline"
                         onClick={() => handleViewStudent(student)}
-                        className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10"
+                        className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 text-xs md:text-sm"
                       >
-                        <Eye className="w-4 h-4 mr-1" />
-                        View
+                        <Eye className="w-3 md:w-4 h-3 md:h-4 md:mr-1" />
+                        <span className="hidden md:inline">View</span>
                       </Button>
                     </td>
                   </motion.tr>
@@ -208,43 +208,47 @@ export default function AdminStudents() {
           </div>
 
           {/* Pagination */}
-          <div className="px-6 py-4 border-t border-[#2D6A4F]/50 flex justify-between items-center">
-            <p className="text-sm text-gray-400">
-              Showing {startIndex + 1} to {Math.min(endIndex, filteredStudents.length)} of {filteredStudents.length} students
+          <div className="px-3 md:px-6 py-3 md:py-4 border-t border-[#2D6A4F]/50 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+            <p className="text-xs md:text-sm text-gray-400">
+              Showing {startIndex + 1}-{Math.min(endIndex, filteredStudents.length)} of {filteredStudents.length}
             </p>
-            <div className="flex gap-2">
+            <div className="flex gap-1 md:gap-2">
               <Button
                 variant="outline"
                 size="sm"
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
-                className="border-[#40916C] text-gray-300"
+                className="border-[#40916C] text-gray-300 text-xs md:text-sm"
               >
-                <ChevronLeft className="w-4 h-4 mr-1" />
-                Previous
+                <ChevronLeft className="w-3 md:w-4 h-3 md:h-4 mr-1" />
+                <span className="hidden md:inline">Previous</span>
+                <span className="md:hidden">Prev</span>
               </Button>
-              {[...Array(totalPages)].map((_, i) => (
-                <Button
-                  key={i}
-                  variant={currentPage === i + 1 ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={currentPage === i + 1 
-                    ? 'bg-[#D4AF37] text-[#0A1F0A]' 
-                    : 'border-[#40916C] text-gray-300'}
-                >
-                  {i + 1}
-                </Button>
-              ))}
+              <div className="hidden md:flex gap-1">
+                {[...Array(totalPages)].map((_, i) => (
+                  <Button
+                    key={i}
+                    variant={currentPage === i + 1 ? 'default' : 'outline'}
+                    size="sm"
+                    onClick={() => setCurrentPage(i + 1)}
+                    className={currentPage === i + 1 
+                      ? 'bg-[#D4AF37] text-[#0A1F0A]' 
+                      : 'border-[#40916C] text-gray-300'}
+                  >
+                    {i + 1}
+                  </Button>
+                ))}
+              </div>
+              <span className="md:hidden text-xs text-gray-400">{currentPage}/{totalPages}</span>
               <Button
                 variant="outline"
                 size="sm"
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(currentPage + 1)}
-                className="border-[#40916C] text-gray-300"
+                className="border-[#40916C] text-gray-300 text-xs md:text-sm"
               >
                 Next
-                <ChevronRight className="w-4 h-4 ml-1" />
+                <ChevronRight className="w-3 md:w-4 h-3 md:h-4 ml-1" />
               </Button>
             </div>
           </div>
