@@ -66,11 +66,9 @@ export default function CoachLayout({ children, currentPageName }) {
       >
         {/* Logo */}
         <div className="p-4 md:p-6 border-b border-[#2D6A4F]/50">
-          <img 
-            src="https://raw.githubusercontent.com/dackerman1/asa/main/public/logo.png" 
-            alt="Academy Logo" 
-            className="h-8 md:h-12 w-auto"
-          />
+          <div className="h-8 md:h-12 w-auto bg-[#D4AF37] rounded-lg flex items-center justify-center font-bold text-[#0A1F0A]">
+            ASA
+          </div>
         </div>
 
         {/* Menu */}
