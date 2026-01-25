@@ -87,20 +87,20 @@ export default function AdminSchedule() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-3 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <h1 className="text-3xl font-bold text-white mb-2">Schedule & Matches</h1>
-          <p className="text-gray-400">Manage training schedule and matches</p>
+          <h1 className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-2">Schedule & Matches</h1>
+          <p className="text-gray-400 text-xs md:text-base hidden md:block">Manage training schedule and matches</p>
         </motion.div>
 
         {/* Tabs */}
         <Tabs defaultValue="schedule" className="w-full">
-          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-6">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-3 md:mb-6 text-xs md:text-sm">
             <TabsTrigger value="schedule" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
               Schedule
             </TabsTrigger>
@@ -114,37 +114,37 @@ export default function AdminSchedule() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
             >
               {/* Calendar Header */}
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">
+              <div className="flex justify-between items-center mb-3 md:mb-6">
+                <h2 className="text-base md:text-2xl font-bold text-white">
                   {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </h2>
-                <div className="flex gap-2">
+                <div className="flex gap-1 md:gap-2">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 h-7 w-7 md:h-8 md:w-8 p-0"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-3 md:w-4 h-3 md:h-4" />
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)))}
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 h-7 w-7 md:h-8 md:w-8 p-0"
                   >
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-3 md:w-4 h-3 md:h-4" />
                   </Button>
                 </div>
               </div>
 
               {/* Calendar Grid */}
-              <div className="grid grid-cols-7 gap-2">
+              <div className="grid grid-cols-7 gap-1 md:gap-2">
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                  <div key={day} className="text-center text-[#D4AF37] font-semibold py-2">
+                  <div key={day} className="text-center text-[#D4AF37] font-semibold py-1 md:py-2 text-[10px] md:text-base">
                     {day}
                   </div>
                 ))}
@@ -160,17 +160,17 @@ export default function AdminSchedule() {
                       key={day}
                       whileHover={{ scale: 1.02 }}
                       onClick={() => handleDateClick(day)}
-                      className="aspect-square bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-2 cursor-pointer hover:border-[#D4AF37] transition-colors"
+                      className="aspect-square bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-md md:rounded-lg p-1 md:p-2 cursor-pointer hover:border-[#D4AF37] transition-colors"
                     >
-                      <div className="text-white font-semibold mb-1">{day}</div>
-                      <div className="space-y-1">
+                      <div className="text-white font-semibold mb-0.5 md:mb-1 text-[10px] md:text-base">{day}</div>
+                      <div className="space-y-0.5 md:space-y-1">
                         {classes.slice(0, 2).map((cls, idx) => (
-                          <div key={idx} className="text-[10px] bg-[#40916C]/30 text-[#40916C] px-1 py-0.5 rounded truncate">
+                          <div key={idx} className="text-[8px] md:text-[10px] bg-[#40916C]/30 text-[#40916C] px-0.5 md:px-1 py-0.5 rounded truncate">
                             {cls.batch}
                           </div>
                         ))}
                         {classes.length > 2 && (
-                          <div className="text-[10px] text-[#D4AF37]">+{classes.length - 2} more</div>
+                          <div className="text-[8px] md:text-[10px] text-[#D4AF37]">+{classes.length - 2}</div>
                         )}
                       </div>
                     </motion.div>
@@ -183,17 +183,17 @@ export default function AdminSchedule() {
           {/* Matches Tab */}
           <TabsContent value="matches">
             {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-3 md:mb-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+                  className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
                 >
-                  <p className="text-gray-400 text-sm mb-2">{stat.label}</p>
-                  <p className="text-3xl font-bold text-white">{stat.value}</p>
+                  <p className="text-gray-400 text-xs md:text-sm mb-1 md:mb-2">{stat.label}</p>
+                  <p className="text-xl md:text-3xl font-bold text-white">{stat.value}</p>
                 </motion.div>
               ))}
             </div>
@@ -202,19 +202,19 @@ export default function AdminSchedule() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
             >
-              <div className="flex flex-wrap gap-4">
-                <div className="relative flex-1 min-w-[200px]">
+              <div className="flex flex-wrap gap-2 md:gap-4">
+                <div className="relative flex-1 min-w-[120px]">
                   <Input
                     placeholder="Search matches..."
                     value={searchMatch}
                     onChange={(e) => setSearchMatch(e.target.value)}
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
                   />
                 </div>
                 <Select value={matchStatusFilter} onValueChange={setMatchStatusFilter}>
-                  <SelectTrigger className="w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                  <SelectTrigger className="w-28 md:w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -226,16 +226,17 @@ export default function AdminSchedule() {
                 </Select>
                 <Button
                   onClick={() => setShowCreateMatchModal(true)}
-                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm"
                 >
-                  <Plus className="w-4 h-4 mr-2" />
-                  Create Match
+                  <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+                  <span className="hidden sm:inline">Create Match</span>
+                  <span className="sm:hidden">Create</span>
                 </Button>
               </div>
             </motion.div>
 
             {/* Matches List */}
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {filteredMatches.map((match, index) => (
                 <motion.div
                   key={match.id}
@@ -243,16 +244,16 @@ export default function AdminSchedule() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-                    <div className="flex justify-between items-start mb-4">
+                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+                    <div className="flex justify-between items-start mb-2 md:mb-4">
                       <div>
-                        <h3 className="text-xl font-bold text-white mb-2">{match.title}</h3>
-                        <div className="flex gap-2">
-                          <Badge className="bg-[#D4AF37]/20 text-[#D4AF37]">{match.sport}</Badge>
-                          <Badge className={match.status === 'Completed' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}>
+                        <h3 className="text-base md:text-xl font-bold text-white mb-1 md:mb-2">{match.title}</h3>
+                        <div className="flex gap-1 md:gap-2 flex-wrap">
+                          <Badge className="bg-[#D4AF37]/20 text-[#D4AF37] text-[10px] md:text-xs">{match.sport}</Badge>
+                          <Badge className={`text-[10px] md:text-xs ${match.status === 'Completed' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>
                             {match.status}
                           </Badge>
-                          <Badge variant="outline" className="border-[#40916C] text-[#40916C]">
+                          <Badge variant="outline" className="border-[#40916C] text-[#40916C] text-[10px] md:text-xs">
                             {match.type}
                           </Badge>
                         </div>
@@ -264,48 +265,48 @@ export default function AdminSchedule() {
                           setSelectedMatch(match);
                           setShowEditMatchModal(true);
                         }}
-                        className="border-[#40916C] text-[#40916C]"
+                        className="border-[#40916C] text-[#40916C] h-7 w-7 md:h-8 md:w-8 p-0"
                       >
-                        <Edit className="w-4 h-4" />
+                        <Edit className="w-3 md:w-4 h-3 md:h-4" />
                       </Button>
                     </div>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 mb-2 md:mb-4">
                       <div>
-                        <p className="text-gray-400 text-xs">Date</p>
-                        <p className="text-white text-sm">{match.date}</p>
+                        <p className="text-gray-400 text-[10px] md:text-xs">Date</p>
+                        <p className="text-white text-xs md:text-sm">{match.date}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs">Time</p>
-                        <p className="text-white text-sm">{match.time}</p>
+                        <p className="text-gray-400 text-[10px] md:text-xs">Time</p>
+                        <p className="text-white text-xs md:text-sm">{match.time}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs">Ground</p>
-                        <p className="text-white text-sm">{match.ground}</p>
+                        <p className="text-gray-400 text-[10px] md:text-xs">Ground</p>
+                        <p className="text-white text-xs md:text-sm truncate">{match.ground}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-xs">Players</p>
-                        <p className="text-white text-sm">{match.players}</p>
+                        <p className="text-gray-400 text-[10px] md:text-xs">Players</p>
+                        <p className="text-white text-xs md:text-sm">{match.players}</p>
                       </div>
                     </div>
-                    <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
+                    <div className="bg-[#0A1F0A]/50 rounded-lg p-2 md:p-4">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <div className="flex items-center gap-2 md:gap-3">
                           <div className="text-center">
-                            <p className="text-white font-semibold">{match.teamA}</p>
+                            <p className="text-white font-semibold text-xs md:text-base">{match.teamA}</p>
                           </div>
-                          <span className="text-gray-400">vs</span>
+                          <span className="text-gray-400 text-xs md:text-base">vs</span>
                           <div className="text-center">
-                            <p className="text-white font-semibold">{match.teamB}</p>
+                            <p className="text-white font-semibold text-xs md:text-base">{match.teamB}</p>
                           </div>
                         </div>
                         <div>
-                          <p className="text-gray-400 text-xs">Coach</p>
-                          <p className="text-white text-sm">{match.coach}</p>
+                          <p className="text-gray-400 text-[10px] md:text-xs">Coach</p>
+                          <p className="text-white text-xs md:text-sm">{match.coach}</p>
                         </div>
                       </div>
                       {match.result && match.status === 'Completed' && (
-                        <div className="mt-3 pt-3 border-t border-[#2D6A4F]/50">
-                          <p className="text-[#D4AF37] font-semibold">Result: {match.result}</p>
+                        <div className="mt-2 md:mt-3 pt-2 md:pt-3 border-t border-[#2D6A4F]/50">
+                          <p className="text-[#D4AF37] font-semibold text-xs md:text-base">Result: {match.result}</p>
                         </div>
                       )}
                     </div>

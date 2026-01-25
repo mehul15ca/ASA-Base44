@@ -1,7 +1,6 @@
 import About from './pages/About';
 import AdminAnnouncements from './pages/AdminAnnouncements';
 import AdminAttendance from './pages/AdminAttendance';
-import AdminBatches from './pages/AdminBatches';
 import AdminCoaches from './pages/AdminCoaches';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminEnquiries from './pages/AdminEnquiries';
@@ -11,7 +10,6 @@ import AdminFinance from './pages/AdminFinance';
 import AdminGrounds from './pages/AdminGrounds';
 import AdminReports from './pages/AdminReports';
 import AdminSalary from './pages/AdminSalary';
-import AdminSchedule from './pages/AdminSchedule';
 import AdminSettings from './pages/AdminSettings';
 import AdminStore from './pages/AdminStore';
 import AdminStudents from './pages/AdminStudents';
@@ -62,6 +60,8 @@ import SuperAdminNotifications from './pages/SuperAdminNotifications';
 import SuperAdminSettings from './pages/SuperAdminSettings';
 import SuperAdminTesting from './pages/SuperAdminTesting';
 import SuperAdminUsers from './pages/SuperAdminUsers';
+import AdminSchedule from './pages/AdminSchedule';
+import AdminBatches from './pages/AdminBatches';
 import __Layout from './Layout.jsx';
 
 
@@ -69,7 +69,6 @@ export const PAGES = {
     "About": About,
     "AdminAnnouncements": AdminAnnouncements,
     "AdminAttendance": AdminAttendance,
-    "AdminBatches": AdminBatches,
     "AdminCoaches": AdminCoaches,
     "AdminDashboard": AdminDashboard,
     "AdminEnquiries": AdminEnquiries,
@@ -79,7 +78,6 @@ export const PAGES = {
     "AdminGrounds": AdminGrounds,
     "AdminReports": AdminReports,
     "AdminSalary": AdminSalary,
-    "AdminSchedule": AdminSchedule,
     "AdminSettings": AdminSettings,
     "AdminStore": AdminStore,
     "AdminStudents": AdminStudents,
@@ -130,6 +128,8 @@ export const PAGES = {
     "SuperAdminSettings": SuperAdminSettings,
     "SuperAdminTesting": SuperAdminTesting,
     "SuperAdminUsers": SuperAdminUsers,
+    "AdminSchedule": AdminSchedule,
+    "AdminBatches": AdminBatches,
 }
 
 export const pagesConfig = {
