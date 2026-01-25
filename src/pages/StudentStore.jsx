@@ -103,7 +103,7 @@ export default function StudentStore() {
                       <h3 className="text-white font-semibold text-base md:text-lg mb-2">{product.name}</h3>
                       <Badge className="bg-[#D4AF37]/20 text-[#D4AF37] text-xs mb-3">{product.category}</Badge>
                       <div className="flex justify-between items-center mb-3 md:mb-4">
-                        <span className="text-xl md:text-2xl font-bold text-white">₹{product.price.toLocaleString()}</span>
+                        <span className="text-xl md:text-2xl font-bold text-white">${product.price.toLocaleString()}</span>
                         <Badge className={`${product.stock === 'In Stock' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'} text-xs`}>
                           {product.stock}
                         </Badge>
@@ -155,7 +155,7 @@ export default function StudentStore() {
                       >
                         <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">{order.id}</td>
                         <td className="px-6 py-4 text-sm text-gray-300">{order.items}</td>
-                        <td className="px-6 py-4 text-sm text-white">₹{order.total.toLocaleString()}</td>
+                        <td className="px-6 py-4 text-sm text-white">${order.total.toLocaleString()}</td>
                         <td className="px-6 py-4">
                           <Badge className={
                             order.status === 'Delivered' ? 'bg-green-500/20 text-green-400' :
@@ -208,7 +208,7 @@ export default function StudentStore() {
                     </div>
                     <p className="text-gray-300 text-sm mb-3">{order.items}</p>
                     <div className="flex justify-between items-center">
-                      <p className="text-white font-semibold text-lg">₹{order.total.toLocaleString()}</p>
+                      <p className="text-white font-semibold text-lg">${order.total.toLocaleString()}</p>
                       <Button
                         onClick={() => setSelectedOrder(order)}
                         size="sm"
@@ -241,7 +241,7 @@ export default function StudentStore() {
                 <div className="flex-1">
                   <h3 className="text-white font-semibold text-base md:text-lg">{selectedProduct?.name}</h3>
                   <p className="text-gray-400 text-xs md:text-sm">{selectedProduct?.category}</p>
-                  <p className="text-[#D4AF37] text-lg md:text-xl font-bold mt-1 md:mt-2">₹{selectedProduct?.price.toLocaleString()}</p>
+                  <p className="text-[#D4AF37] text-lg md:text-xl font-bold mt-1 md:mt-2">${selectedProduct?.price.toLocaleString()}</p>
                 </div>
               </div>
               <div>
@@ -275,7 +275,7 @@ export default function StudentStore() {
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300 text-sm md:text-base">Total Price</span>
                   <span className="text-[#D4AF37] text-xl md:text-2xl font-bold">
-                    ₹{((selectedProduct?.price || 0) * quantity).toLocaleString()}
+                    ${((selectedProduct?.price || 0) * quantity).toLocaleString()}
                   </span>
                 </div>
               </div>
@@ -320,7 +320,7 @@ export default function StudentStore() {
               </div>
               <div className="flex justify-between bg-[#1A4D2E] rounded-lg p-3 md:p-4">
                 <span className="text-white font-semibold text-sm md:text-base">Total</span>
-                <span className="text-[#D4AF37] text-lg md:text-xl font-bold">₹{selectedOrder?.total.toLocaleString()}</span>
+                <span className="text-[#D4AF37] text-lg md:text-xl font-bold">${selectedOrder?.total.toLocaleString()}</span>
               </div>
               <div>
                 <p className="text-gray-400 text-xs md:text-sm mb-2">Status</p>
