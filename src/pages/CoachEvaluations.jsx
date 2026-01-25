@@ -63,24 +63,24 @@ export default function CoachEvaluations() {
 
   return (
     <CoachLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="mb-4 md:mb-8">
           <div>
-            <h2 className="text-2xl font-bold text-white mb-2">Student Evaluations</h2>
-            <p className="text-gray-400">Evaluate your students' performance</p>
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-1 md:mb-2">Student Evaluations</h2>
+            <p className="text-gray-400 text-xs md:text-sm">Evaluate your students' performance</p>
           </div>
         </div>
 
         {/* Search Bar */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-6">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-4 md:mb-6">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 md:w-5 md:h-5" />
             <Input
-              placeholder="Search students by name or batch..."
+              placeholder="Search students..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+              className="pl-10 md:pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm h-8 md:h-10"
             />
           </div>
         </motion.div>
