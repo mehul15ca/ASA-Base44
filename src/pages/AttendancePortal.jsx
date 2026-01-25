@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CreditCard, CheckCircle2, XCircle, LogOut, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AnimatedLogo from '../components/AnimatedLogo';
+import { createPageUrl } from '../utils';
 import {
   Dialog,
   DialogContent,
@@ -29,6 +31,7 @@ const grounds = [
 ];
 
 export default function AttendancePortal() {
+  const navigate = useNavigate();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedGround, setSelectedGround] = useState('');
   const [pin, setPin] = useState('');
@@ -66,12 +69,7 @@ export default function AttendancePortal() {
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
-    setCurrentGround('');
-    setSelectedGround('');
-    setPin('');
-    setShowDialog(true);
-    setAttendanceState('ready');
+    navigate(createPageUrl('Portal'));
   };
 
   const simulateTapCard = () => {
