@@ -65,22 +65,22 @@ export default function AdminAnnouncements() {
 
   return (
     <AdminLayout currentPageName="AdminAnnouncements">
-      <div className="p-8 space-y-6">
-        <div className="flex items-center justify-between">
+      <div className="p-4 md:p-8 space-y-4 md:space-y-6">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-bold text-white">Announcements</h1>
-            <p className="text-gray-400 mt-1">Send announcements to students, coaches, and parents</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-white">Announcements</h1>
+            <p className="text-sm md:text-base text-gray-400 mt-1">Send announcements to students, coaches, and parents</p>
           </div>
           <Dialog open={showNewDialog} onOpenChange={setShowNewDialog}>
             <DialogTrigger asChild>
-              <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:opacity-90">
+              <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:opacity-90 w-full md:w-auto text-sm md:text-base">
                 <Plus className="w-4 h-4 mr-2" />
                 New Announcement
               </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-2xl bg-[#0D2818] border-[#2D6A4F]">
+            <DialogContent className="max-w-sm md:max-w-2xl bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-h-[90vh] overflow-y-auto">
               <DialogHeader>
-                <DialogTitle className="text-white">Create New Announcement</DialogTitle>
+                <DialogTitle className="text-white text-base md:text-lg">Create New Announcement</DialogTitle>
               </DialogHeader>
               <div className="space-y-4 mt-4">
                 <div>
@@ -102,7 +102,7 @@ export default function AdminAnnouncements() {
                     className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block text-gray-400">Target Audience</label>
                     <Select value={newAnnouncement.target} onValueChange={(value) => setNewAnnouncement({ ...newAnnouncement, target: value })}>
@@ -151,7 +151,7 @@ export default function AdminAnnouncements() {
         </div>
 
         <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
-          <CardHeader>
+          <CardHeader className="p-4 md:p-6">
             <div className="flex items-center gap-4">
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -164,19 +164,19 @@ export default function AdminAnnouncements() {
               </div>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-4 md:p-6">
             <div className="space-y-3">
               {filteredAnnouncements.map((announcement) => (
                 <div
                   key={announcement.id}
-                  className="flex items-start gap-4 p-4 border border-[#2D6A4F]/50 rounded-lg hover:bg-[#2D6A4F]/10 transition-colors"
+                  className="flex items-start gap-3 md:gap-4 p-3 md:p-4 border border-[#2D6A4F]/50 rounded-lg hover:bg-[#2D6A4F]/10 transition-colors"
                 >
-                  <div className={`w-2 h-2 rounded-full ${priorityColors[announcement.priority]} mt-2`}></div>
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h3 className="font-semibold text-white">{announcement.title}</h3>
-                        <p className="text-sm text-gray-300 mt-1">{announcement.message}</p>
+                  <div className={`w-2 h-2 rounded-full ${priorityColors[announcement.priority]} mt-2 flex-shrink-0`}></div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-white text-sm md:text-base">{announcement.title}</h3>
+                        <p className="text-xs md:text-sm text-gray-300 mt-1">{announcement.message}</p>
                         <div className="flex items-center gap-3 mt-3 flex-wrap">
                           <Badge variant="outline" className="text-xs border-[#40916C] text-gray-300">
                             {announcement.target}
@@ -187,12 +187,12 @@ export default function AdminAnnouncements() {
                           <span className="text-xs text-gray-400">{announcement.date}</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white">
-                          <Edit className="w-4 h-4" />
+                      <div className="flex items-center gap-1 md:gap-2 flex-shrink-0">
+                        <Button size="icon" variant="ghost" className="text-gray-300 hover:text-white h-8 w-8 md:h-9 md:w-9">
+                          <Edit className="w-3 h-3 md:w-4 md:h-4" />
                         </Button>
-                        <Button size="icon" variant="ghost" className="text-red-400 hover:text-red-300">
-                          <Trash2 className="w-4 h-4" />
+                        <Button size="icon" variant="ghost" className="text-red-400 hover:text-red-300 h-8 w-8 md:h-9 md:w-9">
+                          <Trash2 className="w-3 h-3 md:w-4 md:h-4" />
                         </Button>
                       </div>
                     </div>
