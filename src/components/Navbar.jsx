@@ -153,8 +153,8 @@ export default function Navbar() {
               className="absolute inset-0 bg-black/50"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0D2818] shadow-2xl">
-              <div className="pt-24 px-6">
+            <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0D2818] shadow-2xl overflow-y-auto">
+              <div className="pt-24 px-6 pb-8">
                 {navItems.map((item, index) => (
                   <div key={index} className="mb-2">
                     <Link
