@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { toast } from 'sonner';
@@ -20,7 +20,7 @@ const mockProfile = {
   specialization: 'Cricket Coach',
   experience: '8 years',
   certifications: ['Level 3 Cricket Coach', 'First Aid Certified', 'Sports Psychology'],
-  bio: 'Passionate cricket coach with over 8 years of experience in developing young talent. Specialized in batting techniques and mental conditioning.',
+
   achievements: [
     'Coached state-level team to championship in 2025',
     'Trained 15+ students who went on to represent district teams',
@@ -35,7 +35,7 @@ export default function CoachProfile() {
     email: mockProfile.email,
     phone: mockProfile.phone,
     address: mockProfile.address,
-    bio: mockProfile.bio,
+
   });
 
   const handleUpdateProfile = () => {
@@ -80,7 +80,7 @@ export default function CoachProfile() {
                     Edit
                   </Button>
                 </div>
-                <p className="text-gray-300 text-xs md:text-sm">{mockProfile.bio}</p>
+
               </div>
             </div>
           </Card>
@@ -254,14 +254,7 @@ export default function CoachProfile() {
                   className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
-              <div>
-                <Label className="text-gray-300 text-xs md:text-sm">Bio</Label>
-                <Textarea
-                  value={formData.bio}
-                  onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-20 md:h-24 text-xs"
-                />
-              </div>
+
             </div>
             <DialogFooter className="flex-col-reverse md:flex-row gap-2">
               <Button
