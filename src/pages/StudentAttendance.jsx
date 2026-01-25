@@ -153,7 +153,9 @@ export default function StudentAttendance() {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
             <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Attendance History</h2>
-            <div className="overflow-x-auto">
+            
+            {/* Desktop Table View */}
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                   <tr>
@@ -196,30 +198,73 @@ export default function StudentAttendance() {
                 </tbody>
               </table>
             </div>
+
+            {/* Mobile Card View */}
+            <div className="md:hidden space-y-3">
+              {paginatedData.map((record, index) => (
+                <motion.div
+                  key={record.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  className="bg-[#0A1F0A]/50 border border-[#2D6A4F]/30 rounded-lg p-4"
+                >
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <div className="text-white font-semibold text-sm mb-1">{record.date}</div>
+                      <div className="text-gray-400 text-xs">{record.session}</div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      {record.status === 'Present' && <CheckCircle className="w-4 h-4 text-green-400" />}
+                      {record.status === 'Absent' && <XCircle className="w-4 h-4 text-red-400" />}
+                      {record.status === 'Late' && <Clock className="w-4 h-4 text-yellow-400" />}
+                      <Badge className={
+                        record.status === 'Present' ? 'bg-green-500/20 text-green-400' :
+                        record.status === 'Absent' ? 'bg-red-500/20 text-red-400' :
+                        'bg-yellow-500/20 text-yellow-400'
+                      }>
+                        {record.status}
+                      </Badge>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                      <div className="text-gray-500">Ground</div>
+                      <div className="text-gray-300">{record.ground}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-500">Time In</div>
+                      <div className="text-gray-300">{record.timeIn}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             <div className="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <p className="text-gray-400 text-xs md:text-sm">
-                Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, filteredData.length)} of {filteredData.length} records
+                {(currentPage - 1) * itemsPerPage + 1}-{Math.min(currentPage * itemsPerPage, filteredData.length)} of {filteredData.length}
               </p>
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(currentPage - 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 flex-1 sm:flex-none"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-4 h-4 sm:mr-1" />
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(currentPage + 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 flex-1 sm:flex-none"
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 sm:ml-1" />
                 </Button>
               </div>
             </div>
