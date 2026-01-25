@@ -169,16 +169,16 @@ export default function CoachStudents() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6"
+          className="mb-4 md:mb-6"
         >
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 md:w-5 md:h-5" />
               <Input
-                placeholder="Search by name, email, or batch..."
+                placeholder="Search by name, email..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                className="pl-10 md:pl-12 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm h-8 md:h-10"
               />
             </div>
           </Card>
