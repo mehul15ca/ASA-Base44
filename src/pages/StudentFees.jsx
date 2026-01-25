@@ -47,53 +47,53 @@ export default function StudentFees() {
 
   return (
     <StudentLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <DollarSign className="w-5 h-5 text-red-400" />
-                <p className="text-gray-400 text-sm">Total Fees Due</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <DollarSign className="w-4 md:w-5 h-4 md:h-5 text-red-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Fees Due</p>
               </div>
-              <p className="text-3xl font-bold text-white">${totalFeesDue.toLocaleString()}</p>
+              <p className="text-xl md:text-3xl font-bold text-white">${totalFeesDue.toLocaleString()}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <p className="text-gray-400 text-sm">Total Paid</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Total Paid</p>
               </div>
-              <p className="text-3xl font-bold text-white">${totalPaid.toLocaleString()}</p>
+              <p className="text-xl md:text-3xl font-bold text-white">${totalPaid.toLocaleString()}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Clock className="w-5 h-5 text-yellow-400" />
-                <p className="text-gray-400 text-sm">Pending Amount</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Clock className="w-4 md:w-5 h-4 md:h-5 text-yellow-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Pending</p>
               </div>
-              <p className="text-3xl font-bold text-white">${pendingAmount.toLocaleString()}</p>
+              <p className="text-xl md:text-3xl font-bold text-white">${pendingAmount.toLocaleString()}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Wallet className="w-5 h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-sm">Wallet Balance</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Wallet className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+                <p className="text-gray-400 text-xs md:text-sm">Wallet</p>
               </div>
-              <p className="text-3xl font-bold text-white">${walletBalance.toLocaleString()}</p>
+              <p className="text-xl md:text-3xl font-bold text-white">${walletBalance.toLocaleString()}</p>
             </Card>
           </motion.div>
         </div>
 
         {/* Tabs */}
         <Tabs defaultValue="invoices" className="w-full">
-          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-6">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-4 md:mb-6 w-full md:w-auto">
             <TabsTrigger value="invoices" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
               Invoices
             </TabsTrigger>
@@ -104,9 +104,11 @@ export default function StudentFees() {
 
           {/* Invoices Tab */}
           <TabsContent value="invoices">
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <h2 className="text-xl font-bold text-white mb-6">Invoices</h2>
-              <div className="overflow-x-auto">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Invoices</h2>
+              
+              {/* Desktop Table View */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                     <tr>
@@ -150,8 +152,44 @@ export default function StudentFees() {
                   </tbody>
                 </table>
               </div>
-              <div className="mt-6 flex justify-between items-center">
-                <p className="text-gray-400 text-sm">
+
+              {/* Mobile Card View */}
+              <div className="md:hidden space-y-3">
+                {paginatedInvoices.map((invoice, index) => (
+                  <motion.div
+                    key={invoice.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="bg-[#0A1F0A]/50 rounded-lg p-4"
+                  >
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <p className="text-[#D4AF37] font-semibold text-sm">{invoice.id}</p>
+                        <p className="text-gray-400 text-xs mt-1">{invoice.dueDate}</p>
+                      </div>
+                      <Badge className={`${invoice.status === 'Paid' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'} text-xs`}>
+                        {invoice.status}
+                      </Badge>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <p className="text-white font-semibold text-lg">${invoice.amount.toLocaleString()}</p>
+                      <Button
+                        onClick={() => setSelectedInvoice(invoice)}
+                        size="sm"
+                        variant="outline"
+                        className="border-[#40916C] text-[#40916C]"
+                      >
+                        <Eye className="w-4 h-4 mr-1" />
+                        View
+                      </Button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-4 md:mt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+                <p className="text-gray-400 text-xs md:text-sm">
                   Showing {(currentInvoicePage - 1) * itemsPerPage + 1} to {Math.min(currentInvoicePage * itemsPerPage, mockInvoices.length)} of {mockInvoices.length} invoices
                 </p>
                 <div className="flex gap-2">
@@ -162,8 +200,8 @@ export default function StudentFees() {
                     onClick={() => setCurrentInvoicePage(currentInvoicePage - 1)}
                     className="border-[#40916C] text-gray-300"
                   >
-                    <ChevronLeft className="w-4 h-4 mr-1" />
-                    Previous
+                    <ChevronLeft className="w-4 h-4 md:mr-1" />
+                    <span className="hidden md:inline">Previous</span>
                   </Button>
                   <Button
                     variant="outline"
@@ -172,8 +210,8 @@ export default function StudentFees() {
                     onClick={() => setCurrentInvoicePage(currentInvoicePage + 1)}
                     className="border-[#40916C] text-gray-300"
                   >
-                    Next
-                    <ChevronRight className="w-4 h-4 ml-1" />
+                    <span className="hidden md:inline">Next</span>
+                    <ChevronRight className="w-4 h-4 md:ml-1" />
                   </Button>
                 </div>
               </div>
@@ -182,9 +220,11 @@ export default function StudentFees() {
 
           {/* Wallet Transactions Tab */}
           <TabsContent value="wallet">
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <h2 className="text-xl font-bold text-white mb-6">Wallet Transactions</h2>
-              <div className="overflow-x-auto">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Wallet Transactions</h2>
+              
+              {/* Desktop Table View */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                     <tr>
@@ -218,8 +258,42 @@ export default function StudentFees() {
                   </tbody>
                 </table>
               </div>
-              <div className="mt-6 flex justify-between items-center">
-                <p className="text-gray-400 text-sm">
+
+              {/* Mobile Card View */}
+              <div className="md:hidden space-y-3">
+                {paginatedWallet.map((txn, index) => (
+                  <motion.div
+                    key={txn.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="bg-[#0A1F0A]/50 rounded-lg p-4"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <p className="text-white font-semibold text-sm">{txn.description}</p>
+                        <p className="text-gray-400 text-xs mt-1">{txn.date}</p>
+                      </div>
+                      <Badge className={`${txn.type === 'Credit' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'} text-xs`}>
+                        {txn.type}
+                      </Badge>
+                    </div>
+                    <div className="flex justify-between items-center mt-3 pt-3 border-t border-[#2D6A4F]/30">
+                      <div>
+                        <p className="text-gray-400 text-xs">Amount</p>
+                        <p className="text-white font-semibold">${txn.amount.toLocaleString()}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-gray-400 text-xs">Balance</p>
+                        <p className="text-[#D4AF37] font-semibold">${txn.balance.toLocaleString()}</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-4 md:mt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+                <p className="text-gray-400 text-xs md:text-sm">
                   Showing {(currentWalletPage - 1) * itemsPerPage + 1} to {Math.min(currentWalletPage * itemsPerPage, mockWalletTransactions.length)} of {mockWalletTransactions.length} transactions
                 </p>
                 <div className="flex gap-2">
@@ -230,8 +304,8 @@ export default function StudentFees() {
                     onClick={() => setCurrentWalletPage(currentWalletPage - 1)}
                     className="border-[#40916C] text-gray-300"
                   >
-                    <ChevronLeft className="w-4 h-4 mr-1" />
-                    Previous
+                    <ChevronLeft className="w-4 h-4 md:mr-1" />
+                    <span className="hidden md:inline">Previous</span>
                   </Button>
                   <Button
                     variant="outline"
@@ -240,8 +314,8 @@ export default function StudentFees() {
                     onClick={() => setCurrentWalletPage(currentWalletPage + 1)}
                     className="border-[#40916C] text-gray-300"
                   >
-                    Next
-                    <ChevronRight className="w-4 h-4 ml-1" />
+                    <span className="hidden md:inline">Next</span>
+                    <ChevronRight className="w-4 h-4 md:ml-1" />
                   </Button>
                 </div>
               </div>
@@ -251,40 +325,40 @@ export default function StudentFees() {
 
         {/* Invoice Details Modal */}
         <Dialog open={!!selectedInvoice} onOpenChange={() => setSelectedInvoice(null)}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-white">Invoice Details</DialogTitle>
+              <DialogTitle className="text-white text-base md:text-lg">Invoice Details</DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
-              <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
-                <h3 className="text-[#D4AF37] text-xl font-bold mb-2">{selectedInvoice?.id}</h3>
-                <p className="text-gray-400 text-sm">Generated for Student Name</p>
+            <div className="space-y-3 md:space-y-4">
+              <div className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-4">
+                <h3 className="text-[#D4AF37] text-lg md:text-xl font-bold mb-2">{selectedInvoice?.id}</h3>
+                <p className="text-gray-400 text-xs md:text-sm">Generated for Student Name</p>
               </div>
               <div>
-                <p className="text-gray-400 text-sm mb-2">Items</p>
+                <p className="text-gray-400 text-xs md:text-sm mb-2">Items</p>
                 <div className="space-y-2">
                   {selectedInvoice?.items.map((item, idx) => (
                     <div key={idx} className="flex justify-between bg-[#0A1F0A]/50 rounded p-3">
-                      <span className="text-white">{item.name}</span>
-                      <span className="text-white font-semibold">${item.amount.toLocaleString()}</span>
+                      <span className="text-white text-sm md:text-base">{item.name}</span>
+                      <span className="text-white font-semibold text-sm md:text-base">${item.amount.toLocaleString()}</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="flex justify-between bg-[#1A4D2E] rounded-lg p-4">
-                <span className="text-white font-semibold">Total</span>
-                <span className="text-[#D4AF37] text-xl font-bold">${selectedInvoice?.amount.toLocaleString()}</span>
+              <div className="flex justify-between bg-[#1A4D2E] rounded-lg p-3 md:p-4">
+                <span className="text-white font-semibold text-sm md:text-base">Total</span>
+                <span className="text-[#D4AF37] text-lg md:text-xl font-bold">${selectedInvoice?.amount.toLocaleString()}</span>
               </div>
               <div>
-                <p className="text-gray-400 text-sm">Status</p>
-                <Badge className={selectedInvoice?.status === 'Paid' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}>
+                <p className="text-gray-400 text-xs md:text-sm">Status</p>
+                <Badge className={`${selectedInvoice?.status === 'Paid' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'} text-xs md:text-sm`}>
                   {selectedInvoice?.status}
                 </Badge>
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-col md:flex-row gap-3">
                 <Button
                   onClick={() => handleDownloadPDF(selectedInvoice?.id)}
-                  className="flex-1 bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                  className="flex-1 bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-sm"
                 >
                   <Download className="w-4 h-4 mr-2" />
                   Download PDF
@@ -292,7 +366,7 @@ export default function StudentFees() {
                 <Button
                   onClick={() => setSelectedInvoice(null)}
                   variant="outline"
-                  className="flex-1 border-[#40916C] text-gray-300"
+                  className="flex-1 border-[#40916C] text-gray-300 text-sm"
                 >
                   Close
                 </Button>
