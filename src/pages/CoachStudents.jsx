@@ -244,11 +244,11 @@ export default function CoachStudents() {
         </div>
 
         {filteredStudents.length === 0 && (
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-12">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 md:p-12">
             <div className="text-center">
-              <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-white text-lg font-semibold mb-2">No students found</h3>
-              <p className="text-gray-400">Try adjusting your search criteria</p>
+              <Users className="w-10 h-10 md:w-12 md:h-12 text-gray-400 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-white text-base md:text-lg font-semibold mb-1 md:mb-2">No students found</h3>
+              <p className="text-gray-400 text-xs md:text-sm">Try adjusting your search criteria</p>
             </div>
           </Card>
         )}
