@@ -88,54 +88,54 @@ export default function StudentInjuries() {
 
   return (
     <StudentLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-6 md:mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <AlertTriangle className="w-5 h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-sm">Total Injuries</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <AlertTriangle className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+                <p className="text-gray-400 text-xs md:text-sm">Total</p>
               </div>
-              <p className="text-3xl font-bold text-white">{totalInjuries}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{totalInjuries}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <AlertTriangle className="w-5 h-5 text-red-400" />
-                <p className="text-gray-400 text-sm">Active</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <AlertTriangle className="w-4 md:w-5 h-4 md:h-5 text-red-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Active</p>
               </div>
-              <p className="text-3xl font-bold text-white">{activeInjuries}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{activeInjuries}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <TrendingUp className="w-5 h-5 text-yellow-400" />
-                <p className="text-gray-400 text-sm">Recovering</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <TrendingUp className="w-4 md:w-5 h-4 md:h-5 text-yellow-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Recovering</p>
               </div>
-              <p className="text-3xl font-bold text-white">{recoveringInjuries}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{recoveringInjuries}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <CheckCircle2 className="w-5 h-5 text-green-400" />
-                <p className="text-gray-400 text-sm">Recovered</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <CheckCircle2 className="w-4 md:w-5 h-4 md:h-5 text-green-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Recovered</p>
               </div>
-              <p className="text-3xl font-bold text-white">{recoveredInjuries}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{recoveringInjuries}</p>
             </Card>
           </motion.div>
         </div>
 
         {/* Filter Bar */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-8">
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-6 md:mb-8">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
@@ -178,14 +178,14 @@ export default function StudentInjuries() {
         {/* Injuries List */}
         {filteredInjuries.length === 0 ? (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-12 text-center">
-              <PartyPopper className="w-16 h-16 text-green-400 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-2">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 md:p-12 text-center">
+              <PartyPopper className="w-12 md:w-16 h-12 md:h-16 text-green-400 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-lg md:text-2xl font-bold text-white mb-2">
                 {searchFilter || severityFilter !== 'all' || statusFilter !== 'all' 
                   ? 'No injury reports found for this student'
                   : 'No injury records found 🎉'}
               </h3>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-sm md:text-base">
                 {searchFilter || severityFilter !== 'all' || statusFilter !== 'all'
                   ? 'Try adjusting your filters'
                   : 'Keep up the safe training!'}
@@ -194,47 +194,47 @@ export default function StudentInjuries() {
           </motion.div>
         ) : (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <h2 className="text-xl font-bold text-white mb-6">Injury Reports</h2>
-              <div className="space-y-4">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Injury Reports</h2>
+              <div className="space-y-3 md:space-y-4">
                 {filteredInjuries.map((injury, index) => (
                   <motion.div
                     key={injury.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-[#0A1F0A]/50 rounded-lg p-6"
+                    className="bg-[#0A1F0A]/50 rounded-lg p-4 md:p-6"
                   >
-                    <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-lg border ${getSeverityColor(injury.severity)}`}>
+                    <div className="flex flex-col md:flex-row md:items-start gap-3 md:gap-4">
+                      <div className={`p-2 md:p-3 rounded-lg border ${getSeverityColor(injury.severity)} self-start`}>
                         {getSeverityIcon(injury.severity)}
                       </div>
                       <div className="flex-1">
-                        <div className="flex justify-between items-start mb-3">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 md:gap-0 mb-3">
                           <div>
-                            <h3 className="text-white font-semibold text-lg">{injury.type}</h3>
-                            <p className="text-gray-400 text-sm">{injury.date}</p>
+                            <h3 className="text-white font-semibold text-base md:text-lg">{injury.type}</h3>
+                            <p className="text-gray-400 text-xs md:text-sm">{injury.date}</p>
                           </div>
-                          <div className="flex gap-2">
-                            <Badge className={getSeverityColor(injury.severity)}>
+                          <div className="flex gap-2 flex-wrap">
+                            <Badge className={`${getSeverityColor(injury.severity)} text-xs`}>
                               {injury.severity}
                             </Badge>
-                            <Badge className={getStatusColor(injury.status)}>
+                            <Badge className={`${getStatusColor(injury.status)} text-xs`}>
                               {injury.status}
                             </Badge>
                           </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <div className="bg-[#0D2818] rounded-lg p-4">
-                            <p className="text-gray-400 text-sm mb-1">Description</p>
-                            <p className="text-white">{injury.description}</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                          <div className="bg-[#0D2818] rounded-lg p-3 md:p-4">
+                            <p className="text-gray-400 text-xs md:text-sm mb-1">Description</p>
+                            <p className="text-white text-xs md:text-base">{injury.description}</p>
                           </div>
-                          <div className="bg-[#0D2818] rounded-lg p-4">
-                            <p className="text-gray-400 text-sm mb-1">Treatment</p>
-                            <p className="text-white">{injury.treatment}</p>
+                          <div className="bg-[#0D2818] rounded-lg p-3 md:p-4">
+                            <p className="text-gray-400 text-xs md:text-sm mb-1">Treatment</p>
+                            <p className="text-white text-xs md:text-base">{injury.treatment}</p>
                           </div>
                         </div>
-                        <p className="text-gray-400 text-sm mt-3">
+                        <p className="text-gray-400 text-xs md:text-sm mt-3">
                           Reported by: <span className="text-[#D4AF37]">{injury.coach}</span>
                         </p>
                       </div>
