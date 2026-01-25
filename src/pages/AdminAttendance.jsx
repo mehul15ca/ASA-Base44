@@ -263,16 +263,16 @@ export default function AdminAttendance() {
               animate={{ opacity: 1 }}
               className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl overflow-hidden"
             >
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto -mx-3 md:mx-0">
                 <table className="w-full">
                   <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Card ID</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Student</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Issued Date</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Last Used</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Actions</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Card ID</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Student</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Status</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Issued Date</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Last Used</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -284,16 +284,16 @@ export default function AdminAttendance() {
                         transition={{ delay: index * 0.05 }}
                         className="border-b border-[#2D6A4F]/30 hover:bg-[#2D6A4F]/10 transition-colors"
                       >
-                        <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">{card.cardId}</td>
-                        <td className="px-6 py-4 text-sm text-white font-medium">{card.student}</td>
-                        <td className="px-6 py-4">
-                          <Badge className={card.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-[#D4AF37] font-semibold">{card.cardId}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white font-medium">{card.student}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4">
+                          <Badge className={`text-[10px] md:text-xs ${card.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>
                             {card.status}
                           </Badge>
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{card.issuedDate}</td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{card.lastUsed}</td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden md:table-cell">{card.issuedDate}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden md:table-cell">{card.lastUsed}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 hidden md:table-cell">
                           <div className="flex gap-2">
                             <Button
                               size="sm"
@@ -305,7 +305,7 @@ export default function AdminAttendance() {
                             <Button
                               size="sm"
                               variant="outline"
-                              className="border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10"
+                              className="border-yellow-500/50 text-yellow-400 hover:bg-yellow-500/10 text-xs"
                             >
                               Deactivate
                             </Button>
