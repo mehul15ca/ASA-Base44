@@ -58,40 +58,40 @@ export default function AdminAttendance() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-3 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <h1 className="text-3xl font-bold text-white mb-2">Attendance Portal</h1>
-          <p className="text-gray-400">Mark attendance and manage NFC/RFID cards</p>
+          <h1 className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-2">Attendance Portal</h1>
+          <p className="text-gray-400 text-xs md:text-base hidden md:block">Mark attendance and manage NFC/RFID cards</p>
         </motion.div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 mb-4 md:mb-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-2 md:p-6"
             >
-              <p className="text-gray-400 text-sm mb-2">{stat.label}</p>
-              <p className="text-3xl font-bold text-white">{stat.value}</p>
+              <p className="text-gray-400 text-[10px] md:text-sm mb-1 md:mb-2 leading-tight">{stat.label}</p>
+              <p className="text-base md:text-3xl font-bold text-white">{stat.value}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Tabs */}
         <Tabs defaultValue="attendance" className="w-full">
-          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-6">
-            <TabsTrigger value="attendance" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-3 md:mb-6 w-full md:w-auto">
+            <TabsTrigger value="attendance" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm flex-1 md:flex-none">
               Attendance
             </TabsTrigger>
-            <TabsTrigger value="nfc" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
+            <TabsTrigger value="nfc" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm flex-1 md:flex-none">
               NFC Cards
             </TabsTrigger>
           </TabsList>
@@ -102,9 +102,9 @@ export default function AdminAttendance() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
             >
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-2 md:gap-4">
                 <div className="relative flex-1 min-w-[200px]">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
@@ -115,7 +115,7 @@ export default function AdminAttendance() {
                   />
                 </div>
                 <Select value={groundFilter} onValueChange={setGroundFilter}>
-                  <SelectTrigger className="w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                  <SelectTrigger className="w-full md:w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -130,14 +130,15 @@ export default function AdminAttendance() {
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  className="w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="w-full md:w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
                 />
                 <Button
                   onClick={() => setShowMarkAttendanceModal(true)}
-                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] w-full md:w-auto text-xs md:text-sm"
                 >
-                  <Plus className="w-4 h-4 mr-2" />
-                  Mark Attendance
+                  <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+                  <span className="hidden md:inline">Mark Attendance</span>
+                  <span className="md:hidden">Mark</span>
                 </Button>
               </div>
             </motion.div>
@@ -152,12 +153,12 @@ export default function AdminAttendance() {
                 <table className="w-full">
                   <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Student</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Ground</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Date</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Time In</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Actions</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Student</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Ground</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Date</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Status</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Time In</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -169,20 +170,20 @@ export default function AdminAttendance() {
                         transition={{ delay: index * 0.05 }}
                         className="border-b border-[#2D6A4F]/30 hover:bg-[#2D6A4F]/10 transition-colors"
                       >
-                        <td className="px-6 py-4 text-sm text-white font-medium">{record.student}</td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{record.ground}</td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{record.date}</td>
-                        <td className="px-6 py-4">
-                          <Badge className={
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white font-medium">{record.student}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300">{record.ground}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden md:table-cell">{record.date}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4">
+                          <Badge className={`text-[10px] md:text-xs ${
                             record.status === 'Present' ? 'bg-green-500/20 text-green-400' :
                             record.status === 'Late' ? 'bg-yellow-500/20 text-yellow-400' :
                             'bg-red-500/20 text-red-400'
-                          }>
+                          }`}>
                             {record.status}
                           </Badge>
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{record.timeIn}</td>
-                        <td className="px-6 py-4">
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden md:table-cell">{record.timeIn}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 hidden md:table-cell">
                           <Button
                             size="sm"
                             variant="outline"
@@ -198,9 +199,9 @@ export default function AdminAttendance() {
               </div>
 
               {/* Pagination */}
-              <div className="px-6 py-4 border-t border-[#2D6A4F]/50 flex justify-between items-center">
-                <p className="text-sm text-gray-400">
-                  Showing {startIndex + 1} to {Math.min(startIndex + itemsPerPage, filteredAttendance.length)} of {filteredAttendance.length} records
+              <div className="px-3 md:px-6 py-3 md:py-4 border-t border-[#2D6A4F]/50 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+                <p className="text-xs md:text-sm text-gray-400">
+                  Showing {startIndex + 1}-{Math.min(startIndex + itemsPerPage, filteredAttendance.length)} of {filteredAttendance.length}
                 </p>
                 <div className="flex gap-2">
                   <Button
@@ -208,20 +209,21 @@ export default function AdminAttendance() {
                     size="sm"
                     disabled={currentPage === 1}
                     onClick={() => setCurrentPage(currentPage - 1)}
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 text-xs md:text-sm"
                   >
-                    <ChevronLeft className="w-4 h-4 mr-1" />
-                    Previous
+                    <ChevronLeft className="w-3 md:w-4 h-3 md:h-4 mr-1" />
+                    <span className="hidden md:inline">Previous</span>
+                    <span className="md:hidden">Prev</span>
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
                     disabled={currentPage === totalPages}
                     onClick={() => setCurrentPage(currentPage + 1)}
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 text-xs md:text-sm"
                   >
                     Next
-                    <ChevronRight className="w-4 h-4 ml-1" />
+                    <ChevronRight className="w-3 md:w-4 h-3 md:h-4 ml-1" />
                   </Button>
                 </div>
               </div>
@@ -234,9 +236,9 @@ export default function AdminAttendance() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
             >
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-2 md:gap-0">
                 <div className="relative flex-1 max-w-md">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                   <Input
@@ -246,10 +248,11 @@ export default function AdminAttendance() {
                 </div>
                 <Button
                   onClick={() => setShowAddCardModal(true)}
-                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm w-full md:w-auto"
                 >
-                  <Plus className="w-4 h-4 mr-2" />
-                  Add New Card
+                  <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+                  <span className="hidden md:inline">Add New Card</span>
+                  <span className="md:hidden">Add Card</span>
                 </Button>
               </div>
             </motion.div>
@@ -315,9 +318,9 @@ export default function AdminAttendance() {
               </div>
 
               {/* Pagination */}
-              <div className="px-6 py-4 border-t border-[#2D6A4F]/50 flex justify-between items-center">
-                <p className="text-sm text-gray-400">
-                  Showing {cardStartIndex + 1} to {Math.min(cardStartIndex + itemsPerPage, mockCards.length)} of {mockCards.length} cards
+              <div className="px-3 md:px-6 py-3 md:py-4 border-t border-[#2D6A4F]/50 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+                <p className="text-xs md:text-sm text-gray-400">
+                  Showing {cardStartIndex + 1}-{Math.min(cardStartIndex + itemsPerPage, mockCards.length)} of {mockCards.length} cards
                 </p>
                 <div className="flex gap-2">
                   <Button
@@ -325,20 +328,21 @@ export default function AdminAttendance() {
                     size="sm"
                     disabled={currentCardPage === 1}
                     onClick={() => setCurrentCardPage(currentCardPage - 1)}
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 text-xs md:text-sm"
                   >
-                    <ChevronLeft className="w-4 h-4 mr-1" />
-                    Previous
+                    <ChevronLeft className="w-3 md:w-4 h-3 md:h-4 mr-1" />
+                    <span className="hidden md:inline">Previous</span>
+                    <span className="md:hidden">Prev</span>
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
                     disabled={currentCardPage === totalCardPages}
                     onClick={() => setCurrentCardPage(currentCardPage + 1)}
-                    className="border-[#40916C] text-gray-300"
+                    className="border-[#40916C] text-gray-300 text-xs md:text-sm"
                   >
                     Next
-                    <ChevronRight className="w-4 h-4 ml-1" />
+                    <ChevronRight className="w-3 md:w-4 h-3 md:h-4 ml-1" />
                   </Button>
                 </div>
               </div>
