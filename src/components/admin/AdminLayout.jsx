@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { createPageUrl } from '../../utils';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
+      import { Link, useLocation, useNavigate } from 'react-router-dom';
+      import { createPageUrl } from '../../utils';
+      import { motion, AnimatePresence } from 'framer-motion';
+      import AnimatedLogo from '../AnimatedLogo';
+      import {
   LayoutDashboard,
   Users,
   UserCheck,
@@ -74,9 +75,7 @@ export default function AdminLayout({ children }) {
         {/* Logo Section */}
         <div className="p-6 border-b border-[#2D6A4F]/30">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] rounded-lg flex items-center justify-center">
-              <span className="text-[#0A1F0A] font-bold text-lg">A</span>
-            </div>
+            <AnimatedLogo size="sm" />
             <div>
               <h1 className="text-white font-bold text-lg">ASA Admin</h1>
               <p className="text-gray-400 text-xs">Sports Academy</p>
@@ -147,9 +146,7 @@ export default function AdminLayout({ children }) {
             <Menu className="w-6 h-6" />
           </button>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] rounded-lg flex items-center justify-center">
-              <span className="text-[#0A1F0A] font-bold">A</span>
-            </div>
+            <AnimatedLogo size="xs" />
             <h1 className="text-white font-bold">ASA Admin</h1>
           </div>
           <div className="w-10" />
