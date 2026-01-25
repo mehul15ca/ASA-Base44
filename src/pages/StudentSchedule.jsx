@@ -137,40 +137,47 @@ export default function StudentSchedule() {
 
             {/* Calendar Grid */}
             {isMobile ? (
-              // Weekly View for Mobile
-              <div>
-                <div className="grid grid-cols-7 gap-2 mb-2">
-                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, idx) => (
-                    <div key={idx} className="text-center text-[#D4AF37] font-semibold text-xs">
-                      {day}
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-7 gap-2">
+              // Weekly View for Mobile - Horizontal Scroll
+              <div className="overflow-x-auto -mx-4 px-4">
+                <div className="flex gap-3 min-w-max pb-2">
                   {weekDays.map((date, idx) => {
                     const sessions = getSessionsForDate(date);
                     const isToday = date.toDateString() === new Date(2026, 0, 13).toDateString();
+                    const dayName = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][idx];
                     return (
                       <motion.div
                         key={idx}
-                        className={`bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-2 min-h-[100px]`}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        className={`flex-shrink-0 w-32 bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-3`}
                       >
-                        <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-semibold text-sm text-center mb-2`}>
-                          {date.getDate()}
+                        <div className="text-center mb-3">
+                          <div className="text-[#D4AF37] text-xs font-medium mb-1">{dayName}</div>
+                          <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-bold text-lg`}>
+                            {date.getDate()}
+                          </div>
                         </div>
-                        <div className="space-y-1">
-                          {sessions.map((session, idx) => (
-                            <div 
-                              key={idx} 
-                              onClick={() => setSelectedSession(session)}
-                              className="bg-[#1A4D2E]/50 rounded p-1 cursor-pointer hover:bg-[#2D6A4F]/50"
-                            >
-                              <div className={`w-1.5 h-1.5 rounded-full ${getStatusColor(session.status)} mb-1`}></div>
-                              <div className="text-[9px] text-gray-300 truncate">
-                                {session.time.split(' - ')[0]}
+                        <div className="space-y-2">
+                          {sessions.length > 0 ? (
+                            sessions.map((session, sIdx) => (
+                              <div 
+                                key={sIdx} 
+                                onClick={() => setSelectedSession(session)}
+                                className="bg-[#1A4D2E]/50 rounded-lg p-2 cursor-pointer hover:bg-[#2D6A4F]/50 transition-colors"
+                              >
+                                <div className="flex items-center gap-2 mb-1">
+                                  <div className={`w-2 h-2 rounded-full ${getStatusColor(session.status)}`}></div>
+                                  <div className="text-[10px] text-gray-400">{session.time.split(' - ')[0]}</div>
+                                </div>
+                                <div className="text-xs text-white font-medium truncate">
+                                  {session.title}
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))
+                          ) : (
+                            <div className="text-xs text-gray-500 text-center py-4">No sessions</div>
+                          )}
                         </div>
                       </motion.div>
                     );
