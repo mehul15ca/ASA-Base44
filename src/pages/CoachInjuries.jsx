@@ -95,25 +95,25 @@ export default function CoachInjuries() {
 
   return (
     <CoachLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-white mb-1">Injury Reports</h2>
-          <p className="text-gray-400">Track and monitor student injuries</p>
+        <div className="mb-4 md:mb-8">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-1">Injury Reports</h2>
+          <p className="text-gray-400 text-xs md:text-sm">Track and monitor student injuries</p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-4 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <AlertTriangle className="w-5 h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-sm">Total Injuries</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <AlertTriangle className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+                <p className="text-gray-400 text-xs md:text-sm">Total Injuries</p>
               </div>
-              <p className="text-3xl font-bold text-white">{mockInjuries.length}</p>
+              <p className="text-lg md:text-3xl font-bold text-white">{mockInjuries.length}</p>
             </Card>
           </motion.div>
 
@@ -122,12 +122,12 @@ export default function CoachInjuries() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <AlertTriangle className="w-5 h-5 text-orange-400" />
-                <p className="text-gray-400 text-sm">Active Cases</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <AlertTriangle className="w-4 md:w-5 h-4 md:h-5 text-orange-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Active Cases</p>
               </div>
-              <p className="text-3xl font-bold text-white">{activeInjuries}</p>
+              <p className="text-lg md:text-3xl font-bold text-white">{activeInjuries}</p>
             </Card>
           </motion.div>
 
@@ -136,12 +136,12 @@ export default function CoachInjuries() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <FileText className="w-5 h-5 text-green-400" />
-                <p className="text-gray-400 text-sm">Recovered</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <FileText className="w-4 md:w-5 h-4 md:h-5 text-green-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Recovered</p>
               </div>
-              <p className="text-3xl font-bold text-white">{recoveredCount}</p>
+              <p className="text-lg md:text-3xl font-bold text-white">{recoveredCount}</p>
             </Card>
           </motion.div>
 
@@ -150,12 +150,12 @@ export default function CoachInjuries() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Calendar className="w-5 h-5 text-[#F4D03F]" />
-                <p className="text-gray-400 text-sm">This Month</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Calendar className="w-4 md:w-5 h-4 md:h-5 text-[#F4D03F]" />
+                <p className="text-gray-400 text-xs md:text-sm">This Month</p>
               </div>
-              <p className="text-3xl font-bold text-white">4</p>
+              <p className="text-lg md:text-3xl font-bold text-white">4</p>
             </Card>
           </motion.div>
         </div>
@@ -164,23 +164,23 @@ export default function CoachInjuries() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-6"
+          className="mb-4 md:mb-6"
         >
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 md:w-5 h-4 md:h-5" />
               <Input
-                placeholder="Search by student name, injury type, or batch..."
+                placeholder="Search injury reports..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                className="pl-10 md:pl-12 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
               />
             </div>
           </Card>
         </motion.div>
 
         {/* Injuries List */}
-        <div className="space-y-4">
+        <div className="space-y-3 md:space-y-4">
           {filteredInjuries.map((injury, index) => (
             <motion.div
               key={injury.id}
@@ -188,40 +188,40 @@ export default function CoachInjuries() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
             >
-              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-                <div className="flex justify-between items-start">
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 md:gap-0">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
+                    <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3">
                       <div className="flex items-center gap-2">
-                        <User className="w-5 h-5 text-[#D4AF37]" />
-                        <h3 className="text-white font-bold text-lg">{injury.studentName}</h3>
+                        <User className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+                        <h3 className="text-white font-bold text-base md:text-lg">{injury.studentName}</h3>
                       </div>
-                      <Badge className="bg-[#40916C]/20 text-[#40916C]">{injury.batch}</Badge>
+                      <Badge className="bg-[#40916C]/20 text-[#40916C] text-xs">{injury.batch}</Badge>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 mb-3">
                       <div>
-                        <p className="text-gray-400 text-sm">Injury Type</p>
-                        <p className="text-white font-medium">{injury.type}</p>
+                        <p className="text-gray-400 text-xs md:text-sm">Injury Type</p>
+                        <p className="text-white font-medium text-xs md:text-sm">{injury.type}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm">Date</p>
-                        <p className="text-white font-medium">
-                          {new Date(injury.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                        <p className="text-gray-400 text-xs md:text-sm">Date</p>
+                        <p className="text-white font-medium text-xs md:text-sm">
+                          {new Date(injury.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                         </p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-sm">Expected Return</p>
-                        <p className="text-white font-medium">
-                          {new Date(injury.expectedReturn).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                        <p className="text-gray-400 text-xs md:text-sm">Expected Return</p>
+                        <p className="text-white font-medium text-xs md:text-sm">
+                          {new Date(injury.expectedReturn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                         </p>
                       </div>
                     </div>
-                    <p className="text-gray-300 mb-3">{injury.description}</p>
-                    <div className="flex gap-3">
-                      <Badge className={getSeverityColor(injury.severity)}>
+                    <p className="text-gray-300 text-xs md:text-sm mb-2">{injury.description}</p>
+                    <div className="flex gap-2">
+                      <Badge className={getSeverityColor(injury.severity)} style={{ fontSize: '0.75rem' }}>
                         {injury.severity}
                       </Badge>
-                      <Badge className={getStatusColor(injury.status)}>
+                      <Badge className={getStatusColor(injury.status)} style={{ fontSize: '0.75rem' }}>
                         {injury.status}
                       </Badge>
                     </div>
@@ -230,10 +230,10 @@ export default function CoachInjuries() {
                     variant="outline"
                     size="sm"
                     onClick={() => viewInjuryDetails(injury)}
-                    className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10"
+                    className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 w-full md:w-auto text-xs mt-2 md:mt-0"
                   >
-                    <Eye className="w-4 h-4 mr-2" />
-                    View Details
+                    <Eye className="w-3 h-3 mr-1 md:mr-2" />
+                    View
                   </Button>
                 </div>
               </Card>
@@ -242,66 +242,66 @@ export default function CoachInjuries() {
         </div>
 
         {filteredInjuries.length === 0 && (
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-12">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 md:p-12">
             <div className="text-center">
-              <AlertTriangle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-white text-lg font-semibold mb-2">No injury reports found</h3>
-              <p className="text-gray-400">Try adjusting your search criteria</p>
+              <AlertTriangle className="w-8 md:w-12 h-8 md:h-12 text-gray-400 mx-auto mb-3 md:mb-4" />
+              <h3 className="text-white text-base md:text-lg font-semibold mb-2">No injury reports found</h3>
+              <p className="text-gray-400 text-xs md:text-sm">Try adjusting your search criteria</p>
             </div>
           </Card>
         )}
 
         {/* Injury Details Dialog */}
         <Dialog open={showDetails} onOpenChange={setShowDetails}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Injury Report Details</DialogTitle>
+              <DialogTitle className="text-white text-lg md:text-xl">Injury Report Details</DialogTitle>
             </DialogHeader>
             {selectedInjury && (
-              <div className="space-y-6">
-                <div className="flex items-center gap-3">
-                  <User className="w-6 h-6 text-[#D4AF37]" />
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-center gap-2 md:gap-3">
+                  <User className="w-5 md:w-6 h-5 md:h-6 text-[#D4AF37]" />
                   <div>
-                    <h3 className="text-white font-bold text-xl">{selectedInjury.studentName}</h3>
-                    <p className="text-gray-400">{selectedInjury.batch}</p>
+                    <h3 className="text-white font-bold text-base md:text-xl">{selectedInjury.studentName}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm">{selectedInjury.batch}</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Injury Type</p>
-                    <p className="text-white font-semibold">{selectedInjury.type}</p>
+                <div className="grid grid-cols-2 gap-2 md:gap-4">
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Injury Type</p>
+                    <p className="text-white font-semibold text-sm">{selectedInjury.type}</p>
                   </div>
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Severity</p>
-                    <Badge className={getSeverityColor(selectedInjury.severity)}>
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Severity</p>
+                    <Badge className={getSeverityColor(selectedInjury.severity)} style={{ fontSize: '0.75rem' }}>
                       {selectedInjury.severity}
                     </Badge>
                   </div>
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Date of Injury</p>
-                    <p className="text-white">
-                      {new Date(selectedInjury.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Date of Injury</p>
+                    <p className="text-white text-xs md:text-sm">
+                      {new Date(selectedInjury.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                     </p>
                   </div>
-                  <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                    <p className="text-gray-400 text-sm mb-1">Expected Return</p>
-                    <p className="text-white">
-                      {new Date(selectedInjury.expectedReturn).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Expected Return</p>
+                    <p className="text-white text-xs md:text-sm">
+                      {new Date(selectedInjury.expectedReturn).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                  <p className="text-gray-400 text-sm mb-2">Status</p>
-                  <Badge className={getStatusColor(selectedInjury.status)}>
+                <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                  <p className="text-gray-400 text-xs md:text-sm mb-2">Status</p>
+                  <Badge className={getStatusColor(selectedInjury.status)} style={{ fontSize: '0.75rem' }}>
                     {selectedInjury.status}
                   </Badge>
                 </div>
 
-                <div className="bg-[#0A1F0A]/50 p-4 rounded-lg">
-                  <p className="text-gray-400 text-sm mb-2">Description</p>
-                  <p className="text-white">{selectedInjury.description}</p>
+                <div className="bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg">
+                  <p className="text-gray-400 text-xs md:text-sm mb-2">Description</p>
+                  <p className="text-white text-xs md:text-sm">{selectedInjury.description}</p>
                 </div>
               </div>
             )}
