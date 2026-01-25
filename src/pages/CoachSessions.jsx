@@ -5,7 +5,6 @@ import CoachLayout from '../components/coach/CoachLayout';
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { useWindowSize } from '../hooks/useWindowSize';
 
 const mockSessions = [
   { id: 1, title: 'Cricket Batch A', date: '2026-01-13', time: '06:00 AM', students: 35, location: 'Ground A', status: 'completed' },
