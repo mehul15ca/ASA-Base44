@@ -111,37 +111,37 @@ export default function StudentAnnouncements() {
     <StudentLayout>
       <div className="p-4 md:p-8">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-8">
+        <div className="grid grid-cols-3 gap-2 md:gap-3 mb-4 md:mb-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
-              <div className="flex items-center gap-2 md:gap-3 mb-2">
-                <Bell className="w-4 md:w-5 h-4 md:h-5 text-red-400" />
-                <p className="text-gray-400 text-xs md:text-sm">Unread</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Bell className="w-3.5 h-3.5 text-red-400" />
+                <p className="text-gray-400 text-[10px] md:text-xs">Unread</p>
               </div>
               <div className="flex items-end justify-between">
-                <p className="text-2xl md:text-3xl font-bold text-white">{unreadCount}</p>
-                {unreadCount > 0 && <Badge className="bg-red-500/20 text-red-400 text-xs">{unreadCount} New</Badge>}
+                <p className="text-xl md:text-2xl font-bold text-white">{unreadCount}</p>
+                {unreadCount > 0 && <Badge className="bg-red-500/20 text-red-400 text-[9px] md:text-xs px-1.5 py-0">{unreadCount} New</Badge>}
               </div>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
-              <div className="flex items-center gap-2 md:gap-3 mb-2">
-                <Bell className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-xs md:text-sm">Total Announcements</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Bell className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <p className="text-gray-400 text-[10px] md:text-xs">Total</p>
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">{totalCount}</p>
+              <p className="text-xl md:text-2xl font-bold text-white">{totalCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
-              <div className="flex items-center gap-2 md:gap-3 mb-2">
-                <Calendar className="w-4 md:w-5 h-4 md:h-5 text-blue-400" />
-                <p className="text-gray-400 text-xs md:text-sm">This Week</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3">
+              <div className="flex items-center gap-1.5 mb-1">
+                <Calendar className="w-3.5 h-3.5 text-blue-400" />
+                <p className="text-gray-400 text-[10px] md:text-xs">This Week</p>
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">{thisWeekCount}</p>
+              <p className="text-xl md:text-2xl font-bold text-white">{thisWeekCount}</p>
             </Card>
           </motion.div>
         </div>
