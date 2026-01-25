@@ -14,7 +14,7 @@ const mockEvaluations = [
     coach: 'Coach John Doe',
     date: '2026-01-15',
     overallScore: 85,
-    skills: { batting: 88, bowling: 82, fielding: 90, fitness: 85, strategy: 80, teamwork: 92 },
+    skills: { batting: 88, bowling: 82, fielding: 90, fitness: 85, teamwork: 92 },
     notes: 'Excellent performance overall. Shows great improvement in batting techniques. Continue working on bowling accuracy.'
   },
   {
@@ -22,7 +22,7 @@ const mockEvaluations = [
     coach: 'Coach Sarah Smith',
     date: '2026-01-08',
     overallScore: 82,
-    skills: { batting: 85, bowling: 78, fielding: 88, fitness: 82, strategy: 78, teamwork: 85 },
+    skills: { batting: 85, bowling: 78, fielding: 88, fitness: 82, teamwork: 85 },
     notes: 'Good effort in training sessions. Needs to focus more on bowling consistency and strategy development.'
   },
   {
@@ -30,7 +30,7 @@ const mockEvaluations = [
     coach: 'Coach John Doe',
     date: '2026-01-01',
     overallScore: 80,
-    skills: { batting: 82, bowling: 75, fielding: 85, fitness: 80, strategy: 75, teamwork: 83 },
+    skills: { batting: 82, bowling: 75, fielding: 85, fitness: 80, teamwork: 83 },
     notes: 'Showing steady progress. Keep practicing regularly and maintain discipline in training.'
   },
 ];
@@ -97,7 +97,7 @@ export default function StudentEvaluations() {
                       <p className="text-gray-400 text-xs md:text-sm">{evaluation.date}</p>
                     </div>
                     <div className="text-left md:text-right">
-                      <p className="text-[#D4AF37] text-xl md:text-2xl font-bold">{evaluation.overallScore}%</p>
+                      <p className="text-[#D4AF37] text-xl md:text-2xl font-bold">{evaluation.overallScore}/10</p>
                       <p className="text-gray-400 text-xs md:text-sm">Overall Score</p>
                     </div>
                   </div>
@@ -153,11 +153,11 @@ export default function StudentEvaluations() {
                   <div key={skill}>
                     <div className="flex justify-between mb-2">
                       <p className="text-gray-300 capitalize text-xs md:text-sm">{skill}</p>
-                      <p className="text-white font-semibold text-xs md:text-sm">{value}%</p>
+                      <p className="text-white font-semibold text-xs md:text-sm">{value}/10</p>
                     </div>
                     <Slider
                       value={[value]}
-                      max={100}
+                      max={10}
                       disabled
                       className="cursor-default"
                     />
