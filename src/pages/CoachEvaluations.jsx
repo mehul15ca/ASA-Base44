@@ -26,6 +26,7 @@ export default function CoachEvaluations() {
     bowling: 5,
     fielding: 5,
     teamwork: 5,
+    fitness: 5,
     notes: ''
   });
 
