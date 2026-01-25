@@ -44,37 +44,37 @@ export default function StudentStore() {
     <StudentLayout>
       <div className="p-4 md:p-8">
         {/* Overview Cards */}
-        <div className="grid grid-cols-1 gap-3 mb-6 md:mb-8 max-w-md">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
-              <div className="flex items-center gap-2 md:gap-3 mb-2">
-                <ShoppingBag className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-xs md:text-sm">Total Orders</p>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 md:mb-8"
+        >
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 max-w-md">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <ShoppingBag className="w-4 h-4 text-[#D4AF37]" />
+                <p className="text-gray-400 text-xs">Total</p>
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">{totalOrders}</p>
-            </Card>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
-              <div className="flex items-center gap-2 md:gap-3 mb-2">
-                <Package className="w-4 md:w-5 h-4 md:h-5 text-yellow-400" />
-                <p className="text-gray-400 text-xs md:text-sm">Pending</p>
+              <p className="text-xl font-bold text-white">{totalOrders}</p>
+            </div>
+            <div className="h-px bg-[#2D6A4F]/50 my-2"></div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Package className="w-4 h-4 text-yellow-400" />
+                <p className="text-gray-400 text-xs">Pending</p>
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">{pendingOrders}</p>
-            </Card>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
-              <div className="flex items-center gap-2 md:gap-3 mb-2">
-                <CheckCircle className="w-4 md:w-5 h-4 md:h-5 text-green-400" />
-                <p className="text-gray-400 text-xs md:text-sm">Delivered</p>
+              <p className="text-xl font-bold text-white">{pendingOrders}</p>
+            </div>
+            <div className="h-px bg-[#2D6A4F]/50 my-2"></div>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="w-4 h-4 text-green-400" />
+                <p className="text-gray-400 text-xs">Delivered</p>
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-white">{deliveredOrders}</p>
-            </Card>
-          </motion.div>
-        </div>
+              <p className="text-xl font-bold text-white">{deliveredOrders}</p>
+            </div>
+          </Card>
+        </motion.div>
 
         {/* Tabs */}
         <Tabs defaultValue="products" className="w-full">
