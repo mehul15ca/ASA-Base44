@@ -235,7 +235,9 @@ export default function StudentSchedule() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
             <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Upcoming Sessions</h2>
-            <div className="overflow-x-auto">
+            
+            {/* Desktop Table View */}
+            <div className="hidden md:block overflow-x-auto">
               <table className="w-full">
                 <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                   <tr>
@@ -270,30 +272,65 @@ export default function StudentSchedule() {
                 </tbody>
               </table>
             </div>
+
+            {/* Mobile Card View */}
+            <div className="md:hidden space-y-3">
+              {paginatedSessions.map((session, index) => (
+                <motion.div
+                  key={session.id}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  onClick={() => setSelectedSession(session)}
+                  className="bg-[#0A1F0A]/50 border border-[#2D6A4F]/30 rounded-lg p-4 cursor-pointer hover:bg-[#2D6A4F]/10 transition-colors"
+                >
+                  <div className="flex justify-between items-start mb-3">
+                    <div>
+                      <div className="text-white font-semibold text-sm mb-1">{session.date}</div>
+                      <div className="text-gray-400 text-xs">{session.time}</div>
+                    </div>
+                    <Badge className="bg-blue-500/20 text-blue-400 text-xs">
+                      {session.status.charAt(0).toUpperCase() + session.status.slice(1)}
+                    </Badge>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div>
+                      <div className="text-gray-500">Ground</div>
+                      <div className="text-gray-300">{session.ground}</div>
+                    </div>
+                    <div>
+                      <div className="text-gray-500">Coach</div>
+                      <div className="text-gray-300">{session.coach}</div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             <div className="mt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <p className="text-gray-400 text-xs md:text-sm">
-                Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, upcomingSessions.length)} of {upcomingSessions.length} sessions
+                {(currentPage - 1) * itemsPerPage + 1}-{Math.min(currentPage * itemsPerPage, upcomingSessions.length)} of {upcomingSessions.length}
               </p>
-              <div className="flex gap-2">
+              <div className="flex gap-2 w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentPage === 1}
                   onClick={() => setCurrentPage(currentPage - 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 flex-1 sm:flex-none"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-4 h-4 sm:mr-1" />
+                  <span className="hidden sm:inline">Previous</span>
                 </Button>
                 <Button
                   variant="outline"
                   size="sm"
                   disabled={currentPage === totalPages}
                   onClick={() => setCurrentPage(currentPage + 1)}
-                  className="border-[#40916C] text-gray-300"
+                  className="border-[#40916C] text-gray-300 flex-1 sm:flex-none"
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <span className="hidden sm:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 sm:ml-1" />
                 </Button>
               </div>
             </div>
