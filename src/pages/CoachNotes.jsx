@@ -280,70 +280,70 @@ export default function CoachNotes() {
             <div className="space-y-3 md:space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 <div>
-                  <Label className="text-gray-300">Date *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Date *</Label>
                   <Input
                     type="date"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                   />
                 </div>
                 <div>
-                  <Label className="text-gray-300">Session *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Session *</Label>
                   <Input
                     placeholder="e.g., Cricket Batch A"
                     value={formData.session}
                     onChange={(e) => setFormData({ ...formData, session: e.target.value })}
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 <div>
-                  <Label className="text-gray-300">Time *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Time *</Label>
                   <Input
                     placeholder="e.g., 06:00 AM"
                     value={formData.time}
                     onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                   />
                 </div>
                 <div>
-                  <Label className="text-gray-300">Number of Students</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Number of Students</Label>
                   <Input
                     type="number"
                     placeholder="35"
                     value={formData.students}
                     onChange={(e) => setFormData({ ...formData, students: e.target.value })}
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                   />
                 </div>
               </div>
               <div>
-                <Label className="text-gray-300">Session Notes *</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Session Notes *</Label>
                 <Textarea
                   placeholder="Describe what happened during the session..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-24"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-20 md:h-24 text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Highlights</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Highlights</Label>
                 <Textarea
                   placeholder="Key achievements or positive observations..."
                   value={formData.highlights}
                   onChange={(e) => setFormData({ ...formData, highlights: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-16 md:h-20 text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Concerns</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Concerns</Label>
                 <Textarea
                   placeholder="Issues or areas that need attention..."
                   value={formData.concerns}
                   onChange={(e) => setFormData({ ...formData, concerns: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-16 md:h-20 text-xs"
                 />
               </div>
             </div>
@@ -367,11 +367,11 @@ export default function CoachNotes() {
 
         {/* Edit Note Dialog */}
         <Dialog open={showEditNote} onOpenChange={setShowEditNote}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Edit Session Note</DialogTitle>
+              <DialogTitle className="text-white text-lg md:text-xl">Edit Session Note</DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                 <div>
                   <Label className="text-gray-300 text-xs md:text-sm">Date *</Label>
@@ -414,48 +414,48 @@ export default function CoachNotes() {
                 </div>
               </div>
               <div>
-                <Label className="text-gray-300">Session Notes *</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Session Notes *</Label>
                 <Textarea
                   placeholder="Describe what happened during the session..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-24"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-20 md:h-24 text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Highlights</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Highlights</Label>
                 <Textarea
                   placeholder="Key achievements or positive observations..."
                   value={formData.highlights}
                   onChange={(e) => setFormData({ ...formData, highlights: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-16 md:h-20 text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Concerns</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Concerns</Label>
                 <Textarea
                   placeholder="Issues or areas that need attention..."
                   value={formData.concerns}
                   onChange={(e) => setFormData({ ...formData, concerns: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-16 md:h-20 text-xs"
                 />
               </div>
-            </div>
-            <DialogFooter>
+              </div>
+              <DialogFooter className="flex-col-reverse md:flex-row gap-2">
               <Button
                 variant="outline"
                 onClick={() => setShowEditNote(false)}
-                className="border-[#40916C] text-gray-300"
+                className="border-[#40916C] text-gray-300 text-xs w-full md:w-auto"
               >
                 Cancel
               </Button>
               <Button
                 onClick={handleEditNote}
-                className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs w-full md:w-auto"
               >
                 Update Note
               </Button>
-            </DialogFooter>
+              </DialogFooter>
           </DialogContent>
         </Dialog>
 
