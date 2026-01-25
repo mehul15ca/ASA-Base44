@@ -200,6 +200,21 @@ export default function CoachEvaluations() {
                     step={1}
                   />
                 </div>
+
+                {/* Fitness */}
+                <div>
+                  <div className="flex justify-between mb-1 md:mb-2">
+                    <p className="text-gray-300 text-xs md:text-sm">Fitness</p>
+                    <p className="text-white font-semibold text-xs md:text-sm">{evaluation.fitness}/10</p>
+                  </div>
+                  <Slider
+                    value={[evaluation.fitness]}
+                    onValueChange={(value) => handleSliderChange('fitness', value)}
+                    min={1}
+                    max={10}
+                    step={1}
+                  />
+                </div>
               </div>
 
               {/* Notes */}
