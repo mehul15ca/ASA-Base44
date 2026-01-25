@@ -15,12 +15,23 @@ const mockProfile = {
   name: 'John Doe',
   email: 'john.doe@academy.com',
   phone: '+1 234 567 8900',
-  address: '123 Sports Avenue, Cricket City',
+  address: {
+    street: '123 Sports Avenue',
+    city: 'Cricket City',
+    province: 'Ontario',
+    postalCode: 'M5V 3A8',
+  },
   joinDate: '2024-01-15',
   specialization: 'Cricket Coach',
   experience: '8 years',
   certifications: ['Level 3 Cricket Coach', 'First Aid Certified', 'Sports Psychology'],
-
+  financial: {
+    institutionName: 'Royal Bank of Canada',
+    transitNumber: '12345',
+    institutionNumber: '002',
+    accountNumber: '123456789',
+    interacID: 'john.doe@academy.com',
+  },
   achievements: [
     'Coached state-level team to championship in 2025',
     'Trained 15+ students who went on to represent district teams',
@@ -35,7 +46,7 @@ export default function CoachProfile() {
     email: mockProfile.email,
     phone: mockProfile.phone,
     address: mockProfile.address,
-
+    financial: mockProfile.financial,
   });
 
   const handleUpdateProfile = () => {
@@ -120,7 +131,7 @@ export default function CoachProfile() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-gray-400 text-xs md:text-sm">Address</p>
-                    <p className="text-white text-xs md:text-sm">{mockProfile.address}</p>
+                    <p className="text-white text-xs md:text-sm">{mockProfile.address.street}, {mockProfile.address.city}, {mockProfile.address.province} {mockProfile.address.postalCode}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 md:gap-4">
@@ -246,16 +257,92 @@ export default function CoachProfile() {
                   className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
+
               <div>
-                <Label className="text-gray-300 text-xs md:text-sm">Address</Label>
+                <h3 className="text-white text-sm font-semibold mb-3 mt-2">Address Information</h3>
+              </div>
+              <div>
+                <Label className="text-gray-300 text-xs md:text-sm">Street Address</Label>
                 <Input
-                  value={formData.address}
-                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  value={formData.address.street}
+                  onChange={(e) => setFormData({ ...formData, address: { ...formData.address, street: e.target.value } })}
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <Label className="text-gray-300 text-xs md:text-sm">City</Label>
+                  <Input
+                    value={formData.address.city}
+                    onChange={(e) => setFormData({ ...formData, address: { ...formData.address, city: e.target.value } })}
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                  />
+                </div>
+                <div>
+                  <Label className="text-gray-300 text-xs md:text-sm">Province</Label>
+                  <Input
+                    value={formData.address.province}
+                    onChange={(e) => setFormData({ ...formData, address: { ...formData.address, province: e.target.value } })}
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                  />
+                </div>
+              </div>
+              <div>
+                <Label className="text-gray-300 text-xs md:text-sm">Postal Code</Label>
+                <Input
+                  value={formData.address.postalCode}
+                  onChange={(e) => setFormData({ ...formData, address: { ...formData.address, postalCode: e.target.value } })}
                   className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
 
-            </div>
+              <div>
+                <h3 className="text-white text-sm font-semibold mb-3 mt-4">Financial Information</h3>
+              </div>
+              <div>
+                <Label className="text-gray-300 text-xs md:text-sm">Institution Name</Label>
+                <Input
+                  value={formData.financial.institutionName}
+                  onChange={(e) => setFormData({ ...formData, financial: { ...formData.financial, institutionName: e.target.value } })}
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <Label className="text-gray-300 text-xs md:text-sm">Transit Number</Label>
+                  <Input
+                    value={formData.financial.transitNumber}
+                    onChange={(e) => setFormData({ ...formData, financial: { ...formData.financial, transitNumber: e.target.value } })}
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                  />
+                </div>
+                <div>
+                  <Label className="text-gray-300 text-xs md:text-sm">Institution Number</Label>
+                  <Input
+                    value={formData.financial.institutionNumber}
+                    onChange={(e) => setFormData({ ...formData, financial: { ...formData.financial, institutionNumber: e.target.value } })}
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                  />
+                </div>
+              </div>
+              <div>
+                <Label className="text-gray-300 text-xs md:text-sm">Account Number</Label>
+                <Input
+                  value={formData.financial.accountNumber}
+                  onChange={(e) => setFormData({ ...formData, financial: { ...formData.financial, accountNumber: e.target.value } })}
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                />
+              </div>
+              <div>
+                <Label className="text-gray-300 text-xs md:text-sm">Interac ID</Label>
+                <Input
+                  value={formData.financial.interacID}
+                  onChange={(e) => setFormData({ ...formData, financial: { ...formData.financial, interacID: e.target.value } })}
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
+                />
+              </div>
+
+              </div>
             <DialogFooter className="flex-col-reverse md:flex-row gap-2">
               <Button
                 variant="outline"
