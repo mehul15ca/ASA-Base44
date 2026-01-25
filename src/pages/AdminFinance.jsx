@@ -98,78 +98,78 @@ export default function AdminFinance() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-3 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <h1 className="text-3xl font-bold text-white mb-2">Finance Management</h1>
-          <p className="text-gray-400">Manage fees, invoices, payments, and financial reports</p>
+          <h1 className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-2">Finance Management</h1>
+          <p className="text-gray-400 text-xs md:text-base hidden md:block">Manage fees, invoices, payments, and financial reports</p>
         </motion.div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-4 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <TrendingUp className="w-5 h-5 text-green-400" />
-              <p className="text-gray-400 text-sm">Total Revenue</p>
+            <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+              <TrendingUp className="w-3 md:w-5 h-3 md:h-5 text-green-400" />
+              <p className="text-gray-400 text-xs md:text-sm">Revenue</p>
             </div>
-            <p className="text-3xl font-bold text-white">${totalRevenue.toLocaleString()}</p>
-            <p className="text-green-400 text-sm mt-1">+12.5% from last month</p>
+            <p className="text-lg md:text-3xl font-bold text-white">${totalRevenue.toLocaleString()}</p>
+            <p className="text-green-400 text-[10px] md:text-sm mt-0.5 md:mt-1">+12.5%</p>
           </motion.div>
           
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <Clock className="w-5 h-5 text-yellow-400" />
-              <p className="text-gray-400 text-sm">Pending Amount</p>
+            <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+              <Clock className="w-3 md:w-5 h-3 md:h-5 text-yellow-400" />
+              <p className="text-gray-400 text-xs md:text-sm">Pending</p>
             </div>
-            <p className="text-3xl font-bold text-white">${pendingAmount.toLocaleString()}</p>
-            <p className="text-yellow-400 text-sm mt-1">{mockInvoices.length - paidInvoices} unpaid invoices</p>
+            <p className="text-lg md:text-3xl font-bold text-white">${pendingAmount.toLocaleString()}</p>
+            <p className="text-yellow-400 text-[10px] md:text-sm mt-0.5 md:mt-1">{mockInvoices.length - paidInvoices} unpaid</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <CheckCircle className="w-5 h-5 text-green-400" />
-              <p className="text-gray-400 text-sm">Paid Invoices</p>
+            <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+              <CheckCircle className="w-3 md:w-5 h-3 md:h-5 text-green-400" />
+              <p className="text-gray-400 text-xs md:text-sm">Paid</p>
             </div>
-            <p className="text-3xl font-bold text-white">{paidInvoices}</p>
-            <p className="text-gray-400 text-sm mt-1">of {mockInvoices.length} total</p>
+            <p className="text-lg md:text-3xl font-bold text-white">{paidInvoices}</p>
+            <p className="text-gray-400 text-[10px] md:text-sm mt-0.5 md:mt-1">of {mockInvoices.length}</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+            className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <AlertCircle className="w-5 h-5 text-red-400" />
-              <p className="text-gray-400 text-sm">Overdue</p>
+            <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+              <AlertCircle className="w-3 md:w-5 h-3 md:h-5 text-red-400" />
+              <p className="text-gray-400 text-xs md:text-sm">Overdue</p>
             </div>
-            <p className="text-3xl font-bold text-white">{overdueInvoices}</p>
-            <p className="text-red-400 text-sm mt-1">Requires immediate action</p>
+            <p className="text-lg md:text-3xl font-bold text-white">{overdueInvoices}</p>
+            <p className="text-red-400 text-[10px] md:text-sm mt-0.5 md:mt-1 hidden md:block">Action required</p>
           </motion.div>
         </div>
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-6">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-3 md:mb-6 text-xs md:text-sm">
             <TabsTrigger value="overview" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
               Overview
             </TabsTrigger>
@@ -188,9 +188,9 @@ export default function AdminFinance() {
           <TabsContent value="overview">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Revenue Chart */}
-              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Revenue vs Expenses</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+                <h3 className="text-white text-sm md:text-lg font-semibold mb-2 md:mb-4">Revenue vs Expenses</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <LineChart data={revenueData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="month" stroke="#D4AF37" />
@@ -204,9 +204,9 @@ export default function AdminFinance() {
               </Card>
 
               {/* Payment Methods */}
-              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-                <h3 className="text-white text-lg font-semibold mb-4">Payment Methods Distribution</h3>
-                <ResponsiveContainer width="100%" height={300}>
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+                <h3 className="text-white text-sm md:text-lg font-semibold mb-2 md:mb-4">Payment Methods Distribution</h3>
+                <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={paymentMethodData}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                     <XAxis dataKey="method" stroke="#D4AF37" />
@@ -218,26 +218,26 @@ export default function AdminFinance() {
               </Card>
 
               {/* Recent Transactions */}
-              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 lg:col-span-2">
-                <h3 className="text-white text-lg font-semibold mb-4">Recent Transactions</h3>
-                <div className="space-y-3">
+              <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6 lg:col-span-2">
+                <h3 className="text-white text-sm md:text-lg font-semibold mb-2 md:mb-4">Recent Transactions</h3>
+                <div className="space-y-2 md:space-y-3">
                   {mockInvoices.slice(0, 5).map((invoice) => (
-                    <div key={invoice.id} className="flex items-center justify-between bg-[#0A1F0A]/50 rounded-lg p-4">
-                      <div className="flex items-center gap-4">
-                        <CreditCard className="w-5 h-5 text-[#D4AF37]" />
+                    <div key={invoice.id} className="flex items-center justify-between bg-[#0A1F0A]/50 rounded-lg p-2 md:p-4">
+                      <div className="flex items-center gap-2 md:gap-4">
+                        <CreditCard className="w-3 md:w-5 h-3 md:h-5 text-[#D4AF37]" />
                         <div>
-                          <p className="text-white font-medium">{invoice.student}</p>
-                          <p className="text-gray-400 text-sm">{invoice.id} • {invoice.batch}</p>
+                          <p className="text-white font-medium text-xs md:text-base">{invoice.student}</p>
+                          <p className="text-gray-400 text-[10px] md:text-sm">{invoice.id} • {invoice.batch}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="text-white font-semibold">${invoice.paid.toLocaleString()}</p>
-                        <Badge className={
+                        <p className="text-white font-semibold text-xs md:text-base">${invoice.paid.toLocaleString()}</p>
+                        <Badge className={`text-[10px] md:text-xs ${
                           invoice.status === 'Paid' ? 'bg-green-500/20 text-green-400' :
                           invoice.status === 'Partial' ? 'bg-yellow-500/20 text-yellow-400' :
                           invoice.status === 'Overdue' ? 'bg-red-500/20 text-red-400' :
                           'bg-gray-500/20 text-gray-400'
-                        }>
+                        }`}>
                           {invoice.status}
                         </Badge>
                       </div>
@@ -254,20 +254,20 @@ export default function AdminFinance() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
             >
-              <div className="flex flex-wrap gap-4">
-                <div className="relative flex-1 min-w-[200px]">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <div className="flex flex-wrap gap-2 md:gap-4">
+                <div className="relative flex-1 min-w-[120px]">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 md:w-4 h-3 md:h-4" />
                   <Input
-                    placeholder="Search invoices..."
+                    placeholder="Search..."
                     value={searchInvoice}
                     onChange={(e) => setSearchInvoice(e.target.value)}
-                    className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                    className="pl-9 md:pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
                   />
                 </div>
                 <Select value={statusFilter} onValueChange={setStatusFilter}>
-                  <SelectTrigger className="w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                  <SelectTrigger className="w-28 md:w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -280,28 +280,29 @@ export default function AdminFinance() {
                 </Select>
                 <Button
                   onClick={() => setShowGenerateInvoiceModal(true)}
-                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm"
                 >
-                  <Plus className="w-4 h-4 mr-2" />
-                  Generate Invoice
+                  <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+                  <span className="hidden sm:inline">Generate</span>
+                  <span className="sm:hidden">New</span>
                 </Button>
               </div>
             </motion.div>
 
             {/* Invoices Table */}
             <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 overflow-hidden">
-              <div className="overflow-x-auto">
+              <div className="overflow-x-auto -mx-3 md:mx-0">
                 <table className="w-full">
                   <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                     <tr>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Invoice ID</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Student</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Batch</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Amount</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Paid</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Due Date</th>
-                      <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Actions</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">ID</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Student</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden lg:table-cell">Batch</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Amount</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Paid</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Status</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden lg:table-cell">Due</th>
+                      <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -313,24 +314,24 @@ export default function AdminFinance() {
                         transition={{ delay: index * 0.05 }}
                         className="border-b border-[#2D6A4F]/30 hover:bg-[#2D6A4F]/10 transition-colors"
                       >
-                        <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">{invoice.id}</td>
-                        <td className="px-6 py-4 text-sm text-white font-medium">{invoice.student}</td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{invoice.batch}</td>
-                        <td className="px-6 py-4 text-sm text-white">${invoice.amount.toLocaleString()}</td>
-                        <td className="px-6 py-4 text-sm text-white">${invoice.paid.toLocaleString()}</td>
-                        <td className="px-6 py-4">
-                          <Badge className={
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-[#D4AF37] font-semibold">{invoice.id}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white font-medium">{invoice.student}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden lg:table-cell">{invoice.batch}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white">${invoice.amount.toLocaleString()}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white hidden md:table-cell">${invoice.paid.toLocaleString()}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4">
+                          <Badge className={`text-[10px] md:text-xs ${
                             invoice.status === 'Paid' ? 'bg-green-500/20 text-green-400' :
                             invoice.status === 'Partial' ? 'bg-yellow-500/20 text-yellow-400' :
                             invoice.status === 'Overdue' ? 'bg-red-500/20 text-red-400' :
                             'bg-gray-500/20 text-gray-400'
-                          }>
+                          }`}>
                             {invoice.status}
                           </Badge>
                         </td>
-                        <td className="px-6 py-4 text-sm text-gray-300">{invoice.dueDate}</td>
-                        <td className="px-6 py-4">
-                          <div className="flex gap-2">
+                        <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden lg:table-cell">{invoice.dueDate}</td>
+                        <td className="px-3 md:px-6 py-2 md:py-4">
+                          <div className="flex gap-1 md:gap-2">
                             {invoice.status !== 'Paid' && (
                               <Button
                                 size="sm"
@@ -338,7 +339,7 @@ export default function AdminFinance() {
                                   setSelectedInvoice(invoice);
                                   setShowRecordPaymentModal(true);
                                 }}
-                                className="bg-[#40916C] hover:bg-[#2D6A4F] text-white"
+                                className="bg-[#40916C] hover:bg-[#2D6A4F] text-white text-[10px] md:text-xs h-6 md:h-8"
                               >
                                 Pay
                               </Button>
@@ -347,23 +348,10 @@ export default function AdminFinance() {
                               size="sm"
                               variant="outline"
                               onClick={() => downloadInvoice(invoice.id)}
-                              className="border-[#40916C] text-[#40916C]"
+                              className="border-[#40916C] text-[#40916C] h-6 w-6 md:h-8 md:w-8 p-0"
                             >
-                              <Download className="w-4 h-4" />
+                              <Download className="w-3 md:w-4 h-3 md:h-4" />
                             </Button>
-                            {invoice.status === 'Paid' && (
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={() => {
-                                  setSelectedInvoice(invoice);
-                                  setShowRefundModal(true);
-                                }}
-                                className="border-red-500/50 text-red-400"
-                              >
-                                Refund
-                              </Button>
-                            )}
                           </div>
                         </td>
                       </motion.tr>
@@ -389,7 +377,7 @@ export default function AdminFinance() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
               {mockFeeStructures.map((structure, index) => (
                 <motion.div
                   key={structure.id}
@@ -397,7 +385,7 @@ export default function AdminFinance() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
+                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
                     <div className="flex justify-between items-start mb-4">
                       <div>
                         <h3 className="text-white text-lg font-semibold">{structure.batch}</h3>
