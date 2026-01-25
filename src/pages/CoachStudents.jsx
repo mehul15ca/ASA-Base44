@@ -100,25 +100,25 @@ export default function CoachStudents() {
 
   return (
     <CoachLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-white mb-1">My Students</h2>
-          <p className="text-gray-400">View and manage students in your batches</p>
+        <div className="mb-4 md:mb-8">
+          <h2 className="text-xl md:text-2xl font-bold text-white mb-1">My Students</h2>
+          <p className="text-gray-400 text-xs md:text-sm">View and manage students in your batches</p>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-4 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-5 h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-sm">Total Students</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <Users className="w-4 h-4 md:w-5 md:h-5 text-[#D4AF37] flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Total Students</p>
               </div>
-              <p className="text-3xl font-bold text-white">{mockStudents.length}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{mockStudents.length}</p>
             </Card>
           </motion.div>
 
@@ -127,12 +127,12 @@ export default function CoachStudents() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <TrendingUp className="w-5 h-5 text-[#40916C]" />
-                <p className="text-gray-400 text-sm">Avg Attendance</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-[#40916C] flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Avg Attendance</p>
               </div>
-              <p className="text-3xl font-bold text-white">88.6%</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">88.6%</p>
             </Card>
           </motion.div>
 
@@ -141,12 +141,12 @@ export default function CoachStudents() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Trophy className="w-5 h-5 text-[#F4D03F]" />
-                <p className="text-gray-400 text-sm">Top Performers</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <Trophy className="w-4 h-4 md:w-5 md:h-5 text-[#F4D03F] flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Top Performers</p>
               </div>
-              <p className="text-3xl font-bold text-white">3</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">3</p>
             </Card>
           </motion.div>
 
@@ -155,12 +155,12 @@ export default function CoachStudents() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Users className="w-5 h-5 text-green-400" />
-                <p className="text-gray-400 text-sm">Active Batches</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <Users className="w-4 h-4 md:w-5 md:h-5 text-green-400 flex-shrink-0" />
+                <p className="text-gray-400 text-xs md:text-sm">Active Batches</p>
               </div>
-              <p className="text-3xl font-bold text-white">2</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">2</p>
             </Card>
           </motion.div>
         </div>
