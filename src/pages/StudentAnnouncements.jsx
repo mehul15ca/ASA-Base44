@@ -109,88 +109,88 @@ export default function StudentAnnouncements() {
 
   return (
     <StudentLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Summary Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-6 md:mb-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Bell className="w-5 h-5 text-red-400" />
-                <p className="text-gray-400 text-sm">Unread</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Bell className="w-4 md:w-5 h-4 md:h-5 text-red-400" />
+                <p className="text-gray-400 text-xs md:text-sm">Unread</p>
               </div>
               <div className="flex items-end justify-between">
-                <p className="text-3xl font-bold text-white">{unreadCount}</p>
-                {unreadCount > 0 && <Badge className="bg-red-500/20 text-red-400">{unreadCount} New</Badge>}
+                <p className="text-2xl md:text-3xl font-bold text-white">{unreadCount}</p>
+                {unreadCount > 0 && <Badge className="bg-red-500/20 text-red-400 text-xs">{unreadCount} New</Badge>}
               </div>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Bell className="w-5 h-5 text-[#D4AF37]" />
-                <p className="text-gray-400 text-sm">Total Announcements</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Bell className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
+                <p className="text-gray-400 text-xs md:text-sm">Total Announcements</p>
               </div>
-              <p className="text-3xl font-bold text-white">{totalCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{totalCount}</p>
             </Card>
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Calendar className="w-5 h-5 text-blue-400" />
-                <p className="text-gray-400 text-sm">This Week</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <div className="flex items-center gap-2 md:gap-3 mb-2">
+                <Calendar className="w-4 md:w-5 h-4 md:h-5 text-blue-400" />
+                <p className="text-gray-400 text-xs md:text-sm">This Week</p>
               </div>
-              <p className="text-3xl font-bold text-white">{thisWeekCount}</p>
+              <p className="text-2xl md:text-3xl font-bold text-white">{thisWeekCount}</p>
             </Card>
           </motion.div>
         </div>
 
         {/* Announcements List */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <h2 className="text-xl font-bold text-white mb-6">Announcements</h2>
-            <div className="space-y-4">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+            <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Announcements</h2>
+            <div className="space-y-3 md:space-y-4">
               {paginatedAnnouncements.map((announcement, index) => (
                 <motion.div
                   key={announcement.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-[#0A1F0A]/50 rounded-lg p-6"
+                  className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-6"
                 >
-                  <div className="flex gap-4">
-                    <div className="flex-shrink-0">
+                  <div className="flex gap-3 md:gap-4">
+                    <div className="flex-shrink-0 hidden md:block">
                       <div className="p-3 bg-[#0D2818] rounded-lg">
                         {getTypeIcon(announcement.type)}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-3">
-                        <div>
-                          <h3 className="text-white font-semibold text-lg flex items-center gap-2">
+                      <div className="flex justify-between items-start mb-2 md:mb-3">
+                        <div className="flex-1">
+                          <h3 className="text-white font-semibold text-sm md:text-lg flex items-center gap-2 flex-wrap">
                             {announcement.title}
                             {announcement.isNew && (
-                              <Badge className="bg-red-500/20 text-red-400">NEW</Badge>
+                              <Badge className="bg-red-500/20 text-red-400 text-xs">NEW</Badge>
                             )}
                           </h3>
-                          <div className="flex items-center gap-3 mt-1">
-                            <p className="text-gray-400 text-sm">{announcement.date} • {announcement.time}</p>
-                            <Badge className={getTypeColor(announcement.type)}>
+                          <div className="flex items-center gap-2 md:gap-3 mt-1 flex-wrap">
+                            <p className="text-gray-400 text-xs md:text-sm">{announcement.date} • {announcement.time}</p>
+                            <Badge className={`${getTypeColor(announcement.type)} text-xs`}>
                               {announcement.type}
                             </Badge>
                           </div>
                         </div>
                       </div>
-                      <p className="text-gray-300 mb-3">{announcement.message}</p>
-                      <div className="flex justify-between items-center">
-                        <p className="text-gray-400 text-sm">Posted by: <span className="text-[#D4AF37]">{announcement.author}</span></p>
+                      <p className="text-gray-300 mb-3 text-sm md:text-base">{announcement.message}</p>
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
+                        <p className="text-gray-400 text-xs md:text-sm">Posted by: <span className="text-[#D4AF37]">{announcement.author}</span></p>
                         {announcement.isNew && (
                           <Button
                             onClick={() => handleMarkAsRead(announcement.id)}
                             size="sm"
                             variant="outline"
-                            className="border-[#40916C] text-[#40916C]"
+                            className="border-[#40916C] text-[#40916C] w-full md:w-auto"
                           >
                             <Check className="w-4 h-4 mr-1" />
                             Mark as Read
@@ -202,8 +202,8 @@ export default function StudentAnnouncements() {
                 </motion.div>
               ))}
             </div>
-            <div className="mt-6 flex justify-between items-center">
-              <p className="text-gray-400 text-sm">
+            <div className="mt-4 md:mt-6 flex flex-col md:flex-row justify-between items-center gap-3">
+              <p className="text-gray-400 text-xs md:text-sm">
                 Showing {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, announcements.length)} of {announcements.length} announcements
               </p>
               <div className="flex gap-2">
@@ -214,8 +214,8 @@ export default function StudentAnnouncements() {
                   onClick={() => setCurrentPage(currentPage - 1)}
                   className="border-[#40916C] text-gray-300"
                 >
-                  <ChevronLeft className="w-4 h-4 mr-1" />
-                  Previous
+                  <ChevronLeft className="w-4 h-4 md:mr-1" />
+                  <span className="hidden md:inline">Previous</span>
                 </Button>
                 <Button
                   variant="outline"
@@ -224,8 +224,8 @@ export default function StudentAnnouncements() {
                   onClick={() => setCurrentPage(currentPage + 1)}
                   className="border-[#40916C] text-gray-300"
                 >
-                  Next
-                  <ChevronRight className="w-4 h-4 ml-1" />
+                  <span className="hidden md:inline">Next</span>
+                  <ChevronRight className="w-4 h-4 md:ml-1" />
                 </Button>
               </div>
             </div>
