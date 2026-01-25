@@ -505,7 +505,7 @@ export default function AdminFinance() {
 
         {/* Generate Invoice Modal */}
         <Dialog open={showGenerateInvoiceModal} onOpenChange={setShowGenerateInvoiceModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-sm md:max-w-2xl p-4 md:p-6">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-sm md:max-w-2xl p-4 md:p-6 max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-white text-base md:text-xl">Generate Invoice</DialogTitle>
             </DialogHeader>
@@ -582,7 +582,7 @@ export default function AdminFinance() {
 
         {/* Record Payment Modal */}
         <Dialog open={showRecordPaymentModal} onOpenChange={setShowRecordPaymentModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-white text-base md:text-xl">Record Payment</DialogTitle>
             </DialogHeader>
@@ -652,7 +652,7 @@ export default function AdminFinance() {
 
         {/* Refund Modal */}
         <Dialog open={showRefundModal} onOpenChange={setShowRefundModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-white text-base md:text-xl">Process Refund</DialogTitle>
             </DialogHeader>
@@ -729,7 +729,7 @@ export default function AdminFinance() {
 
         {/* Fee Structure Modal */}
         <Dialog open={showFeeStructureModal} onOpenChange={setShowFeeStructureModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle className="text-white text-base md:text-xl">
                 {selectedFeeStructure ? 'Edit Fee Structure' : 'Add Fee Structure'}
