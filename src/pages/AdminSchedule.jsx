@@ -52,7 +52,17 @@ export default function AdminSchedule() {
     return { firstDay, daysInMonth };
   };
 
+  const getWeekDays = (date) => {
+    const curr = new Date(date);
+    const first = curr.getDate() - curr.getDay();
+    return Array.from({ length: 7 }, (_, i) => {
+      const day = new Date(curr.setDate(first + i));
+      return day;
+    });
+  };
+
   const { firstDay, daysInMonth } = getDaysInMonth(currentDate);
+  const weekDays = getWeekDays(currentDate);
 
   const handleDateClick = (day) => {
     const dateStr = `2026-01-${String(day).padStart(2, '0')}`;
@@ -114,35 +124,89 @@ export default function AdminSchedule() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-3 md:p-6"
             >
               {/* Calendar Header */}
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-white">
+              <div className="flex justify-between items-center mb-4 md:mb-6">
+                <h2 className="text-lg md:text-2xl font-bold text-white">
                   {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </h2>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}
+                    onClick={() => {
+                      const newDate = new Date(currentDate);
+                      if (window.innerWidth < 768) {
+                        newDate.setDate(newDate.getDate() - 7);
+                      } else {
+                        newDate.setMonth(newDate.getMonth() - 1);
+                      }
+                      setCurrentDate(newDate);
+                    }}
                     className="border-[#40916C] text-gray-300"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-3 md:w-4 h-3 md:h-4" />
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)))}
+                    onClick={() => {
+                      const newDate = new Date(currentDate);
+                      if (window.innerWidth < 768) {
+                        newDate.setDate(newDate.getDate() + 7);
+                      } else {
+                        newDate.setMonth(newDate.getMonth() + 1);
+                      }
+                      setCurrentDate(newDate);
+                    }}
                     className="border-[#40916C] text-gray-300"
                   >
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-3 md:w-4 h-3 md:h-4" />
                   </Button>
                 </div>
               </div>
 
-              {/* Calendar Grid */}
-              <div className="grid grid-cols-7 gap-2">
+              {/* Mobile Weekly View */}
+              <div className="md:hidden">
+                <div className="grid grid-cols-7 gap-1 mb-2">
+                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
+                    <div key={i} className="text-center text-[#D4AF37] font-semibold text-xs py-1">
+                      {day}
+                    </div>
+                  ))}
+                </div>
+                <div className="grid grid-cols-7 gap-1">
+                  {weekDays.map((date, i) => {
+                    const day = date.getDate();
+                    const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    const classes = mockClasses[dateStr] || [];
+                    return (
+                      <motion.div
+                        key={i}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => handleDateClick(day)}
+                        className="aspect-square bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-md p-1 cursor-pointer active:border-[#D4AF37] transition-colors flex flex-col"
+                      >
+                        <div className="text-white font-semibold text-xs mb-0.5">{day}</div>
+                        <div className="flex-1 flex flex-col gap-0.5">
+                          {classes.slice(0, 1).map((cls, idx) => (
+                            <div key={idx} className="text-[8px] bg-[#40916C]/30 text-[#40916C] px-0.5 rounded truncate leading-tight">
+                              {cls.batch.split(' ')[0]}
+                            </div>
+                          ))}
+                          {classes.length > 1 && (
+                            <div className="text-[8px] text-[#D4AF37] leading-tight">+{classes.length - 1}</div>
+                          )}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Desktop Monthly View */}
+              <div className="hidden md:grid grid-cols-7 gap-2">
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
                   <div key={day} className="text-center text-[#D4AF37] font-semibold py-2">
                     {day}
