@@ -117,7 +117,7 @@ export default function StudentStore() {
                         disabled={product.stock !== 'In Stock'}
                         className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] disabled:opacity-50 text-sm"
                       >
-                        Order
+                        Add to Cart
                       </Button>
                     </div>
                   </Card>
