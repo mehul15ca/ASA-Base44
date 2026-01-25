@@ -169,7 +169,7 @@ export default function AdminFinance() {
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-3 md:mb-6 text-xs md:text-sm">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-3 md:mb-6 text-xs md:text-sm grid w-full grid-cols-4">
             <TabsTrigger value="overview" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
               Overview
             </TabsTrigger>
