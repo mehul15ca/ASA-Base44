@@ -505,9 +505,9 @@ export default function AdminFinance() {
 
         {/* Generate Invoice Modal */}
         <Dialog open={showGenerateInvoiceModal} onOpenChange={setShowGenerateInvoiceModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-sm md:max-w-2xl p-4 md:p-6">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Generate Invoice</DialogTitle>
+              <DialogTitle className="text-white text-base md:text-xl">Generate Invoice</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div>
@@ -582,9 +582,9 @@ export default function AdminFinance() {
 
         {/* Record Payment Modal */}
         <Dialog open={showRecordPaymentModal} onOpenChange={setShowRecordPaymentModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Record Payment</DialogTitle>
+              <DialogTitle className="text-white text-base md:text-xl">Record Payment</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
@@ -652,9 +652,9 @@ export default function AdminFinance() {
 
         {/* Refund Modal */}
         <Dialog open={showRefundModal} onOpenChange={setShowRefundModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Process Refund</DialogTitle>
+              <DialogTitle className="text-white text-base md:text-xl">Process Refund</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
@@ -729,9 +729,9 @@ export default function AdminFinance() {
 
         {/* Fee Structure Modal */}
         <Dialog open={showFeeStructureModal} onOpenChange={setShowFeeStructureModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F]">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] p-4 md:p-6 max-w-sm md:max-w-lg">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">
+              <DialogTitle className="text-white text-base md:text-xl">
                 {selectedFeeStructure ? 'Edit Fee Structure' : 'Add Fee Structure'}
               </DialogTitle>
             </DialogHeader>
