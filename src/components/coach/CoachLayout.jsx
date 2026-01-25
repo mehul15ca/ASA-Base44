@@ -131,36 +131,36 @@ export default function CoachLayout({ children, currentPageName }) {
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header */}
-        <motion.header
-          initial={{ y: -100 }}
-          animate={{ y: 0 }}
-          className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/50 px-4 md:px-8 py-3 md:py-4"
-        >
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                className="lg:hidden text-white p-1 hover:bg-[#2D6A4F]/20 rounded-lg flex-shrink-0"
-              >
-                {isSidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-              <h1 className="text-lg md:text-2xl font-bold text-white">{getPageTitle()}</h1>
-            </div>
-            <div className="hidden md:flex items-center gap-2 md:gap-4">
-              <div className="relative flex-1 md:w-80">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 h-3 md:w-4 md:h-4" />
-                <Input
-                  placeholder="Search..."
-                  className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-sm"
-                />
+          <motion.header
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-4 md:px-8 py-3 md:py-4"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                  className="lg:hidden text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg flex-shrink-0"
+                >
+                  {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                </button>
+                <h1 className="text-lg md:text-xl font-bold text-white">{getPageTitle()}</h1>
               </div>
-              <div className="relative">
-                <Bell className="w-5 h-5 md:w-6 md:h-6 text-gray-300 cursor-pointer hover:text-[#D4AF37]" />
-                <span className="absolute -top-1 -right-1 w-2 h-2 md:w-3 md:h-3 bg-red-500 rounded-full"></span>
+              <div className="hidden md:flex items-center gap-4">
+                <div className="relative w-80">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                  <Input
+                    placeholder="Search..."
+                    className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-sm"
+                  />
+                </div>
+                <div className="relative">
+                  <Bell className="w-5 h-5 text-gray-300 cursor-pointer hover:text-[#D4AF37]" />
+                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.header>
+          </motion.header>
 
         {/* Content */}
         <main className="flex-1 overflow-y-auto">
