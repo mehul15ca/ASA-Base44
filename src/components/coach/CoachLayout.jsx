@@ -130,34 +130,39 @@ export default function CoachLayout({ children, currentPageName }) {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Header */}
+        {/* Mobile Header */}
+          <div className="lg:hidden bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-4 py-3 flex items-center justify-between">
+            <button
+              onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              className="text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+            <div className="flex items-center gap-2">
+              <AnimatedLogo size="xs" />
+              <h1 className="text-white font-bold">Auustralasia</h1>
+            </div>
+            <div className="w-10" />
+          </div>
+
+          {/* Desktop Header */}
           <motion.header
             initial={{ y: -100 }}
             animate={{ y: 0 }}
-            className="bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-4 md:px-8 py-3 md:py-4"
+            className="hidden lg:flex bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-8 py-4 items-center justify-between"
           >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <button
-                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  className="lg:hidden text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg flex-shrink-0"
-                >
-                  {isSidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                </button>
-                <h1 className="text-lg md:text-xl font-bold text-white">{getPageTitle()}</h1>
+            <h1 className="text-xl font-bold text-white">{getPageTitle()}</h1>
+            <div className="flex items-center gap-4">
+              <div className="relative w-80">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <Input
+                  placeholder="Search..."
+                  className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-sm"
+                />
               </div>
-              <div className="hidden md:flex items-center gap-4">
-                <div className="relative w-80">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    placeholder="Search..."
-                    className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-sm"
-                  />
-                </div>
-                <div className="relative">
-                  <Bell className="w-5 h-5 text-gray-300 cursor-pointer hover:text-[#D4AF37]" />
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                </div>
+              <div className="relative">
+                <Bell className="w-5 h-5 text-gray-300 cursor-pointer hover:text-[#D4AF37]" />
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
               </div>
             </div>
           </motion.header>
