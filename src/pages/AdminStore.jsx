@@ -138,7 +138,7 @@ export default function AdminStore() {
               </CardTitle>
             </CardHeader>
             <CardContent className="p-3 md:p-6 pt-0 md:pt-0">
-              <p className="text-lg md:text-3xl font-bold text-white">₹{(totalRevenue / 100000).toFixed(0)}L</p>
+              <p className="text-lg md:text-3xl font-bold text-white">${(totalRevenue / 1000).toFixed(2)}K</p>
             </CardContent>
           </Card>
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50">
@@ -197,7 +197,7 @@ export default function AdminStore() {
                         <Badge variant="outline" className="mt-1 text-xs border-[#40916C] text-gray-300">{product.category}</Badge>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-lg md:text-2xl font-bold text-[#D4AF37]">₹{product.price}</span>
+                        <span className="text-lg md:text-2xl font-bold text-[#D4AF37]">${product.price}</span>
                         <div className="text-xs md:text-sm text-gray-400">
                           <span className={product.stock < 10 ? 'text-red-400 font-medium' : 'font-medium text-gray-300'}>{product.stock}</span>
                         </div>
@@ -233,7 +233,7 @@ export default function AdminStore() {
                               </div>
                               <div className="grid grid-cols-2 gap-2 md:gap-4">
                                 <div>
-                                  <Label className="text-xs md:text-sm text-gray-400">Price (₹)</Label>
+                                  <Label className="text-xs md:text-sm text-gray-400">Price (CAD)</Label>
                                   <Input type="number" defaultValue={product.price} className="mt-1 bg-[#0A1F0A] border-[#2D6A4F] text-white text-sm" />
                                 </div>
                                 <div>
