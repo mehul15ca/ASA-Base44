@@ -52,17 +52,7 @@ export default function AdminSchedule() {
     return { firstDay, daysInMonth };
   };
 
-  const getWeekDays = (date) => {
-    const curr = new Date(date);
-    const first = curr.getDate() - curr.getDay();
-    return Array.from({ length: 7 }, (_, i) => {
-      const day = new Date(curr.setDate(first + i));
-      return day;
-    });
-  };
-
   const { firstDay, daysInMonth } = getDaysInMonth(currentDate);
-  const weekDays = getWeekDays(currentDate);
 
   const handleDateClick = (day) => {
     const dateStr = `2026-01-${String(day).padStart(2, '0')}`;
@@ -97,24 +87,24 @@ export default function AdminSchedule() {
 
   return (
     <AdminLayout>
-      <div className="p-3 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-4 md:mb-8"
+          className="mb-8"
         >
-          <h1 className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-2">Schedule & Matches</h1>
-          <p className="text-gray-400 text-xs md:text-base hidden md:block">Manage training schedule and matches</p>
+          <h1 className="text-3xl font-bold text-white mb-2">Schedule & Matches</h1>
+          <p className="text-gray-400">Manage training schedule and matches</p>
         </motion.div>
 
         {/* Tabs */}
         <Tabs defaultValue="schedule" className="w-full">
-          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-3 md:mb-6 w-full md:w-auto">
-            <TabsTrigger value="schedule" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm flex-1 md:flex-initial">
+          <TabsList className="bg-[#0D2818] border border-[#2D6A4F]/50 mb-6">
+            <TabsTrigger value="schedule" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
               Schedule
             </TabsTrigger>
-            <TabsTrigger value="matches" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm flex-1 md:flex-initial">
+            <TabsTrigger value="matches" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
               Matches
             </TabsTrigger>
           </TabsList>
@@ -124,96 +114,35 @@ export default function AdminSchedule() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-3 md:p-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
             >
               {/* Calendar Header */}
-              <div className="flex justify-between items-center mb-4 md:mb-6">
-                <h2 className="text-lg md:text-2xl font-bold text-white">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-2xl font-bold text-white">
                   {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </h2>
                 <div className="flex gap-2">
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => {
-                      const newDate = new Date(currentDate);
-                      if (window.innerWidth < 768) {
-                        newDate.setDate(newDate.getDate() - 7);
-                      } else {
-                        newDate.setMonth(newDate.getMonth() - 1);
-                      }
-                      setCurrentDate(newDate);
-                    }}
+                    onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() - 1)))}
                     className="border-[#40916C] text-gray-300"
                   >
-                    <ChevronLeft className="w-3 md:w-4 h-3 md:h-4" />
+                    <ChevronLeft className="w-4 h-4" />
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => {
-                      const newDate = new Date(currentDate);
-                      if (window.innerWidth < 768) {
-                        newDate.setDate(newDate.getDate() + 7);
-                      } else {
-                        newDate.setMonth(newDate.getMonth() + 1);
-                      }
-                      setCurrentDate(newDate);
-                    }}
+                    onClick={() => setCurrentDate(new Date(currentDate.setMonth(currentDate.getMonth() + 1)))}
                     className="border-[#40916C] text-gray-300"
                   >
-                    <ChevronRight className="w-3 md:w-4 h-3 md:h-4" />
+                    <ChevronRight className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
 
-              {/* Mobile Weekly View */}
-              <div className="md:hidden">
-                <div className="grid grid-cols-7 gap-1.5 mb-3">
-                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                    <div key={i} className="text-center text-[#D4AF37] font-bold text-[11px] py-1.5">
-                      {day}
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-7 gap-1.5">
-                  {weekDays.map((date, i) => {
-                    const day = date.getDate();
-                    const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-                    const classes = mockClasses[dateStr] || [];
-                    const isToday = date.toDateString() === new Date().toDateString();
-                    return (
-                      <motion.div
-                        key={i}
-                        whileTap={{ scale: 0.92 }}
-                        onClick={() => handleDateClick(day)}
-                        className={`aspect-square bg-[#0A1F0A] border rounded-lg p-1.5 cursor-pointer transition-all ${
-                          isToday 
-                            ? 'border-[#D4AF37] shadow-lg shadow-[#D4AF37]/20' 
-                            : classes.length > 0 
-                              ? 'border-[#40916C]/50' 
-                              : 'border-[#2D6A4F]/30'
-                        } active:border-[#D4AF37] hover:border-[#D4AF37]/70 flex flex-col`}
-                      >
-                        <div className={`font-semibold text-xs mb-1 text-center ${isToday ? 'text-[#D4AF37]' : 'text-white'}`}>
-                          {day}
-                        </div>
-                        <div className="flex-1 flex flex-col items-center justify-center gap-0.5">
-                          {classes.length > 0 && (
-                            <div className="w-1 h-1 rounded-full bg-[#40916C]" />
-                          )}
-                          {classes.length > 1 && (
-                            <div className="text-[9px] text-[#D4AF37] font-medium">{classes.length}</div>
-                          )}
-                        </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Desktop Monthly View */}
-              <div className="hidden md:grid grid-cols-7 gap-2">
+              {/* Calendar Grid */}
+              <div className="grid grid-cols-7 gap-2">
                 {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
                   <div key={day} className="text-center text-[#D4AF37] font-semibold py-2">
                     {day}
@@ -254,17 +183,17 @@ export default function AdminSchedule() {
           {/* Matches Tab */}
           <TabsContent value="matches">
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-3 md:mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
+                  className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
                 >
-                  <p className="text-gray-400 text-xs md:text-sm mb-1 md:mb-2">{stat.label}</p>
-                  <p className="text-xl md:text-3xl font-bold text-white">{stat.value}</p>
+                  <p className="text-gray-400 text-sm mb-2">{stat.label}</p>
+                  <p className="text-3xl font-bold text-white">{stat.value}</p>
                 </motion.div>
               ))}
             </div>
@@ -273,19 +202,19 @@ export default function AdminSchedule() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
             >
-              <div className="flex flex-wrap gap-2 md:gap-4">
-                <div className="relative flex-1 min-w-[120px]">
+              <div className="flex flex-wrap gap-4">
+                <div className="relative flex-1 min-w-[200px]">
                   <Input
                     placeholder="Search matches..."
                     value={searchMatch}
                     onChange={(e) => setSearchMatch(e.target.value)}
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
                   />
                 </div>
                 <Select value={matchStatusFilter} onValueChange={setMatchStatusFilter}>
-                  <SelectTrigger className="w-28 md:w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
+                  <SelectTrigger className="w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -297,17 +226,16 @@ export default function AdminSchedule() {
                 </Select>
                 <Button
                   onClick={() => setShowCreateMatchModal(true)}
-                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm"
+                  className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
                 >
-                  <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
-                  <span className="hidden md:inline">Create</span>
-                  <span className="md:hidden">New</span>
+                  <Plus className="w-4 h-4 mr-2" />
+                  Create Match
                 </Button>
               </div>
             </motion.div>
 
             {/* Matches List */}
-            <div className="space-y-3 md:space-y-4">
+            <div className="space-y-4">
               {filteredMatches.map((match, index) => (
                 <motion.div
                   key={match.id}
@@ -315,16 +243,16 @@ export default function AdminSchedule() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
-                    <div className="flex justify-between items-start mb-3 md:mb-4">
-                      <div className="flex-1">
-                        <h3 className="text-base md:text-xl font-bold text-white mb-1.5 md:mb-2">{match.title}</h3>
-                        <div className="flex flex-wrap gap-1.5 md:gap-2">
-                          <Badge className="bg-[#D4AF37]/20 text-[#D4AF37] text-[10px] md:text-xs">{match.sport}</Badge>
-                          <Badge className={`text-[10px] md:text-xs ${match.status === 'Completed' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                  <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-2">{match.title}</h3>
+                        <div className="flex gap-2">
+                          <Badge className="bg-[#D4AF37]/20 text-[#D4AF37]">{match.sport}</Badge>
+                          <Badge className={match.status === 'Completed' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}>
                             {match.status}
                           </Badge>
-                          <Badge variant="outline" className="border-[#40916C] text-[#40916C] text-[10px] md:text-xs">
+                          <Badge variant="outline" className="border-[#40916C] text-[#40916C]">
                             {match.type}
                           </Badge>
                         </div>
@@ -336,48 +264,48 @@ export default function AdminSchedule() {
                           setSelectedMatch(match);
                           setShowEditMatchModal(true);
                         }}
-                        className="border-[#40916C] text-[#40916C] ml-2"
+                        className="border-[#40916C] text-[#40916C]"
                       >
-                        <Edit className="w-3 md:w-4 h-3 md:h-4" />
+                        <Edit className="w-4 h-4" />
                       </Button>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-4 mb-3 md:mb-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                       <div>
-                        <p className="text-gray-400 text-[10px] md:text-xs">Date</p>
-                        <p className="text-white text-xs md:text-sm">{match.date}</p>
+                        <p className="text-gray-400 text-xs">Date</p>
+                        <p className="text-white text-sm">{match.date}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-[10px] md:text-xs">Time</p>
-                        <p className="text-white text-xs md:text-sm">{match.time}</p>
+                        <p className="text-gray-400 text-xs">Time</p>
+                        <p className="text-white text-sm">{match.time}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-[10px] md:text-xs">Ground</p>
-                        <p className="text-white text-xs md:text-sm truncate">{match.ground}</p>
+                        <p className="text-gray-400 text-xs">Ground</p>
+                        <p className="text-white text-sm">{match.ground}</p>
                       </div>
                       <div>
-                        <p className="text-gray-400 text-[10px] md:text-xs">Players</p>
-                        <p className="text-white text-xs md:text-sm">{match.players}</p>
+                        <p className="text-gray-400 text-xs">Players</p>
+                        <p className="text-white text-sm">{match.players}</p>
                       </div>
                     </div>
-                    <div className="bg-[#0A1F0A]/50 rounded-lg p-2.5 md:p-4">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-0">
-                        <div className="flex items-center gap-2 md:gap-3">
+                    <div className="bg-[#0A1F0A]/50 rounded-lg p-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
                           <div className="text-center">
-                            <p className="text-white font-semibold text-xs md:text-base">{match.teamA}</p>
+                            <p className="text-white font-semibold">{match.teamA}</p>
                           </div>
-                          <span className="text-gray-400 text-xs md:text-base">vs</span>
+                          <span className="text-gray-400">vs</span>
                           <div className="text-center">
-                            <p className="text-white font-semibold text-xs md:text-base">{match.teamB}</p>
+                            <p className="text-white font-semibold">{match.teamB}</p>
                           </div>
                         </div>
                         <div>
-                          <p className="text-gray-400 text-[10px] md:text-xs">Coach</p>
-                          <p className="text-white text-xs md:text-sm">{match.coach}</p>
+                          <p className="text-gray-400 text-xs">Coach</p>
+                          <p className="text-white text-sm">{match.coach}</p>
                         </div>
                       </div>
                       {match.result && match.status === 'Completed' && (
-                        <div className="mt-2 md:mt-3 pt-2 md:pt-3 border-t border-[#2D6A4F]/50">
-                          <p className="text-[#D4AF37] font-semibold text-xs md:text-base">Result: {match.result}</p>
+                        <div className="mt-3 pt-3 border-t border-[#2D6A4F]/50">
+                          <p className="text-[#D4AF37] font-semibold">Result: {match.result}</p>
                         </div>
                       )}
                     </div>
