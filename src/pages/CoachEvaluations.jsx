@@ -87,27 +87,27 @@ export default function CoachEvaluations() {
 
         {/* Students List */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-            <div className="space-y-4">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-3 md:p-6">
+            <div className="space-y-2 md:space-y-4">
               {filteredStudents.map((student, index) => (
                 <motion.div
                   key={student.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-[#0A1F0A]/50 rounded-lg p-6 flex justify-between items-center"
+                  className="bg-[#0A1F0A]/50 rounded-lg p-3 md:p-6 flex flex-col md:flex-row md:justify-between md:items-center gap-2 md:gap-0"
                 >
                   <div>
-                    <h3 className="text-white font-semibold text-lg">{student.name}</h3>
-                    <p className="text-gray-400 text-sm">{student.batch}</p>
-                    <p className="text-[#D4AF37] text-sm mt-1">Recent Score: {student.recentScore}%</p>
+                    <h3 className="text-white font-semibold text-sm md:text-lg">{student.name}</h3>
+                    <p className="text-gray-400 text-xs md:text-sm">{student.batch}</p>
+                    <p className="text-[#D4AF37] text-xs md:text-sm mt-1">Score: {student.recentScore}%</p>
                   </div>
                   <Button
                     onClick={() => handleOpenEvaluation(student)}
-                    className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37]"
+                    className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] text-xs md:text-sm h-8 md:h-10 w-full md:w-auto"
                   >
-                    <Plus className="w-4 h-4 mr-2" />
-                    New Evaluation
+                    <Plus className="w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2" />
+                    Evaluate
                   </Button>
                 </motion.div>
               ))}
