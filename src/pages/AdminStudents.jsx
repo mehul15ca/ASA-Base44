@@ -256,57 +256,57 @@ export default function AdminStudents() {
 
         {/* Student Details Modal */}
         <Dialog open={showDetailsModal} onOpenChange={setShowDetailsModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-3xl max-h-[90vh] overflow-y-auto p-4 md:p-6">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl flex items-center justify-between">
+              <DialogTitle className="text-white text-base md:text-xl flex flex-col md:flex-row md:items-center justify-between gap-1 md:gap-0">
                 <span>{selectedStudent?.name}</span>
-                <span className="text-[#D4AF37] text-sm">{selectedStudent?.id}</span>
+                <span className="text-[#D4AF37] text-xs md:text-sm">{selectedStudent?.id}</span>
               </DialogTitle>
             </DialogHeader>
 
             <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="bg-[#0A1F0A] border border-[#2D6A4F]/50">
-                <TabsTrigger value="overview" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
+              <TabsList className="bg-[#0A1F0A] border border-[#2D6A4F]/50 grid grid-cols-4 w-full">
+                <TabsTrigger value="overview" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm">
                   Overview
                 </TabsTrigger>
-                <TabsTrigger value="attendance" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
-                  Attendance
+                <TabsTrigger value="attendance" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm">
+                  Attend.
                 </TabsTrigger>
-                <TabsTrigger value="fees" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
+                <TabsTrigger value="fees" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm">
                   Fees
                 </TabsTrigger>
-                <TabsTrigger value="performance" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A]">
-                  Performance
+                <TabsTrigger value="performance" className="data-[state=active]:bg-[#D4AF37] data-[state=active]:text-[#0A1F0A] text-xs md:text-sm">
+                  Perf.
                 </TabsTrigger>
               </TabsList>
 
-              <TabsContent value="overview" className="space-y-4 mt-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Batch</p>
-                    <p className="text-white font-semibold">{selectedStudent?.batch}</p>
+              <TabsContent value="overview" className="space-y-3 md:space-y-4 mt-3 md:mt-4">
+                <div className="grid grid-cols-2 gap-2 md:gap-4">
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-3 md:p-4">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Batch</p>
+                    <p className="text-white font-semibold text-xs md:text-base">{selectedStudent?.batch}</p>
                   </Card>
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Phone</p>
-                    <p className="text-white font-semibold">{selectedStudent?.phone}</p>
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-3 md:p-4">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Phone</p>
+                    <p className="text-white font-semibold text-xs md:text-base">{selectedStudent?.phone}</p>
                   </Card>
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Monthly Fee</p>
-                    <p className="text-[#D4AF37] font-bold text-lg">${selectedStudent?.fee}</p>
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-3 md:p-4">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Monthly Fee</p>
+                    <p className="text-[#D4AF37] font-bold text-base md:text-lg">${selectedStudent?.fee}</p>
                   </Card>
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Status</p>
-                    <Badge className={selectedStudent?.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}>
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-3 md:p-4">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">Status</p>
+                    <Badge className={`text-xs ${selectedStudent?.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>
                       {selectedStudent?.status}
                     </Badge>
                   </Card>
                 </div>
               </TabsContent>
 
-              <TabsContent value="attendance" className="space-y-4 mt-4">
-                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-4">
-                  <h3 className="text-white font-semibold mb-4">Attendance Trend</h3>
-                  <ResponsiveContainer width="100%" height={200}>
+              <TabsContent value="attendance" className="space-y-3 md:space-y-4 mt-3 md:mt-4">
+                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4">
+                  <h3 className="text-white font-semibold mb-3 md:mb-4 text-sm md:text-base">Attendance Trend</h3>
+                  <ResponsiveContainer width="100%" height={160}>
                     <LineChart data={attendanceData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#2D6A4F" />
                       <XAxis dataKey="month" stroke="#9CA3AF" />
@@ -318,62 +318,63 @@ export default function AdminStudents() {
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
-                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-4">
-                  <h3 className="text-white font-semibold mb-3">Recent Records</h3>
+                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4">
+                  <h3 className="text-white font-semibold mb-2 md:mb-3 text-sm md:text-base">Recent Records</h3>
                   <div className="space-y-2">
                     {attendanceRecords.slice(0, 3).map((record, i) => (
-                      <div key={i} className="flex justify-between items-center py-2 border-b border-[#2D6A4F]/30 last:border-0">
-                        <span className="text-gray-300 text-sm">{record.date}</span>
-                        <Badge className={
+                      <div key={i} className="flex justify-between items-center py-1.5 md:py-2 border-b border-[#2D6A4F]/30 last:border-0">
+                        <span className="text-gray-300 text-xs md:text-sm">{record.date}</span>
+                        <Badge className={`text-[10px] md:text-xs ${
                           record.status === 'Present' ? 'bg-green-500/20 text-green-400' :
                           record.status === 'Late' ? 'bg-yellow-500/20 text-yellow-400' :
                           'bg-red-500/20 text-red-400'
-                        }>
+                        }`}>
                           {record.status}
                         </Badge>
                       </div>
                     ))}
                   </div>
-                  <div className="flex gap-2 mt-4">
-                    <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
-                      <ChevronLeft className="w-4 h-4 mr-1" />
-                      Previous
+                  <div className="flex gap-2 mt-3 md:mt-4">
+                    <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300 text-xs md:text-sm">
+                      <ChevronLeft className="w-3 md:w-4 h-3 md:h-4 mr-1" />
+                      <span className="hidden md:inline">Previous</span>
+                      <span className="md:hidden">Prev</span>
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300">
+                    <Button size="sm" variant="outline" className="flex-1 border-[#40916C] text-gray-300 text-xs md:text-sm">
                       Next
-                      <ChevronRight className="w-4 h-4 ml-1" />
+                      <ChevronRight className="w-3 md:w-4 h-3 md:h-4 ml-1" />
                     </Button>
                   </div>
                 </div>
               </TabsContent>
 
-              <TabsContent value="fees" className="space-y-4 mt-4">
-                <div className="grid grid-cols-3 gap-4">
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Monthly Fee</p>
-                    <p className="text-[#D4AF37] font-bold text-lg">${selectedStudent?.fee}</p>
+              <TabsContent value="fees" className="space-y-3 md:space-y-4 mt-3 md:mt-4">
+                <div className="grid grid-cols-3 gap-2 md:gap-4">
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-1">Monthly Fee</p>
+                    <p className="text-[#D4AF37] font-bold text-sm md:text-lg">${selectedStudent?.fee}</p>
                   </Card>
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Next Due Date</p>
-                    <p className="text-white font-semibold">Feb 1, 2026</p>
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-1">Next Due</p>
+                    <p className="text-white font-semibold text-xs md:text-base">Feb 1</p>
                   </Card>
-                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-4">
-                    <p className="text-gray-400 text-sm mb-1">Wallet Balance</p>
-                    <p className="text-green-400 font-bold text-lg">$50</p>
+                  <Card className="bg-[#0A1F0A] border-[#2D6A4F]/50 p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-1">Wallet</p>
+                    <p className="text-green-400 font-bold text-sm md:text-lg">$50</p>
                   </Card>
                 </div>
-                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-4">
-                  <h3 className="text-white font-semibold mb-3">Payment History</h3>
+                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4">
+                  <h3 className="text-white font-semibold mb-2 md:mb-3 text-sm md:text-base">Payment History</h3>
                   <div className="space-y-2">
                     {paymentHistory.map((payment, i) => (
-                      <div key={i} className="flex justify-between items-center py-3 border-b border-[#2D6A4F]/30 last:border-0">
+                      <div key={i} className="flex justify-between items-center py-2 md:py-3 border-b border-[#2D6A4F]/30 last:border-0">
                         <div>
-                          <p className="text-white text-sm">{payment.date}</p>
-                          <p className="text-gray-400 text-xs">{payment.method}</p>
+                          <p className="text-white text-xs md:text-sm">{payment.date}</p>
+                          <p className="text-gray-400 text-[10px] md:text-xs">{payment.method}</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-[#D4AF37] font-bold">${payment.amount}</p>
-                          <Badge className="bg-green-500/20 text-green-400">{payment.status}</Badge>
+                          <p className="text-[#D4AF37] font-bold text-xs md:text-base">${payment.amount}</p>
+                          <Badge className="bg-green-500/20 text-green-400 text-[10px] md:text-xs">{payment.status}</Badge>
                         </div>
                       </div>
                     ))}
@@ -381,43 +382,43 @@ export default function AdminStudents() {
                 </div>
               </TabsContent>
 
-              <TabsContent value="performance" className="space-y-4 mt-4">
-                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-4">
-                  <h3 className="text-white font-semibold mb-3">Evaluations</h3>
-                  <div className="space-y-3">
+              <TabsContent value="performance" className="space-y-3 md:space-y-4 mt-3 md:mt-4">
+                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4">
+                  <h3 className="text-white font-semibold mb-2 md:mb-3 text-sm md:text-base">Evaluations</h3>
+                  <div className="space-y-2 md:space-y-3">
                     <div className="flex justify-between items-center">
                       <div>
-                        <p className="text-white text-sm">Batting Skills</p>
+                        <p className="text-white text-xs md:text-sm">Batting Skills</p>
                         <div className="flex gap-1 mt-1">
                           {[1,2,3,4,5].map(i => (
-                            <div key={i} className={`w-2 h-2 rounded-full ${i <= 4 ? 'bg-[#D4AF37]' : 'bg-gray-600'}`} />
+                            <div key={i} className={`w-1.5 md:w-2 h-1.5 md:h-2 rounded-full ${i <= 4 ? 'bg-[#D4AF37]' : 'bg-gray-600'}`} />
                           ))}
                         </div>
                       </div>
-                      <span className="text-[#D4AF37] font-bold">4.0</span>
+                      <span className="text-[#D4AF37] font-bold text-sm md:text-base">4.0</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <div>
-                        <p className="text-white text-sm">Fielding</p>
+                        <p className="text-white text-xs md:text-sm">Fielding</p>
                         <div className="flex gap-1 mt-1">
                           {[1,2,3,4,5].map(i => (
-                            <div key={i} className={`w-2 h-2 rounded-full ${i <= 3 ? 'bg-[#D4AF37]' : 'bg-gray-600'}`} />
+                            <div key={i} className={`w-1.5 md:w-2 h-1.5 md:h-2 rounded-full ${i <= 3 ? 'bg-[#D4AF37]' : 'bg-gray-600'}`} />
                           ))}
                         </div>
                       </div>
-                      <span className="text-[#D4AF37] font-bold">3.5</span>
+                      <span className="text-[#D4AF37] font-bold text-sm md:text-base">3.5</span>
                     </div>
                   </div>
                 </div>
-                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-4">
-                  <h3 className="text-white font-semibold mb-3">Injury Reports</h3>
+                <div className="bg-[#0A1F0A] border border-[#2D6A4F]/50 rounded-lg p-3 md:p-4">
+                  <h3 className="text-white font-semibold mb-2 md:mb-3 text-sm md:text-base">Injury Reports</h3>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center py-2">
                       <div>
-                        <p className="text-white text-sm">Ankle Sprain</p>
-                        <p className="text-gray-400 text-xs">2025-12-15</p>
+                        <p className="text-white text-xs md:text-sm">Ankle Sprain</p>
+                        <p className="text-gray-400 text-[10px] md:text-xs">2025-12-15</p>
                       </div>
-                      <Badge className="bg-green-500/20 text-green-400">Recovered</Badge>
+                      <Badge className="bg-green-500/20 text-green-400 text-[10px] md:text-xs">Recovered</Badge>
                     </div>
                   </div>
                 </div>
