@@ -51,29 +51,29 @@ export default function AdminBatches() {
 
   return (
     <AdminLayout>
-      <div className="p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
+      <div className="p-3 md:p-6 lg:p-8 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#0A1F0A] min-h-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <h1 className="text-3xl font-bold text-white mb-2">Batch Management</h1>
-          <p className="text-gray-400">Manage batches, schedules, and student groups</p>
+          <h1 className="text-xl md:text-3xl font-bold text-white mb-0.5 md:mb-2">Batch Management</h1>
+          <p className="text-gray-400 text-xs md:text-base hidden md:block">Manage batches, schedules, and student groups</p>
         </motion.div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-4 md:mb-8">
           {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6"
+              className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6"
             >
-              <p className="text-gray-400 text-sm mb-2">{stat.label}</p>
-              <p className="text-3xl font-bold text-white">{stat.value}</p>
+              <p className="text-gray-400 text-xs md:text-sm mb-1 md:mb-2">{stat.label}</p>
+              <p className="text-xl md:text-3xl font-bold text-white">{stat.value}</p>
             </motion.div>
           ))}
         </div>
@@ -82,20 +82,20 @@ export default function AdminBatches() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl p-6 mb-6"
+          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl p-3 md:p-6 mb-3 md:mb-6"
         >
-          <div className="flex flex-wrap gap-4">
-            <div className="relative flex-1 min-w-[200px]">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <div className="flex flex-wrap gap-2 md:gap-4">
+            <div className="relative flex-1 min-w-[120px]">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-3 md:w-4 h-3 md:h-4" />
               <Input
                 placeholder="Search batches..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                className="pl-9 md:pl-10 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm"
               />
             </div>
             <Select value={sportFilter} onValueChange={setSportFilter}>
-              <SelectTrigger className="w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white">
+              <SelectTrigger className="w-32 md:w-48 bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -111,10 +111,10 @@ export default function AdminBatches() {
                 setEditingBatch(null);
                 setShowAddBatchModal(true);
               }}
-              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs md:text-sm"
             >
-              <Plus className="w-4 h-4 mr-2" />
-              Add Batch
+              <Plus className="w-3 md:w-4 h-3 md:h-4 mr-1 md:mr-2" />
+              Add
             </Button>
           </div>
         </motion.div>
@@ -123,20 +123,20 @@ export default function AdminBatches() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-xl overflow-hidden"
+          className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border border-[#2D6A4F]/50 rounded-lg md:rounded-xl overflow-hidden"
         >
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto -mx-3 md:mx-0">
             <table className="w-full">
               <thead className="bg-[#0D2818] border-b border-[#2D6A4F]/50">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Batch Name</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Sport</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Coach</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Ground</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Students</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Schedule</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Status</th>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-300">Actions</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Name</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden lg:table-cell">Sport</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden xl:table-cell">Coach</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden xl:table-cell">Ground</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Students</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300 hidden md:table-cell">Schedule</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Status</th>
+                  <th className="px-3 md:px-6 py-2 md:py-4 text-left text-xs md:text-sm font-semibold text-gray-300">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -148,33 +148,33 @@ export default function AdminBatches() {
                     transition={{ delay: index * 0.05 }}
                     className="border-b border-[#2D6A4F]/30 hover:bg-[#2D6A4F]/10 transition-colors"
                   >
-                    <td className="px-6 py-4 text-sm text-white font-medium">{batch.name}</td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{batch.sport}</td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{batch.coach}</td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{batch.ground}</td>
-                    <td className="px-6 py-4 text-sm text-[#D4AF37] font-semibold">{batch.students}</td>
-                    <td className="px-6 py-4 text-sm text-gray-300">{batch.schedule}</td>
-                    <td className="px-6 py-4">
-                      <Badge className={batch.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-white font-medium">{batch.name}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden lg:table-cell">{batch.sport}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden xl:table-cell">{batch.coach}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden xl:table-cell">{batch.ground}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-[#D4AF37] font-semibold">{batch.students}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4 text-xs md:text-sm text-gray-300 hidden md:table-cell">{batch.schedule}</td>
+                    <td className="px-3 md:px-6 py-2 md:py-4">
+                      <Badge className={`text-[10px] md:text-xs ${batch.status === 'Active' ? 'bg-green-500/20 text-green-400' : 'bg-gray-500/20 text-gray-400'}`}>
                         {batch.status}
                       </Badge>
                     </td>
-                    <td className="px-6 py-4">
-                      <div className="flex gap-2">
+                    <td className="px-3 md:px-6 py-2 md:py-4">
+                      <div className="flex gap-1 md:gap-2">
                         <Button
                           size="sm"
                           variant="outline"
                           onClick={() => handleEditBatch(batch)}
                           className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10"
                         >
-                          <Edit className="w-4 h-4" />
+                          <Edit className="w-3 md:w-4 h-3 md:h-4" />
                         </Button>
                         <Button
                           size="sm"
                           variant="outline"
                           className="border-red-500/50 text-red-400 hover:bg-red-500/10"
                         >
-                          <Trash2 className="w-4 h-4" />
+                          <Trash2 className="w-3 md:w-4 h-3 md:h-4" />
                         </Button>
                       </div>
                     </td>
@@ -185,9 +185,9 @@ export default function AdminBatches() {
           </div>
 
           {/* Pagination */}
-          <div className="px-6 py-4 border-t border-[#2D6A4F]/50 flex justify-between items-center">
-            <p className="text-sm text-gray-400">
-              Showing {startIndex + 1} to {Math.min(endIndex, filteredBatches.length)} of {filteredBatches.length} batches
+          <div className="px-3 md:px-6 py-3 md:py-4 border-t border-[#2D6A4F]/50 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+            <p className="text-xs md:text-sm text-gray-400">
+              Showing {startIndex + 1}-{Math.min(endIndex, filteredBatches.length)} of {filteredBatches.length}
             </p>
             <div className="flex gap-2">
               <Button
@@ -195,20 +195,21 @@ export default function AdminBatches() {
                 size="sm"
                 disabled={currentPage === 1}
                 onClick={() => setCurrentPage(currentPage - 1)}
-                className="border-[#40916C] text-gray-300"
+                className="border-[#40916C] text-gray-300 text-xs md:text-sm"
               >
-                <ChevronLeft className="w-4 h-4 mr-1" />
-                Previous
+                <ChevronLeft className="w-3 md:w-4 h-3 md:h-4 mr-1" />
+                <span className="hidden md:inline">Previous</span>
+                <span className="md:hidden">Prev</span>
               </Button>
               <Button
                 variant="outline"
                 size="sm"
                 disabled={currentPage === totalPages}
                 onClick={() => setCurrentPage(currentPage + 1)}
-                className="border-[#40916C] text-gray-300"
+                className="border-[#40916C] text-gray-300 text-xs md:text-sm"
               >
                 Next
-                <ChevronRight className="w-4 h-4 ml-1" />
+                <ChevronRight className="w-3 md:w-4 h-3 md:h-4 ml-1" />
               </Button>
             </div>
           </div>
@@ -216,25 +217,25 @@ export default function AdminBatches() {
 
         {/* Add/Edit Batch Modal */}
         <Dialog open={showAddBatchModal} onOpenChange={setShowAddBatchModal}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl p-4 md:p-6">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">
+              <DialogTitle className="text-white text-base md:text-xl">
                 {editingBatch ? 'Edit Batch' : 'Add New Batch'}
               </DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <div>
-                <Label className="text-gray-300">Batch Name *</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Batch Name *</Label>
                 <Input 
                   defaultValue={editingBatch?.name}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white" 
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm" 
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div>
-                  <Label className="text-gray-300">Sport *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Sport *</Label>
                   <Select defaultValue={editingBatch?.sport?.toLowerCase()}>
-                    <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                    <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                       <SelectValue placeholder="Select sport" />
                     </SelectTrigger>
                     <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -246,9 +247,9 @@ export default function AdminBatches() {
                   </Select>
                 </div>
                 <div>
-                  <Label className="text-gray-300">Coach *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Coach *</Label>
                   <Select>
-                    <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                    <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                       <SelectValue placeholder="Select coach" />
                     </SelectTrigger>
                     <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -260,9 +261,9 @@ export default function AdminBatches() {
                 </div>
               </div>
               <div>
-                <Label className="text-gray-300">Ground *</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Ground *</Label>
                 <Select>
-                  <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                  <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                     <SelectValue placeholder="Select ground" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
@@ -273,33 +274,33 @@ export default function AdminBatches() {
                 </Select>
               </div>
               <div>
-                <Label className="text-gray-300">Schedule *</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Schedule *</Label>
                 <Input 
                   placeholder="e.g., Mon/Wed/Fri 6:00 AM - 7:30 AM"
                   defaultValue={editingBatch?.schedule}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white" 
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm" 
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 <div>
-                  <Label className="text-gray-300">Capacity *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Capacity *</Label>
                   <Input 
                     type="number"
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white" 
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm" 
                   />
                 </div>
                 <div>
-                  <Label className="text-gray-300">Fee Amount *</Label>
+                  <Label className="text-gray-300 text-xs md:text-sm">Fee Amount *</Label>
                   <Input 
                     type="number"
-                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white" 
+                    className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm" 
                   />
                 </div>
               </div>
               <div>
-                <Label className="text-gray-300">Status *</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Status *</Label>
                 <Select defaultValue={editingBatch?.status?.toLowerCase() || 'active'}>
-                  <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white">
+                  <SelectTrigger className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs md:text-sm">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
