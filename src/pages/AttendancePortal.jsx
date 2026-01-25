@@ -160,21 +160,21 @@ export default function AttendancePortal() {
 
       {/* Main Attendance Interface */}
       {isAuthenticated && (
-        <div className="w-full max-w-4xl px-3 md:px-6">
+        <div className="w-full max-w-4xl px-3 md:px-5 lg:px-6">
           {/* Header Info */}
-          <div className="text-center mb-6 md:mb-12">
+          <div className="text-center mb-6 md:mb-10 lg:mb-12">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="space-y-3 md:space-y-6"
+              className="space-y-3 md:space-y-5 lg:space-y-6"
             >
-              <div className="flex justify-center mb-2 md:mb-4">
+              <div className="flex justify-center mb-2 md:mb-3 lg:mb-4">
                 <AnimatedLogo size="xl" />
               </div>
-              <h1 className="text-xl md:text-3xl font-bold text-white">Australasia Sports Academy</h1>
-              <h2 className="text-lg md:text-2xl font-semibold text-[#D4AF37]">{currentGround}</h2>
-              <div className="flex items-center justify-center gap-2 md:gap-3 text-white text-lg md:text-2xl font-mono">
-                <Clock className="w-4 md:w-6 h-4 md:h-6" />
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">Australasia Sports Academy</h1>
+              <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-[#D4AF37]">{currentGround}</h2>
+              <div className="flex items-center justify-center gap-2 md:gap-2.5 lg:gap-3 text-white text-lg md:text-xl lg:text-2xl font-mono">
+                <Clock className="w-4 md:w-5 lg:w-6 h-4 md:h-5 lg:h-6" />
                 {formatTime(currentTime)}
               </div>
             </motion.div>
@@ -189,7 +189,7 @@ export default function AttendancePortal() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="bg-gradient-to-br from-[#1A4D2E]/80 to-[#0D2818]/80 border-2 border-[#2D6A4F] rounded-2xl md:rounded-3xl p-8 md:p-16 text-center"
+                className="bg-gradient-to-br from-[#1A4D2E]/80 to-[#0D2818]/80 border-2 border-[#2D6A4F] rounded-2xl md:rounded-3xl p-8 md:p-12 lg:p-16 text-center"
                 onClick={simulateTapCard}
               >
                 <motion.div
@@ -202,13 +202,13 @@ export default function AttendancePortal() {
                     repeat: Infinity,
                     ease: "easeInOut"
                   }}
-                  className="mb-4 md:mb-8"
+                  className="mb-4 md:mb-6 lg:mb-8"
                 >
-                  <CreditCard className="w-20 md:w-32 h-20 md:h-32 mx-auto text-[#40916C]" />
+                  <CreditCard className="w-20 md:w-28 lg:w-32 h-20 md:h-28 lg:h-32 mx-auto text-[#40916C]" />
                 </motion.div>
-                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-4">Tap Your Card</h2>
-                <p className="text-gray-400 text-base md:text-xl">Ready to record attendance</p>
-                <p className="text-gray-500 text-xs md:text-sm mt-2 md:mt-4">(Click anywhere to simulate tap)</p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 md:mb-3 lg:mb-4">Tap Your Card</h2>
+                <p className="text-gray-400 text-base md:text-lg lg:text-xl">Ready to record attendance</p>
+                <p className="text-gray-500 text-xs md:text-sm mt-2 md:mt-3 lg:mt-4">(Click anywhere to simulate tap)</p>
               </motion.div>
             )}
 
@@ -224,19 +224,19 @@ export default function AttendancePortal() {
                 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-green-900/80 to-[#40916C]/80 border-2 border-green-500 rounded-2xl md:rounded-3xl p-8 md:p-16 text-center"
+                className="bg-gradient-to-br from-green-900/80 to-[#40916C]/80 border-2 border-green-500 rounded-2xl md:rounded-3xl p-8 md:p-12 lg:p-16 text-center"
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", delay: 0.1 }}
-                  className="mb-4 md:mb-8"
+                  className="mb-4 md:mb-6 lg:mb-8"
                 >
-                  <CheckCircle2 className="w-20 md:w-32 h-20 md:h-32 mx-auto text-green-400" />
+                  <CheckCircle2 className="w-20 md:w-28 lg:w-32 h-20 md:h-28 lg:h-32 mx-auto text-green-400" />
                 </motion.div>
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-6">Welcome!</h2>
-                <p className="text-xl md:text-3xl text-green-300 mb-2 md:mb-4 font-semibold">{studentName}</p>
-                <p className="text-lg md:text-2xl text-green-400">✓ Attendance Marked</p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-5 lg:mb-6">Welcome!</h2>
+                <p className="text-xl md:text-2xl lg:text-3xl text-green-300 mb-2 md:mb-3 lg:mb-4 font-semibold">{studentName}</p>
+                <p className="text-lg md:text-xl lg:text-2xl text-green-400">✓ Attendance Marked</p>
               </motion.div>
             )}
 
@@ -252,19 +252,19 @@ export default function AttendancePortal() {
                 }}
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gradient-to-br from-red-900/80 to-red-800/80 border-2 border-red-500 rounded-2xl md:rounded-3xl p-8 md:p-16 text-center"
+                className="bg-gradient-to-br from-red-900/80 to-red-800/80 border-2 border-red-500 rounded-2xl md:rounded-3xl p-8 md:p-12 lg:p-16 text-center"
               >
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", delay: 0.1 }}
-                  className="mb-4 md:mb-8"
+                  className="mb-4 md:mb-6 lg:mb-8"
                 >
-                  <XCircle className="w-20 md:w-32 h-20 md:h-32 mx-auto text-red-400" />
+                  <XCircle className="w-20 md:w-28 lg:w-32 h-20 md:h-28 lg:h-32 mx-auto text-red-400" />
                 </motion.div>
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-3 md:mb-6">Access Denied</h2>
-                <p className="text-xl md:text-3xl text-red-300 font-semibold">Student Not Scheduled</p>
-                <p className="text-base md:text-xl text-red-400 mt-2 md:mt-4">Please contact administration</p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 md:mb-5 lg:mb-6">Access Denied</h2>
+                <p className="text-xl md:text-2xl lg:text-3xl text-red-300 font-semibold">Student Not Scheduled</p>
+                <p className="text-base md:text-lg lg:text-xl text-red-400 mt-2 md:mt-3 lg:mt-4">Please contact administration</p>
               </motion.div>
             )}
           </AnimatePresence>
