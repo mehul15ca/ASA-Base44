@@ -150,7 +150,7 @@ export default function AttendancePortal() {
       {isAuthenticated && (
         <button
           onClick={handleLogout}
-          className="absolute top-3 right-3 md:top-6 md:right-6 text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-xs md:text-sm"
+          className="absolute top-3 right-3 md:top-6 md:right-6 text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-xs md:text-sm z-50"
         >
           <LogOut className="w-3 md:w-4 h-3 md:h-4" />
           <span className="hidden md:inline">Logout from Ground</span>
