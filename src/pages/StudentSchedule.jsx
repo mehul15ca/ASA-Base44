@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import StudentLayout from '../components/student/StudentLayout';
@@ -21,24 +21,59 @@ const mockSessions = [
 const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
 const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
 
+const getWeekDays = (date) => {
+  const current = new Date(date);
+  const first = current.getDate() - current.getDay();
+  const days = [];
+  for (let i = 0; i < 7; i++) {
+    const day = new Date(current.setDate(first + i));
+    days.push(day);
+  }
+  return days;
+};
+
 export default function StudentSchedule() {
-  const [currentDate, setCurrentDate] = useState(new Date(2026, 0, 1));
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 0, 13));
   const [selectedSession, setSelectedSession] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
   const itemsPerPage = 5;
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
   const daysInMonth = getDaysInMonth(year, month);
   const firstDay = getFirstDayOfMonth(year, month);
+  const weekDays = getWeekDays(currentDate);
 
   const upcomingSessions = mockSessions.filter(s => s.status === 'upcoming');
   const totalPages = Math.ceil(upcomingSessions.length / itemsPerPage);
   const paginatedSessions = upcomingSessions.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  const getSessionsForDate = (day) => {
-    const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+  const getSessionsForDate = (date) => {
+    let dateStr;
+    if (typeof date === 'number') {
+      dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+    } else {
+      dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+    }
     return mockSessions.filter(s => s.date === dateStr);
+  };
+
+  const navigateWeek = (direction) => {
+    const newDate = new Date(currentDate);
+    newDate.setDate(newDate.getDate() + (direction * 7));
+    setCurrentDate(newDate);
+  };
+
+  const navigateMonth = (direction) => {
+    setCurrentDate(new Date(year, month + direction, 1));
   };
 
   const getStatusColor = (status) => {
@@ -58,13 +93,17 @@ export default function StudentSchedule() {
           <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 md:mb-6 gap-3">
               <h2 className="text-xl md:text-2xl font-bold text-white">
-                {currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+                {isMobile ? (
+                  `${weekDays[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} - ${weekDays[6].toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
+                ) : (
+                  currentDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+                )}
               </h2>
               <div className="flex gap-2">
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setCurrentDate(new Date(year, month - 1, 1))}
+                  onClick={() => isMobile ? navigateWeek(-1) : navigateMonth(-1)}
                   className="border-[#40916C] text-gray-300"
                 >
                   <ChevronLeft className="w-4 h-4" />
@@ -72,7 +111,7 @@ export default function StudentSchedule() {
                 <Button
                   variant="outline"
                   size="sm"
-                  onClick={() => setCurrentDate(new Date(year, month + 1, 1))}
+                  onClick={() => isMobile ? navigateWeek(1) : navigateMonth(1)}
                   className="border-[#40916C] text-gray-300"
                 >
                   <ChevronRight className="w-4 h-4" />
@@ -97,49 +136,91 @@ export default function StudentSchedule() {
             </div>
 
             {/* Calendar Grid */}
-            <div className="grid grid-cols-7 gap-1 md:gap-2">
-              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, idx) => (
-                <div key={day} className="text-center text-[#D4AF37] font-semibold py-1 md:py-2 text-xs md:text-sm">
-                  <span className="hidden sm:inline">{day}</span>
-                  <span className="sm:hidden">{['S', 'M', 'T', 'W', 'T', 'F', 'S'][idx]}</span>
-                </div>
-              ))}
-              {Array.from({ length: firstDay }).map((_, i) => (
-                <div key={`empty-${i}`} className="aspect-square" />
-              ))}
-              {Array.from({ length: daysInMonth }).map((_, i) => {
-                const day = i + 1;
-                const sessions = getSessionsForDate(day);
-                const isToday = day === 13;
-                return (
-                  <motion.div
-                    key={day}
-                    whileHover={{ scale: 1.02 }}
-                    className={`aspect-square bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-1 md:p-2 cursor-pointer hover:border-[#D4AF37] transition-colors min-h-[60px] md:min-h-[80px]`}
-                  >
-                    <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-semibold mb-0.5 md:mb-1 text-xs md:text-sm`}>
+            {isMobile ? (
+              // Weekly View for Mobile
+              <div>
+                <div className="grid grid-cols-7 gap-2 mb-2">
+                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, idx) => (
+                    <div key={idx} className="text-center text-[#D4AF37] font-semibold text-xs">
                       {day}
                     </div>
-                    <div className="space-y-0.5 md:space-y-1">
-                      {sessions.slice(0, 1).map((session, idx) => (
-                        <div 
-                          key={idx} 
-                          onClick={() => setSelectedSession(session)}
-                          className="relative pl-2 text-[9px] md:text-[10px] text-gray-300 truncate cursor-pointer hover:text-[#D4AF37]"
-                        >
-                          <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 md:w-1.5 h-1 md:h-1.5 rounded-full ${getStatusColor(session.status)}`}></div>
-                          <span className="hidden md:inline">{session.title} {session.time.split(' - ')[0]}</span>
-                          <span className="md:hidden">{session.time.split(' - ')[0]}</span>
+                  ))}
+                </div>
+                <div className="grid grid-cols-7 gap-2">
+                  {weekDays.map((date, idx) => {
+                    const sessions = getSessionsForDate(date);
+                    const isToday = date.toDateString() === new Date(2026, 0, 13).toDateString();
+                    return (
+                      <motion.div
+                        key={idx}
+                        className={`bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-2 min-h-[100px]`}
+                      >
+                        <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-semibold text-sm text-center mb-2`}>
+                          {date.getDate()}
                         </div>
-                      ))}
-                      {sessions.length > 1 && (
-                        <div className="text-[9px] md:text-[10px] text-[#D4AF37]">+{sessions.length - 1}</div>
-                      )}
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+                        <div className="space-y-1">
+                          {sessions.map((session, idx) => (
+                            <div 
+                              key={idx} 
+                              onClick={() => setSelectedSession(session)}
+                              className="bg-[#1A4D2E]/50 rounded p-1 cursor-pointer hover:bg-[#2D6A4F]/50"
+                            >
+                              <div className={`w-1.5 h-1.5 rounded-full ${getStatusColor(session.status)} mb-1`}></div>
+                              <div className="text-[9px] text-gray-300 truncate">
+                                {session.time.split(' - ')[0]}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              // Monthly View for Desktop
+              <div className="grid grid-cols-7 gap-2">
+                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                  <div key={day} className="text-center text-[#D4AF37] font-semibold py-2 text-sm">
+                    {day}
+                  </div>
+                ))}
+                {Array.from({ length: firstDay }).map((_, i) => (
+                  <div key={`empty-${i}`} className="aspect-square" />
+                ))}
+                {Array.from({ length: daysInMonth }).map((_, i) => {
+                  const day = i + 1;
+                  const sessions = getSessionsForDate(day);
+                  const isToday = day === 13;
+                  return (
+                    <motion.div
+                      key={day}
+                      whileHover={{ scale: 1.02 }}
+                      className={`aspect-square bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-2 cursor-pointer hover:border-[#D4AF37] transition-colors min-h-[80px]`}
+                    >
+                      <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-semibold mb-1 text-sm`}>
+                        {day}
+                      </div>
+                      <div className="space-y-1">
+                        {sessions.slice(0, 1).map((session, idx) => (
+                          <div 
+                            key={idx} 
+                            onClick={() => setSelectedSession(session)}
+                            className="relative pl-2 text-[10px] text-gray-300 truncate cursor-pointer hover:text-[#D4AF37]"
+                          >
+                            <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full ${getStatusColor(session.status)}`}></div>
+                            {session.title} {session.time.split(' - ')[0]}
+                          </div>
+                        ))}
+                        {sessions.length > 1 && (
+                          <div className="text-[10px] text-[#D4AF37]">+{sessions.length - 1}</div>
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
           </Card>
         </motion.div>
 
