@@ -240,7 +240,7 @@ export default function StudentProfile() {
               <Shield className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
               <h2 className="text-lg md:text-xl font-bold text-white">Emergency Contact</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               <div>
                 <Label className="text-gray-300">Contact Name</Label>
                 <Input
@@ -292,7 +292,7 @@ export default function StudentProfile() {
               <Heart className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
               <h2 className="text-lg md:text-xl font-bold text-white">Medical Information</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               <div>
                 <Label className="text-gray-300">Medical Condition</Label>
                 <Input
