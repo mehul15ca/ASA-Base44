@@ -45,110 +45,110 @@ export default function CoachProfile() {
 
   return (
     <CoachLayout>
-      <div className="p-8">
+      <div className="p-4 md:p-8">
         {/* Profile Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
-          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-8">
-            <div className="flex items-start gap-6">
+          <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-8">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6">
               <div className="relative">
-                <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] flex items-center justify-center text-[#0A1F0A] text-4xl font-bold">
+                <div className="w-24 md:w-32 h-24 md:h-32 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#F4D03F] flex items-center justify-center text-[#0A1F0A] text-2xl md:text-4xl font-bold">
                   JD
                 </div>
-                <button className="absolute bottom-0 right-0 w-10 h-10 bg-[#40916C] rounded-full flex items-center justify-center hover:bg-[#2D6A4F] transition-colors">
-                  <Camera className="w-5 h-5 text-white" />
+                <button className="absolute bottom-0 right-0 w-8 md:w-10 h-8 md:h-10 bg-[#40916C] rounded-full flex items-center justify-center hover:bg-[#2D6A4F] transition-colors">
+                  <Camera className="w-4 md:w-5 h-4 md:h-5 text-white" />
                 </button>
               </div>
-              <div className="flex-1">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h1 className="text-3xl font-bold text-white mb-2">{mockProfile.name}</h1>
-                    <p className="text-gray-300 text-lg mb-2">{mockProfile.specialization}</p>
-                    <div className="flex items-center gap-2 text-gray-400">
-                      <Calendar className="w-4 h-4" />
-                      <span>Joined {new Date(mockProfile.joinDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+              <div className="flex-1 w-full">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-3 mb-3 md:mb-4">
+                  <div className="text-center md:text-left">
+                    <h1 className="text-2xl md:text-3xl font-bold text-white mb-1">{mockProfile.name}</h1>
+                    <p className="text-gray-300 text-base md:text-lg mb-2">{mockProfile.specialization}</p>
+                    <div className="flex items-center gap-2 text-gray-400 justify-center md:justify-start text-xs md:text-sm">
+                      <Calendar className="w-3 md:w-4 h-3 md:h-4" />
+                      <span>Joined {new Date(mockProfile.joinDate).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
                     </div>
                   </div>
                   <Button
                     onClick={() => setShowEditDialog(true)}
-                    className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                    className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] w-full md:w-auto text-sm"
                   >
                     <Edit className="w-4 h-4 mr-2" />
-                    Edit Profile
+                    Edit
                   </Button>
                 </div>
-                <p className="text-gray-300">{mockProfile.bio}</p>
+                <p className="text-gray-300 text-xs md:text-sm">{mockProfile.bio}</p>
               </div>
             </div>
           </Card>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 md:gap-6">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2"
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <h2 className="text-xl font-bold text-white mb-6">Contact Information</h2>
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-[#D4AF37]" />
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Contact Information</h2>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37]" />
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Email</p>
-                    <p className="text-white">{mockProfile.email}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-[#40916C]" />
-                  </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Phone</p>
-                    <p className="text-white">{mockProfile.phone}</p>
+                  <div className="min-w-0">
+                    <p className="text-gray-400 text-xs md:text-sm">Email</p>
+                    <p className="text-white text-xs md:text-sm break-all">{mockProfile.email}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-[#F4D03F]" />
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-4 md:w-5 h-4 md:h-5 text-[#40916C]" />
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Address</p>
-                    <p className="text-white">{mockProfile.address}</p>
+                  <div className="min-w-0">
+                    <p className="text-gray-400 text-xs md:text-sm">Phone</p>
+                    <p className="text-white text-xs md:text-sm">{mockProfile.phone}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center">
-                    <Briefcase className="w-5 h-5 text-green-400" />
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-4 md:w-5 h-4 md:h-5 text-[#F4D03F]" />
                   </div>
-                  <div>
-                    <p className="text-gray-400 text-sm">Experience</p>
-                    <p className="text-white">{mockProfile.experience}</p>
+                  <div className="min-w-0">
+                    <p className="text-gray-400 text-xs md:text-sm">Address</p>
+                    <p className="text-white text-xs md:text-sm">{mockProfile.address}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 md:gap-4">
+                  <div className="w-8 md:w-10 h-8 md:h-10 rounded-lg bg-[#0A1F0A] flex items-center justify-center flex-shrink-0">
+                    <Briefcase className="w-4 md:w-5 h-4 md:h-5 text-green-400" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-gray-400 text-xs md:text-sm">Experience</p>
+                    <p className="text-white text-xs md:text-sm">{mockProfile.experience}</p>
                   </div>
                 </div>
               </div>
             </Card>
 
             {/* Achievements */}
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 mt-6">
-              <h2 className="text-xl font-bold text-white mb-6">Achievements</h2>
-              <div className="space-y-3">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6 mt-3 md:mt-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Achievements</h2>
+              <div className="space-y-2 md:space-y-3">
                 {mockProfile.achievements.map((achievement, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3 bg-[#0A1F0A]/50 p-4 rounded-lg"
+                    className="flex items-start gap-2 md:gap-3 bg-[#0A1F0A]/50 p-3 md:p-4 rounded-lg"
                   >
-                    <Award className="w-5 h-5 text-[#D4AF37] mt-0.5" />
-                    <p className="text-gray-300">{achievement}</p>
+                    <Award className="w-4 md:w-5 h-4 md:h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                    <p className="text-gray-300 text-xs md:text-sm">{achievement}</p>
                   </motion.div>
                 ))}
               </div>
@@ -160,9 +160,9 @@ export default function CoachProfile() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <h2 className="text-xl font-bold text-white mb-6">Certifications</h2>
-              <div className="space-y-3">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Certifications</h2>
+              <div className="space-y-2 md:space-y-3">
                 {mockProfile.certifications.map((cert, index) => (
                   <motion.div
                     key={index}
@@ -170,7 +170,7 @@ export default function CoachProfile() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Badge className="bg-[#40916C]/20 text-[#40916C] px-3 py-2 text-sm w-full justify-center">
+                    <Badge className="bg-[#40916C]/20 text-[#40916C] px-3 py-2 text-xs md:text-sm w-full justify-center">
                       {cert}
                     </Badge>
                   </motion.div>
@@ -179,11 +179,11 @@ export default function CoachProfile() {
             </Card>
 
             {/* Statistics */}
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6 mt-6">
-              <h2 className="text-xl font-bold text-white mb-6">Statistics</h2>
-              <div className="space-y-4">
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6 mt-3 md:mt-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Statistics</h2>
+              <div className="space-y-3 md:space-y-4">
                 <div>
-                  <div className="flex justify-between text-sm mb-2">
+                  <div className="flex justify-between text-xs md:text-sm mb-2">
                     <span className="text-gray-400">Sessions Completed</span>
                     <span className="text-white font-semibold">245</span>
                   </div>
@@ -192,7 +192,7 @@ export default function CoachProfile() {
                   </div>
                 </div>
                 <div>
-                  <div className="flex justify-between text-sm mb-2">
+                  <div className="flex justify-between text-xs md:text-sm mb-2">
                     <span className="text-gray-400">Attendance Rate</span>
                     <span className="text-white font-semibold">92%</span>
                   </div>
@@ -201,7 +201,7 @@ export default function CoachProfile() {
                   </div>
                 </div>
                 <div>
-                  <div className="flex justify-between text-sm mb-2">
+                  <div className="flex justify-between text-xs md:text-sm mb-2">
                     <span className="text-gray-400">Student Satisfaction</span>
                     <span className="text-white font-semibold">4.8/5</span>
                   </div>
@@ -216,64 +216,64 @@ export default function CoachProfile() {
 
         {/* Edit Profile Dialog */}
         <Dialog open={showEditDialog} onOpenChange={setShowEditDialog}>
-          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl max-h-[80vh] overflow-y-auto">
+          <DialogContent className="bg-[#0D2818] border-[#2D6A4F] max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-white text-xl">Edit Profile</DialogTitle>
+              <DialogTitle className="text-white text-lg md:text-xl">Edit Profile</DialogTitle>
             </DialogHeader>
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <div>
-                <Label className="text-gray-300">Full Name</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Full Name</Label>
                 <Input
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Email</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Email</Label>
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Phone</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Phone</Label>
                 <Input
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Address</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Address</Label>
                 <Input
                   value={formData.address}
                   onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white text-xs"
                 />
               </div>
               <div>
-                <Label className="text-gray-300">Bio</Label>
+                <Label className="text-gray-300 text-xs md:text-sm">Bio</Label>
                 <Textarea
                   value={formData.bio}
                   onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
-                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-24"
+                  className="bg-[#0A1F0A] border-[#2D6A4F] text-white h-20 md:h-24 text-xs"
                 />
               </div>
             </div>
-            <DialogFooter>
+            <DialogFooter className="flex-col-reverse md:flex-row gap-2">
               <Button
                 variant="outline"
                 onClick={() => setShowEditDialog(false)}
-                className="border-[#40916C] text-gray-300"
+                className="border-[#40916C] text-gray-300 text-xs w-full md:w-auto"
               >
                 Cancel
               </Button>
               <Button
                 onClick={handleUpdateProfile}
-                className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A]"
+                className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-xs w-full md:w-auto"
               >
                 Save Changes
               </Button>
