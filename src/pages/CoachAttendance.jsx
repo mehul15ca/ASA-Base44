@@ -143,16 +143,16 @@ export default function CoachAttendance() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mb-8"
+            className="mb-4 md:mb-8"
           >
-            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-6">
-              <h2 className="text-xl font-bold text-white mb-4">Leave Application Form</h2>
-              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-4 flex items-start gap-2">
-                <AlertTriangle className="w-5 h-5 text-yellow-400 mt-0.5" />
-                <p className="text-yellow-400 text-sm">Leave must be applied at least 7 days in advance</p>
+            <Card className="bg-gradient-to-br from-[#1A4D2E] to-[#0D2818] border-[#2D6A4F]/50 p-4 md:p-6">
+              <h2 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">Leave Application Form</h2>
+              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-2 md:p-3 mb-3 md:mb-4 flex items-start gap-2">
+                <AlertTriangle className="w-4 h-4 md:w-5 md:h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                <p className="text-yellow-400 text-xs md:text-sm">Leave must be applied at least 7 days in advance</p>
               </div>
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-3 md:space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
                     <Label className="text-gray-300">Start Date *</Label>
                     <Input
