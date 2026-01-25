@@ -529,8 +529,8 @@ export default function AdminFinance() {
                     <SelectValue placeholder="Select batch" />
                   </SelectTrigger>
                   <SelectContent className="bg-[#0D2818] border-[#2D6A4F]">
-                    <SelectItem value="cricket_a">Cricket Batch A - $5,000/month</SelectItem>
-                    <SelectItem value="football">Football Batch - $4,000/month</SelectItem>
+                    <SelectItem value="cricket_a">Cricket Batch A - $500 CAD/month</SelectItem>
+                    <SelectItem value="football">Football Batch - $400 CAD/month</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -547,7 +547,7 @@ export default function AdminFinance() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <Label className="text-gray-300">Monthly Fee</Label>
-                  <Input type="number" defaultValue="5000" className="bg-[#0A1F0A] border-[#2D6A4F] text-white" />
+                  <Input type="number" defaultValue="500" className="bg-[#0A1F0A] border-[#2D6A4F] text-white" />
                 </div>
                 <div>
                   <Label className="text-gray-300">Additional Charges</Label>
