@@ -98,8 +98,11 @@ export default function StudentSchedule() {
 
             {/* Calendar Grid */}
             <div className="grid grid-cols-7 gap-1 md:gap-2">
-              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
-                <div key={day} className="text-center text-[#D4AF37] font-semibold py-1 md:py-2 text-xs md:text-sm">{day}</div>
+              {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, idx) => (
+                <div key={day} className="text-center text-[#D4AF37] font-semibold py-1 md:py-2 text-xs md:text-sm">
+                  <span className="hidden sm:inline">{day}</span>
+                  <span className="sm:hidden">{['S', 'M', 'T', 'W', 'T', 'F', 'S'][idx]}</span>
+                </div>
               ))}
               {Array.from({ length: firstDay }).map((_, i) => (
                 <div key={`empty-${i}`} className="aspect-square" />
@@ -112,24 +115,25 @@ export default function StudentSchedule() {
                   <motion.div
                     key={day}
                     whileHover={{ scale: 1.02 }}
-                    className={`aspect-square bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-2 cursor-pointer hover:border-[#D4AF37] transition-colors`}
+                    className={`aspect-square bg-[#0A1F0A] border ${isToday ? 'border-[#D4AF37] border-2' : 'border-[#2D6A4F]/50'} rounded-lg p-1 md:p-2 cursor-pointer hover:border-[#D4AF37] transition-colors min-h-[60px] md:min-h-[80px]`}
                   >
-                    <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-semibold mb-1 text-sm`}>
+                    <div className={`${isToday ? 'text-[#D4AF37]' : 'text-white'} font-semibold mb-0.5 md:mb-1 text-xs md:text-sm`}>
                       {day}
                     </div>
-                    <div className="space-y-1">
-                      {sessions.slice(0, 2).map((session, idx) => (
+                    <div className="space-y-0.5 md:space-y-1">
+                      {sessions.slice(0, 1).map((session, idx) => (
                         <div 
                           key={idx} 
                           onClick={() => setSelectedSession(session)}
-                          className="relative pl-2 text-[10px] text-gray-300 truncate cursor-pointer hover:text-[#D4AF37]"
+                          className="relative pl-2 text-[9px] md:text-[10px] text-gray-300 truncate cursor-pointer hover:text-[#D4AF37]"
                         >
-                          <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full ${getStatusColor(session.status)}`}></div>
-                          {session.title} {session.time.split(' - ')[0]}
+                          <div className={`absolute left-0 top-1/2 -translate-y-1/2 w-1 md:w-1.5 h-1 md:h-1.5 rounded-full ${getStatusColor(session.status)}`}></div>
+                          <span className="hidden md:inline">{session.title} {session.time.split(' - ')[0]}</span>
+                          <span className="md:hidden">{session.time.split(' - ')[0]}</span>
                         </div>
                       ))}
-                      {sessions.length > 2 && (
-                        <div className="text-[10px] text-[#D4AF37]">+{sessions.length - 2} more</div>
+                      {sessions.length > 1 && (
+                        <div className="text-[9px] md:text-[10px] text-[#D4AF37]">+{sessions.length - 1}</div>
                       )}
                     </div>
                   </motion.div>
