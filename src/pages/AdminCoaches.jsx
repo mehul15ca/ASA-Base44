@@ -452,9 +452,10 @@ export default function AdminCoaches() {
               </div>
 
               <Button
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-sm md:text-base"
+                disabled={selectedCoach?.pending === 0}
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Mark as Paid
+                {selectedCoach?.pending === 0 ? 'No Due' : 'Mark as Paid'}
               </Button>
             </div>
           </DialogContent>
