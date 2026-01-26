@@ -16,6 +16,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import AnimatedLogo from '../AnimatedLogo';
 import { createPageUrl } from '../../utils';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
