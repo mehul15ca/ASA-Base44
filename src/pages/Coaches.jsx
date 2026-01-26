@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Award, Trophy, Users, Star, Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-import { createPageUrl } from './utils';
+import { createPageUrl } from '@/utils';
 import CoachCard from '../components/coaches/CoachCard';
 import AnimatedLogo from '../components/AnimatedLogo';
 
