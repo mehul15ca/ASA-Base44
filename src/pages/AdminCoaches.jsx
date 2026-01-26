@@ -24,6 +24,7 @@ const salaryHistory = [
 ];
 
 export default function AdminCoaches() {
+  const [coaches, setCoaches] = useState(mockCoaches);
   const [search, setSearch] = useState('');
   const [sportFilter, setSportFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
@@ -40,7 +41,7 @@ export default function AdminCoaches() {
     { label: 'Avg Rating', value: '4.7' },
   ];
 
-  const filteredCoaches = mockCoaches.filter(coach => {
+  const filteredCoaches = coaches.filter(coach => {
     const matchesSearch = coach.name.toLowerCase().includes(search.toLowerCase());
     const matchesSport = sportFilter === 'all' || coach.sport === sportFilter;
     const matchesStatus = statusFilter === 'all' || coach.status.toLowerCase() === statusFilter;
@@ -55,6 +56,17 @@ export default function AdminCoaches() {
   const handleViewSalary = (coach) => {
     setSelectedCoach(coach);
     setShowSalaryDetailsModal(true);
+  };
+
+  const handleMarkAsPaid = () => {
+    if (selectedCoach && selectedCoach.pending > 0) {
+      setCoaches(coaches.map(coach => 
+        coach.id === selectedCoach.id 
+          ? { ...coach, paid: coach.paid + coach.pending, pending: 0 }
+          : coach
+      ));
+      setSelectedCoach({ ...selectedCoach, paid: selectedCoach.paid + selectedCoach.pending, pending: 0 });
+    }
   };
 
   return (
@@ -452,6 +464,7 @@ export default function AdminCoaches() {
               </div>
 
               <Button
+                onClick={handleMarkAsPaid}
                 disabled={selectedCoach?.pending === 0}
                 className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
               >
