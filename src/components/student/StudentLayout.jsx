@@ -61,11 +61,7 @@ export default function StudentLayout({ children, currentPageName }) {
       )}
 
       {/* Sidebar */}
-      <motion.aside
-        initial={{ x: -300 }}
-        animate={{ x: isSidebarOpen ? 0 : -300 }}
-        className="fixed lg:relative w-64 h-screen bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex flex-col z-50 lg:translate-x-0"
-      >
+      <aside className="hidden lg:flex lg:relative w-64 h-screen bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex-col z-50">
         {/* Logo */}
         <div className="p-6 border-b border-[#2D6A4F]/50">
           <h1 className="text-xl font-bold text-white">ASA Student Portal</h1>
@@ -79,6 +75,70 @@ export default function StudentLayout({ children, currentPageName }) {
             const isActive = currentPath === item.path || currentPageName === item.path;
             return (
               <Link key={item.path} to={createPageUrl(item.path)}>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ x: 4 }}
+                  className={`flex items-center gap-3 px-4 py-3 mb-2 rounded-lg transition-all ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] shadow-lg'
+                      : 'text-gray-300 hover:bg-[#2D6A4F]/20'
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  <span className="font-medium">{item.label}</span>
+                </motion.div>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Logout Button */}
+        <div className="p-4 border-t border-[#2D6A4F]/50">
+          <Button
+            onClick={() => setShowLogoutModal(true)}
+            variant="outline"
+            className="w-full border-red-500/50 text-red-400 hover:bg-red-500/10"
+          >
+            <LogOut className="w-4 h-4 mr-2" />
+            Logout
+          </Button>
+        </div>
+
+        {/* Student Identity Card */}
+        <div className="p-4 bg-[#1A4D2E]/30 border-t border-[#2D6A4F]/50">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center">
+              <span className="text-[#0A1F0A] font-bold text-sm">SN</span>
+            </div>
+            <div>
+              <p className="text-white font-semibold text-sm">Student Name</p>
+              <p className="text-gray-400 text-xs">STU-0001</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      {/* Mobile Sidebar */}
+      <motion.aside
+        initial={{ x: -300 }}
+        animate={{ x: isSidebarOpen ? 0 : -300 }}
+        className="lg:hidden fixed w-64 h-screen bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex flex-col z-50"
+      >
+        {/* Logo */}
+        <div className="p-6 border-b border-[#2D6A4F]/50">
+          <h1 className="text-xl font-bold text-white">ASA Student Portal</h1>
+          <p className="text-gray-400 text-sm mt-1">Training Excellence</p>
+        </div>
+
+        {/* Menu */}
+        <nav className="flex-1 overflow-y-auto p-4">
+          {menuItems.map((item, index) => {
+            const Icon = item.icon;
+            const isActive = currentPath === item.path || currentPageName === item.path;
+            return (
+              <Link key={item.path} to={createPageUrl(item.path)} onClick={() => setIsSidebarOpen(false)}>
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}

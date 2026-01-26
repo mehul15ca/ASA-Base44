@@ -67,10 +67,75 @@ export default function AdminLayout({ children }) {
       )}
 
       {/* Sidebar */}
+      <aside className="hidden lg:flex lg:relative w-70 h-screen bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex-col z-50">
+        {/* Logo Section */}
+        <div className="p-6 border-b border-[#2D6A4F]/30">
+          <div className="flex items-center gap-3">
+            <AnimatedLogo size="sm" />
+            <div>
+              <h1 className="text-white font-bold text-lg">ASA Admin</h1>
+              <p className="text-gray-400 text-xs">Sports Academy</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = currentPath === item.path;
+            
+            return (
+              <Link
+                key={item.path}
+                to={createPageUrl(item.path)}
+              >
+                <motion.div
+                  whileHover={{ x: 4 }}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all relative ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] shadow-lg'
+                      : 'text-gray-300 hover:bg-[#2D6A4F]/30'
+                  }`}
+                >
+                  <Icon className="w-5 h-5" />
+                  <span className="text-sm font-medium flex-1">{item.label}</span>
+                  {item.badge && item.badge > 0 && (
+                    <span className="bg-red-500 rounded-full w-2 h-2 flex-shrink-0"></span>
+                  )}
+                </motion.div>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Profile Section */}
+        <div className="p-4 border-t border-[#2D6A4F]/30">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 bg-[#40916C] rounded-full flex items-center justify-center">
+              <span className="text-white font-semibold">A</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white text-sm font-medium truncate">Admin User</p>
+              <p className="text-gray-400 text-xs truncate">admin@asa.com</p>
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setShowLogoutModal(true)}
+              className="text-gray-400 hover:text-[#D4AF37] transition-colors"
+            >
+              <LogOut className="w-5 h-5" />
+            </motion.button>
+          </div>
+        </div>
+      </aside>
+
+      {/* Mobile Sidebar */}
       <motion.aside
         initial={{ x: -280 }}
         animate={{ x: isSidebarOpen ? 0 : -280 }}
-        className="fixed lg:relative w-70 h-screen bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex flex-col z-50 lg:translate-x-0"
+        className="lg:hidden fixed w-70 h-screen bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex flex-col z-50"
       >
         {/* Logo Section */}
         <div className="p-6 border-b border-[#2D6A4F]/30">
@@ -93,6 +158,7 @@ export default function AdminLayout({ children }) {
               <Link
                 key={item.path}
                 to={createPageUrl(item.path)}
+                onClick={() => setIsSidebarOpen(false)}
               >
                 <motion.div
                   whileHover={{ x: 4 }}
