@@ -71,7 +71,7 @@ export default function Navbar() {
             {/* Center - Academy Name */}
             <div className="hidden md:block text-center">
               <h1 className="text-white font-bold text-xl leading-tight">Auustralasia</h1>
-              <p className="text-[#D4AF37] text-sm">Sports Academy</p>
+              <p className="text-[#D4AF37] text-sm">Spports Academy</p>
             </div>
 
             {/* Desktop Navigation */}
