@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, Trophy, Users, Star } from 'lucide-react';
+import { Award, Trophy, Users, Star, Menu, X } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
+import { createPageUrl } from './utils';
 import CoachCard from '../components/coaches/CoachCard';
+import AnimatedLogo from '../components/AnimatedLogo';
 
 const coaches = [
   {
@@ -125,8 +128,60 @@ const coaches = [
 ];
 
 export default function Coaches() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="pt-16 md:pt-20">
+    <div className="pt-0 md:pt-20">
+      {/* Mobile Header */}
+      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-4 py-3">
+        <div className="flex items-center justify-between">
+          <Link to={createPageUrl('Home')} className="flex items-center gap-2">
+            <AnimatedLogo size="xs" />
+            <div>
+              <h1 className="text-white font-bold text-sm">Auustralasia</h1>
+              <p className="text-[#D4AF37] text-xs">Sports Academy</p>
+            </div>
+          </Link>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute top-full left-0 right-0 bg-[#0D2818] border-b border-[#2D6A4F]/30 shadow-xl"
+          >
+            <div className="flex flex-col p-4 space-y-2">
+              <Link to={createPageUrl('Home')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
+                Home
+              </Link>
+              <Link to={createPageUrl('About')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
+                About
+              </Link>
+              <Link to={createPageUrl('Programs')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
+                Programs
+              </Link>
+              <Link to={createPageUrl('Coaches')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
+                Coaches
+              </Link>
+              <Link to={createPageUrl('Contact')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
+                Contact
+              </Link>
+              <Link to={createPageUrl('BookDemo')} className="text-white bg-[#D4AF37] hover:bg-[#F4D03F] py-2 px-3 rounded-lg text-center font-semibold">
+                Book Demo
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </div>
+
+      <div className="pt-16 md:pt-0">
       {/* Hero */}
       <section className="relative py-12 md:py-20 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] overflow-hidden">
         <div className="absolute inset-0 opacity-5">
