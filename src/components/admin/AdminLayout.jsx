@@ -132,11 +132,15 @@ export default function AdminLayout({ children }) {
       </aside>
 
       {/* Mobile Sidebar */}
-      <motion.aside
-        initial={{ x: -280 }}
-        animate={{ x: isSidebarOpen ? 0 : -280 }}
-        className="lg:hidden fixed w-70 h-screen bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex flex-col z-50"
-      >
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.aside
+            initial={{ x: -280 }}
+            animate={{ x: 0 }}
+            exit={{ x: -280 }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="lg:hidden fixed w-70 h-screen bg-gradient-to-b from-[#0D2818] to-[#1A4D2E] border-r border-[#2D6A4F]/30 flex flex-col z-50"
+          >
         {/* Logo Section */}
         <div className="p-6 border-b border-[#2D6A4F]/30">
           <div className="flex items-center gap-3">
@@ -200,6 +204,8 @@ export default function AdminLayout({ children }) {
           </div>
         </div>
       </motion.aside>
+        )}
+      </AnimatePresence>
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden">
