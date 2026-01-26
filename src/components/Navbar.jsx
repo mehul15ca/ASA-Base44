@@ -8,14 +8,7 @@ import AnimatedLogo from './AnimatedLogo';
 
 const navItems = [
   { name: 'Home', page: 'Home' },
-  { 
-    name: 'About Us', 
-    page: 'About',
-    dropdown: [
-      { name: 'Mission & Vision', page: 'About' },
-      { name: 'History & Awards', page: 'About' },
-    ]
-  },
+  { name: 'About Us', page: 'About' },
   { name: 'Programs', page: 'Programs' },
   { name: 'Coaches', page: 'Coaches' },
   { name: 'Gallery', page: 'Gallery' },
