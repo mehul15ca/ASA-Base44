@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Trophy, Users, Star, Menu, X, ChevronDown } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Award, Trophy, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Link } from 'react-router-dom';
-import { createPageUrl } from '@/utils';
 import CoachCard from '../components/coaches/CoachCard';
-import AnimatedLogo from '../components/AnimatedLogo';
 
 const coaches = [
   {
@@ -128,118 +125,8 @@ const coaches = [
 ];
 
 export default function Coaches() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState(null);
-
   return (
-    <div className="pt-0 md:pt-20">
-      {/* Mobile Header */}
-      <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#0D2818] to-[#1A4D2E] border-b border-[#2D6A4F]/30 px-4 py-3">
-        <div className="flex items-center justify-between">
-          <Link to={createPageUrl('Home')} className="flex items-center gap-2">
-            <AnimatedLogo size="xs" />
-            <div>
-              <h1 className="text-white font-bold text-sm">Auustralasia</h1>
-              <p className="text-[#D4AF37] text-xs">Sports Academy</p>
-            </div>
-          </Link>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-white p-2 hover:bg-[#2D6A4F]/20 rounded-lg"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className="absolute top-full left-0 right-0 bg-[#0D2818] border-b border-[#2D6A4F]/30 shadow-xl"
-            >
-              <div className="flex flex-col p-4 space-y-2">
-                <Link to={createPageUrl('Home')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
-                  Home
-                </Link>
-                
-                {/* About Us Dropdown */}
-                <div>
-                  <button
-                    onClick={() => setMobileDropdown(mobileDropdown === 'about' ? null : 'about')}
-                    className="flex items-center justify-between w-full text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20"
-                  >
-                    About Us
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'about' ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {mobileDropdown === 'about' && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden pl-4"
-                      >
-                        <Link to={createPageUrl('About')} className="block text-gray-400 hover:text-[#D4AF37] py-2 px-3 text-sm">
-                          Mission & Vision
-                        </Link>
-                        <Link to={createPageUrl('About')} className="block text-gray-400 hover:text-[#D4AF37] py-2 px-3 text-sm">
-                          History & Awards
-                        </Link>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                {/* Programs Dropdown */}
-                <div>
-                  <button
-                    onClick={() => setMobileDropdown(mobileDropdown === 'programs' ? null : 'programs')}
-                    className="flex items-center justify-between w-full text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20"
-                  >
-                    Programs
-                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdown === 'programs' ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {mobileDropdown === 'programs' && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden pl-4"
-                      >
-                        <Link to={createPageUrl('Programs')} className="block text-gray-400 hover:text-[#D4AF37] py-2 px-3 text-sm">
-                          Cricket Training
-                        </Link>
-                        <Link to={createPageUrl('Programs')} className="block text-gray-400 hover:text-[#D4AF37] py-2 px-3 text-sm">
-                          Yoga & Fitness
-                        </Link>
-                        <Link to={createPageUrl('Programs')} className="block text-gray-400 hover:text-[#D4AF37] py-2 px-3 text-sm">
-                          Baseball Academy
-                        </Link>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-
-                <Link to={createPageUrl('Coaches')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
-                  Coaches
-                </Link>
-                <Link to={createPageUrl('Contact')} className="text-white hover:text-[#D4AF37] py-2 px-3 rounded-lg hover:bg-[#2D6A4F]/20">
-                  Contact
-                </Link>
-                <Link to={createPageUrl('BookDemo')} className="text-white bg-[#D4AF37] hover:bg-[#F4D03F] py-2 px-3 rounded-lg text-center font-semibold">
-                  Book Demo
-                </Link>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-
-      <div className="pt-16 md:pt-0">
+    <div className="pt-20">
       {/* Hero */}
       <section className="relative py-12 md:py-20 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] overflow-hidden">
         <div className="absolute inset-0 opacity-5">
@@ -328,6 +215,5 @@ export default function Coaches() {
         </div>
       </section>
       </div>
-    </div>
-  );
-}
+      );
+      }
