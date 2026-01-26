@@ -68,20 +68,26 @@ export default function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item, index) => (
-                <div 
-                  key={index}
-                  className="relative"
-                  onMouseEnter={() => item.dropdown && setActiveDropdown(index)}
-                  onMouseLeave={() => setActiveDropdown(null)}
-                >
-                  <Link
-                    to={createPageUrl(item.page)}
-                    className="px-4 py-2 text-gray-300 hover:text-[#D4AF37] transition-colors flex items-center gap-1 text-sm font-medium"
+              {navItems.map((item, index) => {
+                const isActive = location.pathname === createPageUrl(item.page);
+                return (
+                  <div 
+                    key={index}
+                    className="relative"
+                    onMouseEnter={() => item.dropdown && setActiveDropdown(index)}
+                    onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    {item.name}
-                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                  </Link>
+                    <Link
+                      to={createPageUrl(item.page)}
+                      className={`px-4 py-2 transition-colors flex items-center gap-1 text-sm font-medium ${
+                        isActive 
+                          ? 'text-[#D4AF37] border-b-2 border-[#D4AF37]' 
+                          : 'text-gray-300 hover:text-[#D4AF37]'
+                      }`}
+                    >
+                      {item.name}
+                      {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                    </Link>
 
                   {/* Dropdown */}
                   <AnimatePresence>
@@ -106,7 +112,8 @@ export default function Navbar() {
                     )}
                   </AnimatePresence>
                 </div>
-              ))}
+              );
+              })}
             </div>
 
             {/* CTA Buttons */}
@@ -150,17 +157,21 @@ export default function Navbar() {
             />
             <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0D2818] shadow-2xl overflow-y-auto">
               <div className="pt-24 px-6 pb-8">
-                {navItems.map((item, index) => (
-                  <div key={index} className="mb-2">
-                    {item.dropdown ? (
-                      <div>
-                        <button
-                          onClick={() => setMobileDropdown(mobileDropdown === index ? null : index)}
-                          className="flex items-center justify-between w-full py-3 text-gray-200 hover:text-[#D4AF37] transition-colors text-lg font-medium border-b border-[#1A4D2E]"
-                        >
-                          {item.name}
-                          <ChevronDown className={`w-5 h-5 transition-transform ${mobileDropdown === index ? 'rotate-180' : ''}`} />
-                        </button>
+                {navItems.map((item, index) => {
+                  const isActive = location.pathname === createPageUrl(item.page);
+                  return (
+                    <div key={index} className="mb-2">
+                      {item.dropdown ? (
+                        <div>
+                          <button
+                            onClick={() => setMobileDropdown(mobileDropdown === index ? null : index)}
+                            className={`flex items-center justify-between w-full py-3 transition-colors text-lg font-medium border-b border-[#1A4D2E] ${
+                              isActive ? 'text-[#D4AF37]' : 'text-gray-200 hover:text-[#D4AF37]'
+                            }`}
+                          >
+                            {item.name}
+                            <ChevronDown className={`w-5 h-5 transition-transform ${mobileDropdown === index ? 'rotate-180' : ''}`} />
+                          </button>
                         <AnimatePresence>
                           {mobileDropdown === index && (
                             <motion.div
@@ -183,16 +194,19 @@ export default function Navbar() {
                           )}
                         </AnimatePresence>
                       </div>
-                    ) : (
-                      <Link
-                        to={createPageUrl(item.page)}
-                        className="block py-3 text-gray-200 hover:text-[#D4AF37] transition-colors text-lg font-medium border-b border-[#1A4D2E]"
-                      >
-                        {item.name}
-                      </Link>
-                    )}
-                  </div>
-                ))}
+                      ) : (
+                        <Link
+                          to={createPageUrl(item.page)}
+                          className={`block py-3 transition-colors text-lg font-medium border-b border-[#1A4D2E] ${
+                            isActive ? 'text-[#D4AF37]' : 'text-gray-200 hover:text-[#D4AF37]'
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      )}
+                    </div>
+                  );
+                })}
 
                 <div className="mt-8 space-y-3">
                   <Link to={createPageUrl('Portal')} className="block">
