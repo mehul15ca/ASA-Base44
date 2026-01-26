@@ -158,24 +158,44 @@ export default function Navbar() {
               <div className="pt-24 px-6 pb-8">
                 {navItems.map((item, index) => (
                   <div key={index} className="mb-2">
-                    <Link
-                      to={createPageUrl(item.page)}
-                      className="block py-3 text-gray-200 hover:text-[#D4AF37] transition-colors text-lg font-medium border-b border-[#1A4D2E]"
-                    >
-                      {item.name}
-                    </Link>
-                    {item.dropdown && (
-                      <div className="pl-4 mt-1">
-                        {item.dropdown.map((subItem, subIndex) => (
-                          <Link
-                            key={subIndex}
-                            to={createPageUrl(subItem.page)}
-                            className="block py-2 text-gray-400 hover:text-[#D4AF37] transition-colors text-sm"
-                          >
-                            {subItem.name}
-                          </Link>
-                        ))}
+                    {item.dropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setMobileDropdown(mobileDropdown === index ? null : index)}
+                          className="flex items-center justify-between w-full py-3 text-gray-200 hover:text-[#D4AF37] transition-colors text-lg font-medium border-b border-[#1A4D2E]"
+                        >
+                          {item.name}
+                          <ChevronDown className={`w-5 h-5 transition-transform ${mobileDropdown === index ? 'rotate-180' : ''}`} />
+                        </button>
+                        <AnimatePresence>
+                          {mobileDropdown === index && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden pl-4"
+                            >
+                              {item.dropdown.map((subItem, subIndex) => (
+                                <Link
+                                  key={subIndex}
+                                  to={createPageUrl(subItem.page)}
+                                  className="block py-2 text-gray-400 hover:text-[#D4AF37] transition-colors text-sm"
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
+                    ) : (
+                      <Link
+                        to={createPageUrl(item.page)}
+                        className="block py-3 text-gray-200 hover:text-[#D4AF37] transition-colors text-lg font-medium border-b border-[#1A4D2E]"
+                      >
+                        {item.name}
+                      </Link>
                     )}
                   </div>
                 ))}
