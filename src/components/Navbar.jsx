@@ -66,11 +66,13 @@ export default function Navbar() {
             {/* Logo */}
             <Link to={createPageUrl('Home')} className="flex items-center gap-3">
               <AnimatedLogo size="sm" />
-              <div className="hidden sm:block">
-                <h1 className="text-white font-bold text-lg leading-tight">Auustralasia</h1>
-                <p className="text-[#40916C] text-xs">Spports Academy</p>
-              </div>
             </Link>
+
+            {/* Center - Academy Name */}
+            <div className="hidden md:block text-center">
+              <h1 className="text-white font-bold text-xl leading-tight">Auustralasia</h1>
+              <p className="text-[#D4AF37] text-sm">Sports Academy</p>
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-1">
