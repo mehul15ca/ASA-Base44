@@ -126,9 +126,9 @@ const coaches = [
 
 export default function Coaches() {
   return (
-    <div className="pt-20">
+    <div className="pt-16 md:pt-20">
       {/* Hero */}
-      <section className="relative py-20 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] overflow-hidden">
+      <section className="relative py-12 md:py-20 bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E] overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, #40916C 1px, transparent 0)',
@@ -136,20 +136,20 @@ export default function Coaches() {
           }} />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10 text-center">
+        <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-sm">
+            <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-xs md:text-sm">
               Expert Team
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 mb-6">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mt-3 md:mt-4 mb-4 md:mb-6">
               Meet Our
               <span className="block text-[#40916C]">World-Class Coaches</span>
             </h1>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-4">
               Our certified coaches bring decades of combined experience and 
               a passion for developing athletes at every level.
             </p>
@@ -160,18 +160,18 @@ export default function Coaches() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-8 mt-12"
+            className="flex flex-wrap justify-center gap-3 md:gap-8 mt-8 md:mt-12"
           >
             {[
               { icon: Award, value: '60+', label: 'Years Combined Experience' },
               { icon: Users, value: '500+', label: 'Athletes Coached' },
               { icon: Trophy, value: '25+', label: 'Championships Won' },
             ].map((stat, index) => (
-              <div key={index} className="flex items-center gap-3 bg-white/5 backdrop-blur-sm rounded-xl px-6 py-4">
-                <stat.icon className="w-8 h-8 text-[#D4AF37]" />
+              <div key={index} className="flex items-center gap-2 md:gap-3 bg-white/5 backdrop-blur-sm rounded-lg md:rounded-xl px-3 md:px-6 py-2 md:py-4">
+                <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-[#D4AF37]" />
                 <div className="text-left">
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-sm text-gray-400">{stat.label}</div>
+                  <div className="text-lg md:text-2xl font-bold text-white">{stat.value}</div>
+                  <div className="text-xs md:text-sm text-gray-400">{stat.label}</div>
                 </div>
               </div>
             ))}
@@ -180,9 +180,9 @@ export default function Coaches() {
       </section>
 
       {/* Coaches Grid */}
-      <section className="py-24 bg-[#0A1F0A]">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-12 md:py-24 bg-[#0A1F0A]">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {coaches.map((coach, index) => (
               <CoachCard key={index} coach={coach} index={index} />
             ))}
@@ -191,23 +191,23 @@ export default function Coaches() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-r from-[#1A4D2E] via-[#2D6A4F] to-[#1A4D2E]">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-[#1A4D2E] via-[#2D6A4F] to-[#1A4D2E]">
+        <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
               Ready to Train with the Best?
             </h2>
-            <p className="text-gray-200 mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-200 text-sm md:text-base mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               Join our academy and learn from experienced coaches who are dedicated 
               to helping you achieve your athletic potential.
             </p>
             <Button 
               size="lg"
-              className="bg-[#D4AF37] text-[#0A1F0A] hover:bg-[#F4D03F] font-semibold px-8 rounded-full"
+              className="bg-[#D4AF37] text-[#0A1F0A] hover:bg-[#F4D03F] font-semibold px-6 md:px-8 rounded-full"
             >
               Start Your Journey Today
             </Button>
