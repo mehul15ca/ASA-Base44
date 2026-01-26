@@ -454,7 +454,7 @@ export default function AdminCoaches() {
               <Button
                 className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] text-sm md:text-base"
               >
-                Process Payment
+                Mark as Paid
               </Button>
             </div>
           </DialogContent>
