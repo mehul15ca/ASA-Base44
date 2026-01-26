@@ -87,7 +87,7 @@ export default function BookDemo() {
           </motion.div>
           <h2 className="text-3xl font-bold text-white mb-4">Demo Booked!</h2>
           <p className="text-gray-300 mb-8">
-            Thank you for your interest in Australasia Sports Academy. 
+            Thank you for your interest in Auustralasia Spports Academy. 
             We'll contact you within 24 hours to schedule your free demo session.
           </p>
           <p className="text-[#D4AF37] font-semibold">
