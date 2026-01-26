@@ -65,8 +65,13 @@ export default function StudentLayout({ children, currentPageName }) {
       <aside className="hidden lg:flex lg:relative w-64 h-screen bg-gradient-to-b from-[#0D2818] to-[#0A1F0A] border-r border-[#2D6A4F]/50 flex-col z-50">
         {/* Logo */}
         <div className="p-6 border-b border-[#2D6A4F]/50">
-          <h1 className="text-xl font-bold text-white">ASA Student Portal</h1>
-          <p className="text-gray-400 text-sm mt-1">Training Excellence</p>
+          <div className="flex items-center gap-3">
+            <AnimatedLogo size="sm" />
+            <div>
+              <h1 className="text-white font-bold text-lg">Auustralasia</h1>
+              <p className="text-gray-400 text-xs">Spports Academy</p>
+            </div>
+          </div>
         </div>
 
         {/* Menu */}
@@ -129,8 +134,13 @@ export default function StudentLayout({ children, currentPageName }) {
       >
         {/* Logo */}
         <div className="p-6 border-b border-[#2D6A4F]/50">
-          <h1 className="text-xl font-bold text-white">ASA Student Portal</h1>
-          <p className="text-gray-400 text-sm mt-1">Training Excellence</p>
+          <div className="flex items-center gap-3">
+            <AnimatedLogo size="sm" />
+            <div>
+              <h1 className="text-white font-bold text-lg">Auustralasia</h1>
+              <p className="text-gray-400 text-xs">Spports Academy</p>
+            </div>
+          </div>
         </div>
 
         {/* Menu */}
