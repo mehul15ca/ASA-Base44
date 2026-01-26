@@ -16,15 +16,7 @@ const navItems = [
       { name: 'History & Awards', page: 'About' },
     ]
   },
-  { 
-    name: 'Programs', 
-    page: 'Programs',
-    dropdown: [
-      { name: 'Cricket Training', page: 'Programs' },
-      { name: 'Yoga & Fitness', page: 'Programs' },
-      { name: 'Baseball Academy', page: 'Programs' },
-    ]
-  },
+  { name: 'Programs', page: 'Programs' },
   { name: 'Coaches', page: 'Coaches' },
   { name: 'Gallery', page: 'Gallery' },
   { name: 'Contact', page: 'Contact' },
