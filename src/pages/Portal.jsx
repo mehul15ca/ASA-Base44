@@ -82,16 +82,6 @@ export default function Portal() {
             <p className="text-gray-400">Access your academy account</p>
           </div>
 
-          {/* Test Credentials Info */}
-          <div className="mb-6 p-4 bg-[#40916C]/10 border border-[#40916C]/30 rounded-lg">
-            <h3 className="text-sm font-semibold text-[#D4AF37] mb-2">Test Credentials:</h3>
-            <div className="space-y-1 text-xs text-gray-300">
-              <p><strong>Admin:</strong> admin / admin123</p>
-              <p><strong>Coach:</strong> coach / coach123</p>
-              <p><strong>Student:</strong> student / student123</p>
-            </div>
-          </div>
-
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
