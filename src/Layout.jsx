@@ -6,7 +6,7 @@ export default function Layout({ children, currentPageName }) {
   const hideHeaderFooter = currentPageName === 'AttendancePortal' || 
     currentPageName?.startsWith('Admin') || 
     currentPageName?.startsWith('Student') || 
-    currentPageName?.startsWith('Coach') || 
+    (currentPageName?.startsWith('Coach') && currentPageName !== 'Coaches') || 
     currentPageName?.startsWith('SuperAdmin') ||
     currentPageName?.startsWith('Store');
   
