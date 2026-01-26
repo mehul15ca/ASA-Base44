@@ -269,6 +269,7 @@ export default function Coaches() {
           </motion.div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
