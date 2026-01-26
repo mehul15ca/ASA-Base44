@@ -7,7 +7,8 @@ import {
   Users, 
   Calendar,
   CheckCircle2,
-  Sparkles
+  Sparkles,
+  Lightbulb
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -84,6 +85,29 @@ const programs = [
       'Game simulations',
     ],
     levels: ['Youth', 'Junior', 'Senior'],
+  },
+  {
+    id: 'stem',
+    title: 'STEM Program',
+    subtitle: 'Science, Technology, Engineering & Math',
+    description: 'Innovative STEM education combining hands-on learning with sports science. Explore the intersection of technology, engineering, and athletics while developing critical thinking skills.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=500&fit=crop',
+    color: 'from-[#1A4D2E]',
+    duration: '40 weeks/year',
+    groupSize: '6-10 students',
+    schedule: 'Mon, Wed, Sat',
+    price: 'From $189/month',
+    features: [
+      'Sports biomechanics & physics',
+      'Data analysis & statistics',
+      'Technology in athletics',
+      'Equipment engineering',
+      'Nutrition science',
+      'Video analysis technology',
+      'Performance tracking systems',
+      'Robotics & automation',
+    ],
+    levels: ['Ages 8-12', 'Ages 13-16', 'Ages 17+'],
   },
 ];
 
