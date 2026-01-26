@@ -73,7 +73,7 @@ export default function AdminLayout({ children }) {
           <div className="flex items-center gap-3">
             <AnimatedLogo size="sm" />
             <div>
-              <h1 className="text-white font-bold text-lg">ASA Admin</h1>
+              <h1 className="text-white font-bold text-lg">Auustralasia Spports Academy</h1>
               <p className="text-gray-400 text-xs">Sports Academy</p>
             </div>
           </div>
@@ -142,7 +142,7 @@ export default function AdminLayout({ children }) {
           <div className="flex items-center gap-3">
             <AnimatedLogo size="sm" />
             <div>
-              <h1 className="text-white font-bold text-lg">ASA Admin</h1>
+              <h1 className="text-white font-bold text-lg">Auustralasia Spports Academy</h1>
               <p className="text-gray-400 text-xs">Sports Academy</p>
             </div>
           </div>
