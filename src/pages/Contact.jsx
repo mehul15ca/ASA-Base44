@@ -8,7 +8,6 @@ import {
   Send,
   Facebook,
   Instagram,
-  Twitter,
   Youtube,
   MessageCircle
 } from 'lucide-react';
@@ -28,33 +27,33 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    details: ['+1 (647) 555-0123', '+1 (905) 555-0456'],
-    action: 'tel:+16475550123',
+    details: ['+1 (365) 281-3968'],
+    action: 'tel:+13652813968',
   },
   {
     icon: Mail,
     title: 'Email',
-    details: ['info@australasiasports.com', 'registration@australasiasports.com'],
-    action: 'mailto:info@australasiasports.com',
+    details: ['support@australasiasportsacademy.ca', 'info@australasiasportsacademy.ca'],
+    action: 'mailto:support@australasiasportsacademy.ca',
   },
   {
     icon: MapPin,
     title: 'Address',
-    details: ['123 Sports Avenue', 'Brampton, ON L6T 4K3, Canada'],
-    action: 'https://maps.google.com',
+    details: ['6461 Mayfield Rd', 'Brampton, ON L6P 0H9'],
+    action: 'https://maps.google.com/?q=6461+Mayfield+Rd+Brampton+ON+L6P+0H9',
   },
   {
     icon: Clock,
     title: 'Hours',
-    details: ['Mon-Fri: 6:00 AM - 9:00 PM', 'Sat-Sun: 8:00 AM - 6:00 PM'],
+    details: ['Mon - Fri: 9:00 AM - 6:00 PM', 'Sat - Sun: 9:00 AM - 5:00 PM'],
   },
 ];
 
 const socials = [
-  { icon: Facebook, href: '#', label: 'Facebook' },
-  { icon: Instagram, href: '#', label: 'Instagram' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Youtube, href: '#', label: 'Youtube' },
+  { icon: Facebook, href: 'https://www.facebook.com/share/17yZYNtZEN/?mibextid=wwXIfr', label: 'Facebook' },
+  { icon: Instagram, href: 'https://www.instagram.com/australasiasportsacademy?igsh=eHAxMnl5eGdrNHpm', label: 'Instagram' },
+  { icon: MessageCircle, href: 'https://wa.link/f4vv0f', label: 'WhatsApp' },
+  { icon: Youtube, href: 'https://www.youtube.com/channel/UC-cJaXpFBj_aj6r2sJo6iLw', label: 'Youtube' },
 ];
 
 export default function Contact() {
@@ -284,7 +283,7 @@ export default function Contact() {
               {/* Map placeholder */}
               <div className="bg-[#1A4D2E]/30 border border-[#2D6A4F]/30 rounded-xl sm:rounded-2xl p-2 h-48 sm:h-64 overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92452.54188988387!2d-79.8193!3d43.7315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b15eaa5d05abf%3A0x352d31667cc38677!2sBrampton%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sus!4v1624451234567!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d179.9822442958713!2d-79.74960732318087!3d43.799507697003534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3d6979e93735%3A0xcb71e1f891e39f88!2sSSANJAY%20JOSHI%20Real%20Estate%20Group!5e0!3m2!1sen!2sca!4v1769472348468!5m2!1sen!2sca"
                   width="100%"
                   height="100%"
                   style={{ border: 0, borderRadius: '1rem' }}
