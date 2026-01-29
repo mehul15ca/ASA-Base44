@@ -55,7 +55,7 @@ export default function Navbar() {
 
             {/* Center - Academy Name */}
             <div className="hidden md:block text-center">
-              <h1 className="text-[#1B5E20] font-bold text-xl leading-tight">Auustralasia</h1>
+              <h1 className="text-[#6B5A46] font-bold text-xl leading-tight">Auustralasia</h1>
               <p className="text-[#D4AF37] text-sm">Spports Academy</p>
             </div>
 
@@ -74,8 +74,8 @@ export default function Navbar() {
                       to={createPageUrl(item.page)}
                       className={`px-4 py-2 transition-colors flex items-center gap-1 text-sm font-medium ${
                         isActive 
-                          ? 'text-[#4CAF50] border-b-2 border-[#4CAF50]' 
-                          : 'text-[#2E7D32] hover:text-[#4CAF50]'
+                          ? 'text-[#D4AF37] border-b-2 border-[#D4AF37]' 
+                          : 'text-[#6B5A46] hover:text-[#D4AF37]'
                       }`}
                     >
                       {item.name}
@@ -90,13 +90,13 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 w-48 bg-white border border-[#C8E6C9] rounded-xl shadow-xl overflow-hidden"
+                        className="absolute top-full left-0 w-48 bg-white border border-[#F5E6D3] rounded-xl shadow-xl overflow-hidden"
                       >
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
                             to={createPageUrl(subItem.page)}
-                            className="block px-4 py-3 text-[#2E7D32] hover:text-[#4CAF50] hover:bg-[#E8F5E9] transition-colors text-sm"
+                            className="block px-4 py-3 text-[#6B5A46] hover:text-[#D4AF37] hover:bg-[#FFF8E7] transition-colors text-sm"
                           >
                             {subItem.name}
                           </Link>
@@ -112,12 +112,12 @@ export default function Navbar() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-4">
               <Link to={createPageUrl('Portal')}>
-                <Button variant="outline" className="border-[#4CAF50] text-[#4CAF50] hover:bg-[#E8F5E9] rounded-full">
+                <Button variant="outline" className="border-[#D4A574] text-[#D4A574] hover:bg-[#FFF8E7] rounded-full">
                   Login
                 </Button>
               </Link>
               <Link to={createPageUrl('BookDemo')}>
-                <Button className="bg-gradient-to-r from-[#4CAF50] to-[#66BB6A] text-white hover:from-[#66BB6A] hover:to-[#4CAF50] font-semibold px-6 rounded-full">
+                <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 rounded-full">
                   Book Demo
                 </Button>
               </Link>
@@ -125,7 +125,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-[#1B5E20] p-2"
+              className="lg:hidden text-[#6B5A46] p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -158,8 +158,8 @@ export default function Navbar() {
                         <div>
                           <button
                             onClick={() => setMobileDropdown(mobileDropdown === index ? null : index)}
-                            className={`flex items-center justify-between w-full py-3 transition-colors text-lg font-medium border-b border-[#E8F5E9] ${
-                              isActive ? 'text-[#4CAF50]' : 'text-[#2E7D32] hover:text-[#4CAF50]'
+                            className={`flex items-center justify-between w-full py-3 transition-colors text-lg font-medium border-b border-[#F5E6D3] ${
+                              isActive ? 'text-[#D4AF37]' : 'text-[#6B5A46] hover:text-[#D4AF37]'
                             }`}
                           >
                             {item.name}
@@ -178,7 +178,7 @@ export default function Navbar() {
                                 <Link
                                   key={subIndex}
                                   to={createPageUrl(subItem.page)}
-                                  className="block py-2 text-[#2E7D32] hover:text-[#4CAF50] transition-colors text-sm"
+                                  className="block py-2 text-[#6B5A46] hover:text-[#D4AF37] transition-colors text-sm"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -190,8 +190,8 @@ export default function Navbar() {
                       ) : (
                         <Link
                           to={createPageUrl(item.page)}
-                          className={`block py-3 transition-colors text-lg font-medium border-b border-[#E8F5E9] ${
-                            isActive ? 'text-[#4CAF50]' : 'text-[#2E7D32] hover:text-[#4CAF50]'
+                          className={`block py-3 transition-colors text-lg font-medium border-b border-[#F5E6D3] ${
+                            isActive ? 'text-[#D4AF37]' : 'text-[#6B5A46] hover:text-[#D4AF37]'
                           }`}
                         >
                           {item.name}
@@ -203,12 +203,12 @@ export default function Navbar() {
 
                 <div className="mt-8 space-y-3">
                   <Link to={createPageUrl('Portal')} className="block">
-                    <Button variant="outline" className="w-full border-[#4CAF50] text-[#4CAF50] hover:bg-[#E8F5E9] rounded-full py-6">
+                    <Button variant="outline" className="w-full border-[#D4A574] text-[#D4A574] hover:bg-[#FFF8E7] rounded-full py-6">
                       Login
                     </Button>
                   </Link>
                   <Link to={createPageUrl('BookDemo')} className="block">
-                    <Button className="w-full bg-gradient-to-r from-[#4CAF50] to-[#66BB6A] text-white font-semibold py-6 rounded-full">
+                    <Button className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white font-semibold py-6 rounded-full">
                       Book Demo
                     </Button>
                   </Link>
