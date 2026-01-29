@@ -42,8 +42,8 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-[#0A1F0A]/95 backdrop-blur-lg shadow-xl' 
-            : 'bg-transparent'
+            ? 'bg-white/95 backdrop-blur-lg shadow-xl' 
+            : 'bg-white/90 backdrop-blur-sm shadow-md'
         }`}
       >
         <div className="container mx-auto px-6">
@@ -55,7 +55,7 @@ export default function Navbar() {
 
             {/* Center - Academy Name */}
             <div className="hidden md:block text-center">
-              <h1 className="text-white font-bold text-xl leading-tight">Auustralasia</h1>
+              <h1 className="text-[#1B5E20] font-bold text-xl leading-tight">Auustralasia</h1>
               <p className="text-[#D4AF37] text-sm">Spports Academy</p>
             </div>
 
@@ -74,8 +74,8 @@ export default function Navbar() {
                       to={createPageUrl(item.page)}
                       className={`px-4 py-2 transition-colors flex items-center gap-1 text-sm font-medium ${
                         isActive 
-                          ? 'text-[#D4AF37] border-b-2 border-[#D4AF37]' 
-                          : 'text-gray-300 hover:text-[#D4AF37]'
+                          ? 'text-[#4CAF50] border-b-2 border-[#4CAF50]' 
+                          : 'text-[#2E7D32] hover:text-[#4CAF50]'
                       }`}
                     >
                       {item.name}
@@ -90,13 +90,13 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 w-48 bg-[#0D2818] border border-[#2D6A4F]/30 rounded-xl shadow-xl overflow-hidden"
+                        className="absolute top-full left-0 w-48 bg-white border border-[#C8E6C9] rounded-xl shadow-xl overflow-hidden"
                       >
                         {item.dropdown.map((subItem, subIndex) => (
                           <Link
                             key={subIndex}
                             to={createPageUrl(subItem.page)}
-                            className="block px-4 py-3 text-gray-300 hover:text-[#D4AF37] hover:bg-[#1A4D2E]/50 transition-colors text-sm"
+                            className="block px-4 py-3 text-[#2E7D32] hover:text-[#4CAF50] hover:bg-[#E8F5E9] transition-colors text-sm"
                           >
                             {subItem.name}
                           </Link>
@@ -112,12 +112,12 @@ export default function Navbar() {
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center gap-4">
               <Link to={createPageUrl('Portal')}>
-                <Button variant="outline" className="border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full">
+                <Button variant="outline" className="border-[#4CAF50] text-[#4CAF50] hover:bg-[#E8F5E9] rounded-full">
                   Login
                 </Button>
               </Link>
               <Link to={createPageUrl('BookDemo')}>
-                <Button className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 rounded-full">
+                <Button className="bg-gradient-to-r from-[#4CAF50] to-[#66BB6A] text-white hover:from-[#66BB6A] hover:to-[#4CAF50] font-semibold px-6 rounded-full">
                   Book Demo
                 </Button>
               </Link>
@@ -125,7 +125,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden text-white p-2"
+              className="lg:hidden text-[#1B5E20] p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -148,7 +148,7 @@ export default function Navbar() {
               className="absolute inset-0 bg-black/50"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <div className="absolute right-0 top-0 bottom-0 w-80 bg-[#0D2818] shadow-2xl overflow-y-auto">
+            <div className="absolute right-0 top-0 bottom-0 w-80 bg-white shadow-2xl overflow-y-auto">
               <div className="pt-24 px-6 pb-8">
                 {navItems.map((item, index) => {
                   const isActive = location.pathname === createPageUrl(item.page);
@@ -158,8 +158,8 @@ export default function Navbar() {
                         <div>
                           <button
                             onClick={() => setMobileDropdown(mobileDropdown === index ? null : index)}
-                            className={`flex items-center justify-between w-full py-3 transition-colors text-lg font-medium border-b border-[#1A4D2E] ${
-                              isActive ? 'text-[#D4AF37]' : 'text-gray-200 hover:text-[#D4AF37]'
+                            className={`flex items-center justify-between w-full py-3 transition-colors text-lg font-medium border-b border-[#E8F5E9] ${
+                              isActive ? 'text-[#4CAF50]' : 'text-[#2E7D32] hover:text-[#4CAF50]'
                             }`}
                           >
                             {item.name}
@@ -178,7 +178,7 @@ export default function Navbar() {
                                 <Link
                                   key={subIndex}
                                   to={createPageUrl(subItem.page)}
-                                  className="block py-2 text-gray-400 hover:text-[#D4AF37] transition-colors text-sm"
+                                  className="block py-2 text-[#2E7D32] hover:text-[#4CAF50] transition-colors text-sm"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -190,8 +190,8 @@ export default function Navbar() {
                       ) : (
                         <Link
                           to={createPageUrl(item.page)}
-                          className={`block py-3 transition-colors text-lg font-medium border-b border-[#1A4D2E] ${
-                            isActive ? 'text-[#D4AF37]' : 'text-gray-200 hover:text-[#D4AF37]'
+                          className={`block py-3 transition-colors text-lg font-medium border-b border-[#E8F5E9] ${
+                            isActive ? 'text-[#4CAF50]' : 'text-[#2E7D32] hover:text-[#4CAF50]'
                           }`}
                         >
                           {item.name}
@@ -203,12 +203,12 @@ export default function Navbar() {
 
                 <div className="mt-8 space-y-3">
                   <Link to={createPageUrl('Portal')} className="block">
-                    <Button variant="outline" className="w-full border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 rounded-full py-6">
+                    <Button variant="outline" className="w-full border-[#4CAF50] text-[#4CAF50] hover:bg-[#E8F5E9] rounded-full py-6">
                       Login
                     </Button>
                   </Link>
                   <Link to={createPageUrl('BookDemo')} className="block">
-                    <Button className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] font-semibold py-6 rounded-full">
+                    <Button className="w-full bg-gradient-to-r from-[#4CAF50] to-[#66BB6A] text-white font-semibold py-6 rounded-full">
                       Book Demo
                     </Button>
                   </Link>

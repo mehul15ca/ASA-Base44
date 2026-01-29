@@ -41,7 +41,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0A1F0A] py-8 sm:py-16 md:py-20">
+    <footer className="bg-white border-t border-[#E8F5E9] py-8 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Main grid - hidden on mobile, shown on md+ */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
@@ -50,11 +50,11 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <AnimatedLogo size="md" />
               <div>
-                <h3 className="text-white font-bold text-sm">Auustralasia</h3>
-                <p className="text-[#40916C] text-xs">Spports Academy</p>
+                <h3 className="text-[#1B5E20] font-bold text-sm">Auustralasia</h3>
+                <p className="text-[#4CAF50] text-xs">Spports Academy</p>
               </div>
             </div>
-            <p className="text-gray-400 mb-4 leading-relaxed text-xs">
+            <p className="text-[#616161] mb-4 leading-relaxed text-xs">
               Empowering athletes to reach their full potential.
             </p>
             <div className="flex gap-2">
@@ -63,7 +63,7 @@ export default function Footer() {
                   key={index}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-8 h-8 bg-[#1A4D2E] rounded-full flex items-center justify-center text-gray-400 hover:bg-[#D4AF37] hover:text-[#0A1F0A] transition-all duration-300"
+                  className="w-8 h-8 bg-[#E8F5E9] rounded-full flex items-center justify-center text-[#4CAF50] hover:bg-[#4CAF50] hover:text-white transition-all duration-300"
                 >
                   <social.icon className="w-4 h-4" />
                 </a>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Quick Links</h4>
+            <h4 className="text-[#1B5E20] font-semibold text-sm mb-4">Quick Links</h4>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Programs */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Programs</h4>
+            <h4 className="text-[#1B5E20] font-semibold text-sm mb-4">Programs</h4>
             <ul className="space-y-2">
               {programs.map((program, index) => (
                 <li key={index}>
@@ -109,31 +109,31 @@ export default function Footer() {
 
           {/* Newsletter & Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Stay Updated</h4>
-            <p className="text-gray-400 mb-3 text-xs">Subscribe for updates and offers.</p>
+            <h4 className="text-[#1B5E20] font-semibold text-sm mb-4">Stay Updated</h4>
+            <p className="text-[#616161] mb-3 text-xs">Subscribe for updates and offers.</p>
             <div className="flex gap-1 mb-4">
               <Input 
                 type="email" 
                 placeholder="Email"
-                className="bg-[#1A4D2E] border-[#2D6A4F] text-white placeholder:text-gray-500 focus:border-[#D4AF37] text-xs"
+                className="bg-[#F0F9F4] border-[#C8E6C9] text-[#1B5E20] placeholder:text-gray-500 focus:border-[#4CAF50] text-xs"
               />
-              <Button className="bg-[#D4AF37] text-[#0A1F0A] hover:bg-[#F4D03F] px-2">
+              <Button className="bg-[#4CAF50] text-white hover:bg-[#66BB6A] px-2">
                 <ArrowRight className="w-4 h-4" />
               </Button>
             </div>
 
             {/* Contact info */}
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-gray-400 text-xs">
-                <Phone className="w-3 h-3 text-[#40916C]" />
+              <div className="flex items-center gap-2 text-[#616161] text-xs">
+                <Phone className="w-3 h-3 text-[#4CAF50]" />
                 <span>+1 (647) 555-0123</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-400 text-xs">
-                <Mail className="w-3 h-3 text-[#40916C]" />
+              <div className="flex items-center gap-2 text-[#616161] text-xs">
+                <Mail className="w-3 h-3 text-[#4CAF50]" />
                 <span>info@australasiasports.com</span>
               </div>
-              <div className="flex items-center gap-2 text-gray-400 text-xs">
-                <MapPin className="w-3 h-3 text-[#40916C]" />
+              <div className="flex items-center gap-2 text-[#616161] text-xs">
+                <MapPin className="w-3 h-3 text-[#4CAF50]" />
                 <span>Brampton, Ontario</span>
               </div>
             </div>
@@ -142,11 +142,11 @@ export default function Footer() {
 
         {/* Mobile footer - compact version */}
         <div className="md:hidden mb-6">
-          <div className="flex items-center gap-2 mb-4 pb-4 border-b border-[#1A4D2E]">
+          <div className="flex items-center gap-2 mb-4 pb-4 border-b border-[#E8F5E9]">
             <AnimatedLogo size="sm" />
             <div>
-              <h3 className="text-white font-bold text-sm">Auustralasia</h3>
-              <p className="text-[#40916C] text-xs">Spports Academy</p>
+              <h3 className="text-[#1B5E20] font-bold text-sm">Auustralasia</h3>
+              <p className="text-[#4CAF50] text-xs">Spports Academy</p>
             </div>
           </div>
           <div className="flex gap-2 mb-4">
@@ -155,35 +155,35 @@ export default function Footer() {
                 key={index}
                 href={social.href}
                 aria-label={social.label}
-                className="w-8 h-8 bg-[#1A4D2E] rounded-full flex items-center justify-center text-gray-400 hover:bg-[#D4AF37] hover:text-[#0A1F0A] transition-all"
+                className="w-8 h-8 bg-[#E8F5E9] rounded-full flex items-center justify-center text-[#4CAF50] hover:bg-[#4CAF50] hover:text-white transition-all"
               >
                 <social.icon className="w-3 h-3" />
               </a>
             ))}
           </div>
-          <div className="space-y-2 text-xs text-gray-400 mb-4">
+          <div className="space-y-2 text-xs text-[#616161] mb-4">
             <div className="flex items-center gap-2">
-              <Phone className="w-3 h-3 text-[#40916C]" />
+              <Phone className="w-3 h-3 text-[#4CAF50]" />
               <span>+1 (647) 555-0123</span>
             </div>
             <div className="flex items-center gap-2">
-              <Mail className="w-3 h-3 text-[#40916C]" />
+              <Mail className="w-3 h-3 text-[#4CAF50]" />
               <span>info@australasiasports.com</span>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#1A4D2E] pt-4 sm:pt-6">
+        <div className="border-t border-[#E8F5E9] pt-4 sm:pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
             <p className="text-gray-500 text-xs text-center sm:text-left">
               © {new Date().getFullYear()} Auustralasia Spports Academy. All rights reserved.
             </p>
             <div className="flex gap-3 sm:gap-6 text-xs">
-              <a href="#" className="text-gray-500 hover:text-[#D4AF37] transition-colors">
+              <a href="#" className="text-gray-500 hover:text-[#4CAF50] transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-500 hover:text-[#D4AF37] transition-colors">
+              <a href="#" className="text-gray-500 hover:text-[#4CAF50] transition-colors">
                 Terms
               </a>
             </div>
