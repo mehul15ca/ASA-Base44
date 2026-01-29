@@ -79,7 +79,7 @@ export default function Footer() {
                 <li key={index}>
                   <Link 
                     to={createPageUrl(link.page)}
-                    className="text-gray-400 hover:text-[#D4AF37] transition-colors flex items-center gap-2 group text-xs"
+                    className="text-[#616161] hover:text-[#4CAF50] transition-colors flex items-center gap-2 group text-xs"
                   >
                     <ArrowRight className="w-3 h-3 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all" />
                     {link.name}
