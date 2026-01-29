@@ -11,21 +11,21 @@ export default function Layout({ children, currentPageName }) {
     currentPageName?.startsWith('Store');
   
   return (
-    <div className="min-h-screen bg-[#0A1F0A]">
+    <div className="min-h-screen bg-[#F0F9F4]">
       <style>{`
         :root {
-          --color-dark-green-1: #0A1F0A;
-          --color-dark-green-2: #0D2818;
-          --color-dark-green-3: #1A4D2E;
-          --color-accent-green: #2D6A4F;
-          --color-highlight-green: #40916C;
+          --color-light-green-1: #F0F9F4;
+          --color-light-green-2: #E8F5E9;
+          --color-light-green-3: #C8E6C9;
+          --color-accent-green: #66BB6A;
+          --color-highlight-green: #4CAF50;
           --color-gold: #D4AF37;
           --color-gold-light: #F4D03F;
         }
         
         * {
           scrollbar-width: thin;
-          scrollbar-color: #2D6A4F #0A1F0A;
+          scrollbar-color: #66BB6A #F0F9F4;
         }
         
         *::-webkit-scrollbar {
@@ -33,16 +33,16 @@ export default function Layout({ children, currentPageName }) {
         }
         
         *::-webkit-scrollbar-track {
-          background: #0A1F0A;
+          background: #F0F9F4;
         }
         
         *::-webkit-scrollbar-thumb {
-          background: #2D6A4F;
+          background: #66BB6A;
           border-radius: 4px;
         }
         
         *::-webkit-scrollbar-thumb:hover {
-          background: #40916C;
+          background: #4CAF50;
         }
         
         html {
