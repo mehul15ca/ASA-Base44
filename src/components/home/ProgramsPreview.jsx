@@ -31,11 +31,11 @@ const programs = [
 
 export default function ProgramsPreview() {
   return (
-    <section className="py-24 bg-[#0A1F0A]/30 relative">
+    <section className="py-24 bg-[#FFF8E7] relative">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, #40916C 1px, transparent 0)',
+          backgroundImage: 'radial-gradient(circle at 2px 2px, #D4A574 1px, transparent 0)',
           backgroundSize: '40px 40px'
         }} />
       </div>
@@ -52,10 +52,10 @@ export default function ProgramsPreview() {
            <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-xs sm:text-sm">
              Training Programs
            </span>
-           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mt-3 sm:mt-4 mb-4 sm:mb-6">
-             Path To <span className="text-[#40916C]">Excellence</span>
+           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#6B5A46] mt-3 sm:mt-4 mb-4 sm:mb-6">
+             Path To <span className="text-[#D4A574]">Excellence</span>
            </h2>
-           <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2">
+           <p className="text-[#8B7355] max-w-2xl mx-auto text-sm sm:text-base md:text-lg px-2">
              Choose from our comprehensive training programs designed to develop 
              well-rounded athletes ready for competitive success.
            </p>
@@ -74,7 +74,7 @@ export default function ProgramsPreview() {
               className="group"
               style={{ perspective: "1200px" }}
             >
-              <div className="bg-gradient-to-b from-[#1A4D2E]/30 to-[#0D2818]/50 border border-[#2D6A4F]/30 rounded-2xl sm:rounded-3xl overflow-hidden hover:border-[#D4AF37]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#2D6A4F]/20">
+              <div className="bg-white border border-[#F5E6D3] rounded-2xl sm:rounded-3xl overflow-hidden hover:border-[#D4AF37] transition-all duration-500 hover:shadow-2xl hover:shadow-[#D4AF37]/20">
                 {/* Image */}
                 <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden">
                   <img 
@@ -85,25 +85,25 @@ export default function ProgramsPreview() {
                   <div className={`absolute inset-0 bg-gradient-to-t ${program.color} to-transparent opacity-60`} />
 
                   {/* Floating badge */}
-                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-[#D4AF37] text-[#0A1F0A] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
+                  <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-[#D4AF37] text-white px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-semibold">
                     Popular
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-5 sm:p-6 md:p-8">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:text-[#D4AF37] transition-colors">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#6B5A46] mb-2 sm:mb-3 group-hover:text-[#D4AF37] transition-colors">
                     {program.title}
                   </h3>
-                  <p className="text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                  <p className="text-[#8B7355] mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
                     {program.description}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                     {program.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center text-gray-300 text-sm sm:text-base">
-                        <CircleDot className="w-3 sm:w-4 h-3 sm:h-4 text-[#40916C] mr-2 sm:mr-3 flex-shrink-0" />
+                      <li key={fIndex} className="flex items-center text-[#6B5A46] text-sm sm:text-base">
+                        <CircleDot className="w-3 sm:w-4 h-3 sm:h-4 text-[#D4A574] mr-2 sm:mr-3 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -112,7 +112,7 @@ export default function ProgramsPreview() {
                   {/* CTA */}
                   <Link to={createPageUrl('Programs')} className="block">
                     <Button 
-                      className="w-full bg-transparent border border-[#40916C] text-[#40916C] hover:bg-[#40916C] hover:text-white transition-all duration-300 rounded-full py-4 sm:py-6 text-sm sm:text-base"
+                      className="w-full bg-transparent border border-[#D4A574] text-[#D4A574] hover:bg-[#D4A574] hover:text-white transition-all duration-300 rounded-full py-4 sm:py-6 text-sm sm:text-base"
                     >
                       Learn More
                       <ArrowRight className="ml-2 h-3 sm:h-4 w-3 sm:w-4 group-hover:translate-x-1 transition-transform" />
@@ -135,7 +135,7 @@ export default function ProgramsPreview() {
           <Link to={createPageUrl('Programs')} className="inline-block">
             <Button 
               size="lg"
-              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 sm:px-10 py-4 sm:py-6 text-sm sm:text-lg rounded-full shadow-lg shadow-[#D4AF37]/30"
+              className="bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 sm:px-10 py-4 sm:py-6 text-sm sm:text-lg rounded-full shadow-lg shadow-[#D4AF37]/30"
             >
               View All Programs
               <ArrowRight className="ml-2 h-4 sm:h-5 w-4 sm:w-5" />

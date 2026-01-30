@@ -63,10 +63,10 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-[#0A1F0A]/40 via-[#0D2818]/40 to-[#0A1F0A]/40 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-[#FFFBF0] via-[#FFF8E7] to-[#FFFBF0] relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#40916C]/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#40916C]/30 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4A574]/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#D4A574]/30 to-transparent" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header */}
@@ -80,8 +80,8 @@ export default function TestimonialsSection() {
           <span className="text-[#D4AF37] font-semibold tracking-wider uppercase text-sm">
             Success Stories
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-            What Our <span className="text-[#40916C]">Athletes Say</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-[#6B5A46] mt-4 mb-6">
+            What Our <span className="text-[#D4A574]">Athletes Say</span>
           </h2>
         </motion.div>
 
@@ -95,7 +95,7 @@ export default function TestimonialsSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
-                className="bg-gradient-to-br from-[#1A4D2E]/40 to-[#0D2818]/60 backdrop-blur-sm border border-[#2D6A4F]/30 rounded-3xl p-8 md:p-12"
+                className="bg-white border border-[#F5E6D3] rounded-3xl p-8 md:p-12"
               >
                 {/* Video Thumbnail */}
                 {testimonials[currentIndex].videoUrl && (
@@ -129,7 +129,7 @@ export default function TestimonialsSection() {
                 <Quote className="w-12 h-12 text-[#D4AF37]/30 mb-6" />
 
                 {/* Quote text */}
-                <p className="text-xl md:text-2xl text-gray-200 leading-relaxed mb-8 italic">
+                <p className="text-xl md:text-2xl text-[#6B5A46] leading-relaxed mb-8 italic">
                   "{testimonials[currentIndex].quote}"
                 </p>
 
@@ -141,10 +141,10 @@ export default function TestimonialsSection() {
                     className="w-16 h-16 rounded-full object-cover border-2 border-[#D4AF37]"
                   />
                   <div>
-                    <h4 className="text-lg font-semibold text-white">
+                    <h4 className="text-lg font-semibold text-[#6B5A46]">
                       {testimonials[currentIndex].name}
                     </h4>
-                    <p className="text-[#40916C]">{testimonials[currentIndex].role}</p>
+                    <p className="text-[#D4A574]">{testimonials[currentIndex].role}</p>
                     <div className="flex gap-1 mt-1">
                       {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-[#D4AF37] text-[#D4AF37]" />
@@ -161,7 +161,7 @@ export default function TestimonialsSection() {
                 variant="outline"
                 size="icon"
                 onClick={prevTestimonial}
-                className="border-[#40916C] text-[#40916C] hover:bg-[#40916C] hover:text-white rounded-full w-12 h-12"
+                className="border-[#D4A574] text-[#D4A574] hover:bg-[#D4A574] hover:text-white rounded-full w-12 h-12"
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
@@ -175,7 +175,7 @@ export default function TestimonialsSection() {
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex 
                         ? 'w-8 bg-[#D4AF37]' 
-                        : 'bg-[#40916C]/50 hover:bg-[#40916C]'
+                        : 'bg-[#D4A574]/50 hover:bg-[#D4A574]'
                     }`}
                   />
                 ))}
@@ -185,7 +185,7 @@ export default function TestimonialsSection() {
                 variant="outline"
                 size="icon"
                 onClick={nextTestimonial}
-                className="border-[#40916C] text-[#40916C] hover:bg-[#40916C] hover:text-white rounded-full w-12 h-12"
+                className="border-[#D4A574] text-[#D4A574] hover:bg-[#D4A574] hover:text-white rounded-full w-12 h-12"
               >
                 <ChevronRight className="w-5 h-5" />
               </Button>
@@ -236,7 +236,7 @@ export default function TestimonialsSection() {
                 <h3 className="text-xl font-semibold text-white">
                   {testimonials[currentIndex].name}
                 </h3>
-                <p className="text-[#40916C]">{testimonials[currentIndex].role}</p>
+                <p className="text-[#D4A574]">{testimonials[currentIndex].role}</p>
               </div>
             </motion.div>
           </motion.div>
