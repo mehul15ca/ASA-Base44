@@ -8,9 +8,9 @@ import { createPageUrl } from '@/utils';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FFF8E7] via-[#F5E6D3] to-[#EDD5B3]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0A1F0A] via-[#0D2818] to-[#1A4D2E]">
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#FFFBF0]/80 via-transparent to-[#FFF8E7]/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F0A]/80 via-transparent to-[#0A1F0A]/40" />
       
       {/* Animated background patterns */}
       <div className="absolute inset-0 overflow-hidden">
@@ -58,14 +58,14 @@ export default function HeroSection() {
              initial={{ opacity: 0, y: 30 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1, delay: 0.6 }}
-             className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-[#6B5A46] mb-4 sm:mb-6 leading-tight"
+             className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight"
            >
             Welcome To{' '}
             <span className="bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] bg-clip-text text-transparent">
               Auustralasia
             </span>
             <br />
-            <span className="text-[#D4A574]">Spports Academy</span>
+            <span className="text-[#40916C]">Spports Academy</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -73,7 +73,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9 }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-[#8B7355] max-w-2xl mb-6 sm:mb-10 px-2"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mb-6 sm:mb-10 px-2"
           >
             Empowering athletes of all ages to reach their full potential through 
             world-class coaching in Cricket, Yoga, and Baseball.
@@ -89,7 +89,7 @@ export default function HeroSection() {
             <Link to={createPageUrl('Registration')} className="w-full sm:w-auto">
               <Button 
                 size="lg"
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-white hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-lg rounded-full shadow-lg shadow-[#D4AF37]/30 transition-all duration-300 hover:scale-105"
+                className="w-full bg-gradient-to-r from-[#D4AF37] to-[#F4D03F] text-[#0A1F0A] hover:from-[#F4D03F] hover:to-[#D4AF37] font-semibold px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-lg rounded-full shadow-lg shadow-[#D4AF37]/30 transition-all duration-300 hover:scale-105"
               >
                 Join Now
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -99,7 +99,7 @@ export default function HeroSection() {
               <Button 
                 size="lg"
                 variant="outline"
-                className="w-full border-2 border-[#D4A574] text-[#D4A574] hover:bg-[#D4A574]/10 font-semibold px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-lg rounded-full transition-all duration-300 hover:scale-105"
+                className="w-full border-2 border-[#40916C] text-[#40916C] hover:bg-[#40916C]/10 font-semibold px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-lg rounded-full transition-all duration-300 hover:scale-105"
               >
                 <Play className="mr-2 h-5 w-5" />
                 View Programs
@@ -126,7 +126,7 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.05 }}
               >
                 <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#D4AF37]">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-[#8B7355] mt-1 leading-tight">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-gray-400 mt-1 leading-tight">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -139,8 +139,8 @@ export default function HeroSection() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2.5, repeat: Infinity }}
       >
-        <div className="w-6 h-10 rounded-full border-2 border-[#D4A574]/50 flex justify-center pt-2">
-          <div className="w-1 h-3 bg-[#D4A574] rounded-full" />
+        <div className="w-6 h-10 rounded-full border-2 border-[#40916C]/50 flex justify-center pt-2">
+          <div className="w-1 h-3 bg-[#40916C] rounded-full" />
         </div>
       </motion.div>
     </section>

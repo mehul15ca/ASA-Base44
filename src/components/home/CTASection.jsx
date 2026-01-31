@@ -7,7 +7,7 @@ import { createPageUrl } from '@/utils';
 
 export default function CTASection() {
   return (
-    <section className="py-24 bg-gradient-to-r from-[#F5E6D3] via-[#EDD5B3] to-[#F5E6D3] relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-r from-[#1A4D2E]/60 via-[#2D6A4F]/60 to-[#1A4D2E]/60 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0">
         {[...Array(30)].map((_, i) =>
@@ -40,11 +40,11 @@ export default function CTASection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-[#6B5A46] mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Ready To Start Your
               <span className="block text-[#D4AF37]">Athletic Journey?</span>
             </h2>
-            <p className="text-lg text-[#8B7355] mb-8">
+            <p className="text-lg text-gray-200/80 mb-8">
               Join hundreds of athletes who have transformed their game at 
               Australasia Sports Academy. Take the first step towards excellence today.
             </p>
@@ -53,7 +53,7 @@ export default function CTASection() {
               <Link to={createPageUrl('Registration')}>
                 <Button
                   size="lg"
-                  className="bg-[#D4AF37] text-white hover:bg-[#F4D03F] font-semibold px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105">
+                  className="bg-[#D4AF37] text-[#0A1F0A] hover:bg-[#F4D03F] font-semibold px-8 py-6 text-lg rounded-full shadow-lg transition-all duration-300 hover:scale-105">
 
                   Register Now
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -62,7 +62,7 @@ export default function CTASection() {
               <Link to={createPageUrl('Contact')}>
                 <Button
                   size="lg"
-                  variant="outline" className="bg-white text-[#D4A574] px-8 py-6 text-lg font-semibold rounded-full inline-flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-sm hover:text-accent-foreground h-10 border-2 border-[#D4A574] hover:bg-[#FFF8E7] transition-all duration-300">
+                  variant="outline" className="bg-transparent text-white px-8 py-6 text-lg font-semibold rounded-full inline-flex items-center justify-center gap-2 whitespace-nowrap focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow-sm hover:text-accent-foreground h-10 border-2 border-white hover:bg-white/10 transition-all duration-300">
 
 
                   Contact Us
@@ -87,14 +87,14 @@ export default function CTASection() {
             <motion.div
               key={index}
               whileHover={{ x: 10 }}
-              className="flex items-center gap-4 bg-white rounded-xl p-5 border border-[#F5E6D3]">
+              className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
 
                 <div className="w-12 h-12 bg-[#D4AF37] rounded-full flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-white" />
+                  <item.icon className="w-5 h-5 text-[#0A1F0A]" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#8B7355]">{item.label}</p>
-                  <p className="text-lg font-semibold text-[#6B5A46]">{item.value}</p>
+                  <p className="text-sm text-gray-300">{item.label}</p>
+                  <p className="text-lg font-semibold text-white">{item.value}</p>
                 </div>
               </motion.div>
             )}

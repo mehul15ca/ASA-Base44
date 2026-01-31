@@ -41,7 +41,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#FFF8E7] border-t border-[#F5E6D3] py-8 sm:py-16 md:py-20">
+    <footer className="bg-[#0A1F0A] border-t border-[#2D6A4F] py-8 sm:py-16 md:py-20">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Main grid - hidden on mobile, shown on md+ */}
         <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
