@@ -5,14 +5,10 @@ import { Button } from "@/components/ui/button";
 import AnimatedLogo from '../AnimatedLogo';
 import { Link } from 'react-router-dom';
 import { createPageUrl } from '@/utils';
-import HeroBats3D from './HeroBats3D';
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#FFF8E7] via-[#F5E6D3] to-[#EDD5B3]">
-      {/* 3D Bats Animation */}
-      <HeroBats3D />
-      
       {/* Gradient overlays */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#FFFBF0]/80 via-transparent to-[#FFF8E7]/40" />
       
